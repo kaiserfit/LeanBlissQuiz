@@ -160,15 +160,16 @@
           function openPopup() {
             alert("This website is being viewed on an iOS device!");
           }
-        
-            /*
+
           if (isiOS()) {
+            fbq.disablePushState = true;
+          } else if (isMac()){
             fbq.disablePushState = true;
           } else {
             fbq.disablePushState = false;
           }
-            */
-        
+          
+            /*
           if (isiOS()) {
             openPopup();
           } else if (isMac()) {
@@ -176,6 +177,7 @@
           } else {
             document.write("<p>This website is not being viewed on an iOS device.</p>");
           }
+            */
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=759662146057719&ev=PageView&noscript=1"
