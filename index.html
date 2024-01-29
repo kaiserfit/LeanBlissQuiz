@@ -148,17 +148,28 @@
     fbq('init', '759662146057719');
     fbq('track', 'PageView');
     fbq('track', 'ViewContent');
-        <script>
+        
           function isiOS() {
             return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
           }
         
+          function openPopup() {
+            alert("This website is being viewed on an iOS device!");
+          }
+        
+            /*
           if (isiOS()) {
             fbq.disablePushState = true;
           } else {
             fbq.disablePushState = false;
           }
-        </script>
+            */
+        
+          if (isiOS()) {
+            openPopup();
+          } else {
+            document.write("<p>This website is not being viewed on an iOS device.</p>");
+          }
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=759662146057719&ev=PageView&noscript=1"
