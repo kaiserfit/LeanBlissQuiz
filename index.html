@@ -153,6 +153,10 @@
             return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
           }
         
+          function isMac() {
+            return navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+          }
+        
           function openPopup() {
             alert("This website is being viewed on an iOS device!");
           }
@@ -166,6 +170,8 @@
             */
         
           if (isiOS()) {
+            openPopup();
+          } else if (isMac()) {
             openPopup();
           } else {
             document.write("<p>This website is not being viewed on an iOS device.</p>");
