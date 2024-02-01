@@ -179,13 +179,13 @@
     }
 
     const data = {
-      "event_id": "c",
+      "event_id": "testapi",
       "event_name": "PageView",
       "fbp": getCookie("_fbp"),
       "fbc": getCookie("_fbc"),
       "event_source_url": "https://www.livestronger.net",
-      "client_user_agent": "edge",
-      "external_id": "testevent"
+      "client_user_agent": navigator.userAgent,
+      "external_id": getCookie("userID")
     }
 
     fetch('https://fb-test-dedup.vercel.app/api/event',{method:"POST",body:JSON.stringify(data)})
