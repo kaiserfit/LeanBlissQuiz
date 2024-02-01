@@ -137,6 +137,59 @@
     
     <!-- Meta Pixel Code -->
     <script>
+    
+    function setCookie(name, value, expires) {
+      var today = new Date();
+      today.setTime(today.getTime() + expires * 24 * 60 * 60 * 1000);
+      document.cookie =
+        name + "=" + encodeURIComponent(value) + "; expires=" + today.toGMTString();
+    }
+    function getRandomNumber() {
+      var randomDecimal = Math.random();
+      var randomInRange =
+        1000000000 + Math.floor(randomDecimal * (2147483647 - 1000000000 + 1));
+      return randomInRange;
+    }
+
+    function getCookie(name) {
+      if (document.cookie && document.cookie !== "") {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === name + "=") {
+            return decodeURIComponent(cookie.substring(name.length + 1));
+          }
+        }
+      }
+      return null;
+    }
+    if (getCookie("_fbp") == null) {
+      var randomNumber = getRandomNumber();
+      var fbp = "fb." + "1." + new Date().getTime() + "." + randomNumber;
+      setCookie("_fbp", fbp, 90);
+    }
+
+    var queryString = window.location.search;
+    var params = new URLSearchParams(queryString);
+    var fbclid = params.get("fbclid");
+    if (getCookie("_fbc") == null && fbclid != null) {
+      console.log("creating fbc cookie");
+      var fbc = "fb." + "1." + new Date().getTime() + "." + fbclid;
+      setCookie("_fbc", fbc, 90);
+    }
+
+    const data = {
+      "event_id": "c",
+      "event_name": "PageView",
+      "fbp": getCookie("_fbp"),
+      "fbc": getCookie("_fbc"),
+      "event_source_url": "https://www.livestronger.net",
+      "client_user_agent": "edge",
+      "external_id": "testevent"
+    }
+
+    fetch('https://fb-test-dedup.vercel.app/api/event',{method:"POST",body:JSON.stringify(data)})
+    
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
