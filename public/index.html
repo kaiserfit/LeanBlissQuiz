@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Purple Honey Quiz</title>
+    <style>
+        /* CSS Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(126, 133, 143));
+        }
+        .quiz-container { 
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #e5e7eb;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to bottom left, rgba(255, 255, 255, 0.722), rgb(209, 209, 209)); 
+            text-align: center;
+        }
+        #redirectButton {
+        margin: 0 auto;
+        }
+        h1 {
+            color: #ffffff;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background-color: #000000;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        h1 .first-span {
+            color: #fde047; 
+        }
+        h1 .second-span {
+            border-bottom: 5px solid #fde047;
+        }
+        h2 {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .quiz-container {
+                max-width: 90%;
+                margin: 20px auto;
+                padding: 10px;
+            }
+
+            label {
+                font-size: 1rem;
+            }
+
+            input[type="submit"],
+            #redirectButton {
+                font-size: 1rem;
+                margin-top: 10px;
+            }
+        }
+
+        .question {
+            margin: 20px 0;
+            text-align: center;
+            display: none;
+        }
+
+        .progress-bar {
+            height: 30px;
+            background-color: #ccc;
+            border-radius: 70px;
+            margin-bottom: 10px;
+            border: 3px solid #ffffff;
+        }
+
+        .progress-bar-inner {
+            height: 100%;
+            width: 0;
+            background-color: #fde047;
+            border-radius: 70px;
+            transition: width 0.3s ease;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+        label:hover {
+            background-color: #f2f2f2;
+        }
+        input[type="radio"] {
+            display: none;
+        }
+        input[type="submit"], #redirectButton {
+            padding: 10px 20px;
+            background-color: #555;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: none;
+            margin-top: 20px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        input[type="submit"]:hover, #redirectButton:hover {
+            background-color: #fde047;
+        }
+    </style>
+    <title>Purple Honey Quiz</title>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    
+    function setCookie(name, value, expires) {
+      var today = new Date();
+      today.setTime(today.getTime() + expires * 24 * 60 * 60 * 1000);
+      document.cookie =
+        name + "=" + encodeURIComponent(value) + "; expires=" + today.toGMTString();
+    }
+    function getRandomNumber() {
+      var randomDecimal = Math.random();
+      var randomInRange =
+        1000000000 + Math.floor(randomDecimal * (2147483647 - 1000000000 + 1));
+      return randomInRange;
+    }
+
+    function getCookie(name) {
+      if (document.cookie && document.cookie !== "") {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === name + "=") {
+            return decodeURIComponent(cookie.substring(name.length + 1));
+          }
+        }
+      }
+      return null;
+    }
+    if (getCookie("_fbp") == null) {
+      var randomNumber = getRandomNumber();
+      var fbp = "fb." + "1." + new Date().getTime() + "." + randomNumber;
+      setCookie("_fbp", fbp, 90);
+    }
+
+    var queryString = window.location.search;
+    var params = new URLSearchParams(queryString);
+    var fbclid = params.get("fbclid");
+    if (getCookie("_fbc") == null && fbclid != null) {
+      console.log("creating fbc cookie");
+      var fbc = "fb." + "1." + new Date().getTime() + "." + fbclid;
+      setCookie("_fbc", fbc, 90);
+    }
+
+    const data = {
+      "event_id": "testapi",
+      "event_name": "PageView",
+      "fbp": getCookie("_fbp"),
+      "fbc": getCookie("_fbc"),
+      "event_source_url": "https://www.livestronger.net",
+      "client_user_agent": navigator.userAgent,
+      "external_id": getCookie("userID")
+    }
+
+    fetch('https://fb-test-dedup.vercel.app/api/event',{method:"POST",body:JSON.stringify(data)})
+    
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '759662146057719');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent');
+        
+          function isiOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+          }
+        
+          function isMac() {
+            return navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+          }
+        
+          function openPopup() {
+            alert("This website is being viewed on an iOS device!");
+          }
+
+          if (isiOS()) {
+            fbq.disablePushState = true;
+          } else if (isMac()){
+            fbq.disablePushState = true;
+          } else {
+            fbq.disablePushState = false;
+          }
+          
+            /*
+          if (isiOS()) {
+            openPopup();
+          } else if (isMac()) {
+            openPopup();
+          } else {
+            document.write("<p>This website is not being viewed on an iOS device.</p>");
+          }
+            */
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=759662146057719&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+</head>
+<body>
+    <h1><br>Discover Why This <span class="first-span">Purple Honey</span> Is Being Called a <span class="first-span">"Fat-Burning Miracle"</span> <br> After Helping <span class="second-span">36,220 Men and Women</span> Lose Weight Effortlessly<br> &nbsp;</h1>
+    <h2><span class="first-span">(Take This Quiz To See How Much Purple Honey Your Body Needs To Burn Effortless Fat)</span></h2>
+
+    <div class="quiz-container">
+        
+        <form id="quizForm" action="submit-quiz.php" method="post">
+            <!-- Question 1 -->
+            <div class="question" id="question1" style="display: block;">
+                <div class="progress-bar">
+                    <div class="progress-bar-inner" style="width: 10%;"></div>
+                </div>
+                <h2>This year I am:</h2>
+                <label for="q1a"><input type="radio" id="q1a" name="q1" value="a" onclick="showNextQuestion(2)"> 18-25 years old and want to look my best</label>
+                <label for="q1b"><input type="radio" id="q1b" name="q1" value="b" onclick="showNextQuestion(2)"> 26-35 years old and struggling with slow metabolism</label>
+                <label for="q1c"><input type="radio" id="q1c" name="q1" value="c" onclick="showNextQuestion(2)"> 36-45 years old and feeling overweight</label>
+                <label for="q1d"><input type="radio" id="q1d" name="q1" value="d" onclick="showNextQuestion(2)"> 46-60 years old and want to get in shape again</label>
+                <label for="q1e"><input type="radio" id="q1e" name="q1" value="e" onclick="showNextQuestion(2)"> Over 60 years old and hoping to finally lose this weight</label>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question" id="question2" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-bar-inner" style="width: 20%;"></div>
+                </div>
+                <h2>Currently, I weigh:</h2>
+                <label for="q2a"><input type="radio" id="q2a" name="q2" value="a" onclick="showNextQuestion(3)"> 120-150 pounds and want to stay fit</label>
+                <label for="q2b"><input type="radio" id="q2b" name="q2" value="b" onclick="showNextQuestion(3)"> 151-180 pounds and am gaining slowly each year</label>
+                <label for="q2c"><input type="radio" id="q2c" name="q2" value="c" onclick="showNextQuestion(3)"> 181-210 pounds and my clothes are feeling tight</label>
+                <label for="q2d"><input type="radio" id="q2d" name="q2" value="d" onclick="showNextQuestion(3)"> 211-240 pounds and my weight is impacting my health</label>
+                <label for="q2e"><input type="radio" id="q2e" name="q2" value="e" onclick="showNextQuestion(3)"> Over 240 pounds and struggling to lose any weight</label>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question" id="question3" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-bar-inner" style="width: 30%;"></div>
+                </div>
+                <h2>When I look in the mirror, I feel hopeful about the future.</h2>
+                <label for="q3a"><input type="radio" id="q3a" name="q3" value="a" onclick="showNextQuestion(4)"> Yes, I'm excited for the possibilities ahead.</label>
+                <label for="q3b"><input type="radio" id="q3b" name="q3" value="b" onclick="showNextQuestion(4)"> Most days I feel pretty good.</label>
+                <label for="q3c"><input type="radio" id="q3c" name="q3" value="c" onclick="showNextQuestion(4)"> I'd like to feel more confident in my body.</label>
+                <label for="q3d"><input type="radio" id="q3d" name="q3" value="d" onclick="showNextQuestion(4)"> I often feel discouraged when I look in the mirror.</label>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question" id="question4" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-bar-inner" style="width: 40%;"></div>
+                </div>
+                <h2>My current weight makes it hard for me to...</h2>
+                <label for="q4a"><input type="radio" id="q4a" name="q4" value="a" onclick="showNextQuestion(5)"> Keep up with my grandkids/kids</label>
+                <label for="q4b"><input type="radio" id="q4b" name="q4" value="b" onclick="showNextQuestion(5)"> Find clothes I feel good in</label>
+                <label for="q4c"><input type="radio" id="q4c" name="q4" value="c" onclick="showNextQuestion(5)"> Be intimate with my partner</label>
+                <label for="q4d"><input type="radio" id="q4d" name="q4" value="d" onclick="showNextQuestion(5)"> Feel confident socializing</label>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question" id="question5" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-bar-inner" style="width: 50%;"></div>
+                </div>
+                <h2>I've tried many diets before without long-term success because...</h2>
+                <label for="q5a"><input type="radio" id="q5a" name="q5" value="a" onclick="showNextQuestion(6)"> I eventually fall back into old habits</label>
+                <label for="q5b"><input type="radio" id="q5b" name="q5" value="b" onclick="showNextQuestion(6)"> The restrictions are too hard to maintain</label>
+                <label for="q5c"><input type="radio" id="q5c" name="q5" value="c" onclick="showNextQuestion(6)"> I lose motivation after an initial drop</label>
+                <label for="q5d"><input type="radio" id="q5d" name="q5" value="d" onclick="showNextQuestion(6)"> Nothing seems to work for my body</label>
+            </div>            
+
+            <!-- Question 6 -->
+            <div class="question" id="question6" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-bar-inner" style="width: 60%;"></div>
+                </div>
+                <h2>When I don't feel good about my body, I tend to...</h2>
+                <label for="q6a"><input type="radio" id="q6a" name="q6" value="a" onclick="showNextQuestion(7)"> Avoid looking in mirrors</label>
+                <label for="q6b"><input type="radio" id="q6b" name="q6" value="b" onclick="showNextQuestion(7)"> Cancel social events</label>
+                <label for="q6c"><input type="radio" id="q6c" name="q6" value="c" onclick="showNextQuestion(7)"> Stop being intimate with my partner</label>
+                <label for="q6d"><input type="radio" id="q6d" name="q6" value="d" onclick="showNextQuestion(7)"> Feel depressed and beat myself up</label>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question" id="question7" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-bar-inner" style="width: 70%;"></div>
+                </div>
+                <h2>I feel frustrated that my metabolism...</h2>
+                <label for="q7a"><input type="radio" id="q7a" name="q7" value="a" onclick="showNextQuestion(8)"> Makes it so hard to lose weight</label>
+                <label for="q7b"><input type="radio" id="q7b" name="q7" value="b" onclick="showNextQuestion(8)"> Seems to keep slowing down</label>
+                <label for="q7c"><input type="radio" id="q7c" name="q7" value="c" onclick="showNextQuestion(8)"> Won't let me eat the foods I love</label>
+                <label for="q7d"><input type="radio" id="q7d" name="q7" value="d" onclick="showNextQuestion(8)"> Is preventing my weight loss goals</label>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question" id="question8" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-bar-inner" style="width: 80%;"></div>
+                </div>
+                <h2>I'm afraid that if I don't make a change...</h2>
+                <label for="q8a"><input type="radio" id="q8a" name="q8" value="a" onclick="showNextQuestion(9)"> My health will deteriorate </label>
+                <label for="q8b"><input type="radio" id="q8b" name="q8" value="b" onclick="showNextQuestion(9)"> My partner will lose attraction </label>
+                <label for="q8c"><input type="radio" id="q8c" name="q8" value="c" onclick="showNextQuestion(9)"> I'll miss important life events</label>
+                <label for="q8d"><input type="radio" id="q8d" name="q8" value="d" onclick="showNextQuestion(9)"> I'll remain unhappy with my appearance</label>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question" id="question9" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-bar-inner" style="width: 90%;"></div>
+                </div>
+                <h2>Instead of continuing to struggle with my weight, I want to feel...</h2>
+                <label for="q9a"><input type="radio" id="q9a" name="q9" value="a" onclick="showNextQuestion(10)"> Confident in my body</label>
+                <label for="q9b"><input type="radio" id="q9b" name="q9" value="b" onclick="showNextQuestion(10)"> Desired by my partner</label>
+                <label for="q9c"><input type="radio" id="q9c" name="q9" value="c" onclick="showNextQuestion(10)"> Comfortable being social</label>
+                <label for="q9d"><input type="radio" id="q9d" name="q9" value="d" onclick="showNextQuestion(10)"> Proud of my appearance</label>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question" id="question10" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-bar-inner" style="width: 100%;"></div>
+                </div>
+                <h2>If I could make one positive change to improve how I feel about my body, it would be: </h2>
+                <label for="q10a"><input type="radio" id="q10a" name="q10" value="a" onclick="redirectToPage()"> Having more energy to be active</label>
+                <label for="q10b"><input type="radio" id="q10b" name="q10" value="b" onclick="redirectToPage()"> Losing the extra weight, especially around my stomach</label>
+                <label for="q10c"><input type="radio" id="q10c" name="q10" value="c" onclick="redirectToPage()"> Feeling confident and sexy in my clothes</label>
+                <label for="q10d"><input type="radio" id="q10d" name="q10" value="d" onclick="redirectToPage()"> Not dreading looking in the mirror everyday</label>
+            </div>
+
+            <input type="submit" id="submitButton" value="Submit Answers" style="display: none;">
+        </form>
+        <button id="redirectButton" style="display: none;" onclick="redirectToPage()">Submit</button>
+    </div>
+
+    <script>
+        function updateProgressBar(currentQuestion) {
+            var totalQuestions = 10; 
+            var progressBarInner = document.querySelector('.progress-bar-inner');
+            if (progressBarInner) {
+                var progressValue = (currentQuestion - 1) * (100 / totalQuestions);
+                progressBarInner.style.width = progressValue + '%';
+            }
+        }
+    
+        function showNextQuestion(nextQuestionNumber) {
+            var currentQuestion = document.getElementById('question' + nextQuestionNumber);
+            var previousQuestion = document.getElementById('question' + (nextQuestionNumber - 1));
+            if (previousQuestion) {
+                previousQuestion.style.display = 'none';
+            }
+            if (currentQuestion) {
+                currentQuestion.style.display = 'block';
+            }
+            updateProgressBar(nextQuestionNumber);
+            if (nextQuestionNumber > 10) { 
+                document.getElementById('redirectButton').style.display = 'block';
+            }
+        }
+    
+        function redirectToPage() {
+            window.location.href = 'https://honeyburn24.com/video.php?aff=Idooni&cid={YourClickID}&cam=CAMPAIGNKEY';
+        }
+    </script>
+    
+</body>
+</html>
