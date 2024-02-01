@@ -1,6 +1,6 @@
 // facebookConversions.js
 
-const axios = require('axios');
+import { post } from 'axios';
 
 const accessToken = 'EAAwkitiYFnYBO3zGv5zDnt8UomufZAKEeycEL3ZCfz1lPISHP0qJAdsptvJHGQ3mmtZALOXLp2UzNfAjxMotXrSArBUZARm6KC8qgHKTJZAwD5ovjjGr1W3zsjyTBihkoX8yefdoQ2okVLsLBKviuRHZAtM6654ZAZC5ypv2lFp1a6aKcOJRndqRkZANT4UsWxC6nawZDZD';
 const pixelID = '759662146057719';
@@ -36,7 +36,7 @@ const trackViewContent = (contentId, contentType, value) => {
 const sendEventsToFacebook = (payload) => {
   const url = `https://graph.facebook.com/v19.0/${pixelID}/events?access_token=${accessToken}`;
 
-  axios.post(url, payload)
+  post(url, payload)
     .then(response => {
       console.log(response.data);
     })
@@ -45,7 +45,7 @@ const sendEventsToFacebook = (payload) => {
     });
 };
 
-module.exports = {
+export default {
   trackPageView,
   trackViewContent,
 };

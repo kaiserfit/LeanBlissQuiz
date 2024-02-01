@@ -4,7 +4,7 @@ import './App.css';
 // Your main application file (e.g., app.js)
 
 const express = require('express');
-const facebookConversions = require('./fbConversions.js');
+const facebookConversions = require('./facebookConversions');
 
 const app = express();
 
