@@ -188,7 +188,13 @@
       "external_id": getCookie("userID")
     }
 
-    fetch('https://fb-test-dedup.vercel.app/api/event',{method:"POST",body:JSON.stringify(data)})
+    fetch("https://fb-test-dedup.vercel.app/api/event", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
     
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
