@@ -137,6 +137,15 @@
     
     <!-- Meta Pixel Code -->
     <script>
+    function generateEventID() {
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let eventID = '';
+      for (let i = 0; i < 16; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        eventID += characters.charAt(randomIndex);
+      }
+      return eventID;
+    }
     
     function setCookie(name, value, expires) {
       var today = new Date();
@@ -179,7 +188,7 @@
     }
 
     const data = {
-      "event_id": "testapi",
+      "event_id": generateEventID(),
       "event_name": "PageView",
       "fbp": getCookie("_fbp"),
       "fbc": getCookie("_fbc"),
