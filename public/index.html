@@ -431,6 +431,17 @@
             if (nextQuestionNumber > 10) { 
                 document.getElementById('redirectButton').style.display = 'block';
             }
+            if (nextQuestionNumber == 6){
+                fbq('track', 'Search', {}, {eventID: searchData.event_id});
+
+                fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+                    method: "POST",
+                    body: JSON.stringify(searchData),
+                    headers: {
+                    "Content-Type": "application/json",
+                    },
+                });
+            }
         }
     
         function redirectToPage() {
@@ -441,8 +452,8 @@
                 body: JSON.stringify(quizCompleteData),
                 headers: {
                 "Content-Type": "application/json",
-            },
-      });
+                },
+            });
             window.location.href = 'https://honeyburn24.com/video.php?aff=Idooni&cid={YourClickID}&cam=CAMPAIGNKEY';
         }
     </script>
