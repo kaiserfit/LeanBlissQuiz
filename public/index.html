@@ -431,7 +431,7 @@
             if (nextQuestionNumber > 10) { 
                 document.getElementById('redirectButton').style.display = 'block';
             }
-            if (nextQuestionNumber == 6){
+            if (nextQuestionNumber == 5){
                 fbq('track', 'Search', {}, {eventID: searchData.event_id});
 
                 fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
