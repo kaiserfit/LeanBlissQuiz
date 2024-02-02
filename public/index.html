@@ -187,7 +187,7 @@
       setCookie("_fbc", fbc, 90);
     }
 
-    const data = {
+    const viewContentData = {
       "event_id": generateEventID(),
       "event_name": "ViewContent",
       "fbp": getCookie("_fbp"),
@@ -200,7 +200,7 @@
     
     fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify(viewContentData),
         headers: {
           "Content-Type": "application/json",
         },
@@ -215,7 +215,7 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '759662146057719');
-    fbq('track', 'ViewContent', {}, {eventID: data.event_id});
+    fbq('track', 'ViewContent', {}, {eventID: viewContentData.event_id});
         
           function isiOS() {
             return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
