@@ -222,7 +222,7 @@
     //   "zip_code": user_location?.postal,         //{9}
     //   "country": user_location?.country_name,    //{10}
       "external_id": getCookie("userID"),        //{11} | *This is userID
-      "client_ip_address": user_location?.IPv4,  //{12}
+    //   "client_ip_address": user_location?.IPv4,  //{12}
       "client_user_agent": navigator.userAgent,  //{13}
       "fbp": getCookie("_fbp"),                  //{14}
       "fbc": getCookie("_fbc"),                  //{15}
@@ -232,8 +232,10 @@
     }
 
     const searchData = {
+      "event_id": generateEventID(),                      //[1]
+      "event_name": "ViewContent",                        //[2]
+      "event_source_url": "https://www.livestronger.net", //[3]
       "external_id": getCookie("userID"),        //{11} | *This is userID
-      "client_ip_address": user_location?.IPv4,  //{12}
       "client_user_agent": navigator.userAgent,  //{13}
       "fbp": getCookie("_fbp"),                  //{14}
       "fbc": getCookie("_fbc"),                  //{15}     
@@ -241,8 +243,10 @@
     }
 
     const quizCompleteData = {
+      "event_id": generateEventID(),                      //[1]
+      "event_name": "ViewContent",                        //[2]
+      "event_source_url": "https://www.livestronger.net", //[3]
       "external_id": getCookie("userID"),        //{11} | *This is userID
-      "client_ip_address": user_location?.IPv4,  //{12}
       "client_user_agent": navigator.userAgent,  //{13}
       "fbp": getCookie("_fbp"),                  //{14}
       "fbc": getCookie("_fbc"),                  //{15}     
