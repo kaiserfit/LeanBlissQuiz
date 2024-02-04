@@ -136,6 +136,26 @@
     
     <!-- Meta Pixel Code -->
     <script>
+
+    //-- Geolacation API --   
+    async function getUserLocation() {
+        const res = await fetch("https://geolocation-db.com/json/");
+        const data = await res.json();
+
+        console.log(data);
+
+        // either save to cookie or local storage.
+        localStorage.setItem("user_location", JSON.stringify(data));
+      }
+
+      getUserLocation();
+
+      const user_location = JSON.parse(localStorage.getItem("user_location"));
+
+      console.log(user_location);
+    //-- Geolacation API --   
+
+
     function generateEventID() {
       const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
       let eventID = '';
@@ -189,12 +209,20 @@
     const viewContentData = {
       "event_id": generateEventID(),
       "event_name": "ViewContent",
-      "fbp": getCookie("_fbp"),
-      "fbc": getCookie("_fbc"),
+      "fbp": getCookie("_fbp"), //#9
+      "fbc": getCookie("_fbc"), //#10
       "event_source_url": "https://www.livestronger.net",
       "client_user_agent": navigator.userAgent,
       "external_id": getCookie("userID"),
-      "test_event_code": "TEST28708"
+      "test_event_code": "TEST78424"
+    //   "email": 
+    //   "client_ip_address":
+    //   "client_user_agent":
+    //   "phone_number":
+    //   "zip_code":
+    //   "country":
+    //   "city":
+    //   "state":
     }
 
     const searchData = {
