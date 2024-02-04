@@ -134,7 +134,6 @@
     </style>
     <title>Purple Honey Quiz</title>
     
-    <!-- Meta Pixel Code -->
     <script>
 
     //-- Geolacation API --   
@@ -155,7 +154,7 @@
       console.log(user_location);
     //-- Geolacation API --   
 
-
+    //<!-- Conversions API Code -->
     function generateEventID() {
       const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
       let eventID = '';
@@ -207,44 +206,81 @@
     }
 
     const viewContentData = {
-      "event_id": generateEventID(),
-      "event_name": "ViewContent",
-      "fbp": getCookie("_fbp"), //#9
-      "fbc": getCookie("_fbc"), //#10
-      "event_source_url": "https://www.livestronger.net",
-      "client_user_agent": navigator.userAgent,
-      "external_id": getCookie("userID"),
+      //Server Events Parameters
+      "event_id": generateEventID(),                      //[1]
+      "event_name": "ViewContent",                        //[2]
+      "event_source_url": "https://www.livestronger.net", //[3]
+      // Customer Information Parameters
+    //   "email":,                                  //{1} | *Issue to be addressed
+    //   "phone_number":,                           //{2} | *Issue to be addressed
+    //   "first_name":,                             //{3}
+    //   "last_name":,                              //{4}
+    //   "gender":,                                 //{5}
+    //   "birthday":,                               //{6}
+      "city": user_location?.city,               //{7}
+      "state": user_location?.state,             //{8}
+      "zip_code": user_location?.postal,         //{9}
+      "country": user_location?.country_name,    //{10}
+      "external_id": getCookie("userID"),        //{11} | *This is userID
+      "client_ip_address": user_location?.IPv4,  //{12}
+      "client_user_agent": navigator.userAgent,  //{13}
+      "fbp": getCookie("_fbp"),                  //{14}
+      "fbc": getCookie("_fbc"),                  //{15}
+    //   "subscription_id":,                        //{16}
+    //   "fb_login_id":,                            //{17}      
       "test_event_code": "TEST78424"
-    //   "email": 
-    //   "client_ip_address":
-    //   "client_user_agent":
-    //   "phone_number":
-    //   "zip_code":
-    //   "country":
-    //   "city":
-    //   "state":
     }
 
     const searchData = {
-      "event_id": generateEventID(),
-      "event_name": "Search",
-      "fbp": getCookie("_fbp"),
-      "fbc": getCookie("_fbc"),
-      "event_source_url": "https://www.livestronger.net",
-      "client_user_agent": navigator.userAgent,
-      "external_id": getCookie("userID"),
-      "test_event_code": "TEST28708"
+      //Server Events Parameters
+      "event_id": generateEventID(),                      //[1]
+      "event_name": "ViewContent",                        //[2]
+      "event_source_url": "https://www.livestronger.net", //[3]
+      // Customer Information Parameters
+    //   "email":,                                  //{1} | *Issue to be addressed
+    //   "phone_number":,                           //{2} | *Issue to be addressed
+    //   "first_name":,                             //{3}
+    //   "last_name":,                              //{4}
+    //   "gender":,                                 //{5}
+    //   "birthday":,                               //{6}
+      "city": user_location?.city,               //{7}
+      "state": user_location?.state,             //{8}
+      "zip_code": user_location?.postal,         //{9}
+      "country": user_location?.country_name,    //{10}
+      "external_id": getCookie("userID"),        //{11} | *This is userID
+      "client_ip_address": user_location?.IPv4,  //{12}
+      "client_user_agent": navigator.userAgent,  //{13}
+      "fbp": getCookie("_fbp"),                  //{14}
+      "fbc": getCookie("_fbc"),                  //{15}
+    //   "subscription_id":,                        //{16}
+    //   "fb_login_id":,                            //{17}      
+      "test_event_code": "TEST78424"
     }
 
     const quizCompleteData = {
-      "event_id": generateEventID(),
-      "event_name": "QuizComplete",
-      "fbp": getCookie("_fbp"),
-      "fbc": getCookie("_fbc"),
-      "event_source_url": "https://www.livestronger.net",
-      "client_user_agent": navigator.userAgent,
-      "external_id": getCookie("userID"),
-      "test_event_code": "TEST28708"
+      //Server Events Parameters
+      "event_id": generateEventID(),                      //[1]
+      "event_name": "ViewContent",                        //[2]
+      "event_source_url": "https://www.livestronger.net", //[3]
+      // Customer Information Parameters
+    //   "email":,                                  //{1} | *Issue to be addressed
+    //   "phone_number":,                           //{2} | *Issue to be addressed
+    //   "first_name":,                             //{3}
+    //   "last_name":,                              //{4}
+    //   "gender":,                                 //{5}
+    //   "birthday":,                               //{6}
+      "city": user_location?.city,               //{7}
+      "state": user_location?.state,             //{8}
+      "zip_code": user_location?.postal,         //{9}
+      "country": user_location?.country_name,    //{10}
+      "external_id": getCookie("userID"),        //{11} | *This is userID
+      "client_ip_address": user_location?.IPv4,  //{12}
+      "client_user_agent": navigator.userAgent,  //{13}
+      "fbp": getCookie("_fbp"),                  //{14}
+      "fbc": getCookie("_fbc"),                  //{15}
+    //   "subscription_id":,                        //{16}
+    //   "fb_login_id":,                            //{17}      
+      "test_event_code": "TEST78424"
     }
     
     fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
@@ -253,8 +289,10 @@
         headers: {
           "Content-Type": "application/json",
         },
-      });
-    
+    });
+    //<!-- End of Conversion API Code -->
+
+    //<!-- Meta Pixel Code -->
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -295,11 +333,11 @@
             document.write("<p>This website is not being viewed on an iOS device.</p>");
           }
             */
+    //<!-- End Meta Pixel Code -->
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=759662146057719&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
     
 </head>
 <body>
