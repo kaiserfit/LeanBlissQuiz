@@ -233,7 +233,7 @@
 
     const searchData = {
       "event_id": generateEventID(),                      //[1]
-      "event_name": "ViewContent",                        //[2]
+      "event_name": "Search",                        //[2]
       "event_source_url": "https://www.livestronger.net", //[3]
       "external_id": getCookie("userID"),        //{11} | *This is userID
       "client_user_agent": navigator.userAgent,  //{13}
@@ -244,7 +244,7 @@
 
     const quizCompleteData = {
       "event_id": generateEventID(),                      //[1]
-      "event_name": "ViewContent",                        //[2]
+      "event_name": "QuizComplete",                        //[2]
       "event_source_url": "https://www.livestronger.net", //[3]
       "external_id": getCookie("userID"),        //{11} | *This is userID
       "client_user_agent": navigator.userAgent,  //{13}
