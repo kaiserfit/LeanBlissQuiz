@@ -257,63 +257,65 @@
       if(user_location){
         // call fbq method events and sending of data to backend
 
+        fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+            method: "POST",
+            body: JSON.stringify(viewContentData),
+            headers: {
+              "Content-Type": "application/json",
+            },
+        });
+        //<!-- End of Conversion API Code -->
+      
+        //<!-- Meta Pixel Code -->
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '759662146057719');
+        fbq('track', 'ViewContent', {
+          ct: user_location?.city,
+          st: user_location?.state,
+          zp: user_location?.postal,
+          country: user_location?.country_name},
+          {eventID: viewContentData.event_id}
+        );
 
-    fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
-        method: "POST",
-        body: JSON.stringify(viewContentData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-    });
-    //<!-- End of Conversion API Code -->
+              function isiOS() {
+                return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+              }
+            
+              function isMac() {
+                return navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+              }
+            
+              function openPopup() {
+                alert("This website is being viewed on an iOS device!");
+              }
+            
+              if (isiOS()) {
+                fbq.disablePushState = true;
+              } else if (isMac()){
+                fbq.disablePushState = true;
+              } else {
+                fbq.disablePushState = false;
+              }
 
-    //<!-- Meta Pixel Code -->
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '759662146057719');
-    fbq('track', 'ViewContent', {}, {
-      eventID: viewContentData.event_id,
-      ct: viewContentData.city
-    });
-        
-          function isiOS() {
-            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-          }
-        
-          function isMac() {
-            return navigator.platform.toUpperCase().indexOf('MAC') >= 0;
-          }
-        
-          function openPopup() {
-            alert("This website is being viewed on an iOS device!");
-          }
+                /*
+              if (isiOS()) {
+                openPopup();
+              } else if (isMac()) {
+                openPopup();
+              } else {
+                document.write("<p>This website is not being viewed on an iOS device.</p>");
+              }
+                */
+        //<!-- End Meta Pixel Code -->
 
-          if (isiOS()) {
-            fbq.disablePushState = true;
-          } else if (isMac()){
-            fbq.disablePushState = true;
-          } else {
-            fbq.disablePushState = false;
-          }
-          
-            /*
-          if (isiOS()) {
-            openPopup();
-          } else if (isMac()) {
-            openPopup();
-          } else {
-            document.write("<p>This website is not being viewed on an iOS device.</p>");
-          }
-            */
-    //<!-- End Meta Pixel Code -->
-
-  }
+      }
     },2000); 
     </script>
     <noscript><img height="1" width="1" style="display:none"
