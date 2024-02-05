@@ -152,7 +152,7 @@
       const user_location = JSON.parse(localStorage.getItem("user_location"));
 
       console.log(user_location);
-    //<-- End of Geolacation API -->  
+    //<-- End of Geolacation API -->
 
     //<!-- Conversions API Code -->
     function generateEventID() {
@@ -211,18 +211,18 @@
       "event_name": "ViewContent",                        //[2]
       "event_source_url": "https://www.livestronger.net", //[3]
       // Customer Information Parameters
-    //   "email":,                                  //{1} | *Issue to be addressed
-    //   "phone_number":,                           //{2} | *Issue to be addressed
+    //   "email":,                                  //{1}  | *Issue to be addressed
+    //   "phone_number":,                           //{2}  | *Issue to be addressed
     //   "first_name":,                             //{3}
     //   "last_name":,                              //{4}
     //   "gender":,                                 //{5}
     //   "birthday":,                               //{6}
-    //   "city": user_location?.city,               //{7}
-    //   "state": user_location?.state,             //{8}
-    //   "zip_code": user_location?.postal,         //{9}
-    //   "country": user_location?.country_name,    //{10}
+    //   "city": user_location?.city,               //{7}  | *Issue to be addressed
+    //   "state": user_location?.state,             //{8}  | *Issue to be addressed
+    //   "zip_code": user_location?.postal,         //{9}  | *Issue to be addressed
+    //   "country": user_location?.country_name,    //{10} | *Issue to be addressed
       "external_id": getCookie("userID"),        //{11} | *This is userID
-    //   "client_ip_address": user_location?.IPv4,  //{12}
+      "client_ip_address": user_location?.IPv4,  //{12} | *Issue to be addressed
       "client_user_agent": navigator.userAgent,  //{13}
       "fbp": getCookie("_fbp"),                  //{14}
       "fbc": getCookie("_fbc"),                  //{15}
@@ -253,6 +253,11 @@
       "test_event_code": "TEST33052"
     }
     
+    setTimeout(()=>{
+      if(user_location){
+        // call fbq method events and sending of data to backend
+
+
     fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
         method: "POST",
         body: JSON.stringify(viewContentData),
@@ -304,6 +309,9 @@
           }
             */
     //<!-- End Meta Pixel Code -->
+
+  }
+    },2000); 
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=759662146057719&ev=PageView&noscript=1"
