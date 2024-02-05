@@ -277,7 +277,10 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '759662146057719');
-    fbq('track', 'ViewContent', {}, {eventID: viewContentData.event_id});
+    fbq('track', 'ViewContent', {}, {
+      eventID: viewContentData.event_id,
+      ct: viewContentData.city
+    });
         
           function isiOS() {
             return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
