@@ -136,7 +136,7 @@
     
     <script>
 
-    //-- Geolacation API --   
+    //<!-- Geolacation API --> 
     async function getUserLocation() {
         const res = await fetch("https://geolocation-db.com/json/");
         const data = await res.json();
@@ -152,7 +152,7 @@
       const user_location = JSON.parse(localStorage.getItem("user_location"));
 
       console.log(user_location);
-    //-- Geolacation API --   
+    //<-- End of Geolacation API -->  
 
     //<!-- Conversions API Code -->
     function generateEventID() {
@@ -228,7 +228,7 @@
       "fbc": getCookie("_fbc"),                  //{15}
     //   "subscription_id":,                        //{16}
     //   "fb_login_id":,                            //{17}      
-      "test_event_code": "TEST78424"
+      "test_event_code": "TEST33052"
     }
 
     const searchData = {
@@ -239,7 +239,7 @@
       "client_user_agent": navigator.userAgent,  //{13}
       "fbp": getCookie("_fbp"),                  //{14}
       "fbc": getCookie("_fbc"),                  //{15}     
-      "test_event_code": "TEST78424"
+      "test_event_code": "TEST33052"
     }
 
     const quizCompleteData = {
@@ -250,7 +250,7 @@
       "client_user_agent": navigator.userAgent,  //{13}
       "fbp": getCookie("_fbp"),                  //{14}
       "fbc": getCookie("_fbc"),                  //{15}     
-      "test_event_code": "TEST78424"
+      "test_event_code": "TEST33052"
     }
     
     fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
