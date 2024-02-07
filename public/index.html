@@ -206,55 +206,40 @@
     }
 
     const viewContentData = {
-      //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+      //Server Events Parameters
       "event_id": generateEventID(),                      //[1]
-      "event_name": "ViewContent",                        //[2] | "Search", "QuizComplete" |
+      "event_name": "ViewContent",                        //[2]
       "event_source_url": "https://www.livestronger.net", //[3]
       // Customer Information Parameters
-      // "email":,                                  //{1} | # |
-      // "phone_number":,                           //{2} | # |
-      // "first_name":,                             //{3} | # |
-      // "last_name":,                              //{4} | # |
-      // "gender":,                                 //{5} | # |
-      // "birthday":,                               //{6} | # |
-      "city": sha256(user_location?.city),               //{7} | # |
-      "state": sha256(user_location?.state),             //{8} | # |
-      "zip_code": sha256(user_location?.postal),         //{9} | # |
-      "country": sha256(user_location?.country_name),    //{10} | # |
-      "external_id": getCookie("userID"),        //{11} | #? | *This is userID |
-      "client_ip_address": user_location?.IPv4,  //{12} | #X |
-      "client_user_agent": navigator.userAgent,  //{13} | #X |
-      "fbp": getCookie("_fbp"),                  //{14} | #X |
-      "fbc": getCookie("_fbc"),                  //{15} | #X |
-    //   "subscription_id":,                        //{16} | #X |
-    //   "fb_login_id":,                            //{17} | #X | 
-      "test_event_code": "TEST67004"             // *Remove if done testing.
+      // "email":,                                  //{1} 
+      // "phone_number":,                           //{2}  
+      // "first_name":,                             //{3}
+      // "last_name":,                              //{4}
+      // "gender":,                                 //{5}
+      // "birthday":,                               //{6}
+      "city": user_location?.city,               //{7}
+      "state": user_location?.state,             //{8}
+      "zip_code": user_location?.postal,         //{9}
+      "country": user_location?.country_name,    //{10}
+      "external_id": getCookie("userID"),        //{11} | *This is userID
+      "client_ip_address": user_location?.IPv4,  //{12}  
+      "client_user_agent": navigator.userAgent,  //{13}
+      "fbp": getCookie("_fbp"),                  //{14}
+      "fbc": getCookie("_fbc"),                  //{15}
+    //   "subscription_id":,                        //{16}
+    //   "fb_login_id":,                            //{17}      
+      "test_event_code": "TEST33052"
     }
 
     const searchData = {
-      //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
       "event_id": generateEventID(),                      //[1]
-      "event_name": "Search",                        //[2] | "Search", "QuizComplete" |
+      "event_name": "Search",                        //[2]
       "event_source_url": "https://www.livestronger.net", //[3]
-      // Customer Information Parameters
-      // "email":,                                  //{1} | # |
-      // "phone_number":,                           //{2} | # |
-      // "first_name":,                             //{3} | # |
-      // "last_name":,                              //{4} | # |
-      // "gender":,                                 //{5} | # |
-      // "birthday":,                               //{6} | # |
-      "city": sha256(user_location?.city),               //{7} | # |
-      "state": sha256(user_location?.state),             //{8} | # |
-      "zip_code": sha256(user_location?.postal),         //{9} | # |
-      "country": sha256(user_location?.country_name),    //{10} | # |
-      "external_id": getCookie("userID"),        //{11} | #? | *This is userID |
-      "client_ip_address": user_location?.IPv4,  //{12} | #X |
-      "client_user_agent": navigator.userAgent,  //{13} | #X |
-      "fbp": getCookie("_fbp"),                  //{14} | #X |
-      "fbc": getCookie("_fbc"),                  //{15} | #X |
-    //   "subscription_id":,                        //{16} | #X |
-    //   "fb_login_id":,                            //{17} | #X | 
-      "test_event_code": "TEST67004"             // *Remove if done testing.
+      "external_id": getCookie("userID"),        //{11} | *This is userID
+      "client_user_agent": navigator.userAgent,  //{13}
+      "fbp": getCookie("_fbp"),                  //{14}
+      "fbc": getCookie("_fbc"),                  //{15}     
+      "test_event_code": "TEST33052"
     }
 
     const quizCompleteData = {
