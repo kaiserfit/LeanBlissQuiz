@@ -529,6 +529,26 @@
                 {eventID: searchData.event_id}
               );
 
+              function isiOS() {
+                return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+              }
+            
+              function isMac() {
+                return navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+              }
+            
+              function openPopup() {
+                alert("This website is being viewed on an iOS device!");
+              }
+            
+              if (isiOS()) {
+                fbq.disablePushState = true;
+              } else if (isMac()){
+                fbq.disablePushState = true;
+              } else {
+                fbq.disablePushState = false;
+              }
+
                 fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
                     method: "POST",
                     body: JSON.stringify(searchData),
@@ -540,18 +560,38 @@
         }
     
         function redirectToPage() {
-          fbq('track', 'QuizComplete', {
-                ct: quizCompleteData.city,
-                st: quizCompleteData.state,
-                zp: quizCompleteData.zip_code,
-                country: quizCompleteData.country,
-                client_ip_address: quizCompleteData.client_ip_address,
-                client_user_agent: quizCompleteData.client_user_agent,
-                fbp: quizCompleteData.fbp,
-                fbc: quizCompleteData.fbc
-                },
-                {eventID: quizCompleteData.event_id}
-              );
+            fbq('track', 'QuizComplete', {
+                  ct: quizCompleteData.city,
+                  st: quizCompleteData.state,
+                  zp: quizCompleteData.zip_code,
+                  country: quizCompleteData.country,
+                  client_ip_address: quizCompleteData.client_ip_address,
+                  client_user_agent: quizCompleteData.client_user_agent,
+                  fbp: quizCompleteData.fbp,
+                  fbc: quizCompleteData.fbc
+                  },
+                  {eventID: quizCompleteData.event_id}
+                );
+
+              function isiOS() {
+                return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+              }
+            
+              function isMac() {
+                return navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+              }
+            
+              function openPopup() {
+                alert("This website is being viewed on an iOS device!");
+              }
+            
+              if (isiOS()) {
+                fbq.disablePushState = true;
+              } else if (isMac()){
+                fbq.disablePushState = true;
+              } else {
+                fbq.disablePushState = false;
+              }
 
             fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
                 method: "POST",
