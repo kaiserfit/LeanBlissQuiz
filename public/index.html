@@ -502,16 +502,16 @@
             }
             if (nextQuestionNumber == 5){
               fbq('track', 'Search', {
-                ct: viewContentData.city,
-                st: viewContentData.state,
-                zp: viewContentData.zip_code,
-                country: viewContentData.country,
-                client_ip_address: viewContentData.client_ip_address,
-                client_user_agent: viewContentData.client_user_agent,
-                fbp: viewContentData.fbp,
-                fbc: viewContentData.fbc
+                ct: searchData.city,
+                st: searchData.state,
+                zp: searchData.zip_code,
+                country: searchData.country,
+                client_ip_address: searchData.client_ip_address,
+                client_user_agent: searchData.client_user_agent,
+                fbp: searchData.fbp,
+                fbc: searchData.fbc
                 },
-                {eventID: viewContentData.event_id}
+                {eventID: searchData.event_id}
               );
 
                 fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
