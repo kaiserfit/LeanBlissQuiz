@@ -277,10 +277,10 @@
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '759662146057719');
         fbq('track', 'ViewContent', {
-          ct: viewContentData.city,
-          st: viewContentData.state,
-          zp: viewContentData.zip_code,
-          country: viewContentData.country,
+          ct: sha256(viewContentData.city),
+          st: sha256(viewContentData.state),
+          zp: sha256(viewContentData.zip_code),
+          country: sha256(viewContentData.country),
           client_ip_address: viewContentData.client_ip_address,
           client_user_agent: viewContentData.client_user_agent,
           fbp: viewContentData.fbp,
