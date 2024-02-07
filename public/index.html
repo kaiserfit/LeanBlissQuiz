@@ -217,10 +217,10 @@
       // "last_name":,                              //{4} | # |
       // "gender":,                                 //{5} | # |
       // "birthday":,                               //{6} | # |
-      "city": sha256(user_location?.city),               //{7} | # |
-      "state": sha256(user_location?.state),             //{8} | # |
-      "zip_code": sha256(user_location?.postal),         //{9} | # |
-      "country": sha256(user_location?.country_name),    //{10} | # |
+      "city": user_location?.city,               //{7} | # |
+      "state": user_location?.state,             //{8} | # |
+      "zip_code": user_location?.postal,         //{9} | # |
+      "country": user_location?.country_name,    //{10} | # |
       "external_id": getCookie("userID"),        //{11} | #? | *This is userID |
       "client_ip_address": user_location?.IPv4,  //{12} | #X |
       "client_user_agent": navigator.userAgent,  //{13} | #X |
