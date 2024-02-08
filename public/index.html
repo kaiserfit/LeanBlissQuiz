@@ -4,133 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
-        /* CSS Reset */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            color: #333;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(126, 133, 143));
-        }
-        .quiz-container { 
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: #e5e7eb;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-image: linear-gradient(to bottom left, rgba(255, 255, 255, 0.722), rgb(209, 209, 209)); 
-            text-align: center;
-        }
-        #redirectButton {
+      /* CSS Reset */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+  
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        color: #333;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(126, 133, 143));
+      }
+  
+      .quiz-container {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #e5e7eb;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to bottom left, rgba(255, 255, 255, 0.722), rgb(209, 209, 209));
+        text-align: center;
+      }
+  
+      #redirectButton {
         margin: 0 auto;
-        }
+      }
+  
+      h1 {
+        color: #ffffff;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background-color: #000000;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+  
+      h1 .first-span {
+        color: #fde047;
+      }
+  
+      h1 .second-span {
+        border-bottom: 5px solid #fde047;
+      }
+  
+      h2 {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+  
+      /* Media query for smaller screens */
+      @media screen and (max-width: 600px) {
         h1 {
-            color: #ffffff;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            background-color: #000000;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-size: 1.5em;
         }
-        h1 .first-span {
-            color: #fde047; 
-        }
-        h1 .second-span {
-            border-bottom: 5px solid #fde047;
-        }
+  
         h2 {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-size: 1.2em;
         }
-
-        /* Media query for smaller screens */
-        @media screen and (max-width: 600px) {
-            h1 {
-                font-size: 1.5em;
-            }
-
-            h2 {
-                font-size: 1.2em;
-            }
-
-            .quiz-container {
-                max-width: 90%;
-                margin: 20px auto;
-                padding: 10px;
-            }
-
-            label {
-                font-size: 1rem;
-            }
-
-            input[type="submit"],
-            #redirectButton {
-                font-size: 1rem;
-                margin-top: 10px;
-            }
+  
+        .quiz-container {
+          max-width: 90%;
+          margin: 20px auto;
+          padding: 10px;
         }
-
-        .question {
-            margin: 20px 0;
-            text-align: center;
-            display: none;
-        }
-
-        .progress-bar {
-            height: 30px;
-            background-color: #ccc;
-            border-radius: 70px;
-            margin-bottom: 10px;
-            border: 3px solid #ffffff;
-        }
-
-        .progress-bar-inner {
-            height: 100%;
-            width: 0;
-            background-color: #fde047;
-            border-radius: 70px;
-            transition: width 0.3s ease;
-        }
+  
         label {
-            display: block;
-            margin-bottom: 10px;
-            cursor: pointer;
-            padding: 10px;
-            border: 1px solid #000000;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: normal;
+          font-size: 1rem;
         }
-        label:hover {
-            background-color: #f2f2f2;
+  
+        input[type="submit"],
+        #redirectButton {
+          font-size: 1rem;
+          margin-top: 10px;
         }
-        input[type="radio"] {
-            display: none;
-        }
-        input[type="submit"], #redirectButton {
-            padding: 10px 20px;
-            background-color: #555;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: none;
-            margin-top: 20px;
-            border-radius: 20px;
-            font-weight: bold;
-        }
-        input[type="submit"]:hover, #redirectButton:hover {
-            background-color: #fde047;
-        }
+      }
+  
+      /* Versioned Styles */
+      .question {
+        margin: 20px 0;
+        text-align: center;
+        display: none;
+      }
+  
+      .progress-bar {
+        height: 30px;
+        background-color: #ccc;
+        border-radius: 70px;
+        margin-bottom: 10px;
+        border: 3px solid #ffffff;
+      }
+  
+      .progress-bar-inner {
+        height: 100%;
+        width: 0;
+        background-color: #fde047;
+        border-radius: 70px;
+        transition: width 0.3s ease;
+      }
+  
+      label {
+        display: block;
+        margin-bottom: 10px;
+        cursor: pointer;
+        padding: 10px;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: normal;
+      }
+  
+      label:hover {
+        background-color: #f2f2f2;
+      }
+  
+      input[type="radio"] {
+        display: none;
+      }
+  
+      input[type="submit"],
+      #redirectButton {
+        padding: 10px 20px;
+        background-color: #555;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: none;
+        margin-top: 20px;
+        border-radius: 20px;
+        font-weight: bold;
+      }
+  
+      input[type="submit"]:hover,
+      #redirectButton:hover {
+        background-color: #fde047;
+      }
     </style>
     <title>Purple Honey Quiz</title>
     
