@@ -307,11 +307,11 @@
       // "fb_login_id":,                            //{17} | #X | 
       "test_event_code": "TEST52662"             // *Remove if done testing.
     }
+    //<!-- End of Conversion API Code [Exept fetch()] -->
     
     setTimeout(()=>{
       if(user_location){
         // call fbq method events and sending of data to backend
-    //<!-- End of Conversion API Code -->
       
         //<!-- Meta Pixel Code -->
         !function(f,b,e,v,n,t,s)
@@ -357,15 +357,6 @@
               fbq.disablePushState = false;
             }
             console.log('fbq - ViewContent - Pixel Sent');
-              /*
-            if (isiOS()) {
-              openPopup();
-            } else if (isMac()) {
-              openPopup();
-            } else {
-              document.write("<p>This website is not being viewed on an iOS device.</p>");
-            }
-              */
 
             fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
               method: "POST",
@@ -374,7 +365,7 @@
                 "Content-Type": "application/json",
               },
             });
-        console.log('fbq - ViewContent - Server Sent');
+            console.log('fbq - ViewContent - Server Sent');
         //<!-- End Meta Pixel Code -->
 
       }
