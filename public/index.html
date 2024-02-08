@@ -149,14 +149,12 @@
     <title>Purple Honey Quiz</title>
     
     <script>
-    var hasReloaded = localStorage.getItem('hasReloaded');
-
-    if (!hasReloaded) {
-    window.onload = function() {
-      location.reload(true);
-      localStorage.setItem('hasReloaded', 'true');
-    };
-  }
+    // Check if the page has been reloaded before using a session cookie
+    if (document.cookie.indexOf('reloaded=true') === -1) {
+      // If not reloaded before, set the cookie and reload the page
+      document.cookie = 'reloaded=true; path=/';
+      location.reload();
+    }
 
     //<!-- Geolacation API --> 
     async function getUserLocation() {
