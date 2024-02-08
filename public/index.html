@@ -185,6 +185,7 @@
       document.cookie =
         name + "=" + encodeURIComponent(value) + "; expires=" + today.toGMTString();
     }
+
     function getRandomNumber() {
       var randomDecimal = Math.random();
       var randomInRange =
@@ -204,6 +205,7 @@
       }
       return null;
     }
+
     if (getCookie("_fbp") == null) {
       var randomNumber = getRandomNumber();
       var fbp = "fb." + "1." + new Date().getTime() + "." + randomNumber;
@@ -213,6 +215,7 @@
     var queryString = window.location.search;
     var params = new URLSearchParams(queryString);
     var fbclid = params.get("fbclid");
+
     if (getCookie("_fbc") == null && fbclid != null) {
       console.log("creating fbc cookie");
       var fbc = "fb." + "1." + new Date().getTime() + "." + fbclid;
@@ -240,9 +243,9 @@
       "client_user_agent": navigator.userAgent,  //{13} | #X |
       "fbp": getCookie("_fbp"),                  //{14} | #X |
       "fbc": getCookie("_fbc"),                  //{15} | #X |
-    //   "subscription_id":,                        //{16} | #X |
-    //   "fb_login_id":,                            //{17} | #X | 
-      // "test_event_code": "TEST67004"             // *Remove if done testing.
+      //  "subscription_id":,                        //{16} | #X |
+      //  "fb_login_id":,                            //{17} | #X | 
+      "test_event_code": "TEST67004"             // *Remove if done testing.
     }
 
     const searchData = {
@@ -266,9 +269,9 @@
       "client_user_agent": navigator.userAgent,  //{13} | #X |
       "fbp": getCookie("_fbp"),                  //{14} | #X |
       "fbc": getCookie("_fbc"),                  //{15} | #X |
-    //   "subscription_id":,                        //{16} | #X |
-    //   "fb_login_id":,                            //{17} | #X | 
-      // "test_event_code": "TEST67004"             // *Remove if done testing.
+      // "subscription_id":,                        //{16} | #X |
+      // "fb_login_id":,                            //{17} | #X | 
+      "test_event_code": "TEST67004"             // *Remove if done testing.
     }
 
     const quizCompleteData = {
@@ -292,9 +295,9 @@
       "client_user_agent": navigator.userAgent,  //{13} | #X |
       "fbp": getCookie("_fbp"),                  //{14} | #X |
       "fbc": getCookie("_fbc"),                  //{15} | #X |
-    //   "subscription_id":,                        //{16} | #X |
-    //   "fb_login_id":,                            //{17} | #X | 
-      // "test_event_code": "TEST67004"             // *Remove if done testing.
+      // "subscription_id":,                        //{16} | #X |
+      // "fb_login_id":,                            //{17} | #X | 
+      "test_event_code": "TEST67004"             // *Remove if done testing.
     }
     
     setTimeout(()=>{
@@ -365,7 +368,7 @@
         //<!-- End Meta Pixel Code -->
 
       }
-    },2000); 
+    },1000); 
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=759662146057719&ev=PageView&noscript=1"
