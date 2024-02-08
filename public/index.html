@@ -520,6 +520,7 @@
         }
     
         function showNextQuestion(nextQuestionNumber) {
+            console.log('Button clicked! "Search" ' + nextQuestionNumber)
             var currentQuestion = document.getElementById('question' + nextQuestionNumber);
             var previousQuestion = document.getElementById('question' + (nextQuestionNumber - 1));
             if (previousQuestion) {
@@ -577,6 +578,7 @@
         }
     
         function redirectToPage() {
+            console.log('Button clicked! "QuizComplete"')
             fbq('track', 'QuizComplete', {
                   ct: quizCompleteData.city,
                   st: quizCompleteData.state,
