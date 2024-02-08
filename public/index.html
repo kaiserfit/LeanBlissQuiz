@@ -311,15 +311,6 @@
     setTimeout(()=>{
       if(user_location){
         // call fbq method events and sending of data to backend
-
-        fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
-            method: "POST",
-            body: JSON.stringify(viewContentData),
-            headers: {
-              "Content-Type": "application/json",
-            },
-        });
-        console.log('fbq - ViewContent - Server Sent');
     //<!-- End of Conversion API Code -->
       
         //<!-- Meta Pixel Code -->
@@ -375,6 +366,15 @@
               document.write("<p>This website is not being viewed on an iOS device.</p>");
             }
               */
+
+            fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+              method: "POST",
+              body: JSON.stringify(viewContentData),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            });
+        console.log('fbq - ViewContent - Server Sent');
         //<!-- End Meta Pixel Code -->
 
       }
