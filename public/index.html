@@ -149,9 +149,14 @@
     <title>Purple Honey Quiz</title>
     
     <script>
+    var hasReloaded = localStorage.getItem('hasReloaded');
+    
+    if (!hasReloaded) {
     window.onload = function() {
       location.reload(true);
+      localStorage.setItem('hasReloaded', 'true');
     };
+  }
 
     //<!-- Geolacation API --> 
     async function getUserLocation() {
