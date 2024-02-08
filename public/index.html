@@ -150,7 +150,7 @@
     
     <script>
     var hasReloaded = localStorage.getItem('hasReloaded');
-    
+
     if (!hasReloaded) {
     window.onload = function() {
       location.reload(true);
@@ -319,7 +319,8 @@
               "Content-Type": "application/json",
             },
         });
-        //<!-- End of Conversion API Code -->
+        console.log('fbq - ViewContent - Server Sent');
+    //<!-- End of Conversion API Code -->
       
         //<!-- Meta Pixel Code -->
         !function(f,b,e,v,n,t,s)
@@ -331,6 +332,7 @@
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '759662146057719');
+        console.log('fbq - initialize');
         fbq('track', 'ViewContent', {
           ct: viewContentData.city,
           st: viewContentData.state,
@@ -343,36 +345,36 @@
           },
           {eventID: viewContentData.event_id}
         );
-
-              function isiOS() {
-                return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-              }
-            
-              function isMac() {
-                return navigator.platform.toUpperCase().indexOf('MAC') >= 0;
-              }
-            
-              function openPopup() {
-                alert("This website is being viewed on an iOS device!");
-              }
-            
-              if (isiOS()) {
-                fbq.disablePushState = true;
-              } else if (isMac()){
-                fbq.disablePushState = true;
-              } else {
-                fbq.disablePushState = false;
-              }
-
-                /*
-              if (isiOS()) {
-                openPopup();
-              } else if (isMac()) {
-                openPopup();
-              } else {
-                document.write("<p>This website is not being viewed on an iOS device.</p>");
-              }
-                */
+        
+            function isiOS() {
+              return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            }
+          
+            function isMac() {
+              return navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+            }
+          
+            function openPopup() {
+              alert("This website is being viewed on an iOS device!");
+            }
+          
+            if (isiOS()) {
+              fbq.disablePushState = true;
+            } else if (isMac()){
+              fbq.disablePushState = true;
+            } else {
+              fbq.disablePushState = false;
+            }
+            console.log('fbq - ViewContent - Pixel Sent');
+              /*
+            if (isiOS()) {
+              openPopup();
+            } else if (isMac()) {
+              openPopup();
+            } else {
+              document.write("<p>This website is not being viewed on an iOS device.</p>");
+            }
+              */
         //<!-- End Meta Pixel Code -->
 
       }
@@ -528,7 +530,7 @@
         }
     
         function showNextQuestion(nextQuestionNumber) {
-            console.log('Button clicked! "Search" ' + nextQuestionNumber)
+            console.log('Button clicked! "Search" ' + nextQuestionNumber);
             var currentQuestion = document.getElementById('question' + nextQuestionNumber);
             var previousQuestion = document.getElementById('question' + (nextQuestionNumber - 1));
             if (previousQuestion) {
@@ -574,6 +576,7 @@
               } else {
                 fbq.disablePushState = false;
               }
+              console.log('fbq - Search - Pixel Sent');
 
                 fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
                     method: "POST",
@@ -582,11 +585,12 @@
                     "Content-Type": "application/json",
                     },
                 });
+                console.log('fbq - Search - Server Sent');
             }
         }
     
         function redirectToPage() {
-            console.log('Button clicked! "QuizComplete"')
+            console.log('Button clicked! "QuizComplete"');
             fbq('track', 'QuizComplete', {
                   ct: quizCompleteData.city,
                   st: quizCompleteData.state,
@@ -620,6 +624,8 @@
                 fbq.disablePushState = false;
               }
 
+              console.log('fbq - QuizComplete - Pixel Sent');
+
             fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
                 method: "POST",
                 body: JSON.stringify(quizCompleteData),
@@ -627,6 +633,7 @@
                 "Content-Type": "application/json",
                 },
             });
+            console.log('fbq - QuizComplete - Server Sent');
             window.location.href = 'https://honeyburn24.com/video.php?aff=Idooni&cid={YourClickID}&cam=CAMPAIGNKEY';
         }
     </script>
