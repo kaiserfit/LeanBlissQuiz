@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <style>
       /* CSS Reset */
       * {
@@ -10,7 +13,7 @@
         margin: 0;
         padding: 0;
       }
-  
+
       body {
         font-family: Arial, sans-serif;
         background-color: #f2f2f2;
@@ -18,9 +21,13 @@
         text-align: center;
         margin: 0;
         padding: 0;
-        background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(126, 133, 143));
+        background-image: linear-gradient(
+          to right,
+          rgba(255, 0, 0, 0),
+          rgba(126, 133, 143)
+        );
       }
-  
+
       .quiz-container {
         max-width: 800px;
         margin: 20px auto;
@@ -28,68 +35,76 @@
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        background-image: linear-gradient(to bottom left, rgba(255, 255, 255, 0.722), rgb(209, 209, 209));
+        background-image: linear-gradient(
+          to bottom left,
+          rgba(255, 255, 255, 0.722),
+          rgb(209, 209, 209)
+        );
         text-align: center;
       }
-  
+
       #redirectButton {
         margin: 0 auto;
       }
-  
+
       h1 {
         color: #ffffff;
         overflow: hidden;
         text-overflow: ellipsis;
         background-color: #000000;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
       }
-  
+
       h1 .first-span {
         color: #fde047;
       }
-  
+
       h1 .second-span {
         border-bottom: 5px solid #fde047;
       }
-  
+
       h2 {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
       }
-  
+
       /* Media query for smaller screens */
       @media screen and (max-width: 600px) {
         h1 {
           font-size: 1.5em;
         }
-  
+
         h2 {
           font-size: 1.2em;
         }
-  
+
         .quiz-container {
           max-width: 90%;
           margin: 20px auto;
           padding: 10px;
         }
-  
+
         label {
           font-size: 1rem;
         }
-  
+
         input[type="submit"],
         #redirectButton {
           font-size: 1rem;
           margin-top: 10px;
         }
       }
-  
+
       /* Versioned Styles */
       .question {
         margin: 20px 0;
         text-align: center;
         display: none;
       }
-  
+
       .progress-bar {
         height: 30px;
         background-color: #ccc;
@@ -97,7 +112,7 @@
         margin-bottom: 10px;
         border: 3px solid #ffffff;
       }
-  
+
       .progress-bar-inner {
         height: 100%;
         width: 0;
@@ -105,7 +120,7 @@
         border-radius: 70px;
         transition: width 0.3s ease;
       }
-  
+
       label {
         display: block;
         margin-bottom: 10px;
@@ -118,15 +133,15 @@
         font-size: 1.5rem;
         font-weight: normal;
       }
-  
+
       label:hover {
         background-color: #f2f2f2;
       }
-  
+
       input[type="radio"] {
         display: none;
       }
-  
+
       input[type="submit"],
       #redirectButton {
         padding: 10px 20px;
@@ -140,24 +155,24 @@
         border-radius: 20px;
         font-weight: bold;
       }
-  
+
       input[type="submit"]:hover,
       #redirectButton:hover {
         background-color: #fde047;
       }
     </style>
     <title>Purple Honey Quiz</title>
-    
-    <script>
-    // Check if the page has been reloaded before using a session cookie
-    if (document.cookie.indexOf('reloaded=true') === -1) {
-      // If not reloaded before, set the cookie and reload the page
-      document.cookie = 'reloaded=true; path=/';
-      location.reload();
-    }
 
-    //<!-- Geolacation API --> 
-    async function getUserLocation() {
+    <script>
+      // Check if the page has been reloaded before using a session cookie
+      if (document.cookie.indexOf("reloaded=true") === -1) {
+        // If not reloaded before, set the cookie and reload the page
+        document.cookie = "reloaded=true; path=/";
+        location.reload();
+      }
+
+      //<!-- Geolacation API -->
+      async function getUserLocation() {
         const res = await fetch("https://geolocation-db.com/json/");
         const data = await res.json();
 
@@ -169,463 +184,1030 @@
 
       getUserLocation();
 
-      const user_location = JSON.parse(localStorage.getItem("user_location"));
+      const user_location = JSON.parse(localStorage.getItem("user_location")); // this value is not yet present because `getUserLocation` is async and therefore if we invoke `localStorage.getItem("user_location")` it is still `undefined`. this is also the case with the other variables like `viewContentData`
 
-      console.log(user_location);
-    //<-- End of Geolacation API -->
+      console.log(user_location); // this has a value of `null`
+      //<-- End of Geolacation API -->
 
-    //<!-- Conversions API Code -->
-    function generateEventID() {
-      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-      let eventID = '';
-      for (let i = 0; i < 16; i++) {
-        const randomIndex = Math.floor(Math.random() * characters.length);
-        eventID += characters.charAt(randomIndex);
+      //<!-- Conversions API Code -->
+      function generateEventID() {
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        let eventID = "";
+        for (let i = 0; i < 16; i++) {
+          const randomIndex = Math.floor(Math.random() * characters.length);
+          eventID += characters.charAt(randomIndex);
+        }
+        return eventID;
       }
-      return eventID;
-    }
-    
-    function setCookie(name, value, expires) {
-      var today = new Date();
-      today.setTime(today.getTime() + expires * 24 * 60 * 60 * 1000);
-      document.cookie =
-        name + "=" + encodeURIComponent(value) + "; expires=" + today.toGMTString();
-    }
 
-    function getRandomNumber() {
-      var randomDecimal = Math.random();
-      var randomInRange =
-        1000000000 + Math.floor(randomDecimal * (2147483647 - 1000000000 + 1));
-      return randomInRange;
-    }
+      function setCookie(name, value, expires) {
+        var today = new Date();
+        today.setTime(today.getTime() + expires * 24 * 60 * 60 * 1000);
+        document.cookie =
+          name +
+          "=" +
+          encodeURIComponent(value) +
+          "; expires=" +
+          today.toGMTString();
+      }
 
-    function getCookie(name) {
-      if (document.cookie && document.cookie !== "") {
-        var cookies = document.cookie.split(";");
-        for (var i = 0; i < cookies.length; i++) {
-          var cookie = cookies[i].trim();
-          if (cookie.substring(0, name.length + 1) === name + "=") {
-            return decodeURIComponent(cookie.substring(name.length + 1));
+      function getRandomNumber() {
+        var randomDecimal = Math.random();
+        var randomInRange =
+          1000000000 +
+          Math.floor(randomDecimal * (2147483647 - 1000000000 + 1));
+        return randomInRange;
+      }
+
+      function getCookie(name) {
+        if (document.cookie && document.cookie !== "") {
+          var cookies = document.cookie.split(";");
+          for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === name + "=") {
+              return decodeURIComponent(cookie.substring(name.length + 1));
+            }
           }
         }
+        return null;
       }
-      return null;
-    }
 
-    if (getCookie("_fbp") == null) {
-      var randomNumber = getRandomNumber();
-      var fbp = "fb." + "1." + new Date().getTime() + "." + randomNumber;
-      setCookie("_fbp", fbp, 90);
-    }
-
-    var queryString = window.location.search;
-    var params = new URLSearchParams(queryString);
-    var fbclid = params.get("fbclid");
-
-    if (getCookie("_fbc") == null && fbclid != null) {
-      console.log("creating fbc cookie");
-      var fbc = "fb." + "1." + new Date().getTime() + "." + fbclid;
-      setCookie("_fbc", fbc, 90);
-    }
-
-    const viewContentData = {
-      //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
-      "event_id": generateEventID(),                      //[1]
-      "event_name": "ViewContent",                        //[2] | "Search", "QuizComplete" |
-      "event_source_url": "https://www.livestronger.net", //[3]
-      // Customer Information Parameters
-      // "email":,                                  //{1} | # |
-      // "phone_number":,                           //{2} | # |
-      // "first_name":,                             //{3} | # |
-      // "last_name":,                              //{4} | # |
-      // "gender":,                                 //{5} | # |
-      // "birthday":,                               //{6} | # |
-      "city": user_location?.city,               //{7} | # |
-      "state": user_location?.state,             //{8} | # |
-      "zip_code": user_location?.postal,         //{9} | # |
-      "country": user_location?.country_name,    //{10} | # |
-      "external_id": getCookie("userID"),        //{11} | #? | *This is userID |
-      "client_ip_address": user_location?.IPv4,  //{12} | #X |
-      "client_user_agent": navigator.userAgent,  //{13} | #X |
-      "fbp": getCookie("_fbp"),                  //{14} | #X |
-      "fbc": getCookie("_fbc"),                  //{15} | #X |
-      //  "subscription_id":,                        //{16} | #X |
-      //  "fb_login_id":,                            //{17} | #X | 
-      "test_event_code": "TEST52662"             // *Remove if done testing.
-    }
-
-    const searchData = {
-      //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
-      "event_id": generateEventID(),                      //[1]
-      "event_name": "Search",                        //[2] | "Search", "QuizComplete" |
-      "event_source_url": "https://www.livestronger.net", //[3]
-      // Customer Information Parameters
-      // "email":,                                  //{1} | # |
-      // "phone_number":,                           //{2} | # |
-      // "first_name":,                             //{3} | # |
-      // "last_name":,                              //{4} | # |
-      // "gender":,                                 //{5} | # |
-      // "birthday":,                               //{6} | # |
-      "city": user_location?.city,               //{7} | # |
-      "state": user_location?.state,             //{8} | # |
-      "zip_code": user_location?.postal,         //{9} | # |
-      "country": user_location?.country_name,    //{10} | # |
-      "external_id": getCookie("userID"),        //{11} | #? | *This is userID |
-      "client_ip_address": user_location?.IPv4,  //{12} | #X |
-      "client_user_agent": navigator.userAgent,  //{13} | #X |
-      "fbp": getCookie("_fbp"),                  //{14} | #X |
-      "fbc": getCookie("_fbc"),                  //{15} | #X |
-      // "subscription_id":,                        //{16} | #X |
-      // "fb_login_id":,                            //{17} | #X | 
-      "test_event_code": "TEST52662"             // *Remove if done testing.
-    }
-
-    const quizCompleteData = {
-      //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
-      "event_id": generateEventID(),                      //[1]
-      "event_name": "QuizComplete",                        //[2] | "Search", "QuizComplete" |
-      "event_source_url": "https://www.livestronger.net", //[3]
-      // Customer Information Parameters
-      // "email":,                                  //{1} | # |
-      // "phone_number":,                           //{2} | # |
-      // "first_name":,                             //{3} | # |
-      // "last_name":,                              //{4} | # |
-      // "gender":,                                 //{5} | # |
-      // "birthday":,                               //{6} | # |
-      "city": user_location?.city,               //{7} | # |
-      "state": user_location?.state,             //{8} | # |
-      "zip_code": user_location?.postal,         //{9} | # |
-      "country": user_location?.country_name,    //{10} | # |
-      "external_id": getCookie("userID"),        //{11} | #? | *This is userID |
-      "client_ip_address": user_location?.IPv4,  //{12} | #X |
-      "client_user_agent": navigator.userAgent,  //{13} | #X |
-      "fbp": getCookie("_fbp"),                  //{14} | #X |
-      "fbc": getCookie("_fbc"),                  //{15} | #X |
-      // "subscription_id":,                        //{16} | #X |
-      // "fb_login_id":,                            //{17} | #X | 
-      "test_event_code": "TEST52662"             // *Remove if done testing.
-    }
-    //<!-- End of Conversion API Code [Exept fetch()] -->
-    
-    setTimeout(()=>{
-      if(user_location){
-        // call fbq method events and sending of data to backend
-      
-        //<!-- Meta Pixel Code -->
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '759662146057719');
-        console.log('fbq - initialize');
-        fbq('track', 'ViewContent', {
-          ct: viewContentData.city,
-          st: viewContentData.state,
-          zp: viewContentData.zip_code,
-          country: viewContentData.country,
-          client_ip_address: viewContentData.client_ip_address,
-          client_user_agent: viewContentData.client_user_agent,
-          fbp: viewContentData.fbp,
-          fbc: viewContentData.fbc
-          },
-          {eventID: viewContentData.event_id}
-        );
-        
-            function isiOS() {
-              return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-            }
-          
-            function isMac() {
-              return navigator.platform.toUpperCase().indexOf('MAC') >= 0;
-            }
-          
-            function openPopup() {
-              alert("This website is being viewed on an iOS device!");
-            }
-          
-            if (isiOS()) {
-              fbq.disablePushState = true;
-            } else if (isMac()){
-              fbq.disablePushState = true;
-            } else {
-              fbq.disablePushState = false;
-            }
-            console.log('fbq - ViewContent - Pixel Sent');
-
-            fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
-              method: "POST",
-              body: JSON.stringify(viewContentData),
-              headers: {
-                "Content-Type": "application/json",
-              },
-            });
-            console.log('fbq - ViewContent - Server Sent');
-        //<!-- End Meta Pixel Code -->
-
+      if (getCookie("_fbp") == null) {
+        var randomNumber = getRandomNumber();
+        var fbp = "fb." + "1." + new Date().getTime() + "." + randomNumber;
+        setCookie("_fbp", fbp, 90);
       }
-    },1000); 
+
+      var queryString = window.location.search;
+      var params = new URLSearchParams(queryString);
+      var fbclid = params.get("fbclid");
+
+      if (getCookie("_fbc") == null && fbclid != null) {
+        console.log("creating fbc cookie");
+        var fbc = "fb." + "1." + new Date().getTime() + "." + fbclid;
+        setCookie("_fbc", fbc, 90);
+      }
+
+      const userID = generateEventID();
+      setCookie("userID", userID, 30);
+
+      const viewContentData = {
+        //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+        event_id: generateEventID(), //[1]
+        event_name: "ViewContent", //[2] | "Search", "QuizComplete" |
+        event_source_url: "https://www.livestronger.net", //[3]
+        // Customer Information Parameters
+        // "email":,                                  //{1} | # |
+        // "phone_number":,                           //{2} | # |
+        // "first_name":,                             //{3} | # |
+        // "last_name":,                              //{4} | # |
+        // "gender":,                                 //{5} | # |
+        // "birthday":,                               //{6} | # |
+        city: user_location?.city, //{7} | # |
+        state: user_location?.state, //{8} | # |
+        zip_code: user_location?.postal, //{9} | # |
+        country: user_location?.country_name, //{10} | # |
+        external_id: userID, //{11} | #? | *This is userID |
+        client_ip_address: user_location?.IPv4, //{12} | #X |
+        client_user_agent: navigator.userAgent, //{13} | #X |
+        fbp: getCookie("_fbp"), //{14} | #X |
+        fbc: getCookie("_fbc"), //{15} | #X |
+        //  "subscription_id":,                        //{16} | #X |
+        //  "fb_login_id":,                            //{17} | #X |
+        test_event_code: "TEST52662", // *Remove if done testing.
+      };
+
+      const searchData = {
+        //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+        event_id: generateEventID(), //[1]
+        event_name: "Search", //[2] | "Search", "QuizComplete" |
+        event_source_url: "https://www.livestronger.net", //[3]
+        // Customer Information Parameters
+        // "email":,                                  //{1} | # |
+        // "phone_number":,                           //{2} | # |
+        // "first_name":,                             //{3} | # |
+        // "last_name":,                              //{4} | # |
+        // "gender":,                                 //{5} | # |
+        // "birthday":,                               //{6} | # |
+        city: user_location?.city, //{7} | # |
+        state: user_location?.state, //{8} | # |
+        zip_code: user_location?.postal, //{9} | # |
+        country: user_location?.country_name, //{10} | # |
+        external_id: getCookie("userID"), //{11} | #? | *This is userID |
+        client_ip_address: user_location?.IPv4, //{12} | #X |
+        client_user_agent: navigator.userAgent, //{13} | #X |
+        fbp: getCookie("_fbp"), //{14} | #X |
+        fbc: getCookie("_fbc"), //{15} | #X |
+        // "subscription_id":,                        //{16} | #X |
+        // "fb_login_id":,                            //{17} | #X |
+        test_event_code: "TEST52662", // *Remove if done testing.
+      };
+
+      const quizCompleteData = {
+        //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+        event_id: generateEventID(), //[1]
+        event_name: "QuizComplete", //[2] | "Search", "QuizComplete" |
+        event_source_url: "https://www.livestronger.net", //[3]
+        // Customer Information Parameters
+        // "email":,                                  //{1} | # |
+        // "phone_number":,                           //{2} | # |
+        // "first_name":,                             //{3} | # |
+        // "last_name":,                              //{4} | # |
+        // "gender":,                                 //{5} | # |
+        // "birthday":,                               //{6} | # |
+        city: user_location?.city, //{7} | # |
+        state: user_location?.state, //{8} | # |
+        zip_code: user_location?.postal, //{9} | # |
+        country: user_location?.country_name, //{10} | # |
+        external_id: userID, //{11} | #? | *This is userID |
+        client_ip_address: user_location?.IPv4, //{12} | #X |
+        client_user_agent: navigator.userAgent, //{13} | #X |
+        fbp: getCookie("_fbp"), //{14} | #X |
+        fbc: getCookie("_fbc"), //{15} | #X |
+        // "subscription_id":,                        //{16} | #X |
+        // "fb_login_id":,                            //{17} | #X |
+        test_event_code: "TEST52662", // *Remove if done testing.
+      };
+      //<!-- End of Conversion API Code [Exept fetch()] -->
+
+      setTimeout(() => {
+        if (JSON.parse(localStorage.getItem("user_location"))) {
+          // call fbq method events and sending of data to backend
+          const parsedUserLocation = JSON.parse(
+            localStorage.getItem("user_location")
+          );
+
+          //<!-- Meta Pixel Code -->
+          !(function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+              n.callMethod
+                ? n.callMethod.apply(n, arguments)
+                : n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = "2.0";
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+          })(
+            window,
+            document,
+            "script",
+            "https://connect.facebook.net/en_US/fbevents.js"
+          );
+          fbq("init", "759662146057719", { external_id: userID });
+          console.log("fbq - initialize");
+          fbq(
+            "track",
+            "ViewContent",
+            {
+              ct: parsedUserLocation.city,
+              st: parsedUserLocation.state,
+              zp: parsedUserLocation.zip_code,
+              country: parsedUserLocation.country_code,
+              client_ip_address: parsedUserLocation.IPv4,
+              client_user_agent: viewContentData.client_user_agent,
+              fbp: viewContentData.fbp,
+              fbc: viewContentData.fbc,
+            },
+            { eventID: viewContentData.event_id }
+          );
+
+          function isiOS() {
+            return (
+              /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+            );
+          }
+
+          function isMac() {
+            return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+          }
+
+          function openPopup() {
+            alert("This website is being viewed on an iOS device!");
+          }
+
+          if (isiOS()) {
+            fbq.disablePushState = true;
+          } else if (isMac()) {
+            fbq.disablePushState = true;
+          } else {
+            fbq.disablePushState = false;
+          }
+          console.log("fbq - ViewContent - Pixel Sent");
+
+          const newViewContentData = {
+            //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+            event_id: generateEventID(), //[1]
+            event_name: "ViewContent", //[2] | "Search", "QuizComplete" |
+            event_source_url: "https://www.livestronger.net", //[3]
+            // Customer Information Parameters
+            // "email":,                                  //{1} | # |
+            // "phone_number":,                           //{2} | # |
+            // "first_name":,                             //{3} | # |
+            // "last_name":,                              //{4} | # |
+            // "gender":,                                 //{5} | # |
+            // "birthday":,                               //{6} | # |
+            city: parsedUserLocation?.city, //{7} | # |
+            state: parsedUserLocation?.state, //{8} | # |
+            zip_code: parsedUserLocation?.postal, //{9} | # |
+            country: parsedUserLocation?.country_code, //{10} | # |
+            external_id: userID, //{11} | #? | *This is userID |
+            client_ip_address: parsedUserLocation?.IPv4, //{12} | #X |
+            client_user_agent: navigator.userAgent, //{13} | #X |
+            fbp: getCookie("_fbp"), //{14} | #X |
+            fbc: getCookie("_fbc"), //{15} | #X |
+            //  "subscription_id":,                        //{16} | #X |
+            //  "fb_login_id":,                            //{17} | #X |
+            test_event_code: "TEST52662", // *Remove if done testing.
+          };
+
+          fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+            method: "POST",
+            body: JSON.stringify(newViewContentData),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          console.log("fbq - ViewContent - Server Sent");
+          //<!-- End Meta Pixel Code -->
+        }
+      }, 1000);
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=759662146057719&ev=PageView&noscript=1"
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=759662146057719&ev=PageView&noscript=1"
     /></noscript>
-    
-</head>
-<body>
-    <h1><br>Discover Why This <span class="first-span">Purple Honey</span> Is Being Called a <span class="first-span">"Fat-Burning Miracle"</span> <br> After Helping <span class="second-span">36,220 Men and Women</span> Lose Weight Effortlessly<br> &nbsp;</h1>
-    <h2><span class="first-span">(Take This Quiz To See How Much Purple Honey Your Body Needs To Burn Effortless Fat)</span></h2>
+  </head>
+  <body>
+    <h1>
+      <br />Discover Why This <span class="first-span">Purple Honey</span> Is
+      Being Called a <span class="first-span">"Fat-Burning Miracle"</span>
+      <br />
+      After Helping <span class="second-span">36,220 Men and Women</span> Lose
+      Weight Effortlessly<br />
+      &nbsp;
+    </h1>
+    <h2>
+      <span class="first-span"
+        >(Take This Quiz To See How Much Purple Honey Your Body Needs To Burn
+        Effortless Fat)</span
+      >
+    </h2>
 
     <div class="quiz-container">
-        
-        <form id="quizForm" action="submit-quiz.php" method="post">
-            <!-- Question 1 -->
-            <div class="question" id="question1" style="display: block;">
-                <div class="progress-bar">
-                    <div class="progress-bar-inner" style="width: 10%;"></div>
-                </div>
-                <h2>This year I am:</h2>
-                <label for="q1a"><input type="radio" id="q1a" name="q1" value="a" onclick="showNextQuestion(2)"> 18-25 years old and want to look my best</label>
-                <label for="q1b"><input type="radio" id="q1b" name="q1" value="b" onclick="showNextQuestion(2)"> 26-35 years old and struggling with slow metabolism</label>
-                <label for="q1c"><input type="radio" id="q1c" name="q1" value="c" onclick="showNextQuestion(2)"> 36-45 years old and feeling overweight</label>
-                <label for="q1d"><input type="radio" id="q1d" name="q1" value="d" onclick="showNextQuestion(2)"> 46-60 years old and want to get in shape again</label>
-                <label for="q1e"><input type="radio" id="q1e" name="q1" value="e" onclick="showNextQuestion(2)"> Over 60 years old and hoping to finally lose this weight</label>
-            </div>
+      <form id="quizForm" action="submit-quiz.php" method="post">
+        <!-- Question 1 -->
+        <div class="question" id="question1" style="display: block">
+          <div class="progress-bar">
+            <div class="progress-bar-inner" style="width: 10%"></div>
+          </div>
+          <h2>This year I am:</h2>
+          <label for="q1a"
+            ><input
+              type="radio"
+              id="q1a"
+              name="q1"
+              value="a"
+              onclick="showNextQuestion(2)"
+            />
+            18-25 years old and want to look my best</label
+          >
+          <label for="q1b"
+            ><input
+              type="radio"
+              id="q1b"
+              name="q1"
+              value="b"
+              onclick="showNextQuestion(2)"
+            />
+            26-35 years old and struggling with slow metabolism</label
+          >
+          <label for="q1c"
+            ><input
+              type="radio"
+              id="q1c"
+              name="q1"
+              value="c"
+              onclick="showNextQuestion(2)"
+            />
+            36-45 years old and feeling overweight</label
+          >
+          <label for="q1d"
+            ><input
+              type="radio"
+              id="q1d"
+              name="q1"
+              value="d"
+              onclick="showNextQuestion(2)"
+            />
+            46-60 years old and want to get in shape again</label
+          >
+          <label for="q1e"
+            ><input
+              type="radio"
+              id="q1e"
+              name="q1"
+              value="e"
+              onclick="showNextQuestion(2)"
+            />
+            Over 60 years old and hoping to finally lose this weight</label
+          >
+        </div>
 
-            <!-- Question 2 -->
-            <div class="question" id="question2" style="display: none;">
-                <div class="progress-bar">
-                    <div class="progress-bar-inner" style="width: 20%;"></div>
-                </div>
-                <h2>Currently, I weigh:</h2>
-                <label for="q2a"><input type="radio" id="q2a" name="q2" value="a" onclick="showNextQuestion(3)"> 120-150 pounds and want to stay fit</label>
-                <label for="q2b"><input type="radio" id="q2b" name="q2" value="b" onclick="showNextQuestion(3)"> 151-180 pounds and am gaining slowly each year</label>
-                <label for="q2c"><input type="radio" id="q2c" name="q2" value="c" onclick="showNextQuestion(3)"> 181-210 pounds and my clothes are feeling tight</label>
-                <label for="q2d"><input type="radio" id="q2d" name="q2" value="d" onclick="showNextQuestion(3)"> 211-240 pounds and my weight is impacting my health</label>
-                <label for="q2e"><input type="radio" id="q2e" name="q2" value="e" onclick="showNextQuestion(3)"> Over 240 pounds and struggling to lose any weight</label>
-            </div>
+        <!-- Question 2 -->
+        <div class="question" id="question2" style="display: none">
+          <div class="progress-bar">
+            <div class="progress-bar-inner" style="width: 20%"></div>
+          </div>
+          <h2>Currently, I weigh:</h2>
+          <label for="q2a"
+            ><input
+              type="radio"
+              id="q2a"
+              name="q2"
+              value="a"
+              onclick="showNextQuestion(3)"
+            />
+            120-150 pounds and want to stay fit</label
+          >
+          <label for="q2b"
+            ><input
+              type="radio"
+              id="q2b"
+              name="q2"
+              value="b"
+              onclick="showNextQuestion(3)"
+            />
+            151-180 pounds and am gaining slowly each year</label
+          >
+          <label for="q2c"
+            ><input
+              type="radio"
+              id="q2c"
+              name="q2"
+              value="c"
+              onclick="showNextQuestion(3)"
+            />
+            181-210 pounds and my clothes are feeling tight</label
+          >
+          <label for="q2d"
+            ><input
+              type="radio"
+              id="q2d"
+              name="q2"
+              value="d"
+              onclick="showNextQuestion(3)"
+            />
+            211-240 pounds and my weight is impacting my health</label
+          >
+          <label for="q2e"
+            ><input
+              type="radio"
+              id="q2e"
+              name="q2"
+              value="e"
+              onclick="showNextQuestion(3)"
+            />
+            Over 240 pounds and struggling to lose any weight</label
+          >
+        </div>
 
-            <!-- Question 3 -->
-            <div class="question" id="question3" style="display: none;">
-                <div class="progress-bar">
-                    <div class="progress-bar-inner" style="width: 30%;"></div>
-                </div>
-                <h2>When I look in the mirror, I feel hopeful about the future.</h2>
-                <label for="q3a"><input type="radio" id="q3a" name="q3" value="a" onclick="showNextQuestion(4)"> Yes, I'm excited for the possibilities ahead.</label>
-                <label for="q3b"><input type="radio" id="q3b" name="q3" value="b" onclick="showNextQuestion(4)"> Most days I feel pretty good.</label>
-                <label for="q3c"><input type="radio" id="q3c" name="q3" value="c" onclick="showNextQuestion(4)"> I'd like to feel more confident in my body.</label>
-                <label for="q3d"><input type="radio" id="q3d" name="q3" value="d" onclick="showNextQuestion(4)"> I often feel discouraged when I look in the mirror.</label>
-            </div>
+        <!-- Question 3 -->
+        <div class="question" id="question3" style="display: none">
+          <div class="progress-bar">
+            <div class="progress-bar-inner" style="width: 30%"></div>
+          </div>
+          <h2>When I look in the mirror, I feel hopeful about the future.</h2>
+          <label for="q3a"
+            ><input
+              type="radio"
+              id="q3a"
+              name="q3"
+              value="a"
+              onclick="showNextQuestion(4)"
+            />
+            Yes, I'm excited for the possibilities ahead.</label
+          >
+          <label for="q3b"
+            ><input
+              type="radio"
+              id="q3b"
+              name="q3"
+              value="b"
+              onclick="showNextQuestion(4)"
+            />
+            Most days I feel pretty good.</label
+          >
+          <label for="q3c"
+            ><input
+              type="radio"
+              id="q3c"
+              name="q3"
+              value="c"
+              onclick="showNextQuestion(4)"
+            />
+            I'd like to feel more confident in my body.</label
+          >
+          <label for="q3d"
+            ><input
+              type="radio"
+              id="q3d"
+              name="q3"
+              value="d"
+              onclick="showNextQuestion(4)"
+            />
+            I often feel discouraged when I look in the mirror.</label
+          >
+        </div>
 
-            <!-- Question 4 -->
-            <div class="question" id="question4" style="display: none;">
-                <div class="progress-bar">
-                    <div class="progress-bar-inner" style="width: 40%;"></div>
-                </div>
-                <h2>My current weight makes it hard for me to...</h2>
-                <label for="q4a"><input type="radio" id="q4a" name="q4" value="a" onclick="showNextQuestion(5)"> Keep up with my grandkids/kids</label>
-                <label for="q4b"><input type="radio" id="q4b" name="q4" value="b" onclick="showNextQuestion(5)"> Find clothes I feel good in</label>
-                <label for="q4c"><input type="radio" id="q4c" name="q4" value="c" onclick="showNextQuestion(5)"> Be intimate with my partner</label>
-                <label for="q4d"><input type="radio" id="q4d" name="q4" value="d" onclick="showNextQuestion(5)"> Feel confident socializing</label>
-            </div>
+        <!-- Question 4 -->
+        <div class="question" id="question4" style="display: none">
+          <div class="progress-bar">
+            <div class="progress-bar-inner" style="width: 40%"></div>
+          </div>
+          <h2>My current weight makes it hard for me to...</h2>
+          <label for="q4a"
+            ><input
+              type="radio"
+              id="q4a"
+              name="q4"
+              value="a"
+              onclick="showNextQuestion(5)"
+            />
+            Keep up with my grandkids/kids</label
+          >
+          <label for="q4b"
+            ><input
+              type="radio"
+              id="q4b"
+              name="q4"
+              value="b"
+              onclick="showNextQuestion(5)"
+            />
+            Find clothes I feel good in</label
+          >
+          <label for="q4c"
+            ><input
+              type="radio"
+              id="q4c"
+              name="q4"
+              value="c"
+              onclick="showNextQuestion(5)"
+            />
+            Be intimate with my partner</label
+          >
+          <label for="q4d"
+            ><input
+              type="radio"
+              id="q4d"
+              name="q4"
+              value="d"
+              onclick="showNextQuestion(5)"
+            />
+            Feel confident socializing</label
+          >
+        </div>
 
-            <!-- Question 5 -->
-            <div class="question" id="question5" style="display: none;">
-                <div class="progress-bar">
-                    <div class="progress-bar-inner" style="width: 50%;"></div>
-                </div>
-                <h2>I've tried many diets before without long-term success because...</h2>
-                <label for="q5a"><input type="radio" id="q5a" name="q5" value="a" onclick="showNextQuestion(6)"> I eventually fall back into old habits</label>
-                <label for="q5b"><input type="radio" id="q5b" name="q5" value="b" onclick="showNextQuestion(6)"> The restrictions are too hard to maintain</label>
-                <label for="q5c"><input type="radio" id="q5c" name="q5" value="c" onclick="showNextQuestion(6)"> I lose motivation after an initial drop</label>
-                <label for="q5d"><input type="radio" id="q5d" name="q5" value="d" onclick="showNextQuestion(6)"> Nothing seems to work for my body</label>
-            </div>            
+        <!-- Question 5 -->
+        <div class="question" id="question5" style="display: none">
+          <div class="progress-bar">
+            <div class="progress-bar-inner" style="width: 50%"></div>
+          </div>
+          <h2>
+            I've tried many diets before without long-term success because...
+          </h2>
+          <label for="q5a"
+            ><input
+              type="radio"
+              id="q5a"
+              name="q5"
+              value="a"
+              onclick="showNextQuestion(6)"
+            />
+            I eventually fall back into old habits</label
+          >
+          <label for="q5b"
+            ><input
+              type="radio"
+              id="q5b"
+              name="q5"
+              value="b"
+              onclick="showNextQuestion(6)"
+            />
+            The restrictions are too hard to maintain</label
+          >
+          <label for="q5c"
+            ><input
+              type="radio"
+              id="q5c"
+              name="q5"
+              value="c"
+              onclick="showNextQuestion(6)"
+            />
+            I lose motivation after an initial drop</label
+          >
+          <label for="q5d"
+            ><input
+              type="radio"
+              id="q5d"
+              name="q5"
+              value="d"
+              onclick="showNextQuestion(6)"
+            />
+            Nothing seems to work for my body</label
+          >
+        </div>
 
-            <!-- Question 6 -->
-            <div class="question" id="question6" style="display: none;">
-                <div class="progress-bar">
-                    <div class="progress-bar-inner" style="width: 60%;"></div>
-                </div>
-                <h2>When I don't feel good about my body, I tend to...</h2>
-                <label for="q6a"><input type="radio" id="q6a" name="q6" value="a" onclick="showNextQuestion(7)"> Avoid looking in mirrors</label>
-                <label for="q6b"><input type="radio" id="q6b" name="q6" value="b" onclick="showNextQuestion(7)"> Cancel social events</label>
-                <label for="q6c"><input type="radio" id="q6c" name="q6" value="c" onclick="showNextQuestion(7)"> Stop being intimate with my partner</label>
-                <label for="q6d"><input type="radio" id="q6d" name="q6" value="d" onclick="showNextQuestion(7)"> Feel depressed and beat myself up</label>
-            </div>
+        <!-- Question 6 -->
+        <div class="question" id="question6" style="display: none">
+          <div class="progress-bar">
+            <div class="progress-bar-inner" style="width: 60%"></div>
+          </div>
+          <h2>When I don't feel good about my body, I tend to...</h2>
+          <label for="q6a"
+            ><input
+              type="radio"
+              id="q6a"
+              name="q6"
+              value="a"
+              onclick="showNextQuestion(7)"
+            />
+            Avoid looking in mirrors</label
+          >
+          <label for="q6b"
+            ><input
+              type="radio"
+              id="q6b"
+              name="q6"
+              value="b"
+              onclick="showNextQuestion(7)"
+            />
+            Cancel social events</label
+          >
+          <label for="q6c"
+            ><input
+              type="radio"
+              id="q6c"
+              name="q6"
+              value="c"
+              onclick="showNextQuestion(7)"
+            />
+            Stop being intimate with my partner</label
+          >
+          <label for="q6d"
+            ><input
+              type="radio"
+              id="q6d"
+              name="q6"
+              value="d"
+              onclick="showNextQuestion(7)"
+            />
+            Feel depressed and beat myself up</label
+          >
+        </div>
 
-            <!-- Question 7 -->
-            <div class="question" id="question7" style="display: none;">
-                <div class="progress-bar">
-                    <div class="progress-bar-inner" style="width: 70%;"></div>
-                </div>
-                <h2>I feel frustrated that my metabolism...</h2>
-                <label for="q7a"><input type="radio" id="q7a" name="q7" value="a" onclick="showNextQuestion(8)"> Makes it so hard to lose weight</label>
-                <label for="q7b"><input type="radio" id="q7b" name="q7" value="b" onclick="showNextQuestion(8)"> Seems to keep slowing down</label>
-                <label for="q7c"><input type="radio" id="q7c" name="q7" value="c" onclick="showNextQuestion(8)"> Won't let me eat the foods I love</label>
-                <label for="q7d"><input type="radio" id="q7d" name="q7" value="d" onclick="showNextQuestion(8)"> Is preventing my weight loss goals</label>
-            </div>
+        <!-- Question 7 -->
+        <div class="question" id="question7" style="display: none">
+          <div class="progress-bar">
+            <div class="progress-bar-inner" style="width: 70%"></div>
+          </div>
+          <h2>I feel frustrated that my metabolism...</h2>
+          <label for="q7a"
+            ><input
+              type="radio"
+              id="q7a"
+              name="q7"
+              value="a"
+              onclick="showNextQuestion(8)"
+            />
+            Makes it so hard to lose weight</label
+          >
+          <label for="q7b"
+            ><input
+              type="radio"
+              id="q7b"
+              name="q7"
+              value="b"
+              onclick="showNextQuestion(8)"
+            />
+            Seems to keep slowing down</label
+          >
+          <label for="q7c"
+            ><input
+              type="radio"
+              id="q7c"
+              name="q7"
+              value="c"
+              onclick="showNextQuestion(8)"
+            />
+            Won't let me eat the foods I love</label
+          >
+          <label for="q7d"
+            ><input
+              type="radio"
+              id="q7d"
+              name="q7"
+              value="d"
+              onclick="showNextQuestion(8)"
+            />
+            Is preventing my weight loss goals</label
+          >
+        </div>
 
-            <!-- Question 8 -->
-            <div class="question" id="question8" style="display: none;">
-                <div class="progress-bar">
-                    <div class="progress-bar-inner" style="width: 80%;"></div>
-                </div>
-                <h2>I'm afraid that if I don't make a change...</h2>
-                <label for="q8a"><input type="radio" id="q8a" name="q8" value="a" onclick="showNextQuestion(9)"> My health will deteriorate </label>
-                <label for="q8b"><input type="radio" id="q8b" name="q8" value="b" onclick="showNextQuestion(9)"> My partner will lose attraction </label>
-                <label for="q8c"><input type="radio" id="q8c" name="q8" value="c" onclick="showNextQuestion(9)"> I'll miss important life events</label>
-                <label for="q8d"><input type="radio" id="q8d" name="q8" value="d" onclick="showNextQuestion(9)"> I'll remain unhappy with my appearance</label>
-            </div>
+        <!-- Question 8 -->
+        <div class="question" id="question8" style="display: none">
+          <div class="progress-bar">
+            <div class="progress-bar-inner" style="width: 80%"></div>
+          </div>
+          <h2>I'm afraid that if I don't make a change...</h2>
+          <label for="q8a"
+            ><input
+              type="radio"
+              id="q8a"
+              name="q8"
+              value="a"
+              onclick="showNextQuestion(9)"
+            />
+            My health will deteriorate
+          </label>
+          <label for="q8b"
+            ><input
+              type="radio"
+              id="q8b"
+              name="q8"
+              value="b"
+              onclick="showNextQuestion(9)"
+            />
+            My partner will lose attraction
+          </label>
+          <label for="q8c"
+            ><input
+              type="radio"
+              id="q8c"
+              name="q8"
+              value="c"
+              onclick="showNextQuestion(9)"
+            />
+            I'll miss important life events</label
+          >
+          <label for="q8d"
+            ><input
+              type="radio"
+              id="q8d"
+              name="q8"
+              value="d"
+              onclick="showNextQuestion(9)"
+            />
+            I'll remain unhappy with my appearance</label
+          >
+        </div>
 
-            <!-- Question 9 -->
-            <div class="question" id="question9" style="display: none;">
-                <div class="progress-bar">
-                    <div class="progress-bar-inner" style="width: 90%;"></div>
-                </div>
-                <h2>Instead of continuing to struggle with my weight, I want to feel...</h2>
-                <label for="q9a"><input type="radio" id="q9a" name="q9" value="a" onclick="showNextQuestion(10)"> Confident in my body</label>
-                <label for="q9b"><input type="radio" id="q9b" name="q9" value="b" onclick="showNextQuestion(10)"> Desired by my partner</label>
-                <label for="q9c"><input type="radio" id="q9c" name="q9" value="c" onclick="showNextQuestion(10)"> Comfortable being social</label>
-                <label for="q9d"><input type="radio" id="q9d" name="q9" value="d" onclick="showNextQuestion(10)"> Proud of my appearance</label>
-            </div>
+        <!-- Question 9 -->
+        <div class="question" id="question9" style="display: none">
+          <div class="progress-bar">
+            <div class="progress-bar-inner" style="width: 90%"></div>
+          </div>
+          <h2>
+            Instead of continuing to struggle with my weight, I want to feel...
+          </h2>
+          <label for="q9a"
+            ><input
+              type="radio"
+              id="q9a"
+              name="q9"
+              value="a"
+              onclick="showNextQuestion(10)"
+            />
+            Confident in my body</label
+          >
+          <label for="q9b"
+            ><input
+              type="radio"
+              id="q9b"
+              name="q9"
+              value="b"
+              onclick="showNextQuestion(10)"
+            />
+            Desired by my partner</label
+          >
+          <label for="q9c"
+            ><input
+              type="radio"
+              id="q9c"
+              name="q9"
+              value="c"
+              onclick="showNextQuestion(10)"
+            />
+            Comfortable being social</label
+          >
+          <label for="q9d"
+            ><input
+              type="radio"
+              id="q9d"
+              name="q9"
+              value="d"
+              onclick="showNextQuestion(10)"
+            />
+            Proud of my appearance</label
+          >
+        </div>
 
-            <!-- Question 10 -->
-            <div class="question" id="question10" style="display: none;">
-                <div class="progress-bar">
-                    <div class="progress-bar-inner" style="width: 100%;"></div>
-                </div>
-                <h2>If I could make one positive change to improve how I feel about my body, it would be: </h2>
-                <label for="q10a"><input type="radio" id="q10a" name="q10" value="a" onclick="redirectToPage()"> Having more energy to be active</label>
-                <label for="q10b"><input type="radio" id="q10b" name="q10" value="b" onclick="redirectToPage()"> Losing the extra weight, especially around my stomach</label>
-                <label for="q10c"><input type="radio" id="q10c" name="q10" value="c" onclick="redirectToPage()"> Feeling confident and sexy in my clothes</label>
-                <label for="q10d"><input type="radio" id="q10d" name="q10" value="d" onclick="redirectToPage()"> Not dreading looking in the mirror everyday</label>
-            </div>
+        <!-- Question 10 -->
+        <div class="question" id="question10" style="display: none">
+          <div class="progress-bar">
+            <div class="progress-bar-inner" style="width: 100%"></div>
+          </div>
+          <h2>
+            If I could make one positive change to improve how I feel about my
+            body, it would be:
+          </h2>
+          <label for="q10a"
+            ><input
+              type="radio"
+              id="q10a"
+              name="q10"
+              value="a"
+              onclick="redirectToPage()"
+            />
+            Having more energy to be active</label
+          >
+          <label for="q10b"
+            ><input
+              type="radio"
+              id="q10b"
+              name="q10"
+              value="b"
+              onclick="redirectToPage()"
+            />
+            Losing the extra weight, especially around my stomach</label
+          >
+          <label for="q10c"
+            ><input
+              type="radio"
+              id="q10c"
+              name="q10"
+              value="c"
+              onclick="redirectToPage()"
+            />
+            Feeling confident and sexy in my clothes</label
+          >
+          <label for="q10d"
+            ><input
+              type="radio"
+              id="q10d"
+              name="q10"
+              value="d"
+              onclick="redirectToPage()"
+            />
+            Not dreading looking in the mirror everyday</label
+          >
+        </div>
 
-            <input type="submit" id="submitButton" value="Submit Answers" style="display: none;">
-        </form>
-        <button id="redirectButton" style="display: none;" onclick="redirectToPage()">Submit</button>
+        <input
+          type="submit"
+          id="submitButton"
+          value="Submit Answers"
+          style="display: none"
+        />
+      </form>
+      <button
+        id="redirectButton"
+        style="display: none"
+        onclick="redirectToPage()"
+      >
+        Submit
+      </button>
     </div>
 
     <script>
-        function updateProgressBar(currentQuestion) {
-            var totalQuestions = 10; 
-            var progressBarInner = document.querySelector('.progress-bar-inner');
-            if (progressBarInner) {
-                var progressValue = (currentQuestion - 1) * (100 / totalQuestions);
-                progressBarInner.style.width = progressValue + '%';
-            }
+      function updateProgressBar(currentQuestion) {
+        var totalQuestions = 10;
+        var progressBarInner = document.querySelector(".progress-bar-inner");
+        if (progressBarInner) {
+          var progressValue = (currentQuestion - 1) * (100 / totalQuestions);
+          progressBarInner.style.width = progressValue + "%";
         }
-    
-        function showNextQuestion(nextQuestionNumber) {
-            console.log('Button clicked! "Search" ' + nextQuestionNumber);
-            var currentQuestion = document.getElementById('question' + nextQuestionNumber);
-            var previousQuestion = document.getElementById('question' + (nextQuestionNumber - 1));
-            if (previousQuestion) {
-                previousQuestion.style.display = 'none';
-            }
-            if (currentQuestion) {
-                currentQuestion.style.display = 'block';
-            }
-            updateProgressBar(nextQuestionNumber);
-            if (nextQuestionNumber > 10) { 
-                document.getElementById('redirectButton').style.display = 'block';
-            }
-            if (nextQuestionNumber == 5){
-              fbq('track', 'Search', {
-                ct: searchData.city,
-                st: searchData.state,
-                zp: searchData.zip_code,
-                country: searchData.country,
-                client_ip_address: searchData.client_ip_address,
-                client_user_agent: searchData.client_user_agent,
-                fbp: searchData.fbp,
-                fbc: searchData.fbc
-                },
-                {eventID: searchData.event_id}
-              );
+      }
 
-              function isiOS() {
-                return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-              }
-            
-              function isMac() {
-                return navigator.platform.toUpperCase().indexOf('MAC') >= 0;
-              }
-            
-              function openPopup() {
-                alert("This website is being viewed on an iOS device!");
-              }
-            
-              if (isiOS()) {
-                fbq.disablePushState = true;
-              } else if (isMac()){
-                fbq.disablePushState = true;
-              } else {
-                fbq.disablePushState = false;
-              }
-              console.log('fbq - Search - Pixel Sent');
+      function showNextQuestion(nextQuestionNumber) {
+        const parsedUserLocation = JSON.parse(
+          localStorage.getItem("user_location")
+        );
 
-                fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
-                    method: "POST",
-                    body: JSON.stringify(searchData),
-                    headers: {
-                    "Content-Type": "application/json",
-                    },
-                });
-                console.log('fbq - Search - Server Sent');
-            }
+        const newSearchData = {
+          //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+          event_id: generateEventID(), //[1]
+          event_name: "Search", //[2] | "Search", "QuizComplete" |
+          event_source_url: "https://www.livestronger.net", //[3]
+          // Customer Information Parameters
+          // "email":,                                  //{1} | # |
+          // "phone_number":,                           //{2} | # |
+          // "first_name":,                             //{3} | # |
+          // "last_name":,                              //{4} | # |
+          // "gender":,                                 //{5} | # |
+          // "birthday":,                               //{6} | # |
+          city: user_location?.city, //{7} | # |
+          state: user_location?.state, //{8} | # |
+          zip_code: user_location?.postal, //{9} | # |
+          country: user_location?.country_name, //{10} | # |
+          external_id: getCookie("userID"), //{11} | #? | *This is userID |
+          client_ip_address: user_location?.IPv4, //{12} | #X |
+          client_user_agent: navigator.userAgent, //{13} | #X |
+          fbp: getCookie("_fbp"), //{14} | #X |
+          fbc: getCookie("_fbc"), //{15} | #X |
+          // "subscription_id":,                        //{16} | #X |
+          // "fb_login_id":,                            //{17} | #X |
+          test_event_code: "TEST52662", // *Remove if done testing.
+        };
+
+        console.log('Button clicked! "Search" ' + nextQuestionNumber);
+        var currentQuestion = document.getElementById(
+          "question" + nextQuestionNumber
+        );
+        var previousQuestion = document.getElementById(
+          "question" + (nextQuestionNumber - 1)
+        );
+        if (previousQuestion) {
+          previousQuestion.style.display = "none";
         }
-    
-        function redirectToPage() {
-            console.log('Button clicked! "QuizComplete"');
-            fbq('track', 'QuizComplete', {
-                  ct: quizCompleteData.city,
-                  st: quizCompleteData.state,
-                  zp: quizCompleteData.zip_code,
-                  country: quizCompleteData.country,
-                  client_ip_address: quizCompleteData.client_ip_address,
-                  client_user_agent: quizCompleteData.client_user_agent,
-                  fbp: quizCompleteData.fbp,
-                  fbc: quizCompleteData.fbc
-                  },
-                  {eventID: quizCompleteData.event_id}
-                );
-
-              function isiOS() {
-                return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-              }
-            
-              function isMac() {
-                return navigator.platform.toUpperCase().indexOf('MAC') >= 0;
-              }
-            
-              function openPopup() {
-                alert("This website is being viewed on an iOS device!");
-              }
-            
-              if (isiOS()) {
-                fbq.disablePushState = true;
-              } else if (isMac()){
-                fbq.disablePushState = true;
-              } else {
-                fbq.disablePushState = false;
-              }
-
-              console.log('fbq - QuizComplete - Pixel Sent');
-
-            fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
-                method: "POST",
-                body: JSON.stringify(quizCompleteData),
-                headers: {
-                "Content-Type": "application/json",
-                },
-            });
-            console.log('fbq - QuizComplete - Server Sent');
-            window.location.href = 'https://honeyburn24.com/video.php?aff=Idooni&cid={YourClickID}&cam=CAMPAIGNKEY';
+        if (currentQuestion) {
+          currentQuestion.style.display = "block";
         }
+        updateProgressBar(nextQuestionNumber);
+        if (nextQuestionNumber > 10) {
+          document.getElementById("redirectButton").style.display = "block";
+        }
+        if (nextQuestionNumber == 5) {
+          fbq(
+            "track",
+            "Search",
+            {
+              ct: parsedUserLocation.city,
+              st: parsedUserLocation.state,
+              zp: parsedUserLocation.zip_code,
+              country: parsedUserLocation.country_code,
+              client_ip_address: parsedUserLocation.IPv4,
+              client_user_agent: searchData.client_user_agent,
+              fbp: searchData.fbp,
+              fbc: searchData.fbc,
+            },
+            { eventID: searchData.event_id }
+          );
+
+          function isiOS() {
+            return (
+              /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+            );
+          }
+
+          function isMac() {
+            return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+          }
+
+          function openPopup() {
+            alert("This website is being viewed on an iOS device!");
+          }
+
+          if (isiOS()) {
+            fbq.disablePushState = true;
+          } else if (isMac()) {
+            fbq.disablePushState = true;
+          } else {
+            fbq.disablePushState = false;
+          }
+          console.log("fbq - Search - Pixel Sent");
+
+          const newSearchData = {
+            //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+            event_id: generateEventID(), //[1]
+            event_name: "Search", //[2] | "Search", "QuizComplete" |
+            event_source_url: "https://www.livestronger.net", //[3]
+            // Customer Information Parameters
+            // "email":,                                  //{1} | # |
+            // "phone_number":,                           //{2} | # |
+            // "first_name":,                             //{3} | # |
+            // "last_name":,                              //{4} | # |
+            // "gender":,                                 //{5} | # |
+            // "birthday":,                               //{6} | # |
+            city: parsedUserLocation?.city, //{7} | # |
+            state: parsedUserLocation?.state, //{8} | # |
+            zip_code: parsedUserLocation?.postal, //{9} | # |
+            country: parsedUserLocation?.country_code, //{10} | # |
+            external_id: getCookie("userID"), //{11} | #? | *This is userID |
+            client_ip_address: parsedUserLocation?.IPv4, //{12} | #X |
+            client_user_agent: navigator.userAgent, //{13} | #X |
+            fbp: getCookie("_fbp"), //{14} | #X |
+            fbc: getCookie("_fbc"), //{15} | #X |
+            // "subscription_id":,                        //{16} | #X |
+            // "fb_login_id":,                            //{17} | #X |
+            test_event_code: "TEST52662", // *Remove if done testing.
+          };
+
+          fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+            method: "POST",
+            body: JSON.stringify(newSearchData),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          console.log("fbq - Search - Server Sent");
+        }
+      }
+
+      function redirectToPage() {
+        console.log('Button clicked! "QuizComplete"');
+        const parsedUserLocation = JSON.parse(
+          localStorage.getItem("user_location")
+        );
+        const newQuizCompleteData = {
+          //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+          event_id: generateEventID(), //[1]
+          event_name: "QuizComplete", //[2] | "Search", "QuizComplete" |
+          event_source_url: "https://www.livestronger.net", //[3]
+          // Customer Information Parameters
+          // "email":,                                  //{1} | # |
+          // "phone_number":,                           //{2} | # |
+          // "first_name":,                             //{3} | # |
+          // "last_name":,                              //{4} | # |
+          // "gender":,                                 //{5} | # |
+          // "birthday":,                               //{6} | # |
+          city: parsedUserLocation?.city, //{7} | # |
+          state: parsedUserLocation?.state, //{8} | # |
+          zip_code: parsedUserLocation?.postal, //{9} | # |
+          country: parsedUserLocation?.country_code, //{10} | # |
+          external_id: getCookie("userID"), //{11} | #? | *This is userID |
+          client_ip_address: user_location?.IPv4, //{12} | #X |
+          client_user_agent: navigator.userAgent, //{13} | #X |
+          fbp: getCookie("_fbp"), //{14} | #X |
+          fbc: getCookie("_fbc"), //{15} | #X |
+          // "subscription_id":,                        //{16} | #X |
+          // "fb_login_id":,                            //{17} | #X |
+          test_event_code: "TEST52662", // *Remove if done testing.
+        };
+        fbq(
+          "track",
+          "QuizComplete",
+          {
+            city: parsedUserLocation.city,
+            state: parsedUserLocation.state,
+            zip_code: parsedUserLocation.zip_code,
+            country: parsedUserLocation.country_code,
+            client_ip_address: parsedUserLocation.IPv4,
+            client_user_agent: quizCompleteData.client_user_agent,
+            fbp: quizCompleteData.fbp,
+            fbc: quizCompleteData.fbc,
+          },
+          { eventID: quizCompleteData.event_id }
+        );
+
+        function isiOS() {
+          return (
+            /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+          );
+        }
+
+        function isMac() {
+          return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+        }
+
+        function openPopup() {
+          alert("This website is being viewed on an iOS device!");
+        }
+
+        if (isiOS()) {
+          fbq.disablePushState = true;
+        } else if (isMac()) {
+          fbq.disablePushState = true;
+        } else {
+          fbq.disablePushState = false;
+        }
+
+        console.log("fbq - QuizComplete - Pixel Sent");
+
+        fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+          method: "POST",
+          body: JSON.stringify(newQuizCompleteData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then(() => {
+            console.log("fbq - QuizComplete - Server Sent");
+            window.location.href =
+              "https://honeyburn24.com/video.php?aff=Idooni&cid={YourClickID}&cam=CAMPAIGNKEY";
+          })
+          .catch((err) => console.error(err));
+      }
     </script>
-    
-</body>
+  </body>
 </html>
