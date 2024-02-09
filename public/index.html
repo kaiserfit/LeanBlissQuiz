@@ -1050,21 +1050,6 @@
           document.getElementById("redirectButton").style.display = "block";
         }
         if (nextQuestionNumber == 5) {
-          fbq(
-            "track",
-            "Search",
-            {
-              ct: parsedUserLocation.city,
-              st: parsedUserLocation.state,
-              zp: parsedUserLocation.zip_code,
-              country: parsedUserLocation.country_code,
-              client_ip_address: parsedUserLocation.IPv4,
-              client_user_agent: searchData.client_user_agent,
-              fbp: searchData.fbp,
-              fbc: searchData.fbc,
-            },
-            { eventID: searchData.event_id }
-          );
 
           function isiOS() {
             return (
@@ -1081,13 +1066,28 @@
           }
 
           if (isiOS()) {
-            fbq.disablePushState = true;
+            //fbq.disablePushState = true;
             console.log("fbq - Search - Pixel not sent (Apple Device)");
           } else if (isMac()) {
-            fbq.disablePushState = true;
+            //fbq.disablePushState = true;
             console.log("fbq - Search - Pixel not sent (Apple Device)");
           } else {
-            fbq.disablePushState = false;
+            //fbq.disablePushState = false;
+            fbq(
+            "track",
+            "Search",
+            {
+              ct: parsedUserLocation.city,
+              st: parsedUserLocation.state,
+              zp: parsedUserLocation.zip_code,
+              country: parsedUserLocation.country_code,
+              client_ip_address: parsedUserLocation.IPv4,
+              client_user_agent: searchData.client_user_agent,
+              fbp: searchData.fbp,
+              fbc: searchData.fbc,
+            },
+            { eventID: searchData.event_id }
+          );
             console.log("fbq - Search - Pixel Sent");
           }
           
@@ -1159,21 +1159,6 @@
           // "fb_login_id":,                            //{17} | #X |
           test_event_code: "TEST90497", // *Remove if done testing.
         };
-        fbq(
-          "track",
-          "QuizComplete",
-          {
-            city: parsedUserLocation.city,
-            state: parsedUserLocation.state,
-            zip_code: parsedUserLocation.zip_code,
-            country: parsedUserLocation.country_code,
-            client_ip_address: parsedUserLocation.IPv4,
-            client_user_agent: quizCompleteData.client_user_agent,
-            fbp: quizCompleteData.fbp,
-            fbc: quizCompleteData.fbc,
-          },
-          { eventID: quizCompleteData.event_id }
-        );
 
         function isiOS() {
           return (
@@ -1190,13 +1175,28 @@
         }
 
         if (isiOS()) {
-          fbq.disablePushState = true;
+          //fbq.disablePushState = true;
           console.log("fbq - QuizComplete - Pixel not sent (Apple Device)");
         } else if (isMac()) {
-          fbq.disablePushState = true;
+          //fbq.disablePushState = true;
           console.log("fbq - QuizComplete - Pixel not sent (Apple Device)");
         } else {
-          fbq.disablePushState = false;
+          //fbq.disablePushState = false;
+          fbq(
+          "track",
+          "QuizComplete",
+          {
+            city: parsedUserLocation.city,
+            state: parsedUserLocation.state,
+            zip_code: parsedUserLocation.zip_code,
+            country: parsedUserLocation.country_code,
+            client_ip_address: parsedUserLocation.IPv4,
+            client_user_agent: quizCompleteData.client_user_agent,
+            fbp: quizCompleteData.fbp,
+            fbc: quizCompleteData.fbc,
+          },
+          { eventID: quizCompleteData.event_id }
+        );
           console.log("fbq - QuizComplete - Pixel Sent");
         }
 
