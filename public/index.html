@@ -361,23 +361,6 @@
             "script",
             "https://connect.facebook.net/en_US/fbevents.js"
           );
-          fbq("init", "759662146057719", { external_id: userID });
-          console.log("fbq - initialize");
-          fbq(
-            "track",
-            "ViewContent",
-            {
-              ct: parsedUserLocation.city,
-              st: parsedUserLocation.state,
-              zp: parsedUserLocation.zip_code,
-              country: parsedUserLocation.country_code,
-              client_ip_address: parsedUserLocation.IPv4,
-              client_user_agent: viewContentData.client_user_agent,
-              fbp: viewContentData.fbp,
-              fbc: viewContentData.fbc,
-            },
-            { eventID: viewContentData.event_id }
-          );
 
           function isiOS() {
             return (
@@ -394,17 +377,33 @@
           }
 
           if (isiOS()) {
-            fbq.disablePushState = true;
+            //fbq.disablePushState = true;
             console.log("fbq - ViewContent - Pixel not sent (Apple Device)");
           } else if (isMac()) {
-            fbq.disablePushState = true;
+            //fbq.disablePushState = true;
             console.log("fbq - ViewContent - Pixel not sent (Apple Device)");
           } else {
-            fbq.disablePushState = false;
+            //fbq.disablePushState = false;
+            fbq("init", "759662146057719", { external_id: userID });
+            console.log("fbq - initialize");
+            fbq(
+              "track",
+              "ViewContent",
+              {
+                ct: parsedUserLocation.city,
+                st: parsedUserLocation.state,
+                zp: parsedUserLocation.zip_code,
+                country: parsedUserLocation.country_code,
+                client_ip_address: parsedUserLocation.IPv4,
+                client_user_agent: viewContentData.client_user_agent,
+                fbp: viewContentData.fbp,
+                fbc: viewContentData.fbc,
+              },
+              { eventID: viewContentData.event_id }
+            );
             console.log("fbq - ViewContent - Pixel Sent");
           }
           
-
           const newViewContentData = {
             //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
             event_id: generateEventID(), //[1]
