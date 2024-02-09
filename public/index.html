@@ -395,12 +395,15 @@
 
           if (isiOS()) {
             fbq.disablePushState = true;
+            console.log("fbq - ViewContent - Pixel not sent (Apple Device)");
           } else if (isMac()) {
             fbq.disablePushState = true;
+            console.log("fbq - ViewContent - Pixel not sent (Apple Device)");
           } else {
             fbq.disablePushState = false;
+            console.log("fbq - ViewContent - Pixel Sent");
           }
-          console.log("fbq - ViewContent - Pixel Sent");
+          
 
           const newViewContentData = {
             //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
@@ -1080,12 +1083,15 @@
 
           if (isiOS()) {
             fbq.disablePushState = true;
+            console.log("fbq - Search - Pixel not sent (Apple Device)");
           } else if (isMac()) {
             fbq.disablePushState = true;
+            console.log("fbq - Search - Pixel not sent (Apple Device)");
           } else {
             fbq.disablePushState = false;
+            console.log("fbq - Search - Pixel Sent");
           }
-          console.log("fbq - Search - Pixel Sent");
+          
 
           const newSearchData = {
             //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
@@ -1186,13 +1192,16 @@
 
         if (isiOS()) {
           fbq.disablePushState = true;
+          console.log("fbq - QuizComplete - Pixel not sent (Apple Device)");
         } else if (isMac()) {
           fbq.disablePushState = true;
+          console.log("fbq - QuizComplete - Pixel not sent (Apple Device)");
         } else {
           fbq.disablePushState = false;
+          console.log("fbq - QuizComplete - Pixel Sent");
         }
 
-        console.log("fbq - QuizComplete - Pixel Sent");
+        
 
         fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
           method: "POST",
