@@ -406,7 +406,7 @@
           
           const newViewContentData = {
             //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
-            event_id: generateEventID(), //[1]
+            event_id: viewContentData.event_id, //[1]
             event_name: "ViewContent", //[2] | "Search", "QuizComplete" |
             event_source_url: "https://www.livestronger.net", //[3]
             // Customer Information Parameters
@@ -1008,7 +1008,7 @@
 
         const newSearchData = {
           //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
-          event_id: generateEventID(), //[1]
+          event_id: searchData.event_id, //[1]
           event_name: "Search", //[2] | "Search", "QuizComplete" |
           event_source_url: "https://www.livestronger.net", //[3]
           // Customer Information Parameters
@@ -1094,7 +1094,7 @@
 
           const newSearchData = {
             //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
-            event_id: generateEventID(), //[1]
+            event_id: searchData.event_id, //[1]
             event_name: "Search", //[2] | "Search", "QuizComplete" |
             event_source_url: "https://www.livestronger.net", //[3]
             // Customer Information Parameters
@@ -1136,7 +1136,7 @@
         );
         const newQuizCompleteData = {
           //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
-          event_id: generateEventID(), //[1]
+          event_id: quizCompleteData.event_id, //[1]
           event_name: "QuizComplete", //[2] | "Search", "QuizComplete" |
           event_source_url: "https://www.livestronger.net", //[3]
           // Customer Information Parameters
