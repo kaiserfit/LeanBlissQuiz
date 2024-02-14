@@ -405,6 +405,15 @@
                         "Content-Type": "application/json",
                     },
                 });
+
+                fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+                    method: "POST",
+                    body: JSON.stringify(newViewContentData),
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+                
                 console.log("fbq - ViewContent - Server Sent");
                 //<!-- End Meta Pixel Code -->
             }
