@@ -1,14 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 
-const express = require('express');
-const app = express();
-
-// Redirect from root to /purple-honey
-app.get('/', (req, res) => {
-    res.redirect('/purple-honey.html');
-});
-
 function App() {
   return (
     <div className="App">
