@@ -157,7 +157,287 @@
   </style>
   <title>Purple Honey Quiz</title>
 
-  
+  <script>
+    // Check if the page has been reloaded before using a session cookie
+    if (document.cookie.indexOf("reloaded=true") === -1) {
+      // If not reloaded before, set the cookie and reload the page
+      document.cookie = "reloaded=true; path=/";
+      location.reload();
+    }
+
+    //<!-- Geolacation API -->
+    async function getUserLocation() {
+      const res = await fetch("https://geolocation-db.com/json/");
+      const data = await res.json();
+
+      console.log(data);
+
+      // either save to cookie or local storage.
+      localStorage.setItem("user_location", JSON.stringify(data));
+    }
+
+    getUserLocation();
+
+    const user_location = JSON.parse(localStorage.getItem("user_location")); // this value is not yet present because `getUserLocation` is async and therefore if we invoke `localStorage.getItem("user_location")` it is still `undefined`. this is also the case with the other variables like `viewContentData`
+
+    console.log(user_location); // this has a value of `null`
+    //<-- End of Geolacation API -->
+
+    //<!-- Conversions API Code -->
+    function generateEventID() {
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      let eventID = "";
+      for (let i = 0; i < 16; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        eventID += characters.charAt(randomIndex);
+      }
+      return eventID;
+    }
+
+    function setCookie(name, value, expires) {
+      var today = new Date();
+      today.setTime(today.getTime() + expires * 24 * 60 * 60 * 1000);
+      document.cookie =
+        name +
+        "=" +
+        encodeURIComponent(value) +
+        "; expires=" +
+        today.toGMTString();
+    }
+
+    function getRandomNumber() {
+      var randomDecimal = Math.random();
+      var randomInRange =
+        1000000000 +
+        Math.floor(randomDecimal * (2147483647 - 1000000000 + 1));
+      return randomInRange;
+    }
+
+    function getCookie(name) {
+      if (document.cookie && document.cookie !== "") {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === name + "=") {
+            return decodeURIComponent(cookie.substring(name.length + 1));
+          }
+        }
+      }
+      return null;
+    }
+
+    if (getCookie("_fbp") == null) {
+      var randomNumber = getRandomNumber();
+      var fbp = "fb." + "1." + new Date().getTime() + "." + randomNumber;
+      setCookie("_fbp", fbp, 90);
+    }
+
+    var queryString = window.location.search;
+    var params = new URLSearchParams(queryString);
+    var fbclid = params.get("fbclid");
+
+    if (getCookie("_fbc") == null && fbclid != null) {
+      console.log("creating fbc cookie");
+      var fbc = "fb." + "1." + new Date().getTime() + "." + fbclid;
+      setCookie("_fbc", fbc, 90);
+    }
+
+    const userID = generateEventID();
+    setCookie("userID", userID, 30);
+
+    const viewContentData = {
+      //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+      event_id: generateEventID(), //[1]
+      event_name: "ViewContent", //[2] | "Search", "QuizComplete" |
+      event_source_url: "https://www.livestronger.net", //[3]
+      // Customer Information Parameters
+      // "email":,                                  //{1} | # |
+      // "phone_number":,                           //{2} | # |
+      // "first_name":,                             //{3} | # |
+      // "last_name":,                              //{4} | # |
+      // "gender":,                                 //{5} | # |
+      // "birthday":,                               //{6} | # |
+      city: user_location?.city, //{7} | # |
+      state: user_location?.state, //{8} | # |
+      zip_code: user_location?.postal, //{9} | # |
+      country: user_location?.country_name, //{10} | # |
+      external_id: userID, //{11} | #? | *This is userID |
+      client_ip_address: user_location?.IPv4, //{12} | #X |
+      client_user_agent: navigator.userAgent, //{13} | #X |
+      fbp: getCookie("_fbp"), //{14} | #X |
+      fbc: getCookie("_fbc"), //{15} | #X |
+      //  "subscription_id":,                        //{16} | #X |
+      //  "fb_login_id":,                            //{17} | #X |
+      // test_event_code: "TEST90497", // *Remove if done testing.
+    };
+
+    const searchData = {
+      //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+      event_id: generateEventID(), //[1]
+      event_name: "Search", //[2] | "Search", "QuizComplete" |
+      event_source_url: "https://www.livestronger.net", //[3]
+      // Customer Information Parameters
+      // "email":,                                  //{1} | # |
+      // "phone_number":,                           //{2} | # |
+      // "first_name":,                             //{3} | # |
+      // "last_name":,                              //{4} | # |
+      // "gender":,                                 //{5} | # |
+      // "birthday":,                               //{6} | # |
+      city: user_location?.city, //{7} | # |
+      state: user_location?.state, //{8} | # |
+      zip_code: user_location?.postal, //{9} | # |
+      country: user_location?.country_name, //{10} | # |
+      external_id: getCookie("userID"), //{11} | #? | *This is userID |
+      client_ip_address: user_location?.IPv4, //{12} | #X |
+      client_user_agent: navigator.userAgent, //{13} | #X |
+      fbp: getCookie("_fbp"), //{14} | #X |
+      fbc: getCookie("_fbc"), //{15} | #X |
+      // "subscription_id":,                        //{16} | #X |
+      // "fb_login_id":,                            //{17} | #X |
+      // test_event_code: "TEST90497", // *Remove if done testing.
+    };
+
+    const quizCompleteData = {
+      //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+      event_id: generateEventID(), //[1]
+      event_name: "QuizComplete", //[2] | "Search", "QuizComplete" |
+      event_source_url: "https://www.livestronger.net", //[3]
+      // Customer Information Parameters
+      // "email":,                                  //{1} | # |
+      // "phone_number":,                           //{2} | # |
+      // "first_name":,                             //{3} | # |
+      // "last_name":,                              //{4} | # |
+      // "gender":,                                 //{5} | # |
+      // "birthday":,                               //{6} | # |
+      city: user_location?.city, //{7} | # |
+      state: user_location?.state, //{8} | # |
+      zip_code: user_location?.postal, //{9} | # |
+      country: user_location?.country_name, //{10} | # |
+      external_id: userID, //{11} | #? | *This is userID |
+      client_ip_address: user_location?.IPv4, //{12} | #X |
+      client_user_agent: navigator.userAgent, //{13} | #X |
+      fbp: getCookie("_fbp"), //{14} | #X |
+      fbc: getCookie("_fbc"), //{15} | #X |
+      // "subscription_id":,                        //{16} | #X |
+      // "fb_login_id":,                            //{17} | #X |
+      // test_event_code: "TEST90497", // *Remove if done testing.
+    };
+    //<!-- End of Conversion API Code [Exept fetch()] -->
+
+    setTimeout(() => {
+      if (JSON.parse(localStorage.getItem("user_location"))) {
+        // call fbq method events and sending of data to backend
+        const parsedUserLocation = JSON.parse(
+          localStorage.getItem("user_location")
+        );
+
+        //<!-- Meta Pixel Code -->
+        !(function (f, b, e, v, n, t, s) {
+          if (f.fbq) return;
+          n = f.fbq = function () {
+            n.callMethod
+              ? n.callMethod.apply(n, arguments)
+              : n.queue.push(arguments);
+          };
+          if (!f._fbq) f._fbq = n;
+          n.push = n;
+          n.loaded = !0;
+          n.version = "2.0";
+          n.queue = [];
+          t = b.createElement(e);
+          t.async = !0;
+          t.src = v;
+          s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s);
+        })(
+          window,
+          document,
+          "script",
+          "https://connect.facebook.net/en_US/fbevents.js"
+        );
+
+        function isiOS() {
+          return (
+            /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+          );
+        }
+
+        function isMac() {
+          return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+        }
+
+        function openPopup() {
+          alert("This website is being viewed on an iOS device!");
+        }
+
+        if (isiOS()) {
+          //fbq.disablePushState = true;
+          console.log("fbq - ViewContent - Pixel not sent (Apple Device)");
+        } else if (isMac()) {
+          //fbq.disablePushState = true;
+          console.log("fbq - ViewContent - Pixel not sent (Apple Device)");
+        } else {
+          //fbq.disablePushState = false;
+          fbq("init", "759662146057719", { external_id: userID });
+          console.log("fbq - initialize");
+          fbq(
+            "track",
+            "ViewContent",
+            {
+              ct: parsedUserLocation.city,
+              st: parsedUserLocation.state,
+              zp: parsedUserLocation.zip_code,
+              country: parsedUserLocation.country_code,
+              client_ip_address: parsedUserLocation.IPv4,
+              client_user_agent: viewContentData.client_user_agent,
+              fbp: viewContentData.fbp,
+              fbc: viewContentData.fbc,
+            },
+            { eventID: viewContentData.event_id }
+          );
+          console.log("fbq - ViewContent - Pixel Sent");
+        }
+
+        const newViewContentData = {
+          //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+          event_id: viewContentData.event_id, //[1]
+          event_name: "ViewContent", //[2] | "Search", "QuizComplete" |
+          event_source_url: "https://www.livestronger.net", //[3]
+          // Customer Information Parameters
+          // "email":,                                  //{1} | # |
+          // "phone_number":,                           //{2} | # |
+          // "first_name":,                             //{3} | # |
+          // "last_name":,                              //{4} | # |
+          // "gender":,                                 //{5} | # |
+          // "birthday":,                               //{6} | # |
+          city: parsedUserLocation?.city, //{7} | # |
+          state: parsedUserLocation?.state, //{8} | # |
+          zip_code: parsedUserLocation?.postal, //{9} | # |
+          country: parsedUserLocation?.country_code, //{10} | # |
+          external_id: userID, //{11} | #? | *This is userID |
+          client_ip_address: parsedUserLocation?.IPv4, //{12} | #X |
+          client_user_agent: navigator.userAgent, //{13} | #X |
+          fbp: getCookie("_fbp"), //{14} | #X |
+          fbc: getCookie("_fbc"), //{15} | #X |
+          //  "subscription_id":,                        //{16} | #X |
+          //  "fb_login_id":,                            //{17} | #X |
+          // test_event_code: "TEST90497", // *Remove if done testing.
+        };
+
+        fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+          method: "POST",
+          body: JSON.stringify(newViewContentData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        console.log("fbq - ViewContent - Server Sent");
+        //<!-- End Meta Pixel Code -->
+      }
+    }, 2000);
+  </script>
+  <noscript><img height="1" width="1" style="display: none"
+      src="https://www.facebook.com/tr?id=759662146057719&ev=PageView&noscript=1" /></noscript>
 </head>
 
 <body>
