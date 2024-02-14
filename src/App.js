@@ -6,7 +6,7 @@ const app = express();
 
 // Redirect from root to /purple-honey
 app.get('/', (req, res) => {
-    res.redirect('/purple-honey');
+    res.redirect('/purple-honey.html');
 });
 
 function App() {
