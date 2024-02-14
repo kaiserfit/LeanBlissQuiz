@@ -329,7 +329,9 @@
         const parsedUserLocation = JSON.parse(
           localStorage.getItem("user_location")
         );
-
+        
+        fbq("init", "759662146057719", { external_id: userID });
+        console.log("fbq - initialize");
       }
     }, 2000);
   </script>
