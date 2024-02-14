@@ -151,8 +151,8 @@
 
         input[type="submit"],
         #redirectButton {
-            padding: 10px 20px;
-            background-color: #555;
+            padding: 10px 80px;
+            background-color: #ff9100;
             color: #fff;
             border: none;
             cursor: pointer;
@@ -161,6 +161,7 @@
             margin-top: 20px;
             border-radius: 20px;
             font-weight: bold;
+            font-size: 2rem;
         }
 
         input[type="submit"]:hover,
@@ -174,6 +175,11 @@
             margin-right: 5px;
             /* Add some spacing between checkbox and text */
         }
+
+        .choices-container {
+            margin-top: 20px;
+            /* Adjust the margin as needed */
+        }
     </style>
 </head>
 
@@ -185,26 +191,32 @@
     <div class="quiz-container">
         <section>
             <h2>Please select all forms of Honey you have ever taken:</h2>
-            <label>
-                <input type="checkbox" name="color" value="red" onclick="showNextStepButton()"> Regular Honey
-            </label>
-            <label>
-                <input type="checkbox" name="color" value="blue" onclick="showNextStepButton()"> Organic/Natural Honey
-            </label>
-            <label>
-                <input type="checkbox" name="color" value="green" onclick="showNextStepButton()"> Clover Honey
-            </label>
-            <label>
-                <input type="checkbox" name="color" value="orange" onclick="showNextStepButton()"> Manuka Honey
-            </label>
-            <label>
-                <input type="checkbox" name="color" value="yellow" onclick="showNextStepButton()"> Other Type of Honey
-            </label>
-            <label>
-                <input type="checkbox" name="color" value="violet" onclick="showNextStepButton()"> Never Taken Honey
-            </label>
 
-            <button id="redirectButton" onclick="nextStep()">Next Step</button>
+            <button id="redirectButton" onclick="nextStep()">Next Step<br /></button>
+
+            <div class="choices-container">
+                <label>
+                    <input type="checkbox" name="color" value="red" onclick="showNextStepButton()"> Regular Honey
+                </label>
+                <label>
+                    <input type="checkbox" name="color" value="blue" onclick="showNextStepButton()"> Organic/Natural
+                    Honey
+                </label>
+                <label>
+                    <input type="checkbox" name="color" value="green" onclick="showNextStepButton()"> Clover Honey
+                </label>
+                <label>
+                    <input type="checkbox" name="color" value="orange" onclick="showNextStepButton()"> Manuka Honey
+                </label>
+                <label>
+                    <input type="checkbox" name="color" value="yellow" onclick="showNextStepButton()"> Other Type of
+                    Honey
+                </label>
+                <label>
+                    <input type="checkbox" name="color" value="violet" onclick="showNextStepButton()"> Never Taken Honey
+                </label>
+            </div>
+
         </section>
     </div>
 
