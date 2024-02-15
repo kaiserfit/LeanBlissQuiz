@@ -330,8 +330,86 @@
           localStorage.getItem("user_location")
         );
 
-        fbq("init", "759662146057719", { external_id: userID });
-        console.log("fbq - initialize");
+        // fbq("init", "759662146057719", { external_id: userID });
+        // console.log("fbq - initialize");
+
+        function isiOS() {
+          return (
+            /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+          );
+        }
+
+        function isMac() {
+          return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+        }
+
+        function openPopup() {
+          alert("This website is being viewed on an iOS device!");
+        }
+
+        if (isiOS()) {
+          //fbq.disablePushState = true;
+          console.log("fbq - Search - Pixel not sent (Apple Device)");
+        } else if (isMac()) {
+          //fbq.disablePushState = true;
+          console.log("fbq - Search - Pixel not sent (Apple Device)");
+        } else {
+          //fbq.disablePushState = false;
+          fbq("init", "759662146057719", { external_id: userID });
+          console.log("fbq - initialize");
+
+          fbq(
+            "track",
+            "Search",
+            {
+              ct: parsedUserLocation.city,
+              st: parsedUserLocation.state,
+              zp: parsedUserLocation.zip_code,
+              country: parsedUserLocation.country_code,
+              client_ip_address: parsedUserLocation.IPv4,
+              client_user_agent: searchData.client_user_agent,
+              fbp: searchData.fbp,
+              fbc: searchData.fbc,
+            },
+            { eventID: searchData.event_id }
+          );
+          console.log("fbq - Search - Pixel Sent");
+        }
+
+        const newSearchData = {
+          //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+          event_id: searchData.event_id, //[1]
+          event_name: "Search", //[2] | "Search", "QuizComplete" |
+          event_source_url: "https://www.livestronger.net/quiz.html", //[3]
+          // Customer Information Parameters
+          // "email":,                                  //{1} | # |
+          // "phone_number":,                           //{2} | # |
+          // "first_name":,                             //{3} | # |
+          // "last_name":,                              //{4} | # |
+          // "gender":,                                 //{5} | # |
+          // "birthday":,                               //{6} | # |
+          city: parsedUserLocation?.city, //{7} | # |
+          state: parsedUserLocation?.state, //{8} | # |
+          zip_code: parsedUserLocation?.postal, //{9} | # |
+          country: parsedUserLocation?.country_code, //{10} | # |
+          external_id: getCookie("userID"), //{11} | #? | *This is userID |
+          client_ip_address: parsedUserLocation?.IPv4, //{12} | #X |
+          client_user_agent: navigator.userAgent, //{13} | #X |
+          fbp: getCookie("_fbp"), //{14} | #X |
+          fbc: getCookie("_fbc"), //{15} | #X |
+          // "subscription_id":,                        //{16} | #X |
+          // "fb_login_id":,                            //{17} | #X |
+          test_event_code: "TEST95284", // *Remove if done testing.
+        };
+
+        fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+          method: "POST",
+          body: JSON.stringify(newSearchData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        console.log("fbq - Search - Server Sent");
       }
     }, 2000);
   </script>
@@ -594,85 +672,85 @@
         document.getElementById("redirectButton").style.display = "block";
       }
       console.log(currentQuestion)
-      
-      if (currentQuestion) {
 
-        function isiOS() {
-          return (
-            /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
-          );
-        }
+      // if (currentQuestion) {
 
-        function isMac() {
-          return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
-        }
+      //   function isiOS() {
+      //     return (
+      //       /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+      //     );
+      //   }
 
-        function openPopup() {
-          alert("This website is being viewed on an iOS device!");
-        }
+      //   function isMac() {
+      //     return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+      //   }
 
-        if (isiOS()) {
-          //fbq.disablePushState = true;
-          console.log("fbq - Search - Pixel not sent (Apple Device)");
-        } else if (isMac()) {
-          //fbq.disablePushState = true;
-          console.log("fbq - Search - Pixel not sent (Apple Device)");
-        } else {
-          //fbq.disablePushState = false;
-          fbq(
-            "track",
-            "Search",
-            {
-              ct: parsedUserLocation.city,
-              st: parsedUserLocation.state,
-              zp: parsedUserLocation.zip_code,
-              country: parsedUserLocation.country_code,
-              client_ip_address: parsedUserLocation.IPv4,
-              client_user_agent: searchData.client_user_agent,
-              fbp: searchData.fbp,
-              fbc: searchData.fbc,
-            },
-            { eventID: searchData.event_id }
-          );
-          console.log("fbq - Search - Pixel Sent");
-        }
+      //   function openPopup() {
+      //     alert("This website is being viewed on an iOS device!");
+      //   }
+
+      //   if (isiOS()) {
+      //     //fbq.disablePushState = true;
+      //     console.log("fbq - Search - Pixel not sent (Apple Device)");
+      //   } else if (isMac()) {
+      //     //fbq.disablePushState = true;
+      //     console.log("fbq - Search - Pixel not sent (Apple Device)");
+      //   } else {
+      //     //fbq.disablePushState = false;
+      //     fbq(
+      //       "track",
+      //       "Search",
+      //       {
+      //         ct: parsedUserLocation.city,
+      //         st: parsedUserLocation.state,
+      //         zp: parsedUserLocation.zip_code,
+      //         country: parsedUserLocation.country_code,
+      //         client_ip_address: parsedUserLocation.IPv4,
+      //         client_user_agent: searchData.client_user_agent,
+      //         fbp: searchData.fbp,
+      //         fbc: searchData.fbc,
+      //       },
+      //       { eventID: searchData.event_id }
+      //     );
+      //     console.log("fbq - Search - Pixel Sent");
+      //   }
 
 
-        const newSearchData = {
-          //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
-          event_id: searchData.event_id, //[1]
-          event_name: "Search", //[2] | "Search", "QuizComplete" |
-          event_source_url: "https://www.livestronger.net/quiz.html", //[3]
-          // Customer Information Parameters
-          // "email":,                                  //{1} | # |
-          // "phone_number":,                           //{2} | # |
-          // "first_name":,                             //{3} | # |
-          // "last_name":,                              //{4} | # |
-          // "gender":,                                 //{5} | # |
-          // "birthday":,                               //{6} | # |
-          city: parsedUserLocation?.city, //{7} | # |
-          state: parsedUserLocation?.state, //{8} | # |
-          zip_code: parsedUserLocation?.postal, //{9} | # |
-          country: parsedUserLocation?.country_code, //{10} | # |
-          external_id: getCookie("userID"), //{11} | #? | *This is userID |
-          client_ip_address: parsedUserLocation?.IPv4, //{12} | #X |
-          client_user_agent: navigator.userAgent, //{13} | #X |
-          fbp: getCookie("_fbp"), //{14} | #X |
-          fbc: getCookie("_fbc"), //{15} | #X |
-          // "subscription_id":,                        //{16} | #X |
-          // "fb_login_id":,                            //{17} | #X |
-          test_event_code: "TEST95284", // *Remove if done testing.
-        };
+      //   const newSearchData = {
+      //     //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+      //     event_id: searchData.event_id, //[1]
+      //     event_name: "Search", //[2] | "Search", "QuizComplete" |
+      //     event_source_url: "https://www.livestronger.net/quiz.html", //[3]
+      //     // Customer Information Parameters
+      //     // "email":,                                  //{1} | # |
+      //     // "phone_number":,                           //{2} | # |
+      //     // "first_name":,                             //{3} | # |
+      //     // "last_name":,                              //{4} | # |
+      //     // "gender":,                                 //{5} | # |
+      //     // "birthday":,                               //{6} | # |
+      //     city: parsedUserLocation?.city, //{7} | # |
+      //     state: parsedUserLocation?.state, //{8} | # |
+      //     zip_code: parsedUserLocation?.postal, //{9} | # |
+      //     country: parsedUserLocation?.country_code, //{10} | # |
+      //     external_id: getCookie("userID"), //{11} | #? | *This is userID |
+      //     client_ip_address: parsedUserLocation?.IPv4, //{12} | #X |
+      //     client_user_agent: navigator.userAgent, //{13} | #X |
+      //     fbp: getCookie("_fbp"), //{14} | #X |
+      //     fbc: getCookie("_fbc"), //{15} | #X |
+      //     // "subscription_id":,                        //{16} | #X |
+      //     // "fb_login_id":,                            //{17} | #X |
+      //     test_event_code: "TEST95284", // *Remove if done testing.
+      //   };
 
-        fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
-          method: "POST",
-          body: JSON.stringify(newSearchData),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        console.log("fbq - Search - Server Sent");
-      }
+      //   fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+      //     method: "POST",
+      //     body: JSON.stringify(newSearchData),
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //   });
+      //   console.log("fbq - Search - Server Sent");
+      // }
     }
 
     function redirectToPage() {
