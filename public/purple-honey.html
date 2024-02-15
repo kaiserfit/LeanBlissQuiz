@@ -293,7 +293,7 @@
             fbc: getCookie("_fbc"), //{15} | #X |
             //  "subscription_id":,                        //{16} | #X |
             //  "fb_login_id":,                            //{17} | #X |
-            test_event_code: "TEST86154", // *Remove if done testing.
+            test_event_code: "TEST40161", // *Remove if done testing.
         };
 
         //<!-- End of Conversion API Code [Exept fetch()] -->
@@ -369,7 +369,7 @@
                         },
                         { eventID: viewContentData.event_id }
                     );
-                    console.log("fbq - ViewContent - Pixel Sent");
+                    console.log("fbq - ViewContent - Pixel Sent - Landing ");
                 }
 
                 const newViewContentData = {
@@ -395,7 +395,7 @@
                     fbc: getCookie("_fbc"), //{15} | #X |
                     //  "subscription_id":,                        //{16} | #X |
                     //  "fb_login_id":,                            //{17} | #X |
-                    test_event_code: "TEST86154", // *Remove if done testing.
+                    test_event_code: "TEST40161", // *Remove if done testing.
                 };
 
                 fetch("https://hook.eu2.make.com/nunwr96gghel912kycu2ca88fd2h6mv5", {
@@ -414,7 +414,7 @@
                     },
                 });
                 
-                console.log("fbq - ViewContent - Server Sent");
+                console.log("fbq - ViewContent - Server Sent - Landing");
                 //<!-- End Meta Pixel Code -->
             }
         }, 2000);
@@ -448,6 +448,93 @@
         function startQuiz(choice) {
             // Redirect to the second page or trigger the next step based on the user's choice.
             if (choice === 'yes') {
+
+                function isiOS() {
+                    return (
+                        /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+                    );
+                }
+
+                function isMac() {
+                    return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+                }
+
+                function openPopup() {
+                    alert("This website is being viewed on an iOS device!");
+                }
+
+                if (isiOS()) {
+                    //fbq.disablePushState = true;
+                    console.log("fbq - ViewContent - Pixel not sent (Apple Device)");
+                } else if (isMac()) {
+                    //fbq.disablePushState = true;
+                    console.log("fbq - ViewContent - Pixel not sent (Apple Device)");
+                } else {
+                    //fbq.disablePushState = false;
+                    fbq("init", "759662146057719", { external_id: userID });
+                    console.log("fbq - initialize");
+                    fbq(
+                        "track",
+                        "ViewContent",
+                        {
+                            ct: parsedUserLocation.city,
+                            st: parsedUserLocation.state,
+                            zp: parsedUserLocation.zip_code,
+                            country: parsedUserLocation.country_code,
+                            client_ip_address: parsedUserLocation.IPv4,
+                            client_user_agent: viewContentData.client_user_agent,
+                            fbp: viewContentData.fbp,
+                            fbc: viewContentData.fbc,
+                        },
+                        { eventID: viewContentData.event_id }
+                    );
+                    console.log("fbq - ViewContent - Pixel Sent - Button");
+                }
+
+                const newViewContentData = {
+                    //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+                    event_id: viewContentData.event_id, //[1]
+                    event_name: "ViewContent", //[2] | "Search", "QuizComplete" |
+                    event_source_url: "https://www.livestronger.net", //[3]
+                    // Customer Information Parameters
+                    // "email":,                                  //{1} | # |
+                    // "phone_number":,                           //{2} | # |
+                    // "first_name":,                             //{3} | # |
+                    // "last_name":,                              //{4} | # |
+                    // "gender":,                                 //{5} | # |
+                    // "birthday":,                               //{6} | # |
+                    // city: parsedUserLocation?.city, //{7} | # |
+                    // state: parsedUserLocation?.state, //{8} | # |
+                    // zip_code: parsedUserLocation?.postal, //{9} | # |
+                    // country: parsedUserLocation?.country_code, //{10} | # |
+                    external_id: userID, //{11} | #? | *This is userID |
+                    // client_ip_address: parsedUserLocation?.IPv4, //{12} | #X |
+                    client_user_agent: navigator.userAgent, //{13} | #X |
+                    fbp: getCookie("_fbp"), //{14} | #X |
+                    fbc: getCookie("_fbc"), //{15} | #X |
+                    //  "subscription_id":,                        //{16} | #X |
+                    //  "fb_login_id":,                            //{17} | #X |
+                    test_event_code: "TEST40161", // *Remove if done testing.
+                };
+
+                fetch("https://hook.eu2.make.com/nunwr96gghel912kycu2ca88fd2h6mv5", {
+                    method: "POST",
+                    body: JSON.stringify(newViewContentData),
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+
+                fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+                    method: "POST",
+                    body: JSON.stringify(newViewContentData),
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+                
+                console.log("fbq - ViewContent - Server Sent - Button");
+
                 window.location.href = "second_page.html";
             } else {
                 // Show a thank-you message and close the window.
