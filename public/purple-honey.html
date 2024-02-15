@@ -298,36 +298,38 @@
 
         //<!-- End of Conversion API Code [Exept fetch()] -->
 
+        //<!-- Meta Pixel Code -->
+        !(function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod
+                    ? n.callMethod.apply(n, arguments)
+                    : n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = "2.0";
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+        })(
+            window,
+            document,
+            "script",
+            "https://connect.facebook.net/en_US/fbevents.js"
+        );
+        fbq("init", "759662146057719", { external_id: userID });
+        console.log("fbq - initialize");
+
         setTimeout(() => {
             if (JSON.parse(localStorage.getItem("user_location"))) {
                 // call fbq method events and sending of data to backend
                 const parsedUserLocation = JSON.parse(
                     localStorage.getItem("user_location")
-                );
-
-                //<!-- Meta Pixel Code -->
-                !(function (f, b, e, v, n, t, s) {
-                    if (f.fbq) return;
-                    n = f.fbq = function () {
-                        n.callMethod
-                            ? n.callMethod.apply(n, arguments)
-                            : n.queue.push(arguments);
-                    };
-                    if (!f._fbq) f._fbq = n;
-                    n.push = n;
-                    n.loaded = !0;
-                    n.version = "2.0";
-                    n.queue = [];
-                    t = b.createElement(e);
-                    t.async = !0;
-                    t.src = v;
-                    s = b.getElementsByTagName(e)[0];
-                    s.parentNode.insertBefore(t, s);
-                })(
-                    window,
-                    document,
-                    "script",
-                    "https://connect.facebook.net/en_US/fbevents.js"
                 );
 
                 function isiOS() {
@@ -352,8 +354,6 @@
                     console.log("fbq - ViewContent - Pixel not sent (Apple Device)");
                 } else {
                     //fbq.disablePushState = false;
-                    fbq("init", "759662146057719", { external_id: userID });
-                    console.log("fbq - initialize");
                     fbq(
                         "track",
                         "ViewContent",
@@ -405,7 +405,7 @@
                         "Content-Type": "application/json",
                     },
                 });
-                
+
                 console.log("fbq - ViewContent - Server Sent - Landing");
                 //<!-- End Meta Pixel Code -->
             }
@@ -463,8 +463,6 @@
                     console.log("fbq - ViewContent - Pixel not sent (Apple Device)");
                 } else {
                     //fbq.disablePushState = false;
-                    fbq("init", "759662146057719", { external_id: userID });
-                    console.log("fbq - initialize");
                     fbq(
                         "track",
                         "ViewContent",
@@ -511,7 +509,7 @@
                         "Content-Type": "application/json",
                     },
                 });
-                
+
                 console.log("fbq - ViewContent - Server Sent - Button");
 
                 window.location.href = "second_page.html";
