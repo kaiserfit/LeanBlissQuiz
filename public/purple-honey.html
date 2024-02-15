@@ -398,14 +398,6 @@
                     test_event_code: "TEST95284", // *Remove if done testing.
                 };
 
-                fetch("https://hook.eu2.make.com/nunwr96gghel912kycu2ca88fd2h6mv5", {
-                    method: "POST",
-                    body: JSON.stringify(newViewContentData),
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                });
-
                 fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
                     method: "POST",
                     body: JSON.stringify(newViewContentData),
@@ -417,7 +409,7 @@
                 console.log("fbq - ViewContent - Server Sent - Landing");
                 //<!-- End Meta Pixel Code -->
             }
-        }, 2000);
+        }, 0);
     </script>
     <noscript><img height="1" width="1" style="display: none"
             src="https://www.facebook.com/tr?id=759662146057719&ev=PageView&noscript=1" /></noscript>
@@ -511,14 +503,6 @@
                     //  "fb_login_id":,                            //{17} | #X |
                     test_event_code: "TEST95284", // *Remove if done testing.
                 };
-
-                fetch("https://hook.eu2.make.com/nunwr96gghel912kycu2ca88fd2h6mv5", {
-                    method: "POST",
-                    body: JSON.stringify(newViewContentData),
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                });
 
                 fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
                     method: "POST",
