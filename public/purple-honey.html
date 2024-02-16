@@ -329,7 +329,15 @@
             console.log("fbq - ViewContent - Pixel Sent - Landing ");
         }
 
-        fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+        // fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+        //     method: "POST",
+        //     body: JSON.stringify(viewContentData),
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        // });
+
+        fetch("https://hook.us1.make.com/zjnmzrx8perei7gb931vracddxx4hfuu", {
             method: "POST",
             body: JSON.stringify(viewContentData),
             headers: {

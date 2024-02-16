@@ -254,76 +254,84 @@
 
     const searchData = {
       //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
-      event_id: generateEventID(), 
-      event_name: "Search", 
-      event_source_url: "https://www.livestronger.net/quiz.html", 
-      external_id: getCookie("userID"), 
-      client_user_agent: navigator.userAgent, 
-      fbp: getCookie("_fbp"), 
-      fbc: getCookie("_fbc"), 
+      event_id: generateEventID(),
+      event_name: "Search",
+      event_source_url: "https://www.livestronger.net/quiz.html",
+      external_id: getCookie("userID"),
+      client_user_agent: navigator.userAgent,
+      fbp: getCookie("_fbp"),
+      fbc: getCookie("_fbc"),
       test_event_code: "TEST16207", // *Remove if done testing.
     };
 
     const quizCompleteData = {
       //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
-      event_id: generateEventID(), 
+      event_id: generateEventID(),
       event_name: "QuizComplete",
-      event_source_url: "https://www.livestronger.net/quiz.html", 
-      external_id: userID, 
-      client_user_agent: navigator.userAgent, 
-      fbp: getCookie("_fbp"), 
-      fbc: getCookie("_fbc"), 
+      event_source_url: "https://www.livestronger.net/quiz.html",
+      external_id: userID,
+      client_user_agent: navigator.userAgent,
+      fbp: getCookie("_fbp"),
+      fbc: getCookie("_fbc"),
       test_event_code: "TEST16207", // *Remove if done testing.
     };
     //<!-- End of Conversion API Code [Exept fetch()] -->
 
-        function isiOS() {
-          return (
-            /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
-          );
-        }
+    function isiOS() {
+      return (
+        /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+      );
+    }
 
-        function isMac() {
-          return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
-        }
+    function isMac() {
+      return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+    }
 
-        function openPopup() {
-          alert("This website is being viewed on an iOS device!");
-        }
+    function openPopup() {
+      alert("This website is being viewed on an iOS device!");
+    }
 
-        if (isiOS()) {
-          //fbq.disablePushState = true;
-          console.log("fbq - Search - Pixel not sent (Apple Device)");
-        } else if (isMac()) {
-          //fbq.disablePushState = true;
-          console.log("fbq - Search - Pixel not sent (Apple Device)");
-        } else {
-          //fbq.disablePushState = false;
-          fbq("init", "759662146057719", { external_id: userID });
-          console.log("fbq - initialize");
+    if (isiOS()) {
+      //fbq.disablePushState = true;
+      console.log("fbq - Search - Pixel not sent (Apple Device)");
+    } else if (isMac()) {
+      //fbq.disablePushState = true;
+      console.log("fbq - Search - Pixel not sent (Apple Device)");
+    } else {
+      //fbq.disablePushState = false;
+      fbq("init", "759662146057719", { external_id: userID });
+      console.log("fbq - initialize");
 
-          fbq(
-            "track",
-            "Search",
-            {
-              external_id: userID,
-              client_user_agent: searchData.client_user_agent,
-              fbp: searchData.fbp,
-              fbc: searchData.fbc,
-            },
-            { eventID: searchData.event_id }
-          );
-          console.log("fbq - Search - Pixel Sent");
-        }
+      fbq(
+        "track",
+        "Search",
+        {
+          external_id: userID,
+          client_user_agent: searchData.client_user_agent,
+          fbp: searchData.fbp,
+          fbc: searchData.fbc,
+        },
+        { eventID: searchData.event_id }
+      );
+      console.log("fbq - Search - Pixel Sent");
+    }
 
-        fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
-          method: "POST",
-          body: JSON.stringify(searchData),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        console.log("fbq - Search - Server Sent");
+    // fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+    //   method: "POST",
+    //   body: JSON.stringify(searchData),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // });
+
+    fetch("https://hook.us1.make.com/zjnmzrx8perei7gb931vracddxx4hfuu", {
+      method: "POST",
+      body: JSON.stringify(searchData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log("fbq - Search - Server Sent");
 
   </script>
   <noscript><img height="1" width="1" style="display: none"
@@ -603,7 +611,21 @@
         console.log("fbq - QuizComplete - Pixel Sent");
       }
 
-      fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+      // fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+      //   method: "POST",
+      //   body: JSON.stringify(quizCompleteData),
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // })
+      //   .then(() => {
+      //     console.log("fbq - QuizComplete - Server Sent");
+      //     window.location.href =
+      //       "https://honeyburn24.com/video.php?aff=Idooni&cid={YourClickID}&cam=CAMPAIGNKEY";
+      //   })
+      //   .catch((err) => console.error(err));
+
+      fetch("https://hook.us1.make.com/zjnmzrx8perei7gb931vracddxx4hfuu", {
         method: "POST",
         body: JSON.stringify(quizCompleteData),
         headers: {
