@@ -186,11 +186,11 @@
 
     <script>
         // Check if the page has been reloaded before using a session cookie
-        if (document.cookie.indexOf("reloaded=true") === -1) {
-            // If not reloaded before, set the cookie and reload the page
-            document.cookie = "reloaded=true; path=/";
-            location.reload();
-        }
+        // if (document.cookie.indexOf("reloaded=true") === -1) {
+        //     // If not reloaded before, set the cookie and reload the page
+        //     document.cookie = "reloaded=true; path=/";
+        //     location.reload();
+        // }
 
         //<!-- Conversions API Code -->
         function generateEventID() {
@@ -258,7 +258,7 @@
             //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
             event_id: generateEventID(),
             event_name: "ViewContent",
-            event_source_url: "https://www.livestronger.net/lean-bliss.html",
+            event_source_url: "https://www.livestronger.net/lean-bliss-v2.html",
             external_id: userID,
             client_user_agent: navigator.userAgent,
             fbp: getCookie("_fbp"),
@@ -347,8 +347,8 @@
 </head>
 
 <body>
-    <h1><br />This 1 Simple Hack Is Creating <span class="first-span">Incredible Transformations</span><br />
-        Scientist are calling THIS the New <span class="second-span">NATURAL</span> Ozempic<br />&nbsp;</h1>
+    <h1><br />New Scientific Breakthrough Hailed As <span class = "first-span">"Far Superior To Weight Loss Injections"</span><br />
+        Incredible Transformations Are Happening Daily Thanks To This <span class = "second-span">1 Simple Hack</span><br />&nbsp;</h1>
     <h2><span class="white-span"><br />(Designed for Weight Loss, Gut Health & Energy)</span></h2>
     <div class="quiz-container">
 
@@ -368,9 +368,9 @@
         function startQuiz(choice) {
             // Redirect to the second page or trigger the next step based on the user's choice.
             if (choice === 'yes') {
-                window.location.href = "second_page.html";
+                window.location.href = "second-page-v2.html";
             } else {
-                window.location.href = "second_page.html";
+                window.location.href = "second-page-v2.html";
             }
         }
     </script>
