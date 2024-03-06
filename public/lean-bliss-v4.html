@@ -195,7 +195,7 @@
             background-color: #000000;
             color: #ffffff;
             text-align: center;
-            position: fixed;
+            position: bottom;
             bottom: 0;
             left: 0;
             width: 100%;
@@ -208,12 +208,12 @@
     <!-- Add any necessary stylesheets or other head elements -->
 
     <script>
-        //Check if the page has been reloaded before using a session cookie
-        if (document.cookie.indexOf("reloaded=true") === -1) {
-            // If not reloaded before, set the cookie and reload the page
-            document.cookie = "reloaded=true; path=/";
-            location.reload();
-        }
+        // //Check if the page has been reloaded before using a session cookie
+        // if (document.cookie.indexOf("reloaded=true") === -1) {
+        //     // If not reloaded before, set the cookie and reload the page
+        //     document.cookie = "reloaded=true; path=/";
+        //     location.reload();
+        // }
 
         //<!-- Conversions API Code -->
         function generateEventID() {
