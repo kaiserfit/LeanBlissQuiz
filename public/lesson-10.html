@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lesson 10: Fat Loss Plateaus</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+        }
+
+        .sidebar {
+            width: 245px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            /* color: #333; */
+            color: #cccccc;
+            display: block;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+            /* Keeps text in a single line */
+            overflow: hidden;
+            /* Hides text that overflows */
+            text-overflow: ellipsis;
+            /* Adds ellipsis to text that overflows */
+        }
+
+        .sidebar a.non-clickable {
+            pointer-events: none;
+            /* Disable clicks */
+            color: #b7b7b7;
+            /* Color for the current video link */
+        }
+
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .video-item {
+            width: 100%;
+            /* Adjust if necessary */
+            max-width: 800px;
+            /* Set a max width for large screens */
+            margin: auto;
+            /* Center the video in the main content area */
+            text-align: center;
+            display: none;
+            /* Hide all videos initially */
+        }
+
+        .video-item.active {
+            display: block;
+            /* Show the active video */
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            border: none;
+        }
+
+        .sidebar a.active-link {
+            color: black;
+            /* Color for selected video */
+        }
+
+        /* Responsive Design: Adjust sidebar and main content for smaller screens */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 150px;
+                /* Smaller sidebar on small screens */
+            }
+
+            .main-content {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <!-- List of video links -->
+        <a href="#" class="non-clickable">Lesson 1: Introduction</a>
+        <a href="#" class="non-clickable">Lesson 2: Fat Loss Essentials</a>
+        <a href="#" class="non-clickable">Lesson 3: Fat Loss Fundamentals</a>
+        <a href="#" class="non-clickable">Lesson 4: Phase 1: Base Calories Testing</a>
+        <a href="#" class="non-clickable">Lesson 5: Phase 2: Metabolism Boosting</a>
+        <a href="#" class="non-clickable">Lesson 6: Phase 3: Maximum Fat Loss Phase</a>
+        <a href="#" class="non-clickable">Lesson 7: The 80/20 Diet</a>
+        <a href="#" class="non-clickable">Lesson 8: Fat Burning Super Food</a>
+        <a href="#" class="non-clickable">Lesson 9: Sleep</a>
+        <a href="#" onclick="showVideo('video10')">Lesson 10: Fat Loss Plateaus</a>
+        <a href="#" class="non-clickable">Lesson 11: Refeed Days</a>
+        <a href="#" class="non-clickable">Lesson 12: Why You Will Fail</a>
+    </div>
+    <div class="main-content">
+        <!-- Video 10 -->
+        <div id="video10" class="video-item">
+            <h1>Lesson 10: Fat Loss Plateaus</h1>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/q-d5Qgd_4Q0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showVideo(id) {
+            var videos = document.querySelectorAll('.video-item');
+            var links = document.querySelectorAll('.sidebar a');
+
+            // Remove 'active' class from all videos and 'active-link' from all links
+            videos.forEach(function (video) {
+                video.classList.remove('active');
+            });
+            links.forEach(function (link) {
+                link.classList.remove('active-link');
+            });
+
+            // Add 'active' class to the selected video
+            var video = document.getElementById(id);
+            if (video) {
+                video.classList.add('active');
+            }
+
+            // Add 'active-link' class to the clicked link
+            var activeLink = document.querySelector('.sidebar a[href="#"][onclick="showVideo(\'' + id + '\')"]');
+            if (activeLink) {
+                activeLink.classList.add('active-link');
+            }
+        }
+
+        // Event listener for DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', function () {
+            showVideo('video10'); // Automatically display Lesson 1 on page load
+        });
+    </script>
+</body>
+
+</html>
