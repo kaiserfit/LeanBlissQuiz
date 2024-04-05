@@ -220,11 +220,11 @@
 
     <script>
         //Check if the page has been reloaded before using a session cookie
-        // if (document.cookie.indexOf("reloaded=true") === -1) {
-        //     // If not reloaded before, set the cookie and reload the page
-        //     document.cookie = "reloaded=true; path=/";
-        //     location.reload();
-        // }
+        if (document.cookie.indexOf("reloaded=true") === -1) {
+            // If not reloaded before, set the cookie and reload the page
+            document.cookie = "reloaded=true; path=/";
+            location.reload();
+        }
 
         //<!-- Conversions API Code -->
         function generateEventID() {
@@ -297,7 +297,7 @@
             client_user_agent: navigator.userAgent,
             fbp: getCookie("_fbp"),
             fbc: getCookie("_fbc"),
-            test_event_code: "TEST63487",
+            // test_event_code: "TEST63487",
         };
 
         //<!-- End of Conversion API Code [Exept fetch()] -->
