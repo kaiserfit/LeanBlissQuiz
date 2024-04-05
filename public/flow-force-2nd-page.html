@@ -101,6 +101,12 @@
             color: #fde047;
         }
 
+        .underline-text {
+            text-decoration: underline;
+            text-decoration-color: white;
+            text-underline-offset: 7px;
+        }
+
         h2 {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
@@ -209,8 +215,9 @@
 </head>
 
 <body>
-    <h1 class="bigger-font"><br />Find Your Prostrate Score & Get Your <span class="first-span">FREE </span><span
-            class="second-span">Plan</span></h1>
+    <h1><br />&nbsp;<span class="underline-text">Prostate Score Quiz</span><br />&nbsp;</h1>
+    <h1 class="bigger-font">Find Your <span class="first-span"><span class="underline-text">Prostate Score</span></span>
+        & Get Your <span class="first-span">FREE </span><span class="second-span">Plan</span></h1>
     <h1>&nbsp;<br />&nbsp;</h1>
 
     <div class="quiz-container">
@@ -232,9 +239,9 @@
         function startQuiz(choice) {
             // Redirect to the second page or trigger the next step based on the user's choice.
             if (choice === 'yes') {
-                window.location.href = "prostrate-quiz.html";
+                window.location.href = "flow-force-quiz.html";
             } else {
-                window.location.href = "prostrate-quiz.html";
+                window.location.href = "flow-force-quiz.html";
             }
         }
     </script>

@@ -65,6 +65,12 @@
             color: #fde047;
         }
 
+        .underline-text {
+            text-decoration: underline;
+            text-decoration-color: white;
+            text-underline-offset: 7px;
+        }
+
         h2 {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
@@ -281,7 +287,7 @@
             //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
             event_id: generateEventID(),
             event_name: "Search",
-            event_source_url: "https://www.livestronger.net/prostrate-quiz.html",
+            event_source_url: "https://www.livestronger.net/flow-force-quiz.html",
             external_id: getCookie("userID"),
             client_user_agent: navigator.userAgent,
             fbp: getCookie("_fbp"),
@@ -293,7 +299,7 @@
             //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
             event_id: generateEventID(),
             event_name: "QuizComplete",
-            event_source_url: "https://www.livestronger.net/prostrate-quiz.html",
+            event_source_url: "https://www.livestronger.net/flow-force-quiz.html",
             external_id: userID,
             client_user_agent: navigator.userAgent,
             fbp: getCookie("_fbp"),
@@ -356,7 +362,9 @@
 </head>
 
 <body>
-    <h1 class="bigger-font"><br />Find Your Prostrate Score & Get Your <span class="first-span">FREE </span><span class="second-span">Plan</span></h1>
+    <h1><br />&nbsp;<span class="underline-text">Prostate Score Quiz</span><br />&nbsp;</h1>
+    <h1 class="bigger-font">Find Your <span class="first-span"><span class="underline-text">Prostate Score</span></span>
+        & Get Your <span class="first-span">FREE </span><span class="second-span">Plan</span></h1>
     <h1>&nbsp;<br />&nbsp;</h1>
 
     <div class="quiz-container">
@@ -385,7 +393,8 @@
                 <div class="progress-bar">
                     <div class="progress-bar-inner" style="width: 50%"></div>
                 </div>
-                <h2>Do you wake up in the middle of the night to urinate on a regular basis (more than 2 times per week) ?</h2><br />
+                <h2>Do you wake up in the middle of the night to urinate on a regular basis (more than 2 times per week)
+                    ?</h2><br />
                 <label for="q2a"><input type="radio" id="q2a" name="q2" value="a" onclick="showNextQuestion(3)" />
                     Yes</label>
                 <label for="q2b"><input type="radio" id="q2b" name="q2" value="b" onclick="showNextQuestion(3)" />
@@ -512,7 +521,7 @@
                 .then(() => {
                     console.log("fbq - QuizComplete - Server Sent");
                     window.location.href =
-                        "https://hop.clickbank.net/?affiliate=arty94&vendor=flowforce&cbpage=tsl&affop=1";
+                        "https://flowforcemax24.com/video.php?aff=Idooni";
                 })
                 .catch((err) => console.error(err));
 
