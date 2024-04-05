@@ -79,6 +79,12 @@
             color: #fde047;
         }
 
+        .underline-text {
+            text-decoration: underline;
+            text-decoration-color: white;
+            text-underline-offset: 7px;
+        }
+
         h2 {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
@@ -204,16 +210,16 @@
         }
     </style>
 
-    <title>Lean Bliss</title>
+    <title>Neuro Thrive Quiz</title>
     <!-- Add any necessary stylesheets or other head elements -->
 
     <script>
         //Check if the page has been reloaded before using a session cookie
-        if (document.cookie.indexOf("reloaded=true") === -1) {
-            // If not reloaded before, set the cookie and reload the page
-            document.cookie = "reloaded=true; path=/";
-            location.reload();
-        }
+        // if (document.cookie.indexOf("reloaded=true") === -1) {
+        //     // If not reloaded before, set the cookie and reload the page
+        //     document.cookie = "reloaded=true; path=/";
+        //     location.reload();
+        // }
 
         //<!-- Conversions API Code -->
         function generateEventID() {
@@ -281,12 +287,12 @@
             //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
             event_id: generateEventID(),
             event_name: "ViewContent",
-            event_source_url: "https://www.livestronger.net/lean-bliss-v4.html",
+            event_source_url: "https://www.livestronger.net/flow-force-land.html",
             external_id: userID,
             client_user_agent: navigator.userAgent,
             fbp: getCookie("_fbp"),
             fbc: getCookie("_fbc"),
-            // test_event_code: "TEST33962",
+            test_event_code: "TEST63487",
         };
 
         //<!-- End of Conversion API Code [Exept fetch()] -->
@@ -315,7 +321,7 @@
             "script",
             "https://connect.facebook.net/en_US/fbevents.js"
         );
-        fbq("init", "1891668641304082", { external_id: userID });
+        fbq("init", "1540331213178311", { external_id: userID });
         console.log("fbq - initialize");
 
         function isiOS() {
@@ -354,7 +360,7 @@
             console.log("fbq - ViewContent - Pixel Sent - Landing ");
         }
 
-        fetch("https://purple-honey-quiz-test-api.vercel.app/api/event", {
+        fetch("https://neuro-thrive-backend.vercel.app/api/event", {
             method: "POST",
             body: JSON.stringify(viewContentData),
             headers: {
@@ -371,17 +377,16 @@
 
 <body>
 
-    <h1 class="bigger-font"><br />Grab Your <span class="first-span">FREE </span><span class="second-span">Chocolate
-            Recipe</span></h1>
-    <h1>&nbsp;(Designed for <span class="yellow-font">Weight Loss</span>, <span class="yellow-font">Gut
-            Health</span> &
-        <span class="yellow-font">Energy</span>)<br />&nbsp;
-    </h1>
+    <h1><br />&nbsp;<span class="underline-text">Neuro Thrive Quiz</span><br />&nbsp;</h1>
+    <h1 class="bigger-font">Find Your <span class="first-span"><span class="underline-text">Brain Score</span></span>
+        & Get Your <span class="first-span">FREE </span><span class="second-span">Plan</span></h1>
+    <h1>&nbsp;<br />&nbsp;</h1>
+
     <div class="quiz-container">
 
         <section>
             <div class="question" style="display: block">
-                <h2>Have you ever taken a product for weight loss?</h2>
+                <h2>Have you taken a brain supplement/brain health product before?</h2>
                 <br />
                 <label for="q1a"><input type="radio" id="q1a" name="q1" value="a" onclick="startQuiz('yes')" />
                     Yes</label>
@@ -395,26 +400,12 @@
         function startQuiz(choice) {
             // Redirect to the second page or trigger the next step based on the user's choice.
             if (choice === 'yes') {
-                window.location.href = "second-page-v4.html";
+                window.location.href = "neuro-thrive-2nd-page.html";
             } else {
-                window.location.href = "second-page-v4.html";
+                window.location.href = "neuro-thrive-quiz.html";
             }
         }
     </script>
-
-    <footer class="footer">
-        <p>* Results vary depending on starting point, goals and effort. Exercise and proper diet are necessary to
-            achieve and maintain weight loss and muscle definition. Consult your physician and follow all safety
-            instructions before
-            <br />beginning any exercise program or using any supplement, nutrition plan or meal replacement product,
-            especially if you are pregnant, breastfeeding, or if you have any unique or special medical conditions. The
-            contents
-            <br />on our website are for informational purposes only, and are not intended to diagnose any medical
-            condition, replace the advice of a healthcare professional, or provide any medical device, diagnosis, or
-            treatment.
-        </p>
-        <!-- <p>* Results vary depending on starting point, goals and effort. Exercise and proper diet are necessary to achieve and maintain weight loss and muscle definition. Consult your physician and follow all safety instructions before beginning any exercise program or using any supplement, nutrition plan or meal replacement product, especially if you are pregnant, breastfeeding, or if you have any unique or special medical conditions. The contents on our website are for informational purposes only, and are not intended to diagnose any medical condition, replace the advice of a healthcare professional, or provide any medical device, diagnosis, or treatment.</p> -->
-    </footer>
 
 </body>
 
