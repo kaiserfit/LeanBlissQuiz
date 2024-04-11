@@ -1,12 +1,11 @@
-<!-- landing.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        /* CSS Reset */
+        /* CSS Reset and General Styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,126 +13,88 @@
         }
 
         body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: radial-gradient(circle at 50% 59%, #255783, #376083 27%, #3a6282 75%);
+            margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
             color: #333;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background-image: radial-gradient(circle at 50% 59%, #94b5ff, #6283c8 27%, #325096 75%);
         }
 
+        /* New Two-Column Layout */
         .quiz-container {
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: #e5e7eb;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-image: linear-gradient(to bottom left,
-                    rgba(255, 255, 255, 0.722),
-                    rgb(209, 209, 209));
-            text-align: center;
-        }
-
-        .img-container {
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: #e5e7eb;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-image: linear-gradient(to bottom left,
-                    rgba(255, 255, 255, 0.722),
-                    rgb(209, 209, 209));
-            text-align: center;
-        }
-
-        #redirectButton {
+            display: flex;
+            width: auto;
+            height: 500px;
+            min-width: 300px;
+            max-width: 1200px;
             margin: 0 auto;
-        }
-
-        h1 {
-            color: #ffffff;
+            border-radius: 8px;
             overflow: hidden;
-            text-overflow: ellipsis;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .quiz-title {
+            flex: 2.5;
             background-color: #000000;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-                sans-serif;
+            /* Left column color */
+            color: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        h1 .first-span {
-            color: #ff9100;
+        .quiz-title h1 {
+            margin: 0 0 10px;
+            font-size: 2.5rem;
         }
 
-        h1 .second-span {
-            border-bottom: 5px solid #ff9100;
+        .quiz-title h2 {
+            margin: 0;
+            font-size: 1.5rem;
         }
 
-        .bigger-font {
-            font-size: 3em;
-        }
-
-        .yellow-font {
-            color: #fde047;
-        }
-
-        .underline-text {
-            text-decoration: underline;
-            text-decoration-color: white;
-            text-underline-offset: 7px;
-        }
-
-        h2 {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-                sans-serif;
-        }
-
-        h2 .white-span {
-            color: #ffffff;
-        }
-
-        /* Media query for smaller screens */
-        @media screen and (max-width: 600px) {
-            h1 {
-                font-size: 1.0em;
-            }
-
-            h2 {
-                font-size: 1.2em;
-            }
-
-            .bigger-font {
-                font-size: 1.5em;
-                /* Adjusted for mobile screens */
-            }
-
-            .quiz-container {
-                max-width: 90%;
-                margin: 20px auto;
-                padding: 10px;
-            }
-
-            label {
-                font-size: 1rem;
-            }
-
-            input[type="submit"],
-            #redirectButton {
-                font-size: 1rem;
-                margin-top: 10px;
-            }
-        }
-
-        /* Versioned Styles */
-        .question {
-            margin: 20px 0;
+        .quiz-options {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             text-align: center;
+        }
+
+        /* Question Labels */
+        .question label {
+            display: block;
+            margin: 10px auto;
+            padding: 15px 30px;
+            background-color: #f2f2f2;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            width: 80%;
+            /* Adjust as needed */
+        }
+
+        .question label:hover {
+            background-color: #e5e7eb;
+        }
+
+        /* Hiding Radio Buttons */
+        .question input[type="radio"] {
             display: none;
         }
 
+        /* Progress Bar Styles */
         .progress-bar {
             height: 30px;
             background-color: #ccc;
@@ -145,32 +106,12 @@
         .progress-bar-inner {
             height: 100%;
             width: 0;
-            background-color: #fde047;
+            background-color: #ff9100;
             border-radius: 70px;
             transition: width 0.3s ease;
         }
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-            cursor: pointer;
-            padding: 10px;
-            border: 1px solid #000000;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: normal;
-        }
-
-        label:hover {
-            background-color: #f2f2f2;
-        }
-
-        input[type="radio"] {
-            display: none;
-        }
-
+        /* Submission Button */
         input[type="submit"],
         #redirectButton {
             padding: 10px 20px;
@@ -179,10 +120,13 @@
             border: none;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            display: none;
-            margin-top: 20px;
+            display: block;
+            /* Show the button */
+            margin: 20px auto;
+            /* Center button */
             border-radius: 20px;
             font-weight: bold;
+            font-size: 1.2rem;
         }
 
         input[type="submit"]:hover,
@@ -190,34 +134,149 @@
             background-color: #fde047;
         }
 
-        .quiz-container img {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-            /* Set maximum width to 100% of the container */
-            height: auto;
-            /* Maintain aspect ratio */
-        }
-
+        /* Footer Styles */
         footer {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-                sans-serif;
+            font-family: Arial, sans-serif;
             background-color: #000000;
             color: #ffffff;
             text-align: center;
-            position: fixed;
-            bottom: 0;
-            left: 0;
             width: 100%;
             padding: 10px;
-            font-size: .5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Adjustments */
+        @media screen and (max-width: 600px) {
+            .quiz-container {
+                height: auto;
+                flex-direction: column;
+                box-shadow: none;
+                width: calc(100% - 20px);
+                margin-top: 0;
+                flex-direction: column;
+            }
+
+            .quiz-title h1 {
+                text-align: center;
+                font-size: 1.5rem;
+                color: black;
+                margin: 0 0 30px;
+                word-break: break-word;
+                /* Adjusted font size for h1 */
+            }
+
+            .quiz-title h2 {
+                text-align: center;
+                font-size: 1.5rem;
+                color: black;
+                word-break: break-word;
+                /* Adjusted font size for h2 */
+            }
+
+            .quiz-title {
+                background-color: transparent;
+                border-color: transparent;
+                border: none;
+                padding: 20px;
+                width: 100%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .quiz-options {
+                padding: 20px;
+                width: 85%;
+                box-sizing: border-box;
+                justify-content: flex-start;
+                margin-left: 27px;
+            }
+
+            .question {
+                text-align: center;
+                /* Center text inside the children */
+            }
+
+            .question h2 {
+                width: 100%;
+                /* Ensure h2 takes the full width */
+                text-align: center;
+                /* Center align h2 text */
+                margin-bottom: 20px;
+                /* Add some space below the question if needed */
+            }
+
+            .question label {
+                width: auto;
+                box-sizing: border-box;
+                font-size: 1.2rem;
+                /* margin: 10px 20px; */
+                text-align: center;
+                display: block;
+                /* Make label a block element to take full width */
+                margin: 10px auto;
+                /* Center the label by auto margins */
+            }
+
+            .question label input[type="radio"] {
+                position: absolute;
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+            input[type="submit"],
+            #redirectButton {
+                font-size: 1rem;
+            }
+
+            .progress-bar {
+                display: none;
+            }
+
+            h1 {
+                background-color: transparent;
+                /* or set to any other color */
+            }
+
+            body {
+                /* Align items to the start (top) and stretch to full width */
+                align-items: flex-start;
+                justify-content: center;
+                padding: 10px;
+                /* Add some padding */
+                background-image: none;
+                /* Optional: remove background image on mobile */
+                background-color: white;
+                /* Change to desired background color */
+            }
+
+            .first-span {
+                font-size: 2.0rem;
+            }
+
+            .question label {
+                width: 100%;
+                font-size: 1.5rem;
+            }
+        }
+
+        .first-span {
+            color: #ff9100;
+            /* This color is for illustrative purposes, adjust as needed */
+        }
+
+        .first-span-title {
+            color: #ff9100;
+            /* This color is for illustrative purposes, adjust as needed */
+        }
+
+        .second-span {
+            border-bottom: 5px solid #ff9100;
+            /* This color is for illustrative purposes, adjust as needed */
         }
     </style>
-
     <title>Sugar Defender Quiz</title>
-    <!-- Add any necessary stylesheets or other head elements -->
-
+    <!-- Your existing script for cookies and tracking -->
     <script>
         //Check if the page has been reloaded before using a session cookie
         if (document.cookie.indexOf("reloaded=true") === -1) {
@@ -297,7 +356,7 @@
             client_user_agent: navigator.userAgent,
             fbp: getCookie("_fbp"),
             fbc: getCookie("_fbc"),
-            // test_event_code: "TEST73112",
+            // test_event_code: "TEST87252",
         };
 
         //<!-- End of Conversion API Code [Exept fetch()] -->
@@ -384,32 +443,64 @@
         console.log("fbq - ViewContent - Server Sent - Landing");
         //<!-- End Meta Pixel Code -->
     </script>
-    <!-- <noscript><img height="1" width="1" style="display: none"
-            src="https://www.facebook.com/tr?id=759662146057719&ev=PageView&noscript=1" /></noscript> -->
 </head>
 
 <body>
-
-    <h1><br />&nbsp;<span class="underline-text">Blood Sugar Score Quiz</span><br />&nbsp;</h1>
-    <h1 class="bigger-font">Get Your <span class="first-span"><span class="underline-text">Score</span></span>
-        & Discover What <span class="first-span">Common Plant </span><span class="second-span">Can Lower Blood Sugar</span></h1>
-    <h1>&nbsp;<br />&nbsp;</h1>
-
     <div class="quiz-container">
+        <div class="quiz-title">
+            <h1 id="main-title">Blood Sugar Score Quiz</h1>
+            <br />
+            <h2 id="sub-title">Get Your <span class="first-span">Score </span>& Discover What <span
+                    class="first-span">Common
+                    Plant</span> Can
+                <span class="second-span">Lower Blood Sugar</span>
+            </h2>
+        </div>
+        <div class="quiz-options">
+            <!-- Your existing form and quiz questions -->
+            <form id="quizForm" action="submit-quiz.php" method="post">
 
-        <section>
-            <div class="question" style="display: block">
-                <h2>Have you taken a product to assist with Blood Sugar?</h2>
-                <br />
-                <label for="q1a"><input type="radio" id="q1a" name="q1" value="a" onclick="startQuiz('yes')" />
-                    Yes</label>
-                <label for="q1b"><input type="radio" id="q1b" name="q1" value="b" onclick="startQuiz('no')" />
-                    No</label>
-            </div>
-        </section>
+                <!-- Question 1 -->
+                <div class="question" id="question1" style="display: block">
+                    <div class="progress-bar">
+                        <div class="progress-bar-inner" style="width: 25%"></div>
+                    </div>
+                    <h2>Have you taken a product to assist with Blood Sugar?</h2><br />
+                    <label for="q1a"><input type="radio" id="q1a" name="q1" value="a" onclick="startQuiz('yes')" />
+                        Yes</label>
+                    <label for="q1b"><input type="radio" id="q1b" name="q1" value="b" onclick="startQuiz('no')" />
+                        No</label>
+                </div>
+
+                <input type="submit" id="submitButton" value="Submit Answers" style="display: none" />
+            </form>
+        </div>
     </div>
-
+    <!-- Your existing scripts for quiz functionality -->
     <script>
+
+        function adjustTitleContent() {
+            var mainTitle = document.getElementById('main-title');
+            var subTitle = document.getElementById('sub-title');
+
+            // Store the original HTML of subTitle for desktop
+            var originalSubTitleHTML = 'Get Your <span class="first-span">Blood Sugar Score</span> & Get The SuperFood That Matches <span class="second-span">YOUR Type</span>';
+
+            if (window.innerWidth <= 600) {
+                // Mobile content
+                mainTitle.innerHTML = '<span class="second-span">LIVE</span><span class="first-span-title">STRONGER</span>';
+                subTitle.innerHTML = 'Get Your<br /> <span class="first-span">Blood Sugar Score</span> <br /><br /> & Get The SuperFood That <br />Matches <span class="second-span">YOUR Type</span>';
+            } else {
+                // Desktop content
+                mainTitle.innerHTML = '<span class="second-span">LIVE</span><span class="first-span-title">STRONGER</span>';
+                subTitle.innerHTML = originalSubTitleHTML;
+            }
+        }
+
+        // Call the function when the script loads and on window resize
+        adjustTitleContent();
+        window.addEventListener('resize', adjustTitleContent);
+
         function startQuiz(choice) {
             // Redirect to the second page or trigger the next step based on the user's choice.
             if (choice === 'yes') {
