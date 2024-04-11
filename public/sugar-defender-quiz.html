@@ -376,7 +376,7 @@
             //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
             event_id: generateEventID(),
             event_name: "Search",
-            event_source_url: "https://www.livestronger.net/sugar-defender-quiz.html",
+            event_source_url: "https://www.livestronger.net/sugar-defender-land.html",
             external_id: getCookie("userID"),
             client_user_agent: navigator.userAgent,
             fbp: getCookie("_fbp"),
@@ -388,7 +388,7 @@
             //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
             event_id: generateEventID(),
             event_name: "QuizComplete",
-            event_source_url: "https://www.livestronger.net/sugar-defender-quiz.html",
+            event_source_url: "https://www.livestronger.net/sugar-defender-land.html",
             external_id: userID,
             client_user_agent: navigator.userAgent,
             fbp: getCookie("_fbp"),
@@ -476,17 +476,11 @@
                     <div class="progress-bar">
                         <div class="progress-bar-inner" style="width: 25%"></div>
                     </div>
-                    <h2>This year I am:</h2><br />
+                    <h2>Have you taken a product to assist with Blood Sugar?</h2><br />
                     <label for="q1a"><input type="radio" id="q1a" name="q1" value="a" onclick="showNextQuestion(2)" />
-                        18-25 years old</label>
+                        Yes</label>
                     <label for="q1b"><input type="radio" id="q1b" name="q1" value="b" onclick="showNextQuestion(2)" />
-                        26-35 years old</label>
-                    <label for="q1c"><input type="radio" id="q1c" name="q1" value="c" onclick="showNextQuestion(2)" />
-                        36-45 years old</label>
-                    <label for="q1d"><input type="radio" id="q1d" name="q1" value="d" onclick="showNextQuestion(2)" />
-                        46-60 years old</label>
-                    <label for="q1e"><input type="radio" id="q1e" name="q1" value="e" onclick="showNextQuestion(2)" />
-                        Over 60 years old</label>
+                        No</label>
                 </div>
 
                 <!-- Question 2 -->
