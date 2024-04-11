@@ -279,11 +279,11 @@
     <!-- Your existing script for cookies and tracking -->
     <script>
         // Check if the page has been reloaded before using a session cookie
-        // if (document.cookie.indexOf("reloaded=true") === -1) {
-        //     // If not reloaded before, set the cookie and reload the page
-        //     document.cookie = "reloaded=true; path=/";
-        //     location.reload();
-        // }
+        if (document.cookie.indexOf("reloaded=true") === -1) {
+            // If not reloaded before, set the cookie and reload the page
+            document.cookie = "reloaded=true; path=/";
+            location.reload();
+        }
 
         //<!-- Conversions API Code -->
         function generateEventID() {
@@ -348,29 +348,29 @@
         setCookie("userID", userID, 30);
 
         //<!-- Meta Pixel Code -->
-        // !(function (f, b, e, v, n, t, s) {
-        //     if (f.fbq) return;
-        //     n = f.fbq = function () {
-        //         n.callMethod
-        //             ? n.callMethod.apply(n, arguments)
-        //             : n.queue.push(arguments);
-        //     };
-        //     if (!f._fbq) f._fbq = n;
-        //     n.push = n;
-        //     n.loaded = !0;
-        //     n.version = "2.0";
-        //     n.queue = [];
-        //     t = b.createElement(e);
-        //     t.async = !0;
-        //     t.src = v;
-        //     s = b.getElementsByTagName(e)[0];
-        //     s.parentNode.insertBefore(t, s);
-        // })(
-        //     window,
-        //     document,
-        //     "script",
-        //     "https://connect.facebook.net/en_US/fbevents.js"
-        // );
+        !(function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod
+                    ? n.callMethod.apply(n, arguments)
+                    : n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = "2.0";
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+        })(
+            window,
+            document,
+            "script",
+            "https://connect.facebook.net/en_US/fbevents.js"
+        );
 
         const searchData = {
             //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
@@ -381,7 +381,7 @@
             client_user_agent: navigator.userAgent,
             fbp: getCookie("_fbp"),
             fbc: getCookie("_fbc"),
-            // test_event_code: "TEST73112", // *Remove if done testing.
+            test_event_code: "TEST87252", // *Remove if done testing.
         };
 
         const quizCompleteData = {
@@ -393,7 +393,7 @@
             client_user_agent: navigator.userAgent,
             fbp: getCookie("_fbp"),
             fbc: getCookie("_fbc"),
-            // test_event_code: "TEST73112", // *Remove if done testing.
+            test_event_code: "TEST87252", // *Remove if done testing.
         };
         //<!-- End of Conversion API Code [Exept fetch()] -->
 
@@ -411,30 +411,30 @@
             alert("This website is being viewed on an iOS device!");
         }
 
-        // if (isiOS()) {
-        //     //fbq.disablePushState = true;
-        //     console.log("fbq - Search - Pixel not sent (Apple Device)");
-        // } else if (isMac()) {
-        //     //fbq.disablePushState = true;
-        //     console.log("fbq - Search - Pixel not sent (Apple Device)");
-        // } else {
-        //     //fbq.disablePushState = false;
-        //     fbq("init", "304824659105997", { external_id: userID });
-        //     console.log("fbq - initialize");
+        if (isiOS()) {
+            //fbq.disablePushState = true;
+            console.log("fbq - Search - Pixel not sent (Apple Device)");
+        } else if (isMac()) {
+            //fbq.disablePushState = true;
+            console.log("fbq - Search - Pixel not sent (Apple Device)");
+        } else {
+            //fbq.disablePushState = false;
+            fbq("init", "304824659105997", { external_id: userID });
+            console.log("fbq - initialize");
 
-        //     fbq(
-        //         "track",
-        //         "Search",
-        //         {
-        //             external_id: userID,
-        //             client_user_agent: searchData.client_user_agent,
-        //             fbp: searchData.fbp,
-        //             fbc: searchData.fbc,
-        //         },
-        //         { eventID: searchData.event_id }
-        //     );
-        //     console.log("fbq - Search - Pixel Sent");
-        // }
+            fbq(
+                "track",
+                "Search",
+                {
+                    external_id: userID,
+                    client_user_agent: searchData.client_user_agent,
+                    fbp: searchData.fbp,
+                    fbc: searchData.fbc,
+                },
+                { eventID: searchData.event_id }
+            );
+            console.log("fbq - Search - Pixel Sent");
+        }
 
         fetch("https://hook.us1.make.com/zjnmzrx8perei7gb931vracddxx4hfuu", {
             method: "POST",
@@ -444,13 +444,13 @@
             },
         });
 
-        // fetch("https://sugar-defender-backend.vercel.app/api/event", {
-        //     method: "POST",
-        //     body: JSON.stringify(searchData),
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        // });
+        fetch("https://sugar-defender-backend.vercel.app/api/event", {
+            method: "POST",
+            body: JSON.stringify(searchData),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
         console.log("fbq - Search - Server Sent");
 
     </script>
@@ -610,37 +610,37 @@
                 alert("This website is being viewed on an iOS device!");
             }
 
-            // if (isiOS()) {
-            //     //fbq.disablePushState = true;
-            //     console.log("fbq - QuizComplete - Pixel not sent (Apple Device)");
-            // } else if (isMac()) {
-            //     //fbq.disablePushState = true;
-            //     console.log("fbq - QuizComplete - Pixel not sent (Apple Device)");
-            // } else {
-            //     //fbq.disablePushState = false;
-            //     fbq(
-            //         "track",
-            //         "QuizComplete",
-            //         {
-            //             external_id: userID,
-            //             client_user_agent: quizCompleteData.client_user_agent,
-            //             fbp: quizCompleteData.fbp,
-            //             fbc: quizCompleteData.fbc,
-            //         },
-            //         { eventID: quizCompleteData.event_id }
-            //     );
-            //     console.log("fbq - QuizComplete - Pixel Sent");
-            // }
-
-            // fetch("https://hook.us1.make.com/zjnmzrx8perei7gb931vracddxx4hfuu", {
-            //     method: "POST",
-            //     body: JSON.stringify(quizCompleteData),
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //     },
-            // });
+            if (isiOS()) {
+                //fbq.disablePushState = true;
+                console.log("fbq - QuizComplete - Pixel not sent (Apple Device)");
+            } else if (isMac()) {
+                //fbq.disablePushState = true;
+                console.log("fbq - QuizComplete - Pixel not sent (Apple Device)");
+            } else {
+                //fbq.disablePushState = false;
+                fbq(
+                    "track",
+                    "QuizComplete",
+                    {
+                        external_id: userID,
+                        client_user_agent: quizCompleteData.client_user_agent,
+                        fbp: quizCompleteData.fbp,
+                        fbc: quizCompleteData.fbc,
+                    },
+                    { eventID: quizCompleteData.event_id }
+                );
+                console.log("fbq - QuizComplete - Pixel Sent");
+            }
 
             fetch("https://hook.us1.make.com/zjnmzrx8perei7gb931vracddxx4hfuu", {
+                method: "POST",
+                body: JSON.stringify(quizCompleteData),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+
+            fetch("https://sugar-defender-backend.vercel.app/api/event", {
                 method: "POST",
                 body: JSON.stringify(quizCompleteData),
                 headers: {
