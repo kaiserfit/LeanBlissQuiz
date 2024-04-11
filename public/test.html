@@ -188,13 +188,40 @@
                 width: 85%;
                 box-sizing: border-box;
                 justify-content: flex-start;
+                margin-left: 20px;
+            }
+
+            .question {
+                text-align: center;
+                /* Center text inside the children */
+            }
+
+            .question h2 {
+                width: 100%;
+                /* Ensure h2 takes the full width */
+                text-align: center;
+                /* Center align h2 text */
+                margin-bottom: 20px;
+                /* Add some space below the question if needed */
             }
 
             .question label {
-                width: calc(100% - 40px);
+                width: auto;
                 box-sizing: border-box;
                 font-size: 1.2rem;
-                margin: 10px 20px;
+                /* margin: 10px 20px; */
+                text-align: center;
+                display: block;
+                /* Make label a block element to take full width */
+                margin: 10px auto;
+                /* Center the label by auto margins */
+            }
+
+            .question label input[type="radio"] {
+                position: absolute;
+                opacity: 0;
+                width: 0;
+                height: 0;
             }
 
             input[type="submit"],
@@ -215,12 +242,15 @@
                 /* Align items to the start (top) and stretch to full width */
                 align-items: flex-start;
                 justify-content: center;
-                padding: 10px; /* Add some padding */
-                background-image: none; /* Optional: remove background image on mobile */
-                background-color: white; /* Change to desired background color */
+                padding: 10px;
+                /* Add some padding */
+                background-image: none;
+                /* Optional: remove background image on mobile */
+                background-color: white;
+                /* Change to desired background color */
             }
 
-            .first-span{
+            .first-span {
                 font-size: 2.0rem;
             }
 
@@ -430,6 +460,7 @@
     <div class="quiz-container">
         <div class="quiz-title">
             <h1 id="main-title">Blood Sugar Score Quiz</h1>
+            <br />
             <h2 id="sub-title">Get Your <span class="first-span">Score </span>& Discover What <span
                     class="first-span">Common
                     Plant</span> Can
@@ -508,7 +539,7 @@
             var subTitle = document.getElementById('sub-title');
 
             // Store the original HTML of subTitle for desktop
-            var originalSubTitleHTML = 'Get Your <span class="first-span">Score</span> & Discover What <span class="first-span">Common Plant</span> Can <span class="second-span">Lower Blood Sugar</span>';
+            var originalSubTitleHTML = 'Get Your <span class="first-span">Blood Sugar Score</span> & Get The SuperFood That Matches <span class="second-span">YOUR Type</span>';
 
             if (window.innerWidth <= 600) {
                 // Mobile content
@@ -516,7 +547,7 @@
                 subTitle.innerHTML = 'Get Your<br /> <span class="first-span">Blood Sugar Score</span> <br /><br /> & Get The SuperFood That <br />Matches <span class="second-span">YOUR Type</span>';
             } else {
                 // Desktop content
-                mainTitle.innerHTML = 'Blood Sugar Score Quiz';
+                mainTitle.innerHTML = '<span class="second-span">LIVE</span><span class="first-span-title">STRONGER</span>';
                 subTitle.innerHTML = originalSubTitleHTML;
             }
         }
