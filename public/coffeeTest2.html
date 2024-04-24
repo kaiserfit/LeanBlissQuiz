@@ -9,18 +9,25 @@
             height: 100%;
             margin: 0;
             font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Ensures vertical alignment */
+        }
+
+        .caption {
+            font-size: 36px; /* Double the size of the original caption */
+            margin-bottom: 20px; /* Increase spacing between the caption and the progress bar */
+            color: #333; /* Caption text color */
+            text-align: center;
         }
 
         .progress-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             width: 80%;
             background-color: #ddd;
             border-radius: 5px;
             padding: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* optional: adds shadow for better visibility */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
         .progress-bar {
@@ -30,17 +37,9 @@
             border-radius: 5px;
             transition: width 2.5s linear; /* Matches the timing of the JavaScript exactly */
         }
-
-        .caption {
-            text-align: center;
-            font-size: 18px;
-            margin-bottom: 10px; /* Space between caption and progress bar */
-            color: #333; /* Caption text color */
-        }
     </style>
 </head>
 <body>
-
     <div class="caption">Loading Your FREE Video Training</div>
     <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
