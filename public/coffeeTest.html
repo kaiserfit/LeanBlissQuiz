@@ -160,6 +160,172 @@
 
     <title>Coffee Hack</title>
     <!-- Add any necessary stylesheets or other head elements -->
+    <script>
+        //Check if the page has been reloaded before using a session cookie
+        // if (document.cookie.indexOf("reloaded=true") === -1) {
+        //     // If not reloaded before, set the cookie and reload the page
+        //     document.cookie = "reloaded=true; path=/";
+        //     location.reload();
+        // }
+
+        //<!-- Conversions API Code -->
+        function generateEventID() {
+            const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            let eventID = "";
+            for (let i = 0; i < 16; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                eventID += characters.charAt(randomIndex);
+            }
+            return eventID;
+        }
+
+        function setCookie(name, value, expires) {
+            var today = new Date();
+            today.setTime(today.getTime() + expires * 24 * 60 * 60 * 1000);
+            document.cookie =
+                name +
+                "=" +
+                encodeURIComponent(value) +
+                "; expires=" +
+                today.toGMTString();
+        }
+
+        function getRandomNumber() {
+            var randomDecimal = Math.random();
+            var randomInRange =
+                1000000000 +
+                Math.floor(randomDecimal * (2147483647 - 1000000000 + 1));
+            return randomInRange;
+        }
+
+        function getCookie(name) {
+            if (document.cookie && document.cookie !== "") {
+                var cookies = document.cookie.split(";");
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === name + "=") {
+                        return decodeURIComponent(cookie.substring(name.length + 1));
+                    }
+                }
+            }
+            return null;
+        }
+
+        if (getCookie("_fbp") == null) {
+            var randomNumber = getRandomNumber();
+            var fbp = "fb." + "1." + new Date().getTime() + "." + randomNumber;
+            setCookie("_fbp", fbp, 90);
+        }
+
+        var queryString = window.location.search;
+        var params = new URLSearchParams(queryString);
+        var fbclid = params.get("fbclid");
+
+        if (getCookie("_fbc") == null && fbclid != null) {
+            console.log("creating fbc cookie");
+            var fbc = "fb." + "1." + new Date().getTime() + "." + fbclid;
+            setCookie("_fbc", fbc, 90);
+        }
+
+        const userID = generateEventID();
+        setCookie("userID", userID, 30);
+
+        const viewContentData = {
+            //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+            event_id: generateEventID(),
+            event_name: "ViewContent",
+            event_source_url: "https://www.livestronger.net/fitspresso-land.html",
+            external_id: userID,
+            client_user_agent: navigator.userAgent,
+            fbp: getCookie("_fbp"),
+            fbc: getCookie("_fbc"),
+            // test_event_code: "TEST87252",
+        };
+
+        //<!-- End of Conversion API Code [Exept fetch()] -->
+
+        //<!-- Meta Pixel Code -->
+        !(function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod
+                    ? n.callMethod.apply(n, arguments)
+                    : n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = "2.0";
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+        })(
+            window,
+            document,
+            "script",
+            "https://connect.facebook.net/en_US/fbevents.js"
+        );
+        fbq("init", " - pixel ID - ", { external_id: userID });
+        console.log("fbq - initialize");
+
+        function isiOS() {
+            return (
+                /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+            );
+        }
+
+        function isMac() {
+            return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+        }
+
+        function openPopup() {
+            alert("This website is being viewed on an iOS device!");
+        }
+
+        if (isiOS()) {
+            //fbq.disablePushState = true;
+            console.log("fbq - ViewContent - Pixel not sent (Apple Device)");
+        } else if (isMac()) {
+            //fbq.disablePushState = true;
+            console.log("fbq - ViewContent - Pixel not sent (Apple Device)");
+        } else {
+            //fbq.disablePushState = false;
+            fbq(
+                "track",
+                "ViewContent",
+                {
+                    external_id: userID,
+                    client_user_agent: viewContentData.client_user_agent,
+                    fbp: viewContentData.fbp,
+                    fbc: viewContentData.fbc,
+                },
+                { eventID: viewContentData.event_id }
+            );
+            console.log("fbq - ViewContent - Pixel Sent - Landing ");
+        }
+
+        fetch("https://sugar-defender-backend.vercel.app/api/event", {
+            method: "POST",
+            body: JSON.stringify(viewContentData),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        fetch("https://hook.us1.make.com/zjnmzrx8perei7gb931vracddxx4hfuu", {
+            method: "POST",
+            body: JSON.stringify(viewContentData),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        console.log("fbq - ViewContent - Server Sent - Landing");
+        //<!-- End Meta Pixel Code -->
+    </script>
 </head>
 
 <body>
