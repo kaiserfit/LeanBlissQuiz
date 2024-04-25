@@ -36,6 +36,26 @@
                     rgba(255, 255, 255, 0.722),
                     rgb(209, 209, 209));
             text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                sans-serif;
+        }
+
+        .text-container {
+            max-width: 800px;
+            line-height: 1.6;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to bottom left,
+                    rgb(255, 255, 255),
+                    rgb(255, 255, 255));
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                sans-serif;
         }
 
         h1 {
@@ -91,6 +111,26 @@
             cursor: pointer; /* Changes the cursor to indicate it's clickable */
         }
 
+        .underlined {
+            text-decoration: underline;
+        }
+
+        .bigger-font {
+            font-size: 1.2em; /* You can adjust the value to make it bigger or smaller */
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .italicized {
+            font-style: italic;
+        }
+
+        .upper-case {
+            text-transform: uppercase;
+        }
+
         /* Media query for smaller screens */
         @media screen and (max-width: 600px) {
             h1 {
@@ -138,20 +178,20 @@
 
     <a href="coffeeTest2.html" class="button">Click Here To Watch The Video</a>
 
-    <div class="quiz-container">
-        Leading researchers have discovered what they believe to be a new method which can improve the metabolism by
-        simply doing one simple thing to your morning coffee.<br /><br />
+    <div class="text-container">
+        Leading researchers have <span class="underlined upper-case">discovered</span> what they believe to be a <span class="bold">NEW METHOD</span> which can <span class="italicized bold">IMPROVE </span>the metabolism by
+        simply doing one <span class="bigger-font bold">SIMPLE THING</span> to your morning coffee.<br /><br />
 
-        They reveal the real cause of a slow metabolism (which may surprise you) and they show how this simple morning
-        coffee method can awaken your true metabolism in just 7 seconds.<br /><br />
+        They reveal the real cause of a <span class="italicized bold">SLOW METABOLISM</span> (which may surprise you) and they show how this simple morning
+        coffee method can <span class="underlined italicized upper-case bigger-font bold">awaken your true metabolism in just 7 seconds.</span><br /><br />
 
-        Thousands of men and women are saying they are seeing great results just by doing this simple 7 minute morning
-        coffee method. Many are loving this brand new weight loss method.<br /><br />
+        <span class="italicized bold">Thousands of men and women</span> are saying they are seeing <span class="bigger-font bold underlined upper-case">great results</span> just by doing this <span class="">simple 7 minute morning
+        coffee method.</span> Many are loving this <span class="bold bigger-font">brand new weight loss method.</span><br /><br />
 
-        Watch this incredible new video now before it goes offline. This short video will show the exact step by step
-        method to supercharging your coffee to awaken your true metabolic potential.<br /><br />
+        <span class="bigger-font bold italicized underlined">Watch this incredible new video now</span> before it goes offline. This short video will show the exact step by step
+        method to supercharging your coffee to <span class="underlined upper-case italicized">awaken your true metabolic potential.</span><br /><br />
 
-        <a href="coffeeTest2.html" style="text-decoration: none;">>> LEARN MORE</a>
+        <a href="coffeeTest2.html" style="text-decoration: none; font-size: x-large;">>> LEARN MORE</a>
     </div>
 
 </body>
