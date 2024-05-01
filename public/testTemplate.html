@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Page</title>
+    <style>
+        /* Basic Reset */
+        body,
+        h1,
+        h2,
+        h3,
+        p,
+        figure,
+        figcaption {
+            margin: 0;
+            padding: 0;
+            font-family: "apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: white;
+            /* Text color for entire page */
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            display: flex;
+            /* Use flexbox layout */
+            justify-content: space-between;
+            /* Distribute space evenly between items */
+            align-items: center;
+            /* Center items vertically */
+            padding: 10px 20px;
+            background-color: #081430;
+            /* Or any color you want for your navbar */
+            color: white;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: inherit;
+            /* Inherits the color from the parent element */
+        }
+
+        /* Adjust icon styles as necessary */
+        .navbar .icon {
+            display: inline-block;
+            /* Adjust width and height to fit the icon size */
+            width: 30px;
+            height: 30px;
+            background: url('DB_IN90_10.png') no-repeat center center;
+            background-size: contain;
+            /* Make sure the icon fits inside the element */
+        }
+
+        .navbar>* {
+            margin: 0 100px;
+            /* This adds space around the items */
+        }
+
+        .navbar img {
+            max-width: 100px;
+            /* Set maximum width */
+            height: 50px;
+            /* Adjust height automatically */
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            padding: 40px 120px;
+            /* Adjust padding as needed */
+            text-align: center;
+            /* background-image: url('bg2.png'); Path to your PNG image */
+            background: rgb(253, 187, 45);
+            background: linear-gradient(0deg, rgba(128, 71, 90, 255) 0%, rgba(47, 46, 103, 255) 60%);
+            background-size: cover;
+            /* Cover the entire area */
+            background-repeat: no-repeat;
+            background-position: center top;
+            /* Center the background image */
+        }
+
+        .content-container {
+            max-width: 800px;
+            /* Set to desired max-width */
+            margin: 0 auto;
+            /* This centers the container */
+            text-align: left;
+            /* Reset text alignment if needed */
+            text-align: center;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-container {
+            margin: 20px auto;
+            /* Center the video container */
+            max-width: 800px;
+            /* Maximum width of video container */
+        }
+
+        .video-placeholder {
+            display: flex;
+            /* Enable flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            max-width: 100%;
+            /* Make video responsive */
+            height: auto;
+            background-color: #333;
+            /* Placeholder color for video */
+            position: relative;
+        }
+
+        .video-description {
+            margin-top: 20px;
+            max-width: 800px;
+            /* Set maximum width */
+        }
+
+        .video-placeholder img {
+            max-width: 600px;
+            /* Set maximum width */
+            height: auto;
+            /* Adjust height automatically */
+        }
+
+        .shortcut-description {
+            /* background-color: #000924; */
+            background: rgb(0, 11, 40);
+            background: linear-gradient(180deg, rgba(0, 11, 40, 1) 25%, rgba(7, 49, 104, 1) 100%);
+            text-align: center;
+            display: flex;
+            /* Enable flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            flex-direction: column;
+        }
+
+        .description-limit {
+            max-width: 600px;
+            /* Set maximum width */
+            text-align: center;
+            display: flex;
+            /* Enable flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            flex-direction: column;
+        }
+
+        .description-limit-testimonial {
+            max-width: 700px;
+            /* Set maximum width */
+            text-align: center;
+            display: flex;
+            /* Enable flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            flex-direction: column;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .centered-title {
+            text-align: center;
+            /* Center text horizontally within this div */
+            margin: 0 auto;
+            /* Apply automatic margins to center the div itself */
+            max-width: 850px;
+            /* Set the maximum width of the div */
+            width: 100%;
+            /* Take full width up to the max-width */
+            display: flex;
+            /* Enable flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            flex-direction: column;
+        }
+
+        .description-limit img {
+            display: block;
+            /* Display as block-level */
+            margin: 0 auto;
+            /* Auto margins on the side to center */
+            max-width: 100%;
+            /* To make sure it doesn't overflow its container */
+            height: auto;
+            /* To maintain the aspect ratio */
+        }
+
+        .centered-title img {
+            display: block;
+            /* Display as block-level */
+            margin: 0 auto;
+            /* Auto margins on the side to center */
+            max-width: 800px;
+            /* To make sure it doesn't overflow its container */
+            height: auto;
+            /* To maintain the aspect ratio */
+        }
+
+        .testimonials-description {
+            background-color: #f5f8fb;
+            text-align: center;
+            display: flex;
+            /* Enable flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            flex-direction: column;
+        }
+
+        .center-text p {
+            text-align: center;
+        }
+
+        .left-alligned {
+            text-align: left;
+        }
+
+        .underlined {
+            /* text-decoration: underline; */
+            border-bottom: 3px solid #f3b63c;
+            box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .underlined-white {
+            /* text-decoration: underline; */
+            border-bottom: 3px solid #ffffff;
+            box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .bigger-font {
+            font-size: 1.2em;
+            /* You can adjust the value to make it bigger or smaller */
+        }
+
+        .biggest-font {
+            font-size: 1.5em;
+            /* You can adjust the value to make it bigger or smaller */
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .italicized {
+            font-style: italic;
+        }
+
+        .color-yellow {
+            color: #f3b63c;
+        }
+
+        .download-button {
+            background: linear-gradient(to right, #F58529, #d88627, #f28553, #f99b3e);
+            /* Gradient background */
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            color: #002a6a;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 370px;
+            height: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+            /* Centers the button within its container */
+        }
+
+        .download-icon {
+            background: url('image-removebg-preview.png') no-repeat center center;
+            /* Ensure this path is correct */
+            background-size: contain;
+            width: 50px;
+            /* Adjust size as needed */
+            height: 50px;
+            /* Adjust size as needed */
+            margin-right: 10px;
+            /* Space between icon and text */
+        }
+
+        .button-text {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .download-button span {
+            display: block;
+        }
+
+        .download-button span:first-child {
+            font-size: 16px;
+            /* Make it slightly larger for emphasis */
+        }
+
+        .download-button span:last-child {
+            font-size: 12px;
+            /* Smaller text for the secondary line */
+            color: #002a6a;
+            /* Lighter color for the secondary text */
+            /* text-decoration: underline; Adds underline */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <!-- Navigation content goes here -->
+        <a href="tel:+18004444041">Order By Phone +0 (000) 000 0000</a>
+        <!-- <a href="" class="icon"></a> -->
+        <img src="DB_IN90_Presentation.png" alt="placeholder">
+        <a href="contact.html">Need Help? Click Here to Contact Us</a>
+    </div>
+
+    <div class="main-content">
+        <!-- Main content goes here -->
+        <div class="content-container">
+            <h1>FOR ANYONE LOOKING TO FINALLY <span class="underlined">LOSE WEIGHT PERMANENTLY</span> & BECOME THEIR
+                <span class="color-yellow biggest-font">TRUE SELF</span>…
+            </h1><br>
+            <h3>HOW WE TRANSFORM <span class="underlined bigger-font">EVERY MAN & WOMAN</span><br> WHO USES THIS PROGRAM
+                Into Their <span class="color-yellow biggest-font">BEST</span> Self </h3>
+            <h4>Using a <span class="color-yellow biggest-font">NEW METHOD</span> Which Allows You To <span
+                    class="underlined">Eat Your Favourite Foods</span>,<br> <span class="underlined">Lose Fat
+                    Effortlessly</span> & <span class="underlined">Uncover Your Dream Body</span> </h4>
+
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <!-- Play button to trigger video -->
+                    <img src="FitSpresso(image).png" alt="placeholder">
+                </div>
+                <div class="video-description">
+                    <h1>WHAT IS <span class="bold bigger-font">DB</span><span
+                            class="color-yellow bigger-font bold">90</span>?</h1>
+                    <p><span class="bold bigger-font">DB</span><span class="color-yellow bigger-font bold">90</span> is
+                        a body transformation program that does the <span class="underlined bold">OPPOSITE</span> of
+                        most other programs do.</br></br>
+
+                        We create for you an eating plan <span class="underlined bold">FILLED</span> with <span
+                            class="italicized bold">food you actually love</span> so that you look forward to every
+                        meal.</br></br>
+
+                        We <span class="color-yellow bigger-font bold">train your body</span> to be able to eat more
+                        food than you ever imagined possible. </br></br>
+
+                        We completely <span class="color-yellow bigger-font bold">remove any excess workouts and
+                            cardio</span> and </br> only introduce low impact movement that you actually will <span
+                            class="color-yellow biggest-font bold">ENJOY</span> doing </br></br>
+
+                        This is what makes the <span class="bold bigger-font">DB</span><span
+                            class="color-yellow bigger-font bold">90</span> Program the <span
+                            class="underlined bold">GREATEST BODY TRANSFORMATION PROGRAM</span> in the world…</br></br>
+
+                        It is <span class="italicized bold">easy to follow</span> and actually works <span
+                            class="underlined bold">WITH</span> your body by giving it what it needs <span
+                            class="underlined bold">INSTEAD</span> of cutting out all your favourite food and making you
+                        do excessive cardio. </br></br>
+
+                        We have <span class="bold biggest-font color-yellow">ONE</span> promise…That <span
+                            class="bold bigger-font">DB</span><span class="color-yellow bigger-font bold">90</span> will
+                        make Fat Loss the <span class="bold biggest-font color-yellow">EASIEST</span> it has <span
+                            class="bold biggest-font color-yellow">EVER</span> Been.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="shortcut-description">
+        <div class="description-limit">
+            <h1><span class="bold bigger-font">DB</span><span class="color-yellow bigger-font bold">90</span> IS A <span
+                    class="color-yellow bigger-font bold">SHORTCUT</span></h1>
+            <p>
+                Before creating DB90- I did Keto, Paleo, Carnivore, Fasting, Calorie Counting, Low Carb, Low-Fat and
+                every other diet you can think of. </br></br>
+
+                Either they did not work at all OR they worked for a short period of time until my body hit a plateau.
+                </br></br>
+
+                So I decided to find a better way. </br></br>
+
+                After a one in a million chance encounter with one of the smartest people I have ever met in my life, I
+                was finally able to find something that TRULY worked. </br></br>
+
+                Something that worked better for me than all of the other methods combined. </br></br>
+
+                While at the same time being so easy and effortless- it felt like cheating. </br></br>
+
+                I was able to live an incredible life with no restrictions and enjoy every day with my family.
+                </br></br>
+
+                Here is a snapshot of how it works: </br></br>
+            </p>
+
+            <img src="snapshop.png" alt="placeholder"></br></br>
+
+            <h1>HERE IS WHAT THIS MEANS FOR YOU</h1>
+            <p>
+                Every "Diet" ever created has one thing in common. </br></br>
+
+                It RESTRICTS You. It takes away all the food you love and forces you to have food you despise for months
+                on end to see meaningless results. </br></br>
+
+                It takes away the joy of life. </br></br>
+
+                That's why the DB90 Program is NOT a diet. </br></br>
+
+                It is a SYSTEM that actually shows you how to properly NOURISH your body and give it what it's asking
+                for- INSTEAD of taking away its nutrients and causing it to work less effectively. </br></br>
+
+                The DB90 Program was created to show people the NEW way of making weight loss as close to effortless as
+                humanly possible. </br></br>
+
+                Here are a few clients who have used the DB90 Program….</br></br>
+
+            </p>
+
+            <img src="client1.png" alt="placeholder"></br>
+
+            <img src="client2.png" alt="placeholder"></br>
+
+            <img src="client3.png" alt="placeholder"></br></br>
+
+
+        </div>
+        <div class="centered-title">
+            <h1>The Only System You'll Ever Need To Lose Weight, Uncover Your DREAM BODY & Become Your TRUE SELF </h1>
+            </br>
+
+            <p>
+                We put everything we've learned after transforming THOUSANDS of men and women into their best self</br>
+                and helped them take the ultimate SHORTCUT to their Dream Body</br></br>
+            </p>
+
+            <img src="snap2.png" alt="placeholder"></br>
+
+            <h1>Here's Everything Else You're Getting With Your DB90 Program For Only $2.97 </h1></br>
+
+            <img src="1-4.png" alt="placeholder">
+            <img src="5-8.png" alt="placeholder"></br>
+
+            <button class="download-button">
+                <div class="download-icon"></div>
+                <div class="button-text">
+                    <span>DOWNLOAD NOW FOR ONLY $2.97</span>
+                    <span>Access Program Immediately</span>
+                </div>
+            </button></br>
+            <p style="font-size: 12px; text-decoration: underline;">CLICK HERE TO GET ACCESS TO YOUR DB90 Program NOW
+            </p></br>
+        </div>
+    </div>
+
+    <div class="testimonials-description">
+        <div class="centered-title">
+            </br>
+            <h2 style="color: red;">Here's how i went from 12 years of failing to lose weight (and gaining a ton of
+                weight in the process) TO completing an incredible transformation in 3 months By Doing The EXACT
+                OPPOSITE of Common Wisdom </h2></br>
+
+            <p style="color: #42537d;" class="bold">This is something completely NEW, Completely Different, Completely
+                Unlike Anything You've Ever Heard of Before- Read The Story Below To Discover Exactly How To Lose The
+                EASIEST Fat Of Your Life </p></br>
+
+            <p style="color: black; background-color: white; padding: 20px;" class="left-alligned bold">
+                From: The desk of Coach Shane Morris</br>
+                Re: The easiest fat loss method ever</br></br>
+
+
+                Dear Friend, </br></br>
+
+
+                I have been where you are now…Believe Me. </br></br>
+
+                This was me not long ago. </br></br>
+
+                An overweight Personal Trainer who had struggled with his weight for over 12 years. </br></br>
+
+                As you can imagine- I also struggled getting clients. </br></br>
+
+                Because they could see I couldn't help them because I could not even help myself. </br></br>
+
+
+                But after all those years struggling…I discovered something. </br></br>
+
+                I call it the "Fat Loss Sweet Spot". </br></br>
+
+                And once you discover it…</br></br>
+
+                You will uncover the power of EFFORTLESS Fat Loss </br></br>
+
+                The power to lose fat on autopilot WITHOUT even trying </br></br>
+
+                Once I discovered this breakthrough…</br></br>
+
+                I made more progress in under 3 months than I had in the last 15 years. </br></br>
+
+                <span style="color: red;">INSERT COACH SHANE BEFORE AND AFTERS</span></br></br>
+
+                Don't just take it from me. </br></br>
+
+                Here is undeniable proof:</br></br>
+
+                <span style="color: red;">INSERT BEFORE + AFTERS/ Screenshots</span></br></br>
+
+                You are probably thinking…</br></br>
+
+                HOW? </br></br>
+
+                I was lost, stuck and confused. Then THIS man changed everything for me. </br></br>
+
+                He saw me struggling for months and one day he just came up to me and asked me a simple
+                question…</br></br>
+
+                “Do you think what you are doing is working?”</br></br>
+
+                He then explained to me what was TRULY going on with my body and why billions of people around the world
+                are struggling with their weight.
+            </p>
+
+            </br></br></br></br>
+            <h1 style="color: red;">Catabolic Imbalance is what creates Your Fake Self</h1></br></br>
+
+            <div class="description-limit-testimonial center-text">
+                <p style="color: black;" class="bold">
+                    Most of us suffer from a condition known as Catabolic Imbalance </br></br>
+
+                    The worst part? </br></br>
+
+                    WE DON'T EVEN KNOW IT! </br>
+                    You see…</br></br>
+
+                    The world has changed DRASTICALLY over the last 100 years. </br></br>
+
+                    The human population has grown to almost 8 BILLION people. </br></br>
+
+                    And all of these people need to be fed</br></br>
+
+                    So what was the solution Governments and Corporations came up with in order to FEED these people?
+                    </br></br>
+
+                    Chemicals Infusion into our food supply. </br></br>
+
+                    They added chemicals to our entire food supply that made food grow faster, quicker and more
+                    resilient. </br></br>
+
+                    Chemicals were added to fruits and vegetables that made them grow in the harshest conditions like
+                    snow or extreme heat. </br></br>
+
+                    Even most organic foods contain chemicals (but in lower doses so they can fly under the radar).
+                    </br></br>
+
+                    The end result is we are able to have much cheaper food supplies…</br></br>
+
+                    However- this comes at a cost. </br></br>
+
+                    It seems all of these chemicals are impacting our fat loss hormones by blocking the signals our
+                    brain is able to send to our body. </br></br>
+
+                    These signals are so our body can produce fat burning hormones like Leptin and Peptide YY.
+                    </br></br>
+
+                    These hormones help flush out excess fat and supercharge your metabolism. </br></br>
+
+                    Without these hormones in your body…</br></br>
+
+                    You give this imposter power over you and become your FAKE SELF </br></br>
+
+                    <span style="color: red;">INSERT BEFORE IMAGES</span>
+
+                </p>
+            </div>
+
+            </br></br>
+            <h1 style="color: red;">There is only ONE Thing that can break you FREE from this imposter and unlock your
+                DREAM BODY</h1></br></br>
+            <div class="description-limit-testimonial center-text">
+                <p style="color: black;" class="bold">
+                    And that is…</br></br>
+
+                    The Fat Loss Sweet Spot.</br></br>
+
+                    Your body has a fat loss sweet spot that can ONLY be activated by giving your body EXACTLY what it
+                    is asking you for.</br></br>
+
+                    And that is:</br></br>
+
+                    ✅ The EXACT amount of food it needs</br>
+                    ✅ Eating delicious food that makes you happy (which impacts the brain's ability to produce good
+                    hormones)</br>
+                    ✅ Food that FUEL the body properly</br>
+                    ✅ Food that supports healthy hormones</br>
+                    ✅ Movements that unlock SuperCharged Calorie Burning</br>
+                    ✅ Fat Loss Hacks that awaken Leptin & Peptide YY</br></br>
+
+
+                    And the ONLY way you can do this is by following the EXACT PROTOCOL that thousands of people are
+                    doing to see the best results of their life.</br></br>
+
+                    And this protocol can ONLY be found in the DB90 Program</br></br>
+
+                    And once you follow them- the results are LIFE CHANGING:</br></br>
+
+
+                    <span style="color: red;">INSERT BEFORE AND AFTERS</span>
+
+                </p>
+            </div>
+
+            </br></br>
+            <h1 style="color: red;">What are they doing that you are not? (they are doing things differently than you)
+            </h1></br></br>
+
+            <div class="description-limit-testimonial center-text">
+                <p style="color: black;" class="bold">
+                    ❌ Why do you spend money on Ozempic, Weight Loss Supplements and other weight loss gimmick products?
+                    These products do NOT address the ROOT CAUSE of weight gain </br></br>
+
+                    ❌Why are you cutting carbs? Your body needs them to fuel your brain and your hormones. </br></br>
+
+                    ❌Why do you drop calories drastically? If you are not feeding your body the fuel it needs- it will
+                    crash and hit a plateau </br></br>
+
+                    ❌Why do eat food you hate? Every meal that you hate STEALS your willpower and sets you up to fail
+                    </br></br>
+
+                    ❌Why do you do super intense or long exercise sessions? These put your body in energy saving mode
+                    and PREVENT fat loss </br></br>
+
+                    ❌ Why do you lose weight and then your progress suddenly stops? THIS is your body fighting against
+                    you and this leads to weight gain shortly after and should be avoided at all costs </br></br>
+
+                    ❌ Why do you sacrifice eating good food with your family during special occasions and good times?
+                    All this sacrifice is JUST not worth it </br></br>
+
+                    Here is what separates our clients from what you and most others do to lose weight:</br></br>
+
+                    ✅ They fix the ROOT CAUSE of weight gain and lose fat effortlessly by activating their Fat Loss
+                    Sweet Spot </br></br>
+
+                    ✅ They LOVE what they eat and build an eating plan around food they enjoy (while losing fat on
+                    autopilot) </br></br>
+
+                    ✅ They eat more carbs and calories than they ever imagined possible WHILE losing fat, repairing
+                    their hormones and fixing their metabolism </br></br>
+
+                    ✅ They do SUPER EASY & SUPER LOW IMPACT movements that torch fat </br></br>
+
+                    ✅ They lose fat in a permanent manner by SPEEDING UP the metabolism while losing weight instead of
+                    slowing down the metabolism </br></br>
+
+                    ✅ They enjoy special occasions and good food with their family and friends (While losing weight)
+                    </br></br>
+
+                    And the results speak for themselves: </br></br>
+
+                    <span style="color: red;">BEFORE AND AFTERS</span></br></br>
+
+                </p>
+            </div>
+
+            </br></br>
+            <h1 style="color: red;">Here is EXACTLY how this Fat Loss Program works:
+            </h1></br></br>
+
+            <div class="description-limit-testimonial">
+                <p style="color: black;" class="left-alligned bold">
+                    PHASE 1- Testing Phase </br></br>
+
+                    This phase focuses on finding your bodies fat loss sweet spot while eating your favourite foods and
+                    introducing some initial fat loss hacks to rev up your metabolism and boost your fat loss hormones.
+                    </br></br>
+
+                    PHASE 2- Metabolism Boost Phase</br></br>
+
+                    This is where we start boosting the metabolism drastically while ramping up fat loss and training
+                    your body to be able to eat more food while losing weight </br></br>
+
+                    PHASE 3- Maximum Fat Loss Phase </br></br>
+
+                    This is where magic truly happens! </br></br>
+
+                    You will start to see the easiest fat loss of your life while enjoying every single bite of food and
+                    loving every step of the journey. </br></br>
+
+                    During this phase- you will flood your body with GOOD fat loss hormones like Leptin and Peptide YY.
+                    </br></br>
+
+                    Now your body is in an optimal fat burning phase 24/7. </br></br>
+
+                    You will see the best results of your life FASTER than ever before. </br></br>
+
+                    People will be shocked at how fast you are transforming. </br></br>
+
+                    Now you can see…</br></br>
+
+                </p>
+            </div>
+
+            </br></br>
+            <h2 style="color: red;">
+                Why this is the most powerful fat loss program ever created to lose fat easily, effortlessly and on
+                autopilot (while loving every step of the journey and having friends and family practically begging for
+                your secret)
+            </h2>
+            </br></br>
+
+            <div class="description-limit-testimonial">
+                <p style="color: black;" class="left-alligned bold">
+                    So if this is you, it's time to consider joining the DB90 Program: </br></br>
+
+                    Do you have more than 5 pounds of fat OR MORE to lose? Well this is the easiest way to lose 5, 10,
+                    20, 30, 50 or even 100 pounds of fat OR MORE.</br></br> This can help you lose fat no matter how
+                    much weight you are looking to drop
+                    Have you put your faith in Ozempic? Weight loss supplements or fad weight loss products that
+                    provided you ZERO results? Me too. It's why I was stuck for 15 years looking for a weight loss
+                    solution.</br></br> What I can tell you with 100% confidence is that DB90 is the answer to your
+                    weight loss prayers (just like it was mine and just like it has been for the THOUSANDS of men and
+                    women who used it) </br></br>
+
+                    Have you tried diets or programs that are too hard or too strict? Well- this is the EASIEST fat loss
+                    program ever invented. Trust me- after 15 years of failure trying every single diet or program you
+                    can imagine- this program is what changed my life and I know it can change yours. </br></br>
+
+                    Have you found yourself falling off exercise programs and workout routines because they are too hard
+                    or take too long? None of that is needed with the DB90 program. This program is built around your
+                    life and your circumstances. It is totally flexible. The low impact movements we suggest only take a
+                    few minutes every day. </br></br>
+
+                    Do you see your metabolism slowing down as you age and think you are getting too old to turn your
+                    body around and unlock your dream body? </br></br>
+
+                    Men and women of ALL ages have lost weight and become their best self by unlocking their DREAM BODY
+                    in record time. Age will NOT be a factor in you losing weight effortlessly. </br></br>
+
+                    Have you felt like your genetics or metabolism will prevent you from achieving your dream body?
+                    </br></br>
+
+                    Myself and literally THOUSANDS of people felt the same exact way. But after just a few days on the
+                    DB90 program- we realised that you can achieve incredible fat loss REGARDLESS of your genetics,
+                    metabolism or starting point. </br></br>
+
+
+                    <span style="color: red;">INSERT BEFORE + AFTERS</span>
+
+                </p>
+            </div>
+
+            </br></br>
+            <h1 style="color: red;">
+                Fascinations- here is what you will discover (26 reasons)
+            </h1>
+            </br></br>
+
+            <div class="description-limit-testimonial">
+                <p style="color: black;" class="left-alligned bold">
+                    ➢ ⠀How to activate your 'fat loss code' deep inside your DNA and put your body in the optimal fat loss
+                    state 24/7</br></br>
+                    ➢ ⠀How 1 Simple Superfood in most peoples kitchen can stimulate your thyroid for maximum fat loss (in 7
+                    seconds or less)</br></br>
+                    ➢ ⠀The liquid drink designed to optimise liver function and also improve the metabolism (and how most
+                    people drink it the wrong way for weight loss)</br></br>
+                    ➢ ⠀Why your body ALWAYS hits fat loss plateaus- and how to EASILY break through any plateau instantly
+                    by turning your body into a fat torching machine</br></br>
+                    ➢ ⠀The single biggest fat loss mistake you are making (and why its held you back for years without you
+                    even knowing it)- and why you need to do the COMPLETE OPPOSITE to trigger your bodies Fat Loss Sweet
+                    Spot</br></br>
+                    ➢ ⠀The Secret to Effortless Weight Loss by actually eating the food you love and enjoy- a nd how this
+                    actually activates your bodies fat burning hormones</br></br>
+                    ➢ ⠀How to instantly trigger the fat burning hormone Peptide YY by removing the blocker your brain
+                    currently has in one simple step</br></br>
+                    ➢ ⠀The Low Impact Movement that can burn more fat than hours of on a treadmill (in a fraction of the
+                    time)- which our clients use to burn fat on autopilot</br></br>
+
+                    <span style="color: blue;">
+                        ● And as a result you will be able to</br>
+                        ● Bonuses </br>
+                        ● Money Back Guarantee </br>
+                    </span>
+
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
