@@ -1,0 +1,482 @@
+<!-- landing.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-W8VMJ4PS');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TXQZ6KXPF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-5TXQZ6KXPF');
+        gtag('config', 'AW-16549526015');
+    </script>
+    <!-- End Google tag (gtag.js) event -->
+
+    <!-- Google tag (gtag.js) event -->
+    <script>
+        gtag('event', 'conversion_event_page_view', {
+            // <event_parameters>
+        });
+    </script>
+    <!-- End Google tag (gtag.js) event -->
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* CSS Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to right,
+                    rgba(255, 0, 0, 0),
+                    rgba(126, 133, 143));
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #e5e7eb;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to bottom left,
+                    rgba(255, 255, 255, 0.722),
+                    rgb(209, 209, 209));
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                sans-serif;
+        }
+
+        .text-container {
+            max-width: 800px;
+            line-height: 1.6;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to bottom left,
+                    rgb(255, 255, 255),
+                    rgb(255, 255, 255));
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                sans-serif;
+        }
+
+        h1 {
+            color: #ffffff;
+            overflow: hidden;
+            font-size: 2.5em;
+            text-overflow: ellipsis;
+            background-color: #000000;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                sans-serif;
+        }
+
+        h3 {
+            color: #000000;
+            overflow: hidden;
+            font-size: 1.5em;
+            text-overflow: ellipsis;
+            background-color: #000000;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                sans-serif;
+        }
+
+        h1 .first-span {
+            color: #fde047;
+        }
+
+        h1 .second-span {
+            border-bottom: 5px solid #fde047;
+        }
+
+        h3 .first-span {
+            color: #fde047;
+        }
+
+        h3 .second-span {
+            border-bottom: 3px solid #000000;
+        }
+
+        h2 {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                sans-serif;
+        }
+
+        h3 {
+            margin-left: -5px;
+        }
+
+        .button {
+            display: inline-flex;
+            /* Makes content align horizontally */
+            align-items: left;
+            justify-content: center;
+            background-color: #fde047;
+            color: black;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: x-large;
+            font-weight: bold;
+            margin: 20px auto;
+            /* centering the button and paragraph */
+            display: block;
+            /* ensures the button takes the width specified */
+            border: none;
+            /* Remove default border */
+            border-radius: 15px;
+            /* This will round out the corners */
+            cursor: pointer;
+            /* Changes the mouse cursor to a pointer on hover */
+            max-width: 700px;
+            /* same as the video container */
+        }
+
+        .button img {
+            width: 25px;
+            height: 25px;
+            margin-right: 8px;
+        }
+
+        .p {
+            max-width: 800px;
+            /* same as the video container */
+            margin: 20px auto;
+            /* centering the button and paragraph */
+            display: block;
+            /* ensures the button takes the width specified */
+        }
+
+        .quiz-container a img {
+            cursor: pointer;
+            /* Changes the cursor to indicate it's clickable */
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        .bigger-font {
+            font-size: 1.2em;
+            /* You can adjust the value to make it bigger or smaller */
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .italicized {
+            font-style: italic;
+        }
+
+        .upper-case {
+            text-transform: uppercase;
+        }
+
+        .highlight {
+            background-color: #fde047;
+            padding: 0.4em 2.5em;
+            margin: 0.5em;
+            /* Adds space outside the highlighted element */
+            border-radius: 5px;
+            /* Optional: adds rounded corners */
+            font-weight: normal;
+        }
+
+        .pointing-icon {
+            background: url('pointing-right.png') no-repeat center center;
+            /* Ensure this path is correct */
+            background-size: contain;
+            width: 50px;
+            /* Adjust size as needed */
+            height: 50px;
+            /* Adjust size as needed */
+            margin-right: 10px;
+            /* Space between icon and text */
+        }
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 1.3em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            h3 {
+                font-size: 0.7em;
+            }
+
+            .quiz-container {
+                max-width: 90%;
+                margin: 20px auto;
+                padding: 10px;
+            }
+
+        }
+
+        /* Versioned Styles */
+        .quiz-container img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            /* Set maximum width to 100% of the container */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+    </style>
+
+    <title>Coffee Hack</title>
+    <!-- Add any necessary stylesheets or other head elements -->
+    <script>
+        //Check if the page has been reloaded before using a session cookie
+        if (document.cookie.indexOf("reloaded=true") === -1) {
+            // If not reloaded before, set the cookie and reload the page
+            document.cookie = "reloaded=true; path=/";
+            location.reload();
+        }
+
+        //<!-- Conversions API Code -->
+        function generateEventID() {
+            const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            let eventID = "";
+            for (let i = 0; i < 16; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                eventID += characters.charAt(randomIndex);
+            }
+            return eventID;
+        }
+
+        function setCookie(name, value, expires) {
+            var today = new Date();
+            today.setTime(today.getTime() + expires * 24 * 60 * 60 * 1000);
+            document.cookie =
+                name +
+                "=" +
+                encodeURIComponent(value) +
+                "; expires=" +
+                today.toGMTString();
+        }
+
+        function getRandomNumber() {
+            var randomDecimal = Math.random();
+            var randomInRange =
+                1000000000 +
+                Math.floor(randomDecimal * (2147483647 - 1000000000 + 1));
+            return randomInRange;
+        }
+
+        function getCookie(name) {
+            if (document.cookie && document.cookie !== "") {
+                var cookies = document.cookie.split(";");
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === name + "=") {
+                        return decodeURIComponent(cookie.substring(name.length + 1));
+                    }
+                }
+            }
+            return null;
+        }
+
+        if (getCookie("_fbp") == null) {
+            var randomNumber = getRandomNumber();
+            var fbp = "fb." + "1." + new Date().getTime() + "." + randomNumber;
+            setCookie("_fbp", fbp, 90);
+        }
+
+        var queryString = window.location.search;
+        var params = new URLSearchParams(queryString);
+        var fbclid = params.get("fbclid");
+
+        if (getCookie("_fbc") == null && fbclid != null) {
+            console.log("creating fbc cookie");
+            var fbc = "fb." + "1." + new Date().getTime() + "." + fbclid;
+            setCookie("_fbc", fbc, 90);
+        }
+
+        const userID = generateEventID();
+        setCookie("userID", userID, 30);
+
+        const viewContentData = {
+            //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+            event_id: generateEventID(),
+            event_name: "ViewContent",
+            event_source_url: "https://www.livestronger.net/fit-spresso-land.html",
+            external_id: userID,
+            client_user_agent: navigator.userAgent,
+            fbp: getCookie("_fbp"),
+            fbc: getCookie("_fbc"),
+            // test_event_code: "TEST28894",
+        };
+
+        //<!-- End of Conversion API Code [Exept fetch()] -->
+
+        //<!-- Meta Pixel Code -->
+        !(function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod
+                    ? n.callMethod.apply(n, arguments)
+                    : n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = "2.0";
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+        })(
+            window,
+            document,
+            "script",
+            "https://connect.facebook.net/en_US/fbevents.js"
+        );
+        fbq("init", "411562407805248", { external_id: userID });
+        console.log("fbq - initialize");
+
+        function isiOS() {
+            return (
+                /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+            );
+        }
+
+        function isMac() {
+            return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+        }
+
+        function openPopup() {
+            alert("This website is being viewed on an iOS device!");
+        }
+
+        if (isiOS()) {
+            //fbq.disablePushState = true;
+            console.log("fbq - ViewContent - Pixel not sent (Apple Device)");
+        } else if (isMac()) {
+            //fbq.disablePushState = true;
+            console.log("fbq - ViewContent - Pixel not sent (Apple Device)");
+        } else {
+            //fbq.disablePushState = false;
+            fbq(
+                "track",
+                "ViewContent",
+                {
+                    external_id: userID,
+                    client_user_agent: viewContentData.client_user_agent,
+                    fbp: viewContentData.fbp,
+                    fbc: viewContentData.fbc,
+                },
+                { eventID: viewContentData.event_id }
+            );
+            console.log("fbq - ViewContent - Pixel Sent - Landing ");
+        }
+
+        fetch("https://fit-spresso-backend.vercel.app/api/event", {
+            method: "POST",
+            body: JSON.stringify(viewContentData),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        fetch("https://hook.us1.make.com/zjnmzrx8perei7gb931vracddxx4hfuu", {
+            method: "POST",
+            body: JSON.stringify(viewContentData),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        console.log("fbq - ViewContent - Server Sent - Landing");
+        //<!-- End Meta Pixel Code -->
+    </script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8VMJ4PS" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+
+    <h3><br /><span class="highlight">This <span class="second-span">FREE</span> Training is Designed for
+            <span class="bold">Weight Loss</span></span><br />&nbsp;
+    </h3>
+    <h1>How <span class="second-span">One Simple</span>
+        <span class="first-span">Coffee Loophole</span><br />Can <span class="second-span">SuperCharge</span><span
+            class="first-span">The Metabolism</span><br />&nbsp;
+    </h1>
+
+    <div class="quiz-container">
+        <a href="fit-spresso-2nd-page.html">
+            <img src="Fitspresso2.jpg" alt="Learn more about FitSpresso">
+        </a>
+    </div>
+
+    <a href="fit-spresso-2nd-page.html" style="text-decoration: none; font-weight: bold;">(Watch Video)</h3><br />
+
+        <a href="fit-spresso-2nd-page.html" class="button">
+            <img src="pointing-right.png" alt="Video Icon">
+            Click Here To Watch The Video</a>
+
+        <div class="text-container">
+            This newly discovered <span class="underlined bold">7 second coffee ritual</span> has been taking the
+            internet by storm as people are claiming
+            they finally have a breakthrough that <span class="underlined bold">increases their metabolism</span>, helps
+            them <span class="underlined bold">lose weight</span> and finally lets
+            them <span class="underlined bold">enjoy their favourite foods</span> guilt free.<br /><br />
+
+            Thousands of men and women are saying they are seeing great results just by doing this simple 7 second
+            morning coffee method. <span class="underlined bold">Many are loving this brand new weight loss
+                method.</span><br /><br />
+
+            This video is ideal for those with a slow metabolism who have a difficult time losing weight.<br /><br />
+
+            Watch this incredible new video now before it goes offline. This short video will show the <span
+                class="underlined bold">exact step by step method</span>
+            to supercharging your coffee to awaken your true metabolic potential and <span class="underlined bold">help
+                you lose weight.</span><br /><br />
+
+            <a href="fit-spresso-2nd-page.html" style="text-decoration: none; font-size: x-large;">>> LEARN MORE</a>
+        </div>
+
+</body>
+
+</html>
