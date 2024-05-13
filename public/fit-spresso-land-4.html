@@ -90,7 +90,7 @@
         }
 
         .text-container {
-            max-width: 850px;
+            max-width: 800px;
             /* line-height: 1.6; */
             margin: 10px auto;
             background-color: #ffffff;
@@ -110,7 +110,7 @@
         h1 {
             color: #000000;
             overflow: hidden;
-            font-size: 2.6em;
+            font-size: 3em;
             text-overflow: ellipsis;
             /* background-color: #000000; */
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -130,6 +130,7 @@
         }
 
         h3 {
+            align-items: left;
             color: #ffffff;
             overflow: hidden;
             font-size: 1.8em;
@@ -141,11 +142,11 @@
         }
 
         h1 .first-span {
-            color: #db1b1b;
+            color: #1893f8;
         }
 
         h1 .second-span {
-            border-bottom: 5px solid #1893f8;
+            color: #db1b1b;
         }
 
         h3 .first-span {
@@ -153,7 +154,7 @@
         }
 
         h3 .second-span {
-            border-bottom: 3px solid #000000;
+            color: #db1b1b;
         }
 
         h2 {
@@ -163,28 +164,30 @@
         }
 
         .button {
-            display: inline-flex;
-            /* Makes content align horizontally */
-            align-items: left;
-            justify-content: center;
-            background-color: #1893f8;
-            color: rgb(255, 255, 255);
-            padding: 15px 30px;
-            text-decoration: none;
-            font-size: xx-large;
-            font-weight: bold;
-            margin: 20px auto;
-            /* centering the button and paragraph */
             display: block;
-            /* ensures the button takes the width specified */
+            /* Ensures the button is a block-level element */
+            width: 720px;
+            /* Explicitly setting the width */
+            margin: 20px auto;
+            /* Center the button horizontally */
+            padding: 15px 30px;
+            /* Adequate padding for clickability */
+            background-color: #e9b43d;
+            /* Uniform background color */
+            color: white;
+            /* Text color */
+            text-align: center;
+            /* Center the text inside the button */
+            text-decoration: none;
+            /* No underline */
+            font-size: xx-large;
+            /* Large text size for visibility */
+            font-weight: bold;
+            /* Bold text */
             border: none;
-            /* Remove default border */
-            /* border-radius: 15px; */
-            /* This will round out the corners */
+            /* No borders */
             cursor: pointer;
-            /* Changes the mouse cursor to a pointer on hover */
-            max-width: 700px;
-            /* same as the video container */
+            /* Pointer cursor to indicate clickability */
         }
 
         .button img {
@@ -229,24 +232,32 @@
         }
 
         .highlight {
-            display: block;
-            /* Make span behave like a div */
-            background-color: #db1b1b;
-            /* This sets the background to a bright red */
-            color: white;
-            /* This sets the text color to white */
-            padding: 30px 40px;
-            /* Adjusted padding for better spacing */
+            display: flex;
+            align-items: center;
+            /* Ensures vertical centering of text and image */
+            padding: 0px 20px 0px 0px;
+            /* Adjust padding to match the target layout */
             margin: 20px auto;
-            /* Ensure it centers horizontally */
-            /* Retains the same margin */
-            font-weight: bold;
-            /* Makes the font bold */
-            text-align: center;
-            /* Centers the text within the element */
+            /* Center the element horizontally */
+            border: 2px solid black;
+            /* Black border around the element */
+            background-color: white;
+            /* Background color inside the border */
+            width: fit-content;
+            /* Adjust width to the content inside */
+            font-weight: normal;
             font-size: 30px;
-            /* Adjusts font size as needed */
-            line-height: 0.5;
+            color: black;
+            line-height: 1;
+        }
+
+        .highlight img {
+            width: 70px;
+            /* Adjust if the image size needs change */
+            height: auto;
+            /* Maintain aspect ratio */
+            margin-right: 20px;
+            /* Right margin between image and text */
         }
 
         .pointing-icon {
@@ -287,7 +298,7 @@
             }
 
             .button {
-                font-size: 1.2em;
+                font-size: 1.0em;
                 max-width: 300px;
             }
 
@@ -300,14 +311,7 @@
             }
 
             .highlight {
-                background-color: #db1b1b;
-                color: white;
-                padding: 10px 10px;
-                margin: 10px;
-                font-weight: bold;
-                text-align: center;
-                font-size: 17px;
-                line-height: 2.5;
+                font-size: 11px;
             }
 
         }
@@ -501,12 +505,12 @@
 
     <div class="body-container">
         <br />
-        <h3>
-            <a>
-                <img src="FitSpresso4-icon.png">
-            </a> 
-            <span class="highlight">Weight Slimming Expert:</span></h3>
-        <h1>This 7 Second Coffee Ritual Kicks<br />Metabolism Into High Gear</h1>
+        <h3 class="highlight">
+            <img src="FitSpresso4-icon.png" alt="Weight loss icon">
+            <span>NEWS! Weight Loss Experts Revealed a Secret</span>
+        </h3>
+        <h1><span class="first-span">Weight Slimming Expert:</span><br />This <span class="second-span">7 Second
+                Coffee</span> Ritual Kicks<br />Metabolism Into High Gear</h1>
 
         <a href="fit-spresso-loading-page-4.html" class="button">
             Click Here To Watch The Video</a>
@@ -518,29 +522,24 @@
         </div>
 
         <div class="text-container">
-            <span style="font-size: 19px;">Make sure your sound is turned on. Please wait up to 10 seconds for the video
-                to
-                load.</span><br /><br />
+            There's a new <span class="underlined bold">7 second coffee hack</span> that can <span
+                class="underlined bold">awaken the metabolism</span> and help shrink stubborn areas better than
+            any diet or exercise.<br /><br />
 
-            An elite team of <span class="underlined bold">UK scientists</span> have discovered a groundbreaking new
-            coffee
-            ritual that only takes 7 seconds a
-            day to <span class="underlined bold">boost metabolism</span> and it has already worked for <span
-                class="underlined bold">221,432</span> men and women.<br /><br />
+            Just a simple tweak to our daily cup of joe can activate our body's <span class="underlined bold">innate
+                ability to burn more calories</span>.<br /><br />
 
-            This simple morning tweak is taking the world by storm. People everywhere are raving about how it helps them
-            <span class="underlined bold">shrink stubborn areas like their hips, arms, and face</span>.<br /><br />
+            It works by telling our metabolism when is the best time to burn calories… This secret coffee hack has
+            already helped <span class="underlined bold">221,432</span> men and women <span
+                class="underlined bold">break down stored tissue that even diet and exercise struggles
+                with</span>.<br /><br />
 
-            It works better than diets like Keto and Long Cardio Workouts. People struggling with a sluggish metabolism
-            or
-            have trouble losing weight should watch this <span class="underlined bold">short, FREE presentation</span>
-            before it's gone.<br /><br />
+            Check out this FREE video before it disappears and learn the step-by-step method. Harness the body's <span
+                class="underlined bold">natural
+                ability to burn more calories</span> with this game changing <span class="underlined bold">7 second coffee hack</span>.<br /><br />
 
-            It reveals the step-by-step method that helps awaken the body's innate ability to burn more calories. It's
-            so
-            simple that it <span class="underlined bold">only takes 7 seconds</span> and can be done in your kitchen
-            right
-            now.
+            <a href="fit-spresso-loading-page-4.html" class="button">
+                Click Here To Watch The Video</a>
         </div>
     </div>
 
