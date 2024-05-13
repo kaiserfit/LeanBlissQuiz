@@ -333,11 +333,11 @@
     <!-- Add any necessary stylesheets or other head elements -->
     <script>
         //Check if the page has been reloaded before using a session cookie
-        // if (document.cookie.indexOf("reloaded=true") === -1) {
-        //     // If not reloaded before, set the cookie and reload the page
-        //     document.cookie = "reloaded=true; path=/";
-        //     location.reload();
-        // }
+        if (document.cookie.indexOf("reloaded=true") === -1) {
+            // If not reloaded before, set the cookie and reload the page
+            document.cookie = "reloaded=true; path=/";
+            location.reload();
+        }
 
         //<!-- Conversions API Code -->
         function generateEventID() {
