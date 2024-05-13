@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W8VMJ4PS');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TXQZ6KXPF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-5TXQZ6KXPF');
+      gtag('config', 'AW-16549526015');
+    </script>
+    <!-- End Google tag (gtag.js) event -->
+
+    <!-- Google tag (gtag.js) event -->
+    <script>
+    gtag('event', 'conversion_event_page_view_1', {
+      // <event_parameters>
+    });
+  </script>
+  <!-- End Google tag (gtag.js) event -->
+
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Ensures vertical alignment */
+        }
+
+        .caption {
+            font-size: 36px; /* Double the size of the original caption */
+            margin-bottom: 20px; /* Increase spacing between the caption and the progress bar */
+            color: #333; /* Caption text color */
+            text-align: center;
+        }
+
+        .progress-container {
+            width: 80%;
+            background-color: #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            height: 30px;
+            width: 0%;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            transition: width 2.5s linear; /* Matches the timing of the JavaScript exactly */
+        }
+    </style>
+
+<script>
+    // Check if the page has been reloaded before using a session cookie
+    if (document.cookie.indexOf("reloaded=true") === -1) {
+        // If not reloaded before, set the cookie and reload the page
+        document.cookie = "reloaded=true; path=/";
+        location.reload();
+    }
+
+    //<!-- Conversions API Code -->
+    function generateEventID() {
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        let eventID = "";
+        for (let i = 0; i < 16; i++) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            eventID += characters.charAt(randomIndex);
+        }
+        return eventID;
+    }
+
+    function setCookie(name, value, expires) {
+        var today = new Date();
+        today.setTime(today.getTime() + expires * 24 * 60 * 60 * 1000);
+        document.cookie =
+            name +
+            "=" +
+            encodeURIComponent(value) +
+            "; expires=" +
+            today.toGMTString();
+    }
+
+    function getRandomNumber() {
+        var randomDecimal = Math.random();
+        var randomInRange =
+            1000000000 +
+            Math.floor(randomDecimal * (2147483647 - 1000000000 + 1));
+        return randomInRange;
+    }
+
+    function getCookie(name) {
+        if (document.cookie && document.cookie !== "") {
+            var cookies = document.cookie.split(";");
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === name + "=") {
+                    return decodeURIComponent(cookie.substring(name.length + 1));
+                }
+            }
+        }
+        return null;
+    }
+
+    if (getCookie("_fbp") == null) {
+        var randomNumber = getRandomNumber();
+        var fbp = "fb." + "1." + new Date().getTime() + "." + randomNumber;
+        setCookie("_fbp", fbp, 90);
+    }
+
+    var queryString = window.location.search;
+    var params = new URLSearchParams(queryString);
+    var fbclid = params.get("fbclid");
+
+    if (getCookie("_fbc") == null && fbclid != null) {
+        console.log("creating fbc cookie");
+        var fbc = "fb." + "1." + new Date().getTime() + "." + fbclid;
+        setCookie("_fbc", fbc, 90);
+    }
+
+    const userID = generateEventID();
+    setCookie("userID", userID, 30);
+
+    //<!-- Meta Pixel Code -->
+    !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+            n.callMethod
+                ? n.callMethod.apply(n, arguments)
+                : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+    })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+    );
+
+    const searchData = {
+        //Server Events Parameters | # - Hasing required | #? - Hashing Recommended | #X - Do not Hash
+        event_id: generateEventID(),
+        event_name: "Search",
+        event_source_url: "https://www.livestronger.net/fit-spresso-2nd-page.html",
+        external_id: getCookie("userID"),
+        client_user_agent: navigator.userAgent,
+        fbp: getCookie("_fbp"),
+        fbc: getCookie("_fbc"),
+        // test_event_code: "TEST28894", // *Remove if done testing.
+    };
+
+    //<!-- End of Conversion API Code [Exept fetch()] -->
+
+    function isiOS() {
+        return (
+            /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+        );
+    }
+
+    function isMac() {
+        return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+    }
+
+    function openPopup() {
+        alert("This website is being viewed on an iOS device!");
+    }
+
+    if (isiOS()) {
+        //fbq.disablePushState = true;
+        console.log("fbq - Search - Pixel not sent (Apple Device)");
+    } else if (isMac()) {
+        //fbq.disablePushState = true;
+        console.log("fbq - Search - Pixel not sent (Apple Device)");
+    } else {
+        //fbq.disablePushState = false;
+        fbq("init", "411562407805248", { external_id: userID });
+        console.log("fbq - initialize");
+
+        fbq(
+            "track",
+            "Search",
+            {
+                external_id: userID,
+                client_user_agent: searchData.client_user_agent,
+                fbp: searchData.fbp,
+                fbc: searchData.fbc,
+            },
+            { eventID: searchData.event_id }
+        );
+        console.log("fbq - Search - Pixel Sent");
+    }
+
+    fetch("https://hook.us1.make.com/zjnmzrx8perei7gb931vracddxx4hfuu", {
+        method: "POST",
+        body: JSON.stringify(searchData),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
+    fetch("https://fit-spresso-backend.vercel.app/api/event", {
+        method: "POST",
+        body: JSON.stringify(searchData),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    console.log("fbq - Search - Server Sent");
+
+</script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8VMJ4PS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <div class="caption">Loading Your FREE Video Training</div>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <script>
+        window.onload = function() {
+            let progressBar = document.getElementById('progressBar');
+            let width = 0;
+            let intervalTime = 25; // Adjust this to match the total time of 2.5 seconds
+            let maxTime = 2500; // Total time in milliseconds
+            let interval = setInterval(frame, intervalTime);
+
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    setTimeout(function() { // Delay redirection to ensure visual completion
+                        window.location.href = 'https://getfitspressotoday.com/video/?aff=Idooni'; // Change this URL to your target
+                    }, 100); // Slight delay to guarantee the CSS animation has completed
+                } else {
+                    width += 100 * intervalTime / maxTime;
+                    progressBar.style.width = width + '%';
+                }
+            }
+        };
+    </script>
+</body>
+</html>
