@@ -47,26 +47,26 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            /* background-color: #f2f2f2; */
             color: #333;
             text-align: center;
             margin: 0;
             padding: 0;
-            background-image: linear-gradient(to right,
+            /* background-image: linear-gradient(to right,
                     rgba(255, 0, 0, 0),
-                    rgba(126, 133, 143));
+                    rgba(126, 133, 143)); */
         }
 
         .quiz-container {
             max-width: 800px;
-            margin: 20px auto;
-            background-color: #e5e7eb;
-            padding: 20px;
-            border-radius: 8px;
+            margin: 10px auto;
+            background-color: #545454;
+            padding: 10px;
+            /* border-radius: 8px; */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-image: linear-gradient(to bottom left,
+            /* background-image: linear-gradient(to bottom left,
                     rgba(255, 255, 255, 0.722),
-                    rgb(209, 209, 209));
+                    rgb(209, 209, 209)); */
             text-align: center;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
@@ -74,16 +74,17 @@
         }
 
         .text-container {
-            max-width: 800px;
-            line-height: 1.6;
-            margin: 20px auto;
+            max-width: 850px;
+            /* line-height: 1.6; */
+            margin: 10px auto;
             background-color: #ffffff;
-            padding: 30px;
+            padding: 10px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-image: linear-gradient(to bottom left,
+            font-size: x-large;
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+            /* background-image: linear-gradient(to bottom left,
                     rgb(255, 255, 255),
-                    rgb(255, 255, 255));
+                    rgb(255, 255, 255)); */
             text-align: center;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
@@ -91,37 +92,48 @@
         }
 
         h1 {
-            color: #ffffff;
+            color: #000000;
+            overflow: hidden;
+            font-size: 2.7em;
+            text-overflow: ellipsis;
+            /* background-color: #000000; */
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                sans-serif;
+        }
+
+        h2 {
+            color: #1893f8;
             overflow: hidden;
             font-size: 2.5em;
             text-overflow: ellipsis;
-            background-color: #000000;
+            /* background-color: #000000; */
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
                 sans-serif;
         }
 
         h3 {
-            color: #000000;
+            color: #1893f8;
             overflow: hidden;
             font-size: 1.5em;
             text-overflow: ellipsis;
-            background-color: #000000;
+            /* background-color: #000000; */
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
                 sans-serif;
         }
 
         h1 .first-span {
-            color: #fde047;
+            color: #1893f8;
         }
 
         h1 .second-span {
-            border-bottom: 5px solid #fde047;
+            border-bottom: 5px solid #1893f8;
         }
 
         h3 .first-span {
-            color: #fde047;
+            color: #1893f8;
         }
 
         h3 .second-span {
@@ -143,11 +155,11 @@
             /* Makes content align horizontally */
             align-items: left;
             justify-content: center;
-            background-color: #fde047;
-            color: black;
+            background-color: #1893f8;
+            color: rgb(255, 255, 255);
             padding: 15px 30px;
             text-decoration: none;
-            font-size: x-large;
+            font-size: xx-large;
             font-weight: bold;
             margin: 20px auto;
             /* centering the button and paragraph */
@@ -155,11 +167,11 @@
             /* ensures the button takes the width specified */
             border: none;
             /* Remove default border */
-            border-radius: 15px;
+            /* border-radius: 15px; */
             /* This will round out the corners */
             cursor: pointer;
             /* Changes the mouse cursor to a pointer on hover */
-            max-width: 700px;
+            max-width: 500px;
             /* same as the video container */
         }
 
@@ -205,11 +217,11 @@
         }
 
         .highlight {
-            background-color: #fde047;
+            background-color: #1893f8;
             padding: 0.4em 2.5em;
             margin: 0.5em;
             /* Adds space outside the highlighted element */
-            border-radius: 5px;
+            /* border-radius: 5px; */
             /* Optional: adds rounded corners */
             font-weight: normal;
         }
@@ -224,6 +236,11 @@
             /* Adjust size as needed */
             margin-right: 10px;
             /* Space between icon and text */
+        }
+
+        .footer {
+            background-color: #d9d9d9;
+            font-size: large;
         }
 
         /* Media query for smaller screens */
@@ -246,6 +263,19 @@
                 padding: 10px;
             }
 
+            .button {
+                font-size: 1.2em;
+                max-width: 300px;
+            }
+
+            .text-container {
+                font-size: 0.9em;
+            }
+
+            .footer {
+                font-size: 0.8em;
+            }
+
         }
 
         /* Versioned Styles */
@@ -263,11 +293,11 @@
     <!-- Add any necessary stylesheets or other head elements -->
     <script>
         //Check if the page has been reloaded before using a session cookie
-        if (document.cookie.indexOf("reloaded=true") === -1) {
-            // If not reloaded before, set the cookie and reload the page
-            document.cookie = "reloaded=true; path=/";
-            location.reload();
-        }
+        // if (document.cookie.indexOf("reloaded=true") === -1) {
+        //     // If not reloaded before, set the cookie and reload the page
+        //     document.cookie = "reloaded=true; path=/";
+        //     location.reload();
+        // }
 
         //<!-- Conversions API Code -->
         function generateEventID() {
@@ -436,47 +466,43 @@
     <!-- End Google Tag Manager (noscript) -->
 
 
-    <h3><br /><span class="highlight">This <span class="second-span">FREE</span> Training is Designed for
-            <span class="bold">Weight Loss</span></span><br />&nbsp;
-    </h3>
-    <h1>How <span class="second-span">One Simple</span>
-        <span class="first-span">Coffee Loophole</span><br />Can <span class="second-span">SuperCharge</span><span
-            class="first-span">The Metabolism</span><br />&nbsp;
-    </h1>
+    <h1><br />WEIGHT SLIMMING EXPERT:</h1>
+    <h2>Forget Hours Of Exercise<br />Just Add This To Your Morning Coffee</h2>
 
     <div class="quiz-container">
         <a href="fit-spresso-2nd-page.html">
-            <img src="Fitspresso2.jpg" alt="Learn more about FitSpresso">
+            <img src="FitSpresso-land2.jpg" alt="Learn more about FitSpresso">
         </a>
     </div>
 
-    <a href="fit-spresso-2nd-page.html" style="text-decoration: none; font-weight: bold;">(Watch Video)</h3><br />
+    <a href="fit-spresso-2nd-page.html" class="button">
+        Watch Now</a>
 
-        <a href="fit-spresso-2nd-page.html" class="button">
-            <img src="pointing-right.png" alt="Video Icon">
-            Click Here To Watch The Video</a>
+    <div class="text-container">
+        This breakthrough <span class="underlined bold">7 second morning coffee ritual</span> has worked for 221,432 men
+        and women. It has helped them <span class="underlined bold">transform, increase metabolic rate, </span> and it
+        <span class="underlined bold">works better</span>
+        than diets like Keto, and Intermittent Fasting.<br /><br />
 
-        <div class="text-container">
-            This newly discovered <span class="underlined bold">7 second coffee ritual</span> has been taking the
-            internet by storm as people are claiming
-            they finally have a breakthrough that <span class="underlined bold">increases their metabolism</span>, helps
-            them <span class="underlined bold">lose weight</span> and finally lets
-            them <span class="underlined bold">enjoy their favourite foods</span> guilt free.<br /><br />
+        All it took was a simple tweak to their morning coffee that didn't alter its taste. Allowing them to <span
+            class="underlined bold">eat all their favorite foods guilt free</span>.<br /><br />
 
-            Thousands of men and women are saying they are seeing great results just by doing this simple 7 second
-            morning coffee method. <span class="underlined bold">Many are loving this brand new weight loss
-                method.</span><br /><br />
+        This FREE video is for people struggling with a sluggish metabolism or find it difficult to shrink stubborn
+        areas…<br /><br />
 
-            This video is ideal for those with a slow metabolism who have a difficult time losing weight.<br /><br />
+        Watch this short video immediately before it disappears. It reveals a step-by-step method to transform your
+        ordinary coffee into a <span class="underlined bold">powerful metabolism revving beverage</span>. It only takes 7 seconds and can be done at
+        home.</span><br />
+    </div>
 
-            Watch this incredible new video now before it goes offline. This short video will show the <span
-                class="underlined bold">exact step by step method</span>
-            to supercharging your coffee to awaken your true metabolic potential and <span class="underlined bold">help
-                you lose weight.</span><br /><br />
+    <a href="fit-spresso-2nd-page.html" class="button">
+        Watch Now</a>
+    <footer class="footer"><br /><br /><br /><span class="bold">Copyright 2024. All rights reserved.</span><br /><br />
+        This site is part of Google. Inc. or Google.com, nor is it
+        sponsored or endoresed by google. Youtube is a trademark of Google, Inc.<br />
 
-            <a href="fit-spresso-2nd-page.html" style="text-decoration: none; font-size: x-large;">>> LEARN MORE</a>
-        </div>
-
+        Please consult a health professional before implementing any strategy discussed on this website.<br />&nbsp;
+    </footer>
 </body>
 
 </html>

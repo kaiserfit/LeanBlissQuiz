@@ -47,26 +47,40 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-color: #a6a6a6;
             color: #333;
             text-align: center;
+            align-items: center;
             margin: 0;
             padding: 0;
-            background-image: linear-gradient(to right,
+            /* background-image: linear-gradient(to right,
                     rgba(255, 0, 0, 0),
-                    rgba(126, 133, 143));
+                    rgba(126, 133, 143)); */
+        }
+
+        .body-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* This vertically centers content if there is height to work with */
+            align-items: center; /* This centers the content horizontally */
+            background-color: #ffffff;
+            max-width: 961px;
+            margin: auto;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                sans-serif;
         }
 
         .quiz-container {
             max-width: 800px;
-            margin: 20px auto;
-            background-color: #e5e7eb;
-            padding: 20px;
-            border-radius: 8px;
+            margin: 10px auto;
+            background-color: #545454;
+            padding: 10px;
+            /* border-radius: 8px; */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-image: linear-gradient(to bottom left,
+            /* background-image: linear-gradient(to bottom left,
                     rgba(255, 255, 255, 0.722),
-                    rgb(209, 209, 209));
+                    rgb(209, 209, 209)); */
             text-align: center;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
@@ -74,16 +88,17 @@
         }
 
         .text-container {
-            max-width: 800px;
-            line-height: 1.6;
-            margin: 20px auto;
+            max-width: 850px;
+            /* line-height: 1.6; */
+            margin: 10px auto;
             background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-image: linear-gradient(to bottom left,
+            padding: 10px;
+            /* border-radius: 8px; */
+            font-size: 21px;
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+            /* background-image: linear-gradient(to bottom left,
                     rgb(255, 255, 255),
-                    rgb(255, 255, 255));
+                    rgb(255, 255, 255)); */
             text-align: center;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
@@ -91,37 +106,48 @@
         }
 
         h1 {
+            color: #000000;
+            overflow: hidden;
+            font-size: 2.6em;
+            text-overflow: ellipsis;
+            /* background-color: #000000; */
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                sans-serif;
+        }
+
+        h2 {
             color: #ffffff;
             overflow: hidden;
             font-size: 2.5em;
             text-overflow: ellipsis;
-            background-color: #000000;
+            /* background-color: #000000; */
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
                 sans-serif;
         }
 
         h3 {
-            color: #000000;
+            color: #ffffff;
             overflow: hidden;
-            font-size: 1.5em;
+            font-size: 1.8em;
             text-overflow: ellipsis;
-            background-color: #000000;
+            /* background-color: #000000; */
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
                 sans-serif;
         }
 
         h1 .first-span {
-            color: #fde047;
+            color: #db1b1b;
         }
 
         h1 .second-span {
-            border-bottom: 5px solid #fde047;
+            border-bottom: 5px solid #1893f8;
         }
 
         h3 .first-span {
-            color: #fde047;
+            color: #1893f8;
         }
 
         h3 .second-span {
@@ -134,20 +160,16 @@
                 sans-serif;
         }
 
-        h3 {
-            margin-left: -5px;
-        }
-
         .button {
             display: inline-flex;
             /* Makes content align horizontally */
             align-items: left;
             justify-content: center;
-            background-color: #fde047;
-            color: black;
+            background-color: #1893f8;
+            color: rgb(255, 255, 255);
             padding: 15px 30px;
             text-decoration: none;
-            font-size: x-large;
+            font-size: xx-large;
             font-weight: bold;
             margin: 20px auto;
             /* centering the button and paragraph */
@@ -155,11 +177,11 @@
             /* ensures the button takes the width specified */
             border: none;
             /* Remove default border */
-            border-radius: 15px;
+            /* border-radius: 15px; */
             /* This will round out the corners */
             cursor: pointer;
             /* Changes the mouse cursor to a pointer on hover */
-            max-width: 700px;
+            max-width: 500px;
             /* same as the video container */
         }
 
@@ -205,13 +227,22 @@
         }
 
         .highlight {
-            background-color: #fde047;
-            padding: 0.4em 2.5em;
-            margin: 0.5em;
-            /* Adds space outside the highlighted element */
-            border-radius: 5px;
-            /* Optional: adds rounded corners */
-            font-weight: normal;
+            display: block; /* Make span behave like a div */
+            background-color: #db1b1b;
+            /* This sets the background to a bright red */
+            color: white;
+            /* This sets the text color to white */
+            padding: 30px 40px;
+            /* Adjusted padding for better spacing */
+            margin: 20px auto; /* Ensure it centers horizontally */
+            /* Retains the same margin */
+            font-weight: bold;
+            /* Makes the font bold */
+            text-align: center;
+            /* Centers the text within the element */
+            font-size: 30px;
+            /* Adjusts font size as needed */
+            line-height: 0.5;
         }
 
         .pointing-icon {
@@ -224,6 +255,11 @@
             /* Adjust size as needed */
             margin-right: 10px;
             /* Space between icon and text */
+        }
+
+        .footer {
+            background-color: #d9d9d9;
+            font-size: large;
         }
 
         /* Media query for smaller screens */
@@ -246,6 +282,30 @@
                 padding: 10px;
             }
 
+            .button {
+                font-size: 1.2em;
+                max-width: 300px;
+            }
+
+            .text-container {
+                font-size: 0.9em;
+            }
+
+            .footer {
+                font-size: 0.8em;
+            }
+
+            .highlight {
+                background-color: #db1b1b;
+                color: white;
+                padding: 10px 10px;
+                margin: 10px;
+                font-weight: bold;
+                text-align: center;
+                font-size: 17px;
+                line-height: 2.5;
+            }
+
         }
 
         /* Versioned Styles */
@@ -263,11 +323,11 @@
     <!-- Add any necessary stylesheets or other head elements -->
     <script>
         //Check if the page has been reloaded before using a session cookie
-        if (document.cookie.indexOf("reloaded=true") === -1) {
-            // If not reloaded before, set the cookie and reload the page
-            document.cookie = "reloaded=true; path=/";
-            location.reload();
-        }
+        // if (document.cookie.indexOf("reloaded=true") === -1) {
+        //     // If not reloaded before, set the cookie and reload the page
+        //     document.cookie = "reloaded=true; path=/";
+        //     location.reload();
+        // }
 
         //<!-- Conversions API Code -->
         function generateEventID() {
@@ -435,48 +495,55 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <div class="body-container">
+        <br />
+        <h3><span class="highlight">This FREE Training is Designed for Weight Loss</span></h3>
+        <h1>221,432 People Have Used This Coffee<br />
 
-    <h3><br /><span class="highlight">This <span class="second-span">FREE</span> Training is Designed for
-            <span class="bold">Weight Loss</span></span><br />&nbsp;
-    </h3>
-    <h1>How <span class="second-span">One Simple</span>
-        <span class="first-span">Coffee Loophole</span><br />Can <span class="second-span">SuperCharge</span><span
-            class="first-span">The Metabolism</span><br />&nbsp;
-    </h1>
+            Loophole To <span class="first-span">Shrink Stubborn Areas</span><br />
 
-    <div class="quiz-container">
-        <a href="fit-spresso-2nd-page.html">
-            <img src="Fitspresso2.jpg" alt="Learn more about FitSpresso">
-        </a>
-    </div>
+            (Watch Video)</h1>
 
-    <a href="fit-spresso-2nd-page.html" style="text-decoration: none; font-weight: bold;">(Watch Video)</h3><br />
-
-        <a href="fit-spresso-2nd-page.html" class="button">
-            <img src="pointing-right.png" alt="Video Icon">
-            Click Here To Watch The Video</a>
-
-        <div class="text-container">
-            This newly discovered <span class="underlined bold">7 second coffee ritual</span> has been taking the
-            internet by storm as people are claiming
-            they finally have a breakthrough that <span class="underlined bold">increases their metabolism</span>, helps
-            them <span class="underlined bold">lose weight</span> and finally lets
-            them <span class="underlined bold">enjoy their favourite foods</span> guilt free.<br /><br />
-
-            Thousands of men and women are saying they are seeing great results just by doing this simple 7 second
-            morning coffee method. <span class="underlined bold">Many are loving this brand new weight loss
-                method.</span><br /><br />
-
-            This video is ideal for those with a slow metabolism who have a difficult time losing weight.<br /><br />
-
-            Watch this incredible new video now before it goes offline. This short video will show the <span
-                class="underlined bold">exact step by step method</span>
-            to supercharging your coffee to awaken your true metabolic potential and <span class="underlined bold">help
-                you lose weight.</span><br /><br />
-
-            <a href="fit-spresso-2nd-page.html" style="text-decoration: none; font-size: x-large;">>> LEARN MORE</a>
+        <div class="quiz-container">
+            <a href="fit-spresso-2nd-page.html">
+                <img src="FitSpresso-land4.jpg" alt="Learn more about FitSpresso">
+            </a>
         </div>
 
+        <div class="text-container">
+            <span style="font-size: 19px;">Make sure your sound is turned on. Please wait up to 10 seconds for the video
+                to
+                load.</span><br /><br />
+
+            An elite team of <span class="underlined bold">UK scientists</span> have discovered a groundbreaking new
+            coffee
+            ritual that only takes 7 seconds a
+            day to <span class="underlined bold">boost metabolism</span> and it has already worked for <span
+                class="underlined bold">221,432</span> men and women.<br /><br />
+
+            This simple morning tweak is taking the world by storm. People everywhere are raving about how it helps them
+            <span class="underlined bold">shrink stubborn areas like their hips, arms, and face</span>.<br /><br />
+
+            It works better than diets like Keto and Long Cardio Workouts. People struggling with a sluggish metabolism
+            or
+            have trouble losing weight should watch this <span class="underlined bold">short, FREE presentation</span>
+            before it's gone.<br /><br />
+
+            It reveals the step-by-step method that helps awaken the body's innate ability to burn more calories. It's
+            so
+            simple that it <span class="underlined bold">only takes 7 seconds</span> and can be done in your kitchen
+            right
+            now.
+        </div>
+    </div>
+
+
+    <footer class="footer"><br /><br /><br /><span class="bold">Copyright 2024. All rights reserved.</span><br /><br />
+        This site is part of Google. Inc. or Google.com, nor is it
+        sponsored or endoresed by google. Youtube is a trademark of Google, Inc.<br />
+
+        Please consult a health professional before implementing any strategy discussed on this website.<br />&nbsp;
+    </footer>
 </body>
 
 </html>
