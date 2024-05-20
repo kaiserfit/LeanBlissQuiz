@@ -1,0 +1,220 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+.container {
+  position: relative; /* Ensure positioning relative to the container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wheel {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border: 10px solid #333;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: rotate(0deg);
+  transition: transform 4s ease-out;
+  background: conic-gradient(
+    #ff7b00 0deg 72deg,
+    #ffeb3b 72deg 144deg,
+    #8bc34a 144deg 216deg,
+    #03a9f4 216deg 288deg,
+    #ff0055 288deg 360deg
+  );
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center center;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+  transform: rotate(var(--rotate)) translate(80px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%);
+}
+
+.ten-off {
+  transform: rotate(var(--rotate)) translate(80px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(20px, -25px);
+}
+
+.twenty-five-off {
+  transform: rotate(var(--rotate)) translate(80px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(25px, 10px);
+}
+
+.fifty-off {
+  transform: rotate(var(--rotate)) translate(80px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(-5px, 20px);
+}
+
+.seventy-off {
+  transform: rotate(var(--rotate)) translate(80px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(-35px, 5px);
+}
+
+.ninety-five-off {
+  transform: rotate(var(--rotate)) translate(80px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(-5px, -25px);
+}
+
+.arrow {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #333; 
+  position: absolute;
+  top: -25px; /* Adjust to position the arrow above the wheel */
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+/* New styles for modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  opacity: 0; /* Start with 0 opacity */
+  transition: opacity 0.5s ease; /* Fade-in transition */
+}
+
+.modal.show {
+  display: block;
+  opacity: 1; /* Fade to full opacity */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  opacity: 0; /* Start with 0 opacity */
+  transition: opacity 0.5s ease; /* Fade-in transition */
+}
+
+.modal.show {
+  display: block;
+  opacity: 1; /* Fade to full opacity */
+}
+
+.modal-content {
+  position: fixed; /* Ensure positioning relative to the modal content */
+  background-color: #ffffff; /* White background */
+  margin: 0 auto;  /* Center horizontally */
+  padding: 40px 20px 20px; /* Add more padding at the top */
+  border: 1px solid #888;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for a 3D effect */
+  width: 50%;  /* Adjust width here */
+  max-width: 500px;  /* Optional: set a maximum width */
+  height: auto; /* Adjust height here */
+  max-height: 80vh; /* Optional: set a maximum height to fit within viewport */
+  top: 10%;  /* Adjust top position */
+  transform: translateY(0); /* Remove any vertical centering */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+}
+
+.modal-content h2 {
+  margin: 0;
+  padding: 0;
+  color: #007BFF;
+}
+
+.modal-content p {
+  margin: 20px 0 0;
+  padding: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  background: #fff; /* Background color */
+  border-radius: 50%; /* Rounded button */
+  padding: 5px; /* Padding for clickable area */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  background: #f2f2f2; /* Change background on hover */
+  text-decoration: none;
+}
+
+#spinButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007BFF; /* Button color */
+  color: white;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+#spinButton:hover {
+  background-color: #0056b3; /* Darker color on hover */
+}
+
+/* New styles for the congratulations overlay */
+.congrats-overlay {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 3; /* Above other content */
+  opacity: 0; /* Start with 0 opacity */
+  transition: opacity 1s ease; /* Fade-in transition */
+}
+
+.congrats-overlay.show {
+  display: block;
+  opacity: 1; /* Fade to full opacity */
+}
