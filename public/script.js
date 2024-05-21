@@ -1,35 +1,41 @@
-// Function to open the modal with fade-in effect and spin the wheel
+let buttonClicked = false;
+
+// Function to open the modal with fade-in effect
 function openModal() {
   const modal = document.getElementById('modal');
   modal.style.display = "block";
   setTimeout(() => {
-      modal.classList.add('show');
-      spinWheel(); // Automatically spin the wheel after modal is shown
+    modal.classList.add('show');
+    if (!buttonClicked) {
+      spinWheel(); // Automatically spin the wheel only if the button was not clicked
+    }
   }, 10); // Small delay to ensure display is set before adding the class
 }
 
 // Function to close the modal with fade-out effect
-// function closeModal() {
-//   const modal = document.getElementById('modal');
-//   modal.classList.remove('show');
-//   setTimeout(() => {
-//       modal.style.display = "none";
-//   }, 500); // Match the duration of the fade-out transition
-// }
+function closeModal() {
+  const modal = document.getElementById('modal');
+  modal.classList.remove('show');
+  setTimeout(() => {
+    modal.style.display = "none";
+  }, 500); // Match the duration of the fade-out transition
+}
 
 // Function to show the congratulations overlay
-// function showCongratsOverlay(message) {
-//   const congratsOverlay = document.getElementById('congratsOverlay');
-//   const congratsMessage = document.getElementById('congratsMessage');
-//   congratsMessage.textContent = message;
-//   congratsOverlay.classList.add('show');
+function showCongratsOverlay(message) {
+  const congratsOverlay = document.getElementById('congratsOverlay');
+  const congratsMessage = document.getElementById('congratsMessage');
+  congratsMessage.textContent = message;
+  congratsOverlay.classList.add('show');
 
-//   // Close the modal and overlay after a delay
-//   setTimeout(() => {
-//       congratsOverlay.classList.remove('show');
-//       closeModal();
-//   }, 2000); // Adjust the delay time (4000 milliseconds = 4 seconds)
-// }
+  // Close the congratulations overlay after a delay
+  setTimeout(() => {
+    congratsOverlay.classList.remove('show');
+    if (!buttonClicked) {
+      closeModal(); // Close the modal only if the button was not clicked
+    }
+  }, 2000); // Adjust the delay time (2000 milliseconds = 2 seconds)
+}
 
 // Function to spin the wheel
 function spinWheel() {
@@ -56,24 +62,29 @@ function spinWheel() {
   wheel.style.transform = `rotate(${deg}deg)`;
 
   // Show the congratulations overlay after the wheel stops spinning
-  // setTimeout(() => {
-  //     showCongratsOverlay("You got a 95% Discount!");
-  // }, 3500); // Adjust the delay time (4000 milliseconds = 4 seconds)
+  setTimeout(() => {
+    showCongratsOverlay("You got a 95% Discount!");
+  }, 3500); // Adjust the delay time (3500 milliseconds = 3.5 seconds)
 }
 
 // Open the modal with a delay when the page loads
-// window.onload = function() {
-//   setTimeout(openModal, 2000); // Adjust the delay time (2000 milliseconds = 2 seconds)
-// };
+window.onload = function() {
+  setTimeout(openModal, 2000); // Adjust the delay time (2000 milliseconds = 2 seconds)
+};
+
+// Event listener for the open modal button
+document.getElementById('openModal').addEventListener('click', function() {
+  buttonClicked = true; // Set the flag when the button is clicked
+  openModal(); // Open the modal without spinning the wheel automatically
+});
 
 // Existing event listeners
-document.getElementById('openModal').addEventListener('click', openModal);
 document.getElementById('closeModal').addEventListener('click', closeModal);
 
 window.onclick = function(event) {
   const modal = document.getElementById('modal');
   if (event.target == modal) {
-      closeModal();
+    closeModal();
   }
 };
 

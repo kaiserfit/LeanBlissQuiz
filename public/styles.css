@@ -13,6 +13,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 20px; /* Add some margin-top to move the wheel down */
 }
 
 .wheel {
@@ -131,7 +132,7 @@ button {
 }
 
 .modal-content {
-  position: fixed; /* Ensure positioning relative to the modal content */
+  position: relative; /* Ensure positioning relative to the modal content */
   background-color: #ffffff; /* White background */
   margin: 0 auto;  /* Center horizontally */
   padding: 40px 20px 20px; /* Add more padding at the top */
@@ -145,6 +146,7 @@ button {
   top: 10%;  /* Adjust top position */
   transform: translateY(0); /* Remove any vertical centering */
   transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+  text-align: center;
 }
 
 .modal-content h2 {
@@ -160,6 +162,20 @@ button {
   color: #333;
 }
 
+.modal-headline {
+  margin: 0;
+  font-size: 1.5em; /* Adjust the font size if needed */
+  flex-grow: 1; /* Allow the headline to take up available space */
+  text-align: center; /* Center the text */
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Adjust the padding as needed */
+}
+
 .close {
   position: absolute;
   top: 10px;
@@ -172,6 +188,7 @@ button {
   padding: 5px; /* Padding for clickable area */
   cursor: pointer;
   transition: background-color 0.3s ease; /* Smooth transition */
+  margin-left: 10px;
 }
 
 .close:hover,
