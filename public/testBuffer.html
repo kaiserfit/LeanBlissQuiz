@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Page</title>
+    <style>
+        /* Basic Reset */
+        body,
+        h2,
+        h3,
+        p,
+        figure,
+        figcaption {
+            margin: 0;
+            padding: 0;
+            font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+            font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: 3.4em;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: white;
+            /* Text color for entire page */
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            display: flex;
+            /* Use flexbox layout */
+            justify-content: space-between;
+            /* Distribute space evenly between items */
+            align-items: center;
+            /* Center items vertically */
+            padding: 10px 20px;
+            background-color: #081430;
+            /* Or any color you want for your navbar */
+            color: white;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: inherit;
+            /* Inherits the color from the parent element */
+        }
+
+        /* Adjust icon styles as necessary */
+        .navbar .icon {
+            display: inline-block;
+            /* Adjust width and height to fit the icon size */
+            width: 30px;
+            height: 30px;
+            background: url('DB90-icon.png') no-repeat center center;
+            background-size: contain;
+            /* Make sure the icon fits inside the element */
+        }
+
+        .navbar>* {
+            margin: 0 100px;
+            /* This adds space around the items */
+        }
+
+        .navbar img {
+            max-width: 100px;
+            /* Set maximum width */
+            height: 50px;
+            /* Adjust height automatically */
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            padding: 40px 120px;
+            /* Adjust padding as needed */
+            text-align: center;
+            background: rgb(253, 187, 45);
+            background: linear-gradient(0deg, rgba(128, 71, 90, 255) 0%, rgba(47, 46, 103, 255) 60%);
+            background-size: cover;
+            /* Cover the entire area */
+            background-repeat: no-repeat;
+            background-position: center top;
+            /* Center the background image */
+        }
+
+        .content-container {
+            max-width: 800px;
+            /* Set to desired max-width */
+            margin: 0 auto;
+            /* This centers the container */
+            text-align: left;
+            /* Reset text alignment if needed */
+            text-align: center;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-container {
+            margin: 20px auto;
+            /* Center the video container */
+            max-width: 800px;
+            /* Maximum width of video container */
+        }
+
+        .video-placeholder {
+            display: flex;
+            /* Enable flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            max-width: 100%;
+            /* Make video responsive */
+            height: auto;
+            background-color: #333;
+            /* Placeholder color for video */
+            position: relative;
+        }
+
+        .video-description {
+            margin-top: 20px;
+            max-width: 800px;
+            /* Set maximum width */
+        }
+
+        .video-placeholder img {
+            max-width: 600px;
+            /* Set maximum width */
+            height: auto;
+            /* Adjust height automatically */
+        }
+
+        .shortcut-description {
+            /* background-color: #000924; */
+            background: rgb(0, 11, 40);
+            background: linear-gradient(180deg, rgba(0, 11, 40, 1) 25%, rgba(7, 49, 104, 1) 100%);
+            text-align: center;
+            display: flex;
+            /* Enable flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            flex-direction: column;
+        }
+
+        .description-limit {
+            max-width: 600px;
+            /* Set maximum width */
+            text-align: center;
+            display: flex;
+            /* Enable flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            flex-direction: column;
+        }
+
+        .description-limit-testimonial {
+            max-width: 700px;
+            /* Set maximum width */
+            text-align: center;
+            display: flex;
+            /* Enable flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            flex-direction: column;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .centered-title {
+            text-align: center;
+            /* Center text horizontally within this div */
+            margin: 0 auto;
+            /* Apply automatic margins to center the div itself */
+            max-width: 800px;
+            /* Set the maximum width of the div */
+            width: 100%;
+            /* Take full width up to the max-width */
+            display: flex;
+            /* Enable flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            flex-direction: column;
+        }
+
+        .description-limit img {
+            display: block;
+            /* Display as block-level */
+            margin: 0 auto;
+            /* Auto margins on the side to center */
+            max-width: 100%;
+            /* To make sure it doesn't overflow its container */
+            height: auto;
+            /* To maintain the aspect ratio */
+        }
+
+        .centered-title img {
+            display: block;
+            /* Display as block-level */
+            margin: 0 auto;
+            /* Auto margins on the side to center */
+            max-width: 800px;
+            /* To make sure it doesn't overflow its container */
+            height: auto;
+            /* To maintain the aspect ratio */
+        }
+
+        .testimonials-description {
+            background-color: #f5f8fb;
+            text-align: center;
+            display: flex;
+            /* Enable flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            flex-direction: column;
+        }
+
+        .center-text p {
+            text-align: center;
+        }
+
+        .left-alligned {
+            text-align: left;
+        }
+
+        .underlined {
+            /* text-decoration: underline; */
+            border-bottom: 3px solid #f3b63c;
+            box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .underlined-white {
+            /* text-decoration: underline; */
+            border-bottom: 3px solid #ffffff;
+            box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .bigger-font {
+            font-size: 1em;
+            /* You can adjust the value to make it bigger or smaller */
+        }
+
+        .biggest-font {
+            font-size: 1.5em;
+            /* You can adjust the value to make it bigger or smaller */
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .italicized {
+            font-style: italic;
+        }
+
+        .color-yellow {
+            color: #f3b63c;
+        }
+
+        .download-button {
+            background: linear-gradient(to right, #F58529, #d88627, #f28553, #f99b3e);
+            /* Gradient background */
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            color: #002a6a;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 370px;
+            height: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+            /* Centers the button within its container */
+        }
+
+        .download-icon {
+            background: url('DB90-DLarrow.png') no-repeat center center;
+            /* Ensure this path is correct */
+            background-size: contain;
+            width: 50px;
+            /* Adjust size as needed */
+            height: 50px;
+            /* Adjust size as needed */
+            margin-right: 10px;
+            /* Space between icon and text */
+        }
+
+        .button-text {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .download-button span {
+            display: block;
+        }
+
+        .download-button span:first-child {
+            font-size: 16px;
+            /* Make it slightly larger for emphasis */
+        }
+
+        .download-button span:last-child {
+            font-size: 12px;
+            /* Smaller text for the secondary line */
+            color: #002a6a;
+            /* Lighter color for the secondary text */
+            /* text-decoration: underline; Adds underline */
+        }
+
+        .faq-section {
+            background: rgb(0, 11, 40);
+            background: linear-gradient(0deg, rgba(0, 11, 40, 1), rgba(7, 49, 104, 1) 100%);
+            text-align: center;
+            display: flex;
+            /* Enable flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            flex-direction: column;
+        }
+
+        .faq-container {
+            display: flex;
+            max-width: 800px;
+            flex-wrap: wrap;
+            /* Allows items to wrap onto the next line */
+            justify-content: space-between;
+            /* Evenly spaces the items */
+        }
+
+        .faq-item {
+            width: 48%;
+            /* Each item takes up less than half the container width */
+            margin-bottom: 20px;
+        }
+
+        .faq h3 {
+            font-size: 20px;
+            /* Larger font size for questions */
+            margin-top: 20px;
+        }
+
+        .faq p {
+            font-size: 16px;
+            margin-top: 10px;
+            line-height: 1.5;
+            /* Improve readability */
+        }
+
+        .description-limit-faq {
+            max-width: 600px;
+            /* Set maximum width */
+            text-align: center;
+            display: flex;
+            /* Enable flexbox */
+            flex-wrap: wrap;
+            /* Allows items to wrap to the next line */
+            justify-content: space-between;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            flex-direction: column;
+        }
+
+        .description-limit-faq h3,
+        .description-limit-faq p {
+            width: 48%;
+            /* Adjust width to fit two columns, accounting for some margin */
+            margin-bottom: 20px;
+            /* Adds space below each question and answer */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <!-- Navigation content goes here -->
+        <!-- <a href="#">Order By Phone +0 (000) 000 0000</a> -->
+        <a href="#"></a>
+        <!-- <a href="" class="icon"></a> -->
+        <img src="DB90-Navbar.png" alt="placeholder">
+        <!-- <a href="#">Need Help? Click Here to Contact Us</a> -->
+        <a href="#"></a>
+    </div>
+
+    <div class="testimonials-description">
+        <div class="centered-title">
+            </br>
+            <h1 style="color: black">This Australian couple got in amazing shape just in time for their best friends
+                wedding </h1></br>
+
+            <p style="color: #42537d;" class="bold">After seeing a social media post which they claim "changed their
+                life". </p></br>
+
+            <img src="FitSpresso(image).png" alt="placeholder">
+
+            <p style="color: black; padding: 20px;" class="left-alligned">
+                <span class="biggest-font">In October 2019, Peter and Marina got their wedding photos back. Peter said he and his wife could not
+                believe what they were seeing.</span></br></br>
+
+                <span class="italicized bold bigger-font">“Is that REALLY us? Do we look like that for real?”</span> Peter said as he looked through his wedding photos.</br></br>
+
+                <span class="italicized bold bigger-font">“The mirror REALLY does play tricks on your mind. It justifies what you see. It makes things seem far
+                better than what they are. I read somewhere the mirror is how you see yourself. And photos are how the
+                world sees you”.</span></br></br>
+
+                Peter and Marina KNEW it was time for a change. They both wanted to improve their health, manage their
+                weight better and achieve healthy weight loss.</br></br>
+
+                The only issue?</br></br>
+
+                They had already tried everything and they just could not seem to find what worked.</br></br>
+
+                <span class="italicized bold bigger-font">“When it comes to losing weight- we had tried everything. Literally everything, "</span> Marina said.</br></br>
+
+                <span class="italicized bold bigger-font">“Calorie counting. Keto. Paleo. Fasting. Low Carb. High intensity training. Carnivore. Basically any
+                diet or exercise program you can think of- we had tried them all”</span> said Peter.</br></br>
+
+                Peter and Marina were so lost in the sea of information that they had practically given up.</br></br>
+
+                Until something motivated them to try to get in shape again.</br></br>
+
+                <span class="italicized bold bigger-font">“My best friend came over and asked me to be his best man at his upcoming wedding. And my wife was asked
+                to be the Maid of honour. We have been best friends with this couple since high school. We were so
+                honoured!</br></br>
+
+                But…We also knew we wanted to get in shape.</br></br>
+
+                My best friend's wedding was in 6 months time so we talked for DAYS about what approach to take” </span> said
+                Peter.</br></br>
+
+                Marina spent days and countless hours on the internet looking for a solution. She wanted to make sure
+                her and her husband got to the wedding looking their best.</br></br>
+
+                <span class="italicized bold bigger-font">“What really demotivated me was finding the same information regurgitated over and over again. And
+                everything that I found online was something we had already tried.</br></br>
+
+                We almost gave up until…” </span></br></br>
+
+                Then the big breakthrough happened.</br></br>
+
+                <span class="italicized bold bigger-font">“I was scrolling through social media before bed and I saw this guy named Coach Connor.</br></br>
+
+                He was talking about things like:</br>
+
+                <span style="font-size: 24px;">&nbsp;&nbsp;•  </span>Training your body to eat as much food as possible.</br>
+                <span style="font-size: 24px;">&nbsp;&nbsp;•  </span>How to increase your metabolic rate with one simple step</br>
+                <span style="font-size: 24px;">&nbsp;&nbsp;•  </span>Eating the right superfoods for optimal results</br></br>
+
+                And so much more.</br></br>
+
+                Everything he said made so much sense and was completely different from what we had tried.</br></br>
+
+                So we purchased the program for literally the price of a cup of coffee!</br></br>
+
+                And it TRULY changed our life”</span></br></br>
+
+                Marina said her and her husband saw the best results of their life using the program known as the DB90
+                Program.</br></br>
+
+                <span class="italicized bold bigger-font">“Honestly- Never in a million years did I think I could look how I look now. This is honestly the
+                greatest program I have ever used. And the best part is once you get in shape using this program-
+                keeping everything off is a breeze!”</span></br></br>
+
+                Here are the 3 steps that helped Peter and Marina transform:</br></br>
+
+                1- Eat Meals you LOVE every single day</br></br>
+
+                <span class="italicized bold bigger-font">“The fact that I was able to enjoy myself as much as I did on my weight loss journey is a blessing.</br></br>
+
+                I think when you immediately have to cut out all your favourite foods- your willpower is absolutely
+                zapped”</span> said Marina.</br></br>
+
+                The couple enjoyed plenty of tasty meals on their journey:</br></br>
+
+                2- Find The SuperFood that resonates with your body and metabolism</br></br>
+
+                <span class="italicized bold bigger-font">“Every single human body is different. And what works for one person may not work for another.</br></br>
+
+                That is why you have to follow the protocol in the program to find what works for you”</span> said Peter.</br></br>
+
+                The couple said they had to experiment to see which SuperFoods the program listed worked for them.</br></br>
+
+                It turns out that a fresh Orange every single day is exactly what Marina’s body needed to jump start her
+                metabolism.</br></br>
+
+                But Peter on the other hand- he required Cranberry Juice.</br></br>
+
+                <span class="italicized bold bigger-font">“Once you find what works for you- you are going to love the progress you see”-</span> said Marina.</br></br>
+
+                3- Get the Complete DB90 Program for the price of a bottle of water</br></br>
+
+            </p>
+
+</body>
+
+</html>
