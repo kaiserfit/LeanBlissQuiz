@@ -141,11 +141,56 @@
             width: 100%;
             height: auto;
             max-width: auto;
+            margin: 0;
+            padding: 0;
         }
 
         .sidebar .ad img {
             max-width: 400px;
             max-height: 350px;
+        }
+
+        .download-button {
+            background: linear-gradient(to right, #F58529, #d88627, #f28553, #f99b3e);
+            /* Gradient background */
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            color: #002a6a;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 370px;
+            height: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+            /* Centers the button within its container */
+        }
+
+        .download-button span {
+            display: block;
+        }
+
+        .download-button span:first-child {
+            font-size: 16px;
+            /* Make it slightly larger for emphasis */
+        }
+
+        .download-button span:last-child {
+            font-size: 12px;
+            /* Smaller text for the secondary line */
+            color: #002a6a;
+            /* Lighter color for the secondary text */
+            /* text-decoration: underline; Adds underline */
+        }
+
+        .button-text {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
         }
 
     /* Media Queries for Mobile Optimization */
@@ -190,6 +235,14 @@
 
         .left-aligned {
             font-size: .8em;
+        }
+
+        .download-button {
+            width: 300px;
+        }
+
+        .button-text {
+            font-size: .5em;
         }
 
     }
@@ -352,15 +405,29 @@
 
                     3- Get the Complete DB90 Program for the price of a bottle of water</br></br>
 
+                    <a href="spinWheelTest.html">
+                        <img src="DB90-Program.png" alt="placeholder">
+                    </a>
                 </p>
+
+                <button class="download-button">
+                    <div class="download-icon"></div>
+                    <div class="button-text">
+                        <span>DOWNLOAD NOW FOR ONLY $2.97</span>
+                        <span>Access Program Immediately</span>
+                    </div>
+                </button></br>
+
             </div>
         </div>
 
         <div class="sidebar">
             <div class="ad">
-                <img src="dog.png" alt="Dog image">
-                <p style="font-size: 2.3em;" class="bold">Dog Got</br> Bad Breath?</p>
-                <a href="#" style="font-size: 1.5em; text-decoration: underline;" class="bold">Fix it with this >></a>
+                <a href="spinWheelTest.html">
+                    <img src="DB90-Program.png" alt="program image">
+                </a>
+                <p style="font-size: 2.3em;" class="bold">Ready For</br> Your Transformation?</p>
+                <a href="#" style="font-size: 1.5em; text-decoration: underline;" class="bold">Check Availability >></a>
             </div>
         </div>
     </div>
