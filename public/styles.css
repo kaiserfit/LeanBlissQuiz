@@ -1,11 +1,11 @@
-body {
+/* body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #f0f0f0;
   margin: 0;
-}
+} */
 
 .container {
   position: relative; /* Ensure positioning relative to the container */
@@ -234,4 +234,241 @@ button {
 .congrats-overlay.show {
   display: block;
   opacity: 1; /* Fade to full opacity */
+}
+
+body,
+h2,
+h3,
+p,
+figure,
+figcaption {
+    margin: 0;
+    padding: 0;
+    font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-family: "Comfortaa";
+    font-weight: 600;
+    font-size: 3.5em;
+    line-height: .99em;
+    color: black;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: black;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #081430;
+    color: white;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar img {
+    max-width: 100px;
+    height: 50px;
+}
+
+.container-main {
+    display: flex;
+    max-width: 1200px;
+    /* margin: 0 auto; */
+    margin-left: 150px;
+    margin-right: 150px;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.main-content {
+    flex: 3;
+    padding-right: 20px;
+}
+
+.sidebar {
+    flex: 1;
+}
+
+.sidebar img {
+    max-width: 100%;
+    height: auto;
+}
+
+.ad {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.ad img {
+    max-width: 100%;
+    height: auto;
+}
+
+.ad a {
+    display: block;
+    color: blue;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.ad a:hover {
+    text-decoration: underline;
+}
+
+.centered-title {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italicized {
+    font-style: italic;
+}
+
+.left-aligned {
+    text-align: left;
+    color: black;
+}
+
+.bigger-font {
+    font-size: 1.35em;
+    /* You can adjust the value to make it bigger or smaller */
+}
+
+.biggest-font {
+    font-size: 1.7em;
+    /* You can adjust the value to make it bigger or smaller */
+}
+
+.author {
+    color: #1686be;
+    text-decoration: underline #000000;
+}
+
+/* New CSS rules for main content images */
+.main-content img {
+    width: 100%;
+    height: auto;
+    max-width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar .ad img {
+    max-width: 400px;
+    max-height: 350px;
+}
+
+.download-button {
+    background: linear-gradient(to right, #F58529, #d88627, #f28553, #f99b3e); /* Gradient background */
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #002a6a;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 370px;
+    height: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 auto; /* Centers the button within its container */
+}
+
+.download-button span {
+    display: block;
+}
+
+.download-button span:first-child {
+    font-size: 16px;
+    /* Make it slightly larger for emphasis */
+}
+
+.download-button span:last-child {
+    font-size: 12px;
+    /* Smaller text for the secondary line */
+    color: #002a6a;
+    /* Lighter color for the secondary text */
+    /* text-decoration: underline; Adds underline */
+}
+
+.button-text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Media Queries for Mobile Optimization */
+@media (max-width: 768px) {
+h1 {
+    font-size: 1.7em;
+}
+
+.centered-title p {
+    font-size: 1.1em;
+}
+
+.biggest-font {
+    font-size: 1.5em;
+}
+
+.bigger-font {
+    font-size: .8em;
+}
+
+.container-main {
+    flex-direction: column;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.main-content {
+    padding-right: 0;
+}
+
+.sidebar {
+    margin-top: 20px;
+}
+
+.ad p {
+    font-size: 1.5em;
+}
+
+.ad a {
+    font-size: 1.2em;
+}
+
+.left-aligned {
+    font-size: .8em;
+}
+
+.download-button {
+    width: 300px;
+}
+
+.button-text {
+    font-size: .5em;
+}
+
 }
