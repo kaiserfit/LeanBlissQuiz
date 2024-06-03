@@ -471,4 +471,66 @@ h1 {
     font-size: .5em;
 }
 
+.modal-content {
+  width: 90%;  /* Reduce the width to fit within the mobile screen */
+  max-width: none;  /* Remove the maximum width */
+  height: auto;  /* Adjust height */
+  max-height: 80vh;  /* Set a maximum height to fit within the viewport */
+  padding: 20px;  /* Reduce padding */
+  top: 5%;  /* Adjust top position */
+}
+
+.wheel {
+  width: 200px;  /* Reduce the size of the wheel */
+  height: 200px;  /* Reduce the size of the wheel */
+  border-width: 5px;  /* Reduce the border width */
+}
+
+.text {
+  width: 80px;  /* Adjust the text container size */
+  height: 20px;  /* Adjust the text container size */
+  font-size: 12px;  /* Reduce the font size */
+}
+
+.arrow {
+  border-left: 10px solid transparent;  /* Adjust arrow size */
+  border-right: 10px solid transparent;  /* Adjust arrow size */
+  border-bottom: 10px solid #333;  /* Adjust arrow size */
+  top: -15px;  /* Adjust arrow position */
+}
+
+#spinButton {
+  font-size: 14px;  /* Reduce button font size */
+  padding: 8px 16px;  /* Reduce button padding */
+}
+
+.congrats-overlay.show {
+  width: 90%;  /* Adjust width for mobile view */
+  max-width: 250px;  /* Set a maximum width for mobile view */
+  height: auto;  /* Adjust height for mobile view */
+  max-height: 150px;  /* Set a maximum height for mobile view */
+  padding: 15px;  /* Adjust padding for mobile view */
+  background-color: #f2f2f2;
+}
+
+.ten-off {
+  transform: rotate(var(--rotate)) translate(30px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(35px, 0px);  /* Adjust translation to move upwards */
+}
+
+.twenty-five-off {
+  transform: rotate(var(--rotate)) translate(65px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(20px, 0px);  /* Adjust translation to move upwards */
+}
+
+.fifty-off {
+  transform: rotate(var(--rotate)) translate(75px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(20px, 12px);  /* Adjust translation to move upwards */
+}
+
+.seventy-off {
+  transform: rotate(var(--rotate)) translate(75px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(-15px, 25px);  /* Adjust translation to move upwards */
+}
+
+.ninety-five-off {
+  transform: rotate(var(--rotate)) translate(75px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(-19px, -4px);  /* Adjust translation to move upwards */
+}
+
 }
