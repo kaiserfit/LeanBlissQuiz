@@ -8,12 +8,14 @@
 } */
 
 .container {
-  position: relative; /* Ensure positioning relative to the container */
+  position: relative;
+  /* Ensure positioning relative to the container */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20px; /* Add some margin-top to move the wheel down */
+  margin-top: 20px;
+  /* Add some margin-top to move the wheel down */
 }
 
 .wheel {
@@ -25,13 +27,11 @@
   overflow: hidden;
   transform: rotate(0deg);
   transition: transform 4s ease-out;
-  background: conic-gradient(
-    #ff7b00 0deg 72deg,
-    #ffeb3b 72deg 144deg,
-    #8bc34a 144deg 216deg,
-    #03a9f4 216deg 288deg,
-    #ff0055 288deg 360deg
-  );
+  background: conic-gradient(#ff7b00 0deg 72deg,
+      #ffeb3b 72deg 144deg,
+      #8bc34a 144deg 216deg,
+      #03a9f4 216deg 288deg,
+      #ff0055 288deg 360deg);
 }
 
 .text {
@@ -72,13 +72,14 @@
 }
 
 .arrow {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-bottom: 20px solid #333; 
+  border-bottom: 20px solid #333;
   position: absolute;
-  top: -25px; /* Adjust to position the arrow above the wheel */
+  top: -25px;
+  /* Adjust to position the arrow above the wheel */
   left: 50%;
   transform: translateX(-50%) rotate(180deg);
 }
@@ -100,15 +101,18 @@ button {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
-  opacity: 0; /* Start with 0 opacity */
-  transition: opacity 0.5s ease; /* Fade-in transition */
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  /* Start with 0 opacity */
+  transition: opacity 0.5s ease;
+  /* Fade-in transition */
 }
 
 .modal.show {
   display: block;
-  opacity: 1; /* Fade to full opacity */
+  opacity: 1;
+  /* Fade to full opacity */
 }
 
 .modal {
@@ -120,32 +124,48 @@ button {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
-  opacity: 0; /* Start with 0 opacity */
-  transition: opacity 0.5s ease; /* Fade-in transition */
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  /* Start with 0 opacity */
+  transition: opacity 0.5s ease;
+  /* Fade-in transition */
 }
 
 .modal.show {
   display: block;
-  opacity: 1; /* Fade to full opacity */
+  opacity: 1;
+  /* Fade to full opacity */
 }
 
 .modal-content {
-  position: relative; /* Ensure positioning relative to the modal content */
-  background-color: #ffffff; /* White background */
-  margin: 0 auto;  /* Center horizontally */
-  padding: 40px 20px 20px; /* Add more padding at the top */
+  position: relative;
+  /* Ensure positioning relative to the modal content */
+  background-color: #ffffff;
+  /* White background */
+  margin: 0 auto;
+  /* Center horizontally */
+  padding: 40px 20px 20px;
+  /* Add more padding at the top */
   border: 1px solid #888;
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for a 3D effect */
-  width: 50%;  /* Adjust width here */
-  max-width: 500px;  /* Optional: set a maximum width */
-  height: auto; /* Adjust height here */
-  max-height: 80vh; /* Optional: set a maximum height to fit within viewport */
-  top: 10%;  /* Adjust top position */
-  transform: translateY(0); /* Remove any vertical centering */
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+  border-radius: 10px;
+  /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Shadow for a 3D effect */
+  width: 50%;
+  /* Adjust width here */
+  max-width: 500px;
+  /* Optional: set a maximum width */
+  height: auto;
+  /* Adjust height here */
+  max-height: 80vh;
+  /* Optional: set a maximum height to fit within viewport */
+  top: 10%;
+  /* Adjust top position */
+  transform: translateY(0);
+  /* Remove any vertical centering */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  /* Smooth transition */
   text-align: center;
 }
 
@@ -164,16 +184,20 @@ button {
 
 .modal-headline {
   margin: 0;
-  font-size: 1.5em; /* Adjust the font size if needed */
-  flex-grow: 1; /* Allow the headline to take up available space */
-  text-align: center; /* Center the text */
+  font-size: 1.5em;
+  /* Adjust the font size if needed */
+  flex-grow: 1;
+  /* Allow the headline to take up available space */
+  text-align: center;
+  /* Center the text */
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px; /* Adjust the padding as needed */
+  padding: 10px 20px;
+  /* Adjust the padding as needed */
 }
 
 .close {
@@ -183,18 +207,23 @@ button {
   color: #aaa;
   font-size: 28px;
   font-weight: bold;
-  background: #fff; /* Background color */
-  border-radius: 50%; /* Rounded button */
-  padding: 5px; /* Padding for clickable area */
+  background: #fff;
+  /* Background color */
+  border-radius: 50%;
+  /* Rounded button */
+  padding: 5px;
+  /* Padding for clickable area */
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth transition */
+  transition: background-color 0.3s ease;
+  /* Smooth transition */
   margin-left: 10px;
 }
 
 .close:hover,
 .close:focus {
   color: black;
-  background: #f2f2f2; /* Change background on hover */
+  background: #f2f2f2;
+  /* Change background on hover */
   text-decoration: none;
 }
 
@@ -202,16 +231,20 @@ button {
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #007BFF; /* Button color */
+  background-color: #007BFF;
+  /* Button color */
   color: white;
   border: none;
-  border-radius: 5px; /* Rounded corners */
+  border-radius: 5px;
+  /* Rounded corners */
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth transition */
+  transition: background-color 0.3s ease;
+  /* Smooth transition */
 }
 
 #spinButton:hover {
-  background-color: #0056b3; /* Darker color on hover */
+  background-color: #0056b3;
+  /* Darker color on hover */
 }
 
 /* New styles for the congratulations overlay */
@@ -226,14 +259,18 @@ button {
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  z-index: 3; /* Above other content */
-  opacity: 0; /* Start with 0 opacity */
-  transition: opacity 1s ease; /* Fade-in transition */
+  z-index: 3;
+  /* Above other content */
+  opacity: 0;
+  /* Start with 0 opacity */
+  transition: opacity 1s ease;
+  /* Fade-in transition */
 }
 
 .congrats-overlay.show {
   display: block;
-  opacity: 1; /* Fade to full opacity */
+  opacity: 1;
+  /* Fade to full opacity */
 }
 
 body,
@@ -242,295 +279,331 @@ h3,
 p,
 figure,
 figcaption {
-    margin: 0;
-    padding: 0;
-    font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin: 0;
+  padding: 0;
+  font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 h1 {
-    margin: 0;
-    padding: 0;
-    font-family: "Comfortaa";
-    font-weight: 600;
-    font-size: 3.5em;
-    line-height: .99em;
-    color: black;
+  margin: 0;
+  padding: 0;
+  font-family: "Comfortaa";
+  font-weight: 600;
+  font-size: 3.5em;
+  line-height: .99em;
+  color: black;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: black;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: black;
 }
 
 /* Navigation Bar Styles */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #081430;
-    color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #081430;
+  color: white;
 }
 
 .navbar a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 .navbar img {
-    max-width: 100px;
-    height: 50px;
+  max-width: 100px;
+  height: 50px;
 }
 
 .container-main {
-    display: flex;
-    max-width: 1200px;
-    /* margin: 0 auto; */
-    margin-left: 150px;
-    margin-right: 150px;
-    padding: 20px;
-    background-color: #ffffff;
+  display: flex;
+  max-width: 1200px;
+  /* margin: 0 auto; */
+  margin-left: 150px;
+  margin-right: 150px;
+  padding: 20px;
+  background-color: #ffffff;
 }
 
 .main-content {
-    flex: 3;
-    padding-right: 20px;
+  flex: 3;
+  padding-right: 20px;
 }
 
 .sidebar {
-    flex: 1;
+  flex: 1;
 }
 
 .sidebar img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .ad {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
 }
 
 .ad img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .ad a {
-    display: block;
-    color: blue;
-    text-decoration: none;
-    margin-top: 10px;
+  display: block;
+  color: blue;
+  text-decoration: none;
+  margin-top: 10px;
 }
 
 .ad a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .centered-title {
-    text-align: center;
-    margin: 0 auto;
-    max-width: 800px;
-    width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
 }
 
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .italicized {
-    font-style: italic;
+  font-style: italic;
 }
 
 .left-aligned {
-    text-align: left;
-    color: black;
+  text-align: left;
+  color: black;
 }
 
 .bigger-font {
-    font-size: 1.35em;
-    /* You can adjust the value to make it bigger or smaller */
+  font-size: 1.35em;
+  /* You can adjust the value to make it bigger or smaller */
 }
 
 .biggest-font {
-    font-size: 1.7em;
-    /* You can adjust the value to make it bigger or smaller */
+  font-size: 1.7em;
+  /* You can adjust the value to make it bigger or smaller */
 }
 
 .author {
-    color: #1686be;
-    text-decoration: underline #000000;
+  color: #1686be;
+  text-decoration: underline #000000;
 }
 
 /* New CSS rules for main content images */
 .main-content img {
-    width: 100%;
-    height: auto;
-    max-width: auto;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  height: auto;
+  max-width: auto;
+  margin: 0;
+  padding: 0;
 }
 
 .sidebar .ad img {
-    max-width: 400px;
-    max-height: 350px;
+  max-width: 400px;
+  max-height: 350px;
 }
 
 .download-button {
-    background: linear-gradient(to right, #F58529, #d88627, #f28553, #f99b3e); /* Gradient background */
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    color: #002a6a;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 370px;
-    height: 50px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 0 auto; /* Centers the button within its container */
+  background: linear-gradient(to right, #F58529, #d88627, #f28553, #f99b3e);
+  /* Gradient background */
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #002a6a;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 700px;
+  height: 70px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  /* Centers the button within its container */
 }
 
 .download-button span {
-    display: block;
+  display: block;
 }
 
 .download-button span:first-child {
-    font-size: 16px;
-    /* Make it slightly larger for emphasis */
+  font-size: 1.5em;
+  /* Make it slightly larger for emphasis */
 }
 
 .download-button span:last-child {
-    font-size: 12px;
-    /* Smaller text for the secondary line */
-    color: #002a6a;
-    /* Lighter color for the secondary text */
-    /* text-decoration: underline; Adds underline */
+  font-size: 1.6em;
+  /* Smaller text for the secondary line */
+  color: #002a6a;
+  /* Lighter color for the secondary text */
+  text-decoration: underline;
 }
 
 .button-text {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 /* Media Queries for Mobile Optimization */
 @media (max-width: 768px) {
-h1 {
+  h1 {
     font-size: 1.7em;
-}
+  }
 
-.centered-title p {
+  .centered-title p {
     font-size: 1.1em;
-}
+  }
 
-.biggest-font {
+  .biggest-font {
     font-size: 1.5em;
-}
+  }
 
-.bigger-font {
+  .bigger-font {
     font-size: .8em;
-}
+  }
 
-.container-main {
+  .container-main {
     flex-direction: column;
     padding: 10px;
     margin: 0 auto;
-}
+  }
 
-.main-content {
+  .main-content {
     padding-right: 0;
-}
+  }
 
-.sidebar {
+  .sidebar {
     margin-top: 20px;
-}
+  }
 
-.ad p {
+  .sidebar img {
+    height: auto;
+    width: 320px;
+  }
+
+  .ad p {
     font-size: 1.5em;
-}
+  }
 
-.ad a {
+  .ad a {
     font-size: 1.2em;
-}
+  }
 
-.left-aligned {
+  .left-aligned {
     font-size: .8em;
-}
+  }
 
-.download-button {
+  .download-button {
     width: 300px;
-}
+    height: 50px;
+  }
 
-.button-text {
-    font-size: .5em;
-}
+  .button-text {
+    font-size: .7em;
+  }
 
-.modal-content {
-  width: 85%;  /* Reduce the width to fit within the mobile screen */
-  max-width: none;  /* Remove the maximum width */
-  height: auto;  /* Adjust height */
-  max-height: 80vh;  /* Set a maximum height to fit within the viewport */
-  padding: 20px;  /* Reduce padding */
-  top: 5%;  /* Adjust top position */
-}
+  .modal-content {
+    width: 85%;
+    /* Reduce the width to fit within the mobile screen */
+    max-width: none;
+    /* Remove the maximum width */
+    height: auto;
+    /* Adjust height */
+    max-height: 80vh;
+    /* Set a maximum height to fit within the viewport */
+    padding: 20px;
+    /* Reduce padding */
+    top: 5%;
+    /* Adjust top position */
+  }
 
-.wheel {
-  width: 200px;  /* Reduce the size of the wheel */
-  height: 200px;  /* Reduce the size of the wheel */
-  border-width: 5px;  /* Reduce the border width */
-}
+  .wheel {
+    width: 200px;
+    /* Reduce the size of the wheel */
+    height: 200px;
+    /* Reduce the size of the wheel */
+    border-width: 5px;
+    /* Reduce the border width */
+  }
 
-.text {
-  width: 80px;  /* Adjust the text container size */
-  height: 20px;  /* Adjust the text container size */
-  font-size: 12px;  /* Reduce the font size */
-}
+  .text {
+    width: 80px;
+    /* Adjust the text container size */
+    height: 20px;
+    /* Adjust the text container size */
+    font-size: 12px;
+    /* Reduce the font size */
+  }
 
-.arrow {
-  border-left: 10px solid transparent;  /* Adjust arrow size */
-  border-right: 10px solid transparent;  /* Adjust arrow size */
-  border-bottom: 10px solid #333;  /* Adjust arrow size */
-  top: -15px;  /* Adjust arrow position */
-}
+  .arrow {
+    border-left: 10px solid transparent;
+    /* Adjust arrow size */
+    border-right: 10px solid transparent;
+    /* Adjust arrow size */
+    border-bottom: 10px solid #333;
+    /* Adjust arrow size */
+    top: -15px;
+    /* Adjust arrow position */
+  }
 
-#spinButton {
-  font-size: 14px;  /* Reduce button font size */
-  padding: 8px 16px;  /* Reduce button padding */
-}
+  #spinButton {
+    font-size: 14px;
+    /* Reduce button font size */
+    padding: 8px 16px;
+    /* Reduce button padding */
+  }
 
-.congrats-overlay.show {
-  width: 90%;  /* Adjust width for mobile view */
-  max-width: 250px;  /* Set a maximum width for mobile view */
-  height: auto;  /* Adjust height for mobile view */
-  max-height: 150px;  /* Set a maximum height for mobile view */
-  padding: 15px;  /* Adjust padding for mobile view */
-  background-color: #f2f2f2;
-}
+  .congrats-overlay.show {
+    width: 90%;
+    /* Adjust width for mobile view */
+    max-width: 250px;
+    /* Set a maximum width for mobile view */
+    height: auto;
+    /* Adjust height for mobile view */
+    max-height: 150px;
+    /* Set a maximum height for mobile view */
+    padding: 15px;
+    /* Adjust padding for mobile view */
+    background-color: #f2f2f2;
+  }
 
-.ten-off {
-  transform: rotate(var(--rotate)) translate(30px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(35px, 0px);  /* Adjust translation to move upwards */
-}
+  .ten-off {
+    transform: rotate(var(--rotate)) translate(30px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(35px, 0px);
+    /* Adjust translation to move upwards */
+  }
 
-.twenty-five-off {
-  transform: rotate(var(--rotate)) translate(65px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(20px, 0px);  /* Adjust translation to move upwards */
-}
+  .twenty-five-off {
+    transform: rotate(var(--rotate)) translate(65px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(20px, 0px);
+    /* Adjust translation to move upwards */
+  }
 
-.fifty-off {
-  transform: rotate(var(--rotate)) translate(75px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(20px, 12px);  /* Adjust translation to move upwards */
-}
+  .fifty-off {
+    transform: rotate(var(--rotate)) translate(75px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(20px, 12px);
+    /* Adjust translation to move upwards */
+  }
 
-.seventy-off {
-  transform: rotate(var(--rotate)) translate(75px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(-15px, 25px);  /* Adjust translation to move upwards */
-}
+  .seventy-off {
+    transform: rotate(var(--rotate)) translate(75px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(-15px, 25px);
+    /* Adjust translation to move upwards */
+  }
 
-.ninety-five-off {
-  transform: rotate(var(--rotate)) translate(75px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(-19px, -4px);  /* Adjust translation to move upwards */
-}
+  .ninety-five-off {
+    transform: rotate(var(--rotate)) translate(75px) rotate(calc(var(--rotate) * -1)) translate(-50%, -50%) translate(-19px, -4px);
+    /* Adjust translation to move upwards */
+  }
 
 }
