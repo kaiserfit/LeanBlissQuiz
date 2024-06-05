@@ -247,6 +247,10 @@ button {
   /* Darker color on hover */
 }
 
+#adClickable {
+  cursor: pointer;
+}
+
 /* New styles for the congratulations overlay */
 .congrats-overlay {
   display: none;

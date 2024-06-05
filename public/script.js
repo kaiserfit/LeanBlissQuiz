@@ -78,9 +78,22 @@ function redirectToLink() {
 //   setTimeout(openModal, 2000); // Adjust the delay time (2000 milliseconds = 2 seconds)
 // };
 
-// Event listener for the open modal button
-document.getElementById('openModal').addEventListener('click', function() {
+// Event listener for the first open modal button
+document.getElementById('openModal1').addEventListener('click', function() {
   buttonClicked = true; // Set the flag when the button is clicked
+  openModal(); // Open the modal without spinning the wheel automatically
+});
+
+// Event listener for the second open modal button
+document.getElementById('openModal2').addEventListener('click', function() {
+  buttonClicked = true; // Set the flag when the button is clicked
+  openModal(); // Open the modal without spinning the wheel automatically
+});
+
+// Add event listener for the ad div
+document.getElementById('adClickable').addEventListener('click', function(event) {
+  event.preventDefault(); // Prevent the default link behavior if needed
+  buttonClicked = true; // Set the flag when the div is clicked
   openModal(); // Open the modal without spinning the wheel automatically
 });
 
