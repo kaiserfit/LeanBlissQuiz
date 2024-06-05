@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout</title>
+    <style>
+        body {
+            font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .banner1 {
+            width: 800px;
+        }
+
+        .banner2 {
+            align-self: left;
+            height: auto;
+            width: 250px;
+        }
+
+        .header {
+            /* text-align: center; */
+            align-items: left;
+            /* margin-bottom: 20px; */
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .header p {
+            margin: 5px 0 0 0;
+            color: #666;
+        }
+
+        .two-columns {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left-column,
+        .right-column {
+            width: 48%;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            /* Add border-radius */
+        }
+
+        .price-options,
+        .billing-info,
+        .summary,
+        .add-on {
+            border: none;
+            padding: 15px;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+
+        .price-option-box {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f7f7f7;
+            border-radius: 5px;
+            /* Add border-radius */
+        }
+
+        .price-option-box label {
+            font-size: 14px;
+            /* Adjust the size as needed */
+        }
+
+        .add-on img {
+            height: auto;
+            width: 380px;
+            margin-left: -7px;
+        }
+
+        .summary img {
+            height: auto;
+            width: 500px;
+            margin-left: -85px;
+            margin-bottom: -65px;
+        }
+
+        .price-options h3,
+        .billing-info h3,
+        .summary h3,
+        .add-on h3 {
+            margin-top: 0;
+        }
+
+        .summary .price {
+            font-size: 24px;
+            color: green;
+        }
+
+        .add-on {
+            /* border: 1px dashed #ccc; */
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .add-on h3 {
+            margin-top: 0;
+        }
+
+        .add-on button {
+            background: green;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background: #f88e43;
+            color: #000;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            text-align: center;
+            display: block;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #e67341;
+        }
+
+        .submit-info {
+            font-size: 11px;
+            color: #666;
+            text-align: center;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .guarantee {
+            text-align: center;
+            /* background: #f7f7f7; */
+            padding: 20px;
+            /* border: 1px solid #ddd; */
+            margin-bottom: 20px;
+        }
+
+        .guarantee img {
+            height: auto;
+            width: 370px;
+            margin-left: -10px;
+            margin-top: -40px;
+        }
+
+        .terms {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .order-summary {
+            text-align: right;
+        }
+
+        .order-summary p {
+            margin: 5px 0;
+        }
+
+        .order-summary .total {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .price-display {
+            padding: 20px;
+            width: 370px;
+            margin-bottom: 20px;
+            margin-left: -10px;
+        }
+
+        .price-display p {
+            font-size: 13px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        .value {
+            font-weight: bold;
+        }
+
+        .normal-price .label,
+        .normal-price .value {
+            color: red;
+        }
+
+        .total .label,
+        .total .value {
+            font-size: 1.2em;
+        }
+
+        .total .value {
+            color: red;
+        }
+
+        .card-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .card-icons img {
+            height: 24px;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        .inline-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .form-row .inline-group select,
+        .form-row .inline-group input {
+            width: calc(33.33% - 10px);
+
+            box-sizing: border-box;
+        }
+
+        .form-row .inline-group {
+            display: flex;
+            gap: 22px;
+
+            align-items: center;
+        }
+
+        #cardholder-name,
+        #card-number,
+        #expiration-date-month,
+        #expiration-date-year,
+        #cvv,
+        #country,
+        #zip-code {
+            padding: 10px;
+            font-size: 14px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        #expiration-date-month,
+        #expiration-date-year,
+        #cvv {
+            width: 100px;
+            flex: none;
+        }
+
+        #cvv {
+            width: calc(33.33% - 10px);
+            flex: none;
+        }
+
+        .what-is-cvv {
+            font-size: 12px;
+            color: blue;
+            text-decoration: underline;
+            display: block;
+            text-align: right;
+            margin-top: 5px;
+            margin-right: 5px;
+            position: relative;
+            right: 0;
+        }
+
+        #email {
+            width: 355px;
+
+            box-sizing: border-box;
+            padding: 10px;
+            margin-left: 16px;
+        }
+
+        .form-group label[for="email"] {
+            margin-left: 16px;
+        }
+
+        .form-group h3 {
+            margin-left: 16px;
+        }
+
+        .footer p {
+            font-size: 12px;
+            margin-left: 16px;
+            margin-top: -20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <img src="banner1.png" alt="" class="banner1">
+            <img src="banner3.png" alt="" class="banner2">
+        </div>
+
+        <div class="two-columns">
+            <div class="left-column">
+                <form>
+                    <div class="form-group">
+                        <h3>Customer Information</h3>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div class="price-options">
+                        <h3>Choose Your Price Option:</h3>
+                        <div class="price-option-box">
+                            <label>
+                                <input type="radio" name="price-option" value="ebook-only" checked> eBook only - $27.00
+                            </label>
+                        </div>
+                        <div class="price-option-box">
+                            <label>
+                                <input type="radio" name="price-option" value="ebook-audiobook"> eBook + Audiobook - Add
+                                for only $9.05 more
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="billing-info">
+                        <h3>Billing Information</h3>
+                        <div class="form-group">
+                            <label for="cardholder-name">Cardholder Name</label>
+                            <input type="text" id="cardholder-name" name="cardholder-name"
+                                placeholder="Cardholder Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" name="card-number" placeholder="Card Number">
+                            <!-- <div class="card-icons">
+                                <img src="visa.png" alt="Visa">
+                                <img src="mastercard.png" alt="MasterCard">
+                                <img src="amex.png" alt="American Express">
+                                <img src="discover.png" alt="Discover">
+                            </div> -->
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiration-date">Expiration Date</label>
+                                <div class="inline-group">
+                                    <select id="expiration-date-month" name="expiration-date-month">
+                                        <option value="01">01 (Jan)</option>
+                                        <option value="02">02 (Feb)</option>
+                                        <!-- Add more months here -->
+                                    </select>
+                                    <select id="expiration-date-year" name="expiration-date-year">
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
+                                        <!-- Add more years here -->
+                                    </select>
+                                    <input type="text" id="cvv" name="cvv" placeholder="CVV Code">
+                                </div>
+                                <a href="#" class="what-is-cvv">What is this?</a>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <select id="country" name="country">
+                                    <option value="Australia">Australia</option>
+                                    <!-- Add more countries here -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="zip-code">Zip code</label>
+                                <input type="text" id="zip-code" name="zip-code" placeholder="Zip code">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guarantee">
+                        <img src="banner5-x-removebg-preview.png" alt="">
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="right-column">
+                <div class="summary">
+                    <h3>Order Summary</h3>
+                    <img src="banner2-removebg-preview (1).png" alt="">
+                </div>
+
+                <div class="add-on">
+                    <h3>Recommended For You</h3>
+                    <img src="banner4.png" alt="">
+                </div>
+
+                <div class="price-display">
+                    <div class="row">
+                        <span class="label normal-price">Normal Price :</span>
+                        <span class="value normal-price">$97</span>
+                    </div>
+                    <div class="row">
+                        <span class="label">Your Price Today:</span>
+                        <span class="value">$27.00</span>
+                    </div>
+                    <div class="row">
+                        <span class="label">Subtotal:</span>
+                        <span class="value">$27.00</span>
+                    </div>
+                    <div class="row">
+                        <span class="label">Tax:</span>
+                        <span class="value">$0.00</span>
+                    </div>
+                    <div class="row total">
+                        <span class="label">Total:</span>
+                        <span class="value">$27.00</span>
+                    </div></br>
+
+                    <p>Immediate access to this product or service is available once payment is approved.</p>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Place My Order</button>
+                    <p class="submit-info">(Please Click Only Once And Allow To Process)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Terms of sale:</br>
+                Your purchase will appear on your statement under the name "Idooni.com".</br>
+                Idooni will allow for the return or replacement of your ebook within 30 days from the date of purchase.
+                For more details see our return policy.</br>
+                The geographic location of your computer has been determined and recorded. All attempts at fraud will be
+                prosecuted.</br>
+                Information submitted in conjunction with this order is handled within the constraints of our privacy
+                policy.
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>
