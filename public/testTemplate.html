@@ -137,6 +137,7 @@
             background-color: #333;
             /* Placeholder color for video */
             position: relative;
+            margin-bottom: 10px;
         }
 
         .video-description {
@@ -192,6 +193,22 @@
             flex-direction: column;
             background-color: white;
             padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .description-limit-testimonial img {
+            height: auto;
+            width: 700px;
+            /* Set maximum width */
+            text-align: center;
+            display: flex;
+            /* Enable flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            flex-direction: column;
+            background-color: white;
         }
 
         .centered-title {
@@ -308,6 +325,10 @@
             /* Centers the button within its container */
         }
 
+        .pointer-cursor {
+            cursor: pointer;
+        }
+
         .download-icon {
             background: url('DB90-DLarrow.png') no-repeat center center;
             /* Ensure this path is correct */
@@ -406,6 +427,58 @@
             margin-bottom: 20px;
             /* Adds space below each question and answer */
         }
+
+        .before-and-after-photos img {
+            max-width: 400px;
+            /* Set maximum width */
+            height: auto;
+            /* Adjust height automatically */
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .before-and-after-photos-2 {
+            display: flex;
+            /* Enable flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            flex-direction: column;
+        }
+
+        .before-and-after-photos-2 img {
+            max-width: 400px;
+            /* Set maximum width */
+            height: auto;
+            /* Adjust height automatically */
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .kind-words img {
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+            height: auto;
+            width: 500px;
+        }
+
+        .play-button-overlay {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -440,6 +513,14 @@
                     <!-- Play button to trigger video -->
                     <img src="FitSpresso(image).png" alt="placeholder">
                 </div>
+
+                <div class="before-and-after-photos">
+                    <!-- Before and After -->
+                    <img src="DB90-B&A1.jpeg" alt="placeholder">
+                    <img src="DB90-B&A2.jpeg" alt="placeholder">
+                    <img src="DB90-B&A3.jpg" alt="placeholder">
+                </div>
+
                 <div class="video-description">
                     <h1>WHAT IS <span class="bold bigger-font">DB</span><span
                             class="color-yellow bigger-font bold">90</span>?</h1>
@@ -472,6 +553,12 @@
                         make Fat Loss the <span class="bold biggest-font color-yellow">EASIEST</span> it has <span
                             class="bold biggest-font color-yellow">EVER</span> Been.
                     </p>
+                    </br>
+
+                    <div class="kind-words">
+                        <img src="DB90-KW1.png" alt="placeholder">
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -503,7 +590,12 @@
                 Here is a snapshot of how it works: </br></br>
             </p>
 
-            <img src="DB90-flowchart.png" alt="placeholder"></br></br>
+            <img src="DB90-flowchart.png" alt="placeholder">
+
+            <div class="before-and-after-photos">
+                <img src="DB90-B&A4.jpg" alt=""></br>
+                <img src="DB90-B&A5.jpeg" alt="">
+            </div>
 
             <h1>HERE IS WHAT THIS MEANS FOR YOU</h1>
             <p>
@@ -526,12 +618,36 @@
 
             </p>
 
-            <img src="DB90-TestClient1.png" alt="placeholder"></br>
+            <!-- <img src="DB90-TestClient1.png" alt="placeholder" data-video-src="1 JeAnna Bland.mp4" class="lazy-video"></br>
 
-            <img src="DB90-TestClient2.png" alt="placeholder"></br>
+            <img src="DB90-TestClient2.png" alt="placeholder" data-video-src="2 Linda_testimonial.mp4" class="lazy-video"></br>
 
-            <img src="DB90-TestClient3.png" alt="placeholder"></br></br>
+            <img src="DB90-TestClient3.png" alt="placeholder" data-video-src="3 Rebeca.mp4" class="lazy-video"></br></br> -->
 
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <video class="pointer-cursor lazy-video" width="560" height="315" controls>
+                        <source src="1 JeAnna Bland.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <video class="pointer-cursor lazy-video" width="560" height="315" controls>
+                        <source src="2 Linda_testimonial.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <video class="pointer-cursor lazy-video" width="560" height="315" controls>
+                        <source src="3 Rebeca.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
 
         </div>
         <div class="centered-title">
@@ -552,6 +668,13 @@
                     <span>Access Program Immediately</span>
                 </div>
             </button></br>
+
+            <div class="kind-words">
+                <img src="DB90-KW2.png" alt="placeholder">
+                <img src="DB90-KW3.png" alt="placeholder">
+            </div>
+
+            </br>
 
             <h1>Here's Everything Else You're Getting With Your DB90 Program For Only $2.97 </h1></br>
 
@@ -619,9 +742,16 @@
 
                 Here is undeniable proof:</br></br>
 
-                <span style="color: red;">INSERT BEFORE + AFTERS/ Screenshots</span></br></br>
+                <span class="before-and-after-photos-2">
+                    <!-- Before and After -->
+                    <img src="DB90-B&A6.jpg" alt="placeholder">
+                    </br>
+                    <img src="DB90-B&A7.jpg" alt="placeholder">
+                </span>
 
-                You are probably thinking…</br></br>
+                <!-- <span style="color: red;">INSERT BEFORE + AFTERS/ Screenshots</span></br></br> -->
+
+                </br>You are probably thinking…</br></br>
 
                 HOW? </br></br>
 
@@ -772,7 +902,23 @@
 
                     And the results speak for themselves: </br></br>
 
-                    <span style="color: red;">BEFORE AND AFTERS</span></br></br>
+                    <!-- <span style="color: red;">BEFORE AND AFTERS</span></br></br> -->
+                    <span class="before-and-after-photos-2">
+                        <!-- Before and After -->
+                        <img src="DB90-B&A8.jpg" alt="placeholder">
+                        </br>
+                        <img src="DB90-B&A9.jpg" alt="placeholder">
+                        </br>
+                        <img src="DB90-B&A10.jpg" alt="placeholder">
+                    </span>
+
+                    <span class="kind-words">
+                        <img src="DB90-KW4.png" alt="">
+                        </br>
+                        <img src="DB90-KW5.png" alt="">
+                        </br>
+                        <img src="DB90-KW6.png" alt="">
+                    </span>
 
                 </p>
             </div>
@@ -811,6 +957,23 @@
                     People will be shocked at how fast you are transforming. </br></br>
 
                     Now you can see…</br></br>
+
+                    <span class="before-and-after-photos-2">
+                        <!-- Before and After -->
+                        <img src="DB90-B&A11.jpg" alt="placeholder">
+                        </br>
+                        <img src="DB90-B&A12.jpg" alt="placeholder">
+                        </br>
+                        <img src="DB90-B&A13.jpg" alt="placeholder">
+                    </span>
+
+                    <span class="kind-words">
+                        <img src="DB90-KW7.png" alt="">
+                        </br>
+                        <img src="DB90-KW8.png" alt="">
+                        </br>
+                        <img src="DB90-KW9.png" alt="">
+                    </span>
 
                 </p>
             </div>
@@ -866,7 +1029,23 @@
                     metabolism or starting point. </br></br>
 
 
-                    <span style="color: red;">INSERT BEFORE + AFTERS</span>
+                    <!-- <span style="color: red;">INSERT BEFORE + AFTERS</span> -->
+                    <span class="before-and-after-photos-2">
+                        <!-- Before and After -->
+                        <img src="DB90-B&A14.jpg" alt="placeholder">
+                        </br>
+                        <img src="DB90-B&A15.jpg" alt="placeholder">
+                        </br>
+                        <img src="DB90-B&A16.jpg" alt="placeholder">
+                    </span>
+
+                    <span class="kind-words">
+                        <img src="DB90-KW10.png" alt="">
+                        </br>
+                        <img src="DB90-KW11.png" alt="">
+                        </br>
+                        <img src="DB90-KW12.png" alt="">
+                    </span>
 
                 </p>
             </div>
@@ -927,6 +1106,23 @@
                     ➢ ⠀The 'Maximum Fat Loss Phase' secret will ensure your body is losing Maximum Fat in Minimal Time
                     by
                     TRULY Unlocking Your Bodies Fat Loss Sweet Spot</br></br>
+
+                    <span class="before-and-after-photos-2">
+                        <!-- Before and After -->
+                        <img src="DB90-B&A17.jpeg" alt="placeholder">
+                        </br>
+                        <img src="DB90-B&A18.jpeg" alt="placeholder">
+                        </br>
+                        <img src="DB90-B&A19.jpeg" alt="placeholder">
+                    </span>
+
+                    <span class="kind-words">
+                        <img src="DB90-KW13.png" alt="">
+                        </br>
+                        <img src="DB90-KW14.png" alt="">
+                        </br>
+                        <img src="DB90-KW15.png" alt="">
+                    </span>
                 </p>
             </div>
 
@@ -951,6 +1147,23 @@
                     ➢ ⠀Have limitless energy for your children, grandchildren, family and loved ones </br></br>
                     ➢ ⠀Enjoy life while losing weight effortlessly</br></br>
                     ➢ ⠀FINALLY BECOME YOUR TRUE SELF </br></br>
+
+                    <span class="before-and-after-photos-2">
+                        <!-- Before and After -->
+                        <img src="DB90-B&A20.jpg" alt="placeholder">
+                        </br>
+                        <img src="DB90-B&A21.jpeg" alt="placeholder">
+                        </br>
+                        <img src="DB90-B&A22.jpg" alt="placeholder">
+                    </span>
+
+                    <span class="kind-words">
+                        <img src="DB90-KW16.png" alt="">
+                        </br>
+                        <img src="DB90-KW17.png" alt="">
+                        </br>
+                        <img src="DB90-KW18.png" alt="">
+                    </span>
                 </p>
             </div>
 
@@ -1052,14 +1265,29 @@
                     ✅ Step by step guides on how our most successful clients lost weight </br></br>
                 </p>
 
+                <span class="before-and-after-photos-2">
+                    <!-- Before and After -->
+                    <img src="DB90-B&A23.jpeg" alt="placeholder">
+                    </br>
+                    <img src="DB90-B&A24.jpg" alt="placeholder">
+                    </br>
+                    <img src="DB90-B&A25.jpg" alt="placeholder">
+                </span>
+
+                <span class="kind-words">
+                    <img src="DB90-KW19.png" alt="">
+                    </br>
+                    <img src="DB90-KW20.png" alt="">
+                    </br>
+                    <img src="DB90-KW21.png" alt="">
+                </span>
+
             </div>
 
-            <h1 style="color: red;">Money Back Guarantee: </h1></br>
+            <!-- <h1 style="color: red;">Money Back Guarantee: </h1></br> -->
 
-            <div class="description-limit-testimonial">
-                <p style="color: black;" class="bold">
-
-                </p>
+            <div style="margin-top: 20px;" class="description-limit-testimonial">
+                <img src="DB90-MBG.png" alt="">
             </div>
 
         </div>
@@ -1152,6 +1380,25 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyVideos = document.querySelectorAll('.lazy-video');
+
+            lazyVideos.forEach(video => {
+                video.addEventListener('click', function(event) {
+                    // Prevent default controls from being clicked
+                    event.preventDefault();
+                    // Toggle play/pause
+                    if (video.paused) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 
