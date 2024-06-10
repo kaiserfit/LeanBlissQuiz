@@ -70,7 +70,7 @@ function spinWheel() {
 
 // Function to redirect to a different link
 function redirectToLink() {
-  window.location.href = "https://www.example.com"; // Replace with your desired URL
+  window.location.href = "testTemplate.html"; // Replace with your desired URL
 }
 
 // Open the modal with a delay when the page loads

@@ -661,7 +661,7 @@
 
             <img src="DB90-BookCover.jpg" alt="placeholder"></br>
 
-            <button class="download-button">
+            <button class="download-button" onclick="redirectToPage()">
                 <div class="download-icon"></div>
                 <div class="button-text">
                     <span>DOWNLOAD NOW FOR ONLY $2.97</span>
@@ -680,15 +680,14 @@
 
             <img src="DB90-Collection.jpg" alt="placeholder"></br>
 
-            <button class="download-button">
+            <button class="download-button" onclick="redirectToPage()">
                 <div class="download-icon"></div>
                 <div class="button-text">
                     <span>DOWNLOAD NOW FOR ONLY $2.97</span>
                     <span>Access Program Immediately</span>
                 </div>
             </button></br>
-            <p style="font-size: 12px; text-decoration: underline;">CLICK HERE TO GET ACCESS TO YOUR DB90 Program NOW
-            </p></br>
+            <a href="checkoutTest.html" style="font-size: 12px; text-decoration: underline; color: white;">CLICK HERE TO GET ACCESS TO YOUR DB90 Program NOW</a></br>
         </div>
     </div>
 
@@ -1398,6 +1397,10 @@
                 });
             });
         });
+
+        function redirectToPage() {
+        window.location.href = "checkoutTest.html";
+    }
     </script>
 
 </body>
