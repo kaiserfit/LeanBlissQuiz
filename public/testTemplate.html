@@ -116,6 +116,17 @@
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
         }
 
+        .content-container h1 {
+            line-height: 45px;
+            font-size: 2.2em;
+        }
+
+        .content-container h4 {
+            font-size: 18px;
+            margin-bottom: -5px;
+            margin-top: 5px;
+        }
+
         .video-container {
             flex: 1;
             max-width: 45%;
@@ -183,6 +194,11 @@
             margin-left: -115px;
         }
 
+        .description-limit-shortcut p {
+            font-size: 20px;
+            line-height: 20px;
+        }
+
         .description-limit-testimonial {
             max-width: 700px;
             text-align: center;
@@ -215,6 +231,10 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+        }
+
+        .centered-title h1 {
+            font-size: 2em;
         }
 
         .description-limit img {
@@ -694,6 +714,262 @@
             font-size: 1em;
             transform: scale(.8);
         }
+
+        .description-limit-h1 {
+            font-size: 2.2em;
+            margin-bottom: -50px;
+        }
+
+        /* Mobile Optimization */
+        @media only screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar a {
+                font-size: 18px;
+            }
+
+            .navbar img {
+                margin: 10px 0;
+                width: 80px;
+                height: auto;
+            }
+
+            .navbar>* {
+                margin: 10px 0;
+            }
+
+            .main-content {
+                padding: 20px 10px;
+            }
+
+            .content-container {
+                padding: 0 10px;
+            }
+
+            .content-container h1 {
+                line-height: 30px;
+                font-size: 1.2em;
+                margin-bottom: 15px;
+            }
+
+            .content-container h4 {
+                font-size: 14px;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
+
+            .video-container {
+                max-width: 100%;
+            }
+
+            .video-placeholder img {
+                max-width: 100%;
+                height: auto;
+                margin-left: 0;
+            }
+
+            .video-description p {
+                width: 100%;
+                margin-left: 0;
+                line-height: 25px;
+            }
+
+            .video-and-photos-container {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                margin: 0;
+            }
+
+            .shortcut-description,
+            .testimonials-description,
+            .faq-section {
+                padding: 20px 10px;
+            }
+
+            .description-limit,
+            .description-limit-testimonial,
+            .description-limit-faq {
+                max-width: 95%;
+                padding: 0 10px;
+            }
+
+            .description-limit-h1 {
+                font-size: 1.3em;
+                margin-bottom: -50px;
+            }
+
+            .centered-title {
+                max-width: 100%;
+                padding: 0 10px;
+            }
+
+            .centered-title h1 {
+                font-size: 1.5em;
+                margin-left: -10px;
+            }
+
+            .faq-container {
+                flex-direction: column;
+            }
+
+            .faq-item {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .download-button {
+                width: 95%;
+                height: auto;
+                padding: 10px;
+                margin-left: 0px;
+            }
+
+            .download-icon {
+                width: 45px;
+                height: 45px;
+                margin-right: 30px;
+                margin-left: -25px;
+            }
+
+            .button-text {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                font-weight: 750;
+                transform: scale(1.20);
+            }
+
+            .download-button span {
+                display: block;
+            }
+
+            .download-button span:first-child {
+                font-size: 12px;
+            }
+
+            .download-button span:last-child {
+                font-size: 11px;
+                color: #002a6a;
+            }
+
+            .before-and-after-photos img {
+                max-width: 90%;
+                height: auto;
+            }
+
+            .video-and-photos-container {
+                flex-direction: column;
+                gap: 10px;
+                padding: 0 10px;
+            }
+
+            .two-column-layout {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .left-column,
+            .right-column {
+                max-width: 100%;
+                margin: 0px 0;
+            }
+
+            .left-column img,
+            .right-column img {
+                width: 100%;
+                height: auto;
+            }
+
+            .before-and-after-images img {
+                width: 100%;
+                height: auto;
+            }
+
+            .orange-border {
+                max-width: 100%;
+            }
+
+            .orange-border-2 {
+                max-width: 40%;
+                margin-left: 243px;
+                margin-top: -10px;
+            }
+
+            .orange-border-3 {
+                max-width: 100%;
+            }
+
+            .shortcut-description img {
+                height: auto;
+                width: 360px;
+                margin-top: 10px;
+                margin-left: -20px;
+            }
+
+            .before-and-after-photos img {
+                height: auto;
+                width: 360px;
+                margin-top: 10px;
+            }
+
+            .description-limit-shortcut {
+                max-width: 40%;
+                padding: 0 10px;
+                margin-left: 240px;
+            }
+
+            .description-limit-shortcut h1 {
+                font-size: 1.5em;
+                margin-left: -35px;
+            }
+
+            .description-limit-shortcut p {
+                font-size: 1em;
+                line-height: 20px;
+            }
+
+            .highlight-yellow,
+            .highlight-yellow-smaller,
+            .highlight-light-yellow,
+            .highlight-light-yellow-nd {
+                padding: 10px;
+                margin: 5px 0;
+            }
+
+            .div-white-bg {
+                width: 100%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .banner,
+            .blue-box {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .kind-words img {
+                width: 90%;
+                height: auto;
+                margin-top: 10px;
+                margin-left: 65px;
+            }
+
+            video {
+                width: 370px;
+                height: 170px;
+                margin-top: 50px;
+            }
+
+            .centered-title-mobile {
+                margin-left: -10px;
+            }
+        }
     </style>
 </head>
 
@@ -718,10 +994,10 @@
                 & BECOME THEIR
                 <span class="color-yellow">TRUE SELF</span>…
             </h4><br>
-            <h1 style="line-height: 45px; font-size: 2.2em;">HOW WE TRANSFORM <span class="underlined">EVERY MAN &
+            <h1>HOW WE TRANSFORM <span class="underlined">EVERY MAN &
                     WOMAN</span><br> WHO USES THIS PROGRAM
                 Into Their <span class="color-yellow">BEST Self </span></h1>
-            <h4 style="font-size: 18px; margin-bottom: -5px; margin-top: 5px;">Using a NEW METHOD Which Allows You To
+            <h4>Using a NEW METHOD Which Allows You To
                 <span class="underlined-white">Eat Your Favourite Foods,Lose Fat Effortlessly<br>& Uncover Your Dream
                     Body</span>
             </h4>
@@ -784,7 +1060,7 @@
                 <h1><span class="bold bigger-font">DB</span><span class="color-yellow bigger-font bold">90</span> IS A
                     <span class="color-yellow bigger-font bold">SHORTCUT</span>
                 </h1>
-                <p style="text-align: left; font-size: 20px; line-height: 20px;">
+                <p style="text-align: left;">
                     Before creating DB90- I did Keto, Paleo, Carnivore, Fasting, Calorie Counting, Low Carb, Low-Fat and
                     every other diet you can think of. </br></br>
 
@@ -841,8 +1117,7 @@
                 </br>
             </p>
 
-            <h1 style="font-size: 2.2em; margin-bottom: -50px;">Here are a few clients who have used the DB90 Program…
-            </h1>
+            <h1 class="description-limit-h1">Here are a few clients who have used the DB90 Program…</h1>
 
             <div class="video-container">
                 <div class="video-placeholder">
@@ -873,14 +1148,18 @@
 
         </div>
         <div class="centered-title">
-            <h1 style="font-size: 2em;">The Only System <span class="color-yellow underlined">You'll Ever Need</span> To
-                Lose Weight, </br> Uncover Your <span class="underlined-white">DREAM BODY & Become Your TRUE SELF</span>
-            </h1></br>
+            <div class="centered-title-mobile">
+                <h1>The Only System <span class="color-yellow underlined">You'll Ever Need</span> To
+                    Lose Weight, </br> Uncover Your <span class="underlined-white">DREAM BODY & Become Your TRUE
+                        SELF</span>
+                </h1></br>
 
-            <p class="bold" style="font-size: 18px;">
-                We put everything we've learned after transforming THOUSANDS of men and women into their best self</br>
-                and helped them take the ultimate SHORTCUT to their Dream Body</br></br>
-            </p>
+                <p class="bold" style="font-size: 18px;">
+                    We put everything we've learned after transforming THOUSANDS of men and women into their best
+                    self</br>
+                    and helped them take the ultimate SHORTCUT to their Dream Body</br></br>
+                </p>
+            </div>
 
             <img src="DB90-BookCover.jpg" alt="placeholder"></br>
 
@@ -1685,13 +1964,16 @@
             <span class="faq-question">What makes the DB90 Program different?</span>
             <div class="faq-answer">DB90 is not a restrictive diet. It does not cut carbs or calories. There are no
                 long, intense
-                workouts. </br></br>Instead, the DB90 program works with your body by giving it the exact foods and movements
-                it needs to switch into fat burning mode. </br></br>You get to eat foods you love in the right amounts to
+                workouts. </br></br>Instead, the DB90 program works with your body by giving it the exact foods and
+                movements
+                it needs to switch into fat burning mode. </br></br>You get to eat foods you love in the right amounts
+                to
                 boost your metabolism.</div>
         </div>
         <div class="faq-item">
             <span class="faq-question">Will I have to give up my favorite foods?</span>
-            <div class="faq-answer">No! The program encourages you to eat the foods you enjoy. </br></br>You can still have pizza,
+            <div class="faq-answer">No! The program encourages you to eat the foods you enjoy. </br></br>You can still
+                have pizza,
                 pasta, cookies,
                 ice cream and more while losing weight. No food is off limits with DB90.</div>
         </div>
@@ -1699,7 +1981,8 @@
             <span class="faq-question">Do I need to exercise a lot with this program?</span>
             <div class="faq-answer">There is no need for excessive exercise. The program includes short, low impact
                 movements that
-                provide metabolic benefits without requiring long workouts. </br></br>The unique movements take just minutes a
+                provide metabolic benefits without requiring long workouts. </br></br>The unique movements take just
+                minutes a
                 day and can be done at home.</div>
         </div>
         <div class="faq-item">

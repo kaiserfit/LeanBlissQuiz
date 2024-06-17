@@ -343,6 +343,82 @@
             margin-left: 16px;
             margin-top: -20px;
         }
+        .offer-container {
+            border: 2px dashed red;
+            padding: 15px;
+            width: 100%;
+            max-width: 370px;
+            margin: 20px auto;
+            text-align: center;
+            position: relative;
+            background-color: #fff;
+        }
+
+        .offer-checkbox {
+            position: absolute;
+            top: 33px;
+            left: 43px;
+            transform: translateY(-50%) scale(1.5);
+        }
+
+        .offer-title {
+            color: red;
+            font-weight: bold;
+            font-size: 18px;
+            margin-left: 58px;
+            /* Adjusted margin to account for checkbox */
+        }
+
+        .offer-description {
+            margin-top: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: left;
+            max-width: 400px;
+        }
+
+        .offer-price {
+            color: red;
+            font-weight: bold;
+        }
+
+        .add-to-order-button {
+            background-color: green;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 15px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 250px;
+            position: absolute;
+            bottom: -25px;
+            /* Adjust this value to control the overlap */
+            left: 50%;
+            transform: translateX(-50%);
+            transition: background-color 0.3s;
+        }
+
+        .add-to-order-button:hover {
+            background-color: darkgreen;
+        }
+
+        .red-arrow {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 20px solid red;
+            position: absolute;
+            top: 25px;
+            /* Adjust as needed */
+            left: 17px;
+            /* Adjust as needed */
+            transform: translateX(0px) rotate(-90deg);
+            /* Adjust position and rotation */
+        }
     </style>
 </head>
 
@@ -444,7 +520,25 @@
 
                 <div class="add-on">
                     <h3>Recommended For You</h3>
-                    <img src="banner4.png" alt="">
+                    <!-- <img src="banner4.png" alt=""> -->
+                    <div class="offer-container">
+                        <div class="red-arrow"></div>
+                        <input type="checkbox" class="offer-checkbox" id="offer-checkbox">
+                        <div class="offer-title">
+                            <label for="offer-checkbox">Yes, Add Forever Fat Loss To My Order! (you're saving 80% today
+                                only)</label>
+                        </div>
+                
+                        <p class="offer-description">
+                            Get instant access to the <strong style="text-decoration: underline;">Forever Fat Loss Program</strong>, the
+                            proven method to <span style="text-decoration: underline;">keep the fat off for good</span> after completing
+                            your DB90 transformation in record time. <strong style="text-decoration: underline;">Forever Fat
+                                Loss</strong> gives you the <span style="text-decoration: underline;">tools and strategies</span> needed
+                            to maintain your new body long-term, <strong>so you never have to struggle with regaining any fat ever again.</strong>
+                            Usually <del>$137</del>, but today you can add it to your order <span class="offer-price">for just $27 (that's over $110 in savings).</span>
+                        </p>
+                        <button class="add-to-order-button">YES! ADD TO MY ORDER</button>
+                    </div>
                 </div>
 
                 <div class="price-display">
