@@ -235,6 +235,7 @@
 
         .centered-title h1 {
             font-size: 2em;
+            margin-top: 50px;
         }
 
         .centered-title h2 {
@@ -933,6 +934,10 @@
             font-size: 20px;
         }
 
+        body {
+            overflow-x: hidden;
+        }
+
         /* Mobile Optimization */
         @media only screen and (max-width: 360px) {
             .navbar {
@@ -1004,6 +1009,7 @@
 
             .faq-section {
                 width: 320px;
+                margin-top: -50px;
             }
 
             .description-limit,
@@ -1465,12 +1471,12 @@
             }
 
             .bonus5-img {
-                transform: scale(1.1);
+                transform: scale(1);
                 margin-top: 0px;
             }
 
             .bonus6-img {
-                transform: scale(1.1);
+                transform: scale(1);
                 margin-top: 0px;
             }
 
@@ -1478,6 +1484,40 @@
                 transform: scale(1.1);
                 margin-top: 0px;
             }
+
+            .limiter-all {
+                max-width: 360px;
+                overflow-x: hidden;
+            }
+
+            .faq-question {
+                font-size: 20px;
+                max-width: 240px;
+            }
+
+            .faq-item.active .faq-answer {
+                max-height: 200px;
+                max-width: 240px;
+            }
+
+            .faq-answer {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                padding-top: 10px;
+                font-size: 18px;
+                color: #ffffff;
+                text-align: left;
+                max-width: 240px;
+                margin: 0 auto;
+            }
+
+            .invi {
+                height: 100px;
+                width: 100px;
+                visibility: hidden;
+            }
+
         }
     </style>
 </head>
@@ -1496,810 +1536,890 @@
         <a href="contact.html">Need Help? Click Here to Contact Us</a>
     </div>
 
-    <div class="main-content">
-        <!-- Main content goes here -->
-        <div class="content-container">
-            <h4 class="highlight">FOR ANYONE LOOKING TO FINALLY <span class="underlined">LOSE WEIGHT PERMANENTLY</span>
-                & BECOME THEIR
-                <span class="color-yellow">TRUE SELF</span>…
-            </h4><br>
-            <h1>HOW WE TRANSFORM <span class="underlined">EVERY MAN &
-                    WOMAN</span><br> WHO USES THIS PROGRAM
-                Into Their <span class="color-yellow">BEST Self </span></h1>
-            <h4>Using a NEW METHOD Which Allows You To
-                <span class="underlined-white">Eat Your Favourite Foods,Lose Fat Effortlessly<br>& Uncover Your Dream
-                    Body</span>
-            </h4>
+    <div class="limiter-all">
+        <div class="main-content">
+            <!-- Main content goes here -->
+            <div class="content-container">
+                <h4 class="highlight">FOR ANYONE LOOKING TO FINALLY <span class="underlined">LOSE WEIGHT
+                        PERMANENTLY</span>
+                    & BECOME THEIR
+                    <span class="color-yellow">TRUE SELF</span>…
+                </h4><br>
+                <h1>HOW WE TRANSFORM <span class="underlined">EVERY MAN &
+                        WOMAN</span><br> WHO USES THIS PROGRAM
+                    Into Their <span class="color-yellow">BEST Self </span></h1>
+                <h4>Using a NEW METHOD Which Allows You To
+                    <span class="underlined-white">Eat Your Favourite Foods,Lose Fat Effortlessly<br>& Uncover Your
+                        Dream
+                        Body</span>
+                </h4>
 
-            <div class="video-and-photos-container">
-                <div class="video-container">
-                    <div class="video-placeholder">
-                        <img src="DB90-VidPlaceholder.png" alt="placeholder">
-                    </div>
-                    <div class="video-description">
-                        <h1>WHAT IS <span class="bold bigger-font">DB</span><span
-                                class="color-yellow bigger-font bold">90</span>?</h1>
-                        <p style="text-align: left; font-size: 18px;">
-                            DB90 is a <span class="bold underlined-white">body transformation program</span> that does
-                            the OPPOSITE of
-                            most other programs do.</br></br>
-
-                            We create for you an eating plan FILLED with food you actually love so that you look forward
-                            to every
-                            meal.</br></br>
-
-                            <span class="underlined-white">We train your body to be able to eat more food than you ever
-                                imagined possible.</span></br></br>
-
-                            We completely <span class="underlined-white">remove any excess workouts and cardio</span>
-                            and </br> only introduce low impact movement that you actually will ENJOY doing </br></br>
-                            This is what makes the <span class="bold">DB90 Program the GREATEST BODY TRANSFORMATION
-                                PROGRAM</span> in the world…</br></br>
-
-                            It is <span class="underlined-white">easy to follow and actually works WITH your body by
-                                giving it what it needs INSTEAD of cutting out all your favourite food</span> and making
-                            you do excessive cardio. </br></br>
-
-                            We have ONE promise… <span class="bold">That DB90 will make Fat Loss the EASIEST it has EVER
-                                Been.</span>
-                        </p>
-                        </br>
-
-                        <div class="kind-words" style="margin-left: -100px;">
-                            <img src="DB90-KW1.png" alt="placeholder">
+                <div class="video-and-photos-container">
+                    <div class="video-container">
+                        <div class="video-placeholder">
+                            <img src="DB90-VidPlaceholder.png" alt="placeholder">
                         </div>
+                        <div class="video-description">
+                            <h1>WHAT IS <span class="bold bigger-font">DB</span><span
+                                    class="color-yellow bigger-font bold">90</span>?</h1>
+                            <p style="text-align: left; font-size: 18px;">
+                                DB90 is a <span class="bold underlined-white">body transformation program</span> that
+                                does
+                                the OPPOSITE of
+                                most other programs do.</br></br>
 
+                                We create for you an eating plan FILLED with food you actually love so that you look
+                                forward
+                                to every
+                                meal.</br></br>
+
+                                <span class="underlined-white">We train your body to be able to eat more food than you
+                                    ever
+                                    imagined possible.</span></br></br>
+
+                                We completely <span class="underlined-white">remove any excess workouts and
+                                    cardio</span>
+                                and </br> only introduce low impact movement that you actually will ENJOY doing
+                                </br></br>
+                                This is what makes the <span class="bold">DB90 Program the GREATEST BODY TRANSFORMATION
+                                    PROGRAM</span> in the world…</br></br>
+
+                                It is <span class="underlined-white">easy to follow and actually works WITH your body by
+                                    giving it what it needs INSTEAD of cutting out all your favourite food</span> and
+                                making
+                                you do excessive cardio. </br></br>
+
+                                We have ONE promise… <span class="bold">That DB90 will make Fat Loss the EASIEST it has
+                                    EVER
+                                    Been.</span>
+                            </p>
+                            </br>
+
+                            <div class="kind-words" style="margin-left: -100px;">
+                                <img src="DB90-KW1.png" alt="placeholder">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="orange-border">
+                        <div class="before-and-after-photos">
+                            <!-- Before and After -->
+                            <img src="DB90-B&A1.jpeg" alt="placeholder">
+                            <img src="DB90-B&A2.jpeg" alt="placeholder">
+                            <img src="DB90-B&A3.jpg" alt="placeholder">
+                        </div>
                     </div>
                 </div>
-                <div class="orange-border">
-                    <div class="before-and-after-photos">
-                        <!-- Before and After -->
-                        <img src="DB90-B&A1.jpeg" alt="placeholder">
-                        <img src="DB90-B&A2.jpeg" alt="placeholder">
-                        <img src="DB90-B&A3.jpg" alt="placeholder">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="shortcut-description">
-        <div class="video-and-photos-container">
-            <div class="description-limit-shortcut">
-                <h1><span class="bold bigger-font">DB</span><span class="color-yellow bigger-font bold">90</span> IS A
-                    <span class="color-yellow bigger-font bold">SHORTCUT</span>
-                </h1>
-                <p style="text-align: left;">
-                    Before creating DB90- I did Keto, Paleo, Carnivore, Fasting, Calorie Counting, Low Carb, Low-Fat and
-                    every other diet you can think of. </br></br>
-
-                    Either they did not work at all OR they worked for a short period of time until my body hit a
-                    plateau.
-                    </br></br>
-
-                    So I decided to find a better way. </br></br>
-
-                    After a one in a million chance encounter with one of the smartest people I have ever met in my
-                    life, I
-                    was finally able to find something that TRULY worked. </br></br>
-
-                    Something that worked better for me than all of the other methods combined. </br></br>
-
-                    While at the same time being so easy and effortless- it felt like cheating. </br></br>
-
-                    I was able to live an incredible life with no restrictions and enjoy every day with my family.
-                    </br></br>
-
-                    Here is a snapshot of how it works: </br></br>
-                </p>
-            </div>
-
-            <div class="orange-border-2">
-                <div class="before-and-after-photos">
-                    <img src="DB90-B&A4.jpg" alt=""></br>
-                    <img src="DB90-B&A5.jpeg" alt="">
-                </div>
             </div>
         </div>
 
-        <div class="flowchart">
-            <img src="DB90-flowchart.png" alt="placeholder"></br>
-        </div>
+        <div class="shortcut-description">
+            <div class="video-and-photos-container">
+                <div class="description-limit-shortcut">
+                    <h1><span class="bold bigger-font">DB</span><span class="color-yellow bigger-font bold">90</span> IS
+                        A
+                        <span class="color-yellow bigger-font bold">SHORTCUT</span>
+                    </h1>
+                    <p style="text-align: left;">
+                        Before creating DB90- I did Keto, Paleo, Carnivore, Fasting, Calorie Counting, Low Carb, Low-Fat
+                        and
+                        every other diet you can think of. </br></br>
 
-        <div class="description-limit">
-
-            <h1>HERE IS <span class="color-yellow bold">WHAT THIS MEANS</span> FOR YOU</h1></br></br>
-            <p>
-                Every "Diet" ever created has one thing in common. </br></br>
-
-                It RESTRICTS You. It takes away all the food you love and forces you to have food you despise for months
-                on end to see meaningless results. </br></br>
-
-                It takes away the joy of life. </br></br>
-
-                That's why the DB90 Program is NOT a diet. </br></br>
-
-                It is a SYSTEM that actually shows you how to properly NOURISH your body and give it what it's asking
-                for- INSTEAD of taking away its nutrients and causing it to work less effectively. </br></br>
-
-                The DB90 Program was created to show people the NEW way of making weight loss as close to effortless as
-                humanly possible. </br></br>
-
-                </br>
-            </p>
-
-            <h1 class="description-limit-h1">Here are a few clients who have used the DB90 Program…</h1>
-
-            <div class="video-container">
-                <div class="video-placeholder">
-                    <video style="margin-bottom: -50px;" class="pointer-cursor lazy-video" width="860" height="615"
-                        controls>
-                        <source src="1 JeAnna Bland.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-            <div class="video-container">
-                <div class="video-placeholder">
-                    <video style="margin-bottom: -50px;" class="pointer-cursor lazy-video" width="860" height="615"
-                        controls>
-                        <source src="2 Linda_testimonial.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-            <div class="video-container">
-                <div class="video-placeholder">
-                    <video class="pointer-cursor lazy-video" width="860" height="615" controls>
-                        <source src="3 Rebeca.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-
-        </div>
-        <div class="centered-title">
-            <div class="centered-title-mobile">
-                <h1>The Only System <span class="color-yellow underlined">You'll Ever Need</span> To
-                    Lose Weight, </br> Uncover Your <span class="underlined-white">DREAM BODY & Become Your TRUE
-                        SELF</span>
-                </h1></br>
-
-                <p class="bold" style="font-size: 18px;">
-                    We put everything we've learned after transforming THOUSANDS of men and women into their best
-                    self</br>
-                    and helped them take the ultimate SHORTCUT to their Dream Body</br></br>
-                </p>
-            </div>
-
-            <div class="bookCover">
-                <img src="DB90-BookCover.jpg" alt="placeholder"></br>
-            </div>
-
-            <button class="download-button" onclick="redirectToPage()">
-                <div class="download-icon"></div>
-                <div class="button-text">
-                    <span>DOWNLOAD NOW FOR ONLY $2.97</span>
-                    <span>Access Program Immediately</span>
-                </div>
-            </button></br>
-
-            <div class="kind-words-2">
-                <img src="DB90-KW2.png" alt="placeholder">
-                <img src="DB90-KW3.png" alt="placeholder">
-            </div>
-
-            </br>
-
-            <h1>Here's <span class="color-yellow underlined">Everything Else You're Getting</span> With Your DB90 </br>
-                Program For Only $2.97 </h1></br>
-
-            <div class="bookCover">
-                <img src="DB90-Collection.jpg" alt="placeholder"></br>
-            </div>
-
-            <button class="download-button" onclick="redirectToPage()">
-                <div class="download-icon"></div>
-                <div class="button-text">
-                    <span>DOWNLOAD NOW FOR ONLY $2.97</span>
-                    <span>Access Program Immediately</span>
-                </div>
-            </button></br>
-            <a href="checkoutTest.html" style="font-size: 18px; text-decoration: underline; color: white;">CLICK HERE TO
-                GET ACCESS TO YOUR DB90 Program NOW</a></br>
-        </div>
-    </div>
-
-    <div class="testimonials-description">
-        <div class="centered-title">
-            </br>
-            <h2>Here's how i went from 12 years of failing to
-                lose weight (and gaining a ton of
-                weight in the process) TO completing an incredible transformation in 3 months By Doing The EXACT
-                OPPOSITE of Common Wisdom </h2></br>
-
-            <p class="subheader bold">This is something completely NEW, Completely
-                Different, Completely
-                Unlike Anything You've Ever Heard </br>of Before- Read The Story Below To Discover Exactly How To Lose
-                The
-                EASIEST Fat Of Your Life </p></br>
-
-            <div class="two-column-layout">
-                <!-- Left Column -->
-                <div class="left-column">
-                    <p class="coach-letter left-alligned">
-
-                        <span class="highlight-black">START READING HERE</span></br></br>
-
-                        <span class="shane-div">
-                            <img src="DB90-CoachShane.png" alt=""></br>
-                        </span>
-
-                        From: The desk of Coach Shane Morris</br>
-                        Re: The easiest fat loss method ever</br></br>
-
-                        <span class="bold">Dear Friend, </span></br></br>
-
-                        <span class="bold">I have been where you are now…Believe Me. </span></br></br>
-
-                        This was me not long ago. </br></br>
-
-                        An overweight Personal Trainer who had struggled with his weight for over 12 years. </br></br>
-
-                        As you can imagine- I also struggled getting clients. </br></br>
-
-                        Because they could see I couldn't help them because I could not even help myself. </br></br>
-
-
-                        But after all those years struggling…I discovered something. </br></br>
-
-                        <span class="highlight-yellow">I call it the "Fat Loss Sweet Spot".</span></br></br>
-
-                        And once you discover it…</br></br>
-
-                        <!-- You will uncover the power of EFFORTLESS Fat Loss </br></br> -->
-
-                        <img src="DB90-Effortless.png" class="effortless-img" alt=""></br>
-
-                        The power to lose fat on autopilot WITHOUT even trying </br></br>
-
-                        Once I discovered this breakthrough…</br></br>
-
-                        <span class="highlight-yellow">I made more progress in under 3 months than I had in the last 15
-                            years.</span></br></br>
-
-                        You are probably thinking…</br></br>
-
-                        HOW? </br></br>
-
-                        I was lost, stuck and confused. Then THIS man changed everything for me. </br></br>
-
-                        He saw me struggling for months and one day he just came up to me and asked me a simple
-                        question…</br></br>
-
-                        “Do you think what you are doing is working?”</br></br>
-
-                        He then explained to me what was TRULY going on with my body and why billions of people around
-                        the world
-                        are struggling with their weight.</br></br>
-
-                        <img src="DB90-Catabolic.png" class="effortless-img" alt=""></br>
-
-                        Most of us suffer from a condition<span class="highlight-yellow-smaller">known as Catabolic
-                            Imbalance</span></br></br>
-
-                        The worst part? </br></br>
-
-                        WE DON'T EVEN KNOW IT! </br>
-                        You see…</br></br>
-
-                        The world has changed DRASTICALLY over the last 100 years. </br></br>
-
-                        The human population has grown to almost <span class="bold">8 BILLION people.</span></br></br>
-
-                        And all of these people need to be fed</br></br>
-
-                        So what was the solution Governments and Corporations came up with in order to FEED these
-                        people?
+                        Either they did not work at all OR they worked for a short period of time until my body hit a
+                        plateau.
                         </br></br>
 
-                        <span class="underlined-black">Chemicals Infusion into our food supply.</span></br></br>
+                        So I decided to find a better way. </br></br>
 
-                        They added chemicals to our entire food supply that made food grow faster, quicker and more
-                        resilient. </br></br>
+                        After a one in a million chance encounter with one of the smartest people I have ever met in my
+                        life, I
+                        was finally able to find something that TRULY worked. </br></br>
 
-                        Chemicals were added to fruits and vegetables that made them grow in the harshest conditions
-                        like
-                        snow or extreme heat. </br></br>
+                        Something that worked better for me than all of the other methods combined. </br></br>
 
-                        Even most organic foods contain chemicals (but in lower doses so they can fly under the radar).
+                        While at the same time being so easy and effortless- it felt like cheating. </br></br>
+
+                        I was able to live an incredible life with no restrictions and enjoy every day with my family.
                         </br></br>
 
-                        The end result is we are able to have much cheaper food supplies…</br></br>
-
-                        However- this comes at a cost. </br></br>
-
-                        It seems all of these chemicals are impacting our fat loss hormones by blocking the signals our
-                        brain is able to send to our body. </br></br>
-
-                        <span class="bold">These signals are so our body can produce fat burning hormones like Leptin
-                            and Peptide YY.</span>
-                        </br></br>
-
-                        These hormones help flush out excess fat and supercharge your metabolism. </br></br>
-
-                        Without these hormones in your body…</br></br>
-
-                        You give this imposter power over you and become your FAKE SELF </br></br>
+                        Here is a snapshot of how it works: </br></br>
                     </p>
                 </div>
 
-                <!-- Right Column -->
-                <div class="right-column">
-                    <div class="blue-box">
-                        <h3>Don't just take it from me.</h3>
-                        <h3>Here is undeniable proof:</h3>
-                    </div>
-                    <div class="before-and-after-images">
-                        <img src="DB90-B&A4.jpg" alt="Before and After 1">
-                        <img src="DB90-B&A7.jpg" alt="Before and After 2">
+                <div class="orange-border-2">
+                    <div class="before-and-after-photos">
+                        <img src="DB90-B&A4.jpg" alt=""></br>
+                        <img src="DB90-B&A5.jpeg" alt="">
                     </div>
                 </div>
             </div>
 
-            <div class="two-column-layout">
-                <!-- Left Column -->
-                <div class="left-column">
-                    <div class="banner">
-                        <h3>There is only ONE Thing that can break you FREE from this imposter and unlock your DREAM
-                            BODY</h3>
-                    </div>
-                    <div class="div-white-bg left-alligned">
-
-                        And that is...</br></br>
-                        The Fat Loss Sweet Spot.</br></br>
-                        Your body has a fat loss sweet spot that can ONLY be activated by </br> giving your body EXACTLY
-                        what it is asking you for.</br></br>
-
-                        <div class="orange-container">
-                            <h4 style="text-align: center; color: white;">And that is:</h4>
-                            <p>
-                                ✅ The EXACT amount of food it needs</br>
-                                ✅ Eating delicious food that makes you happy (which impacts the brain's ability to
-                                produce good
-                                hormones)</br>
-                                ✅ Food that FUEL the body properly</br>
-                                ✅ Food that supports healthy hormones</br>
-                                ✅ Movements that unlock SuperCharged Calorie Burning</br>
-                                ✅ Fat Loss Hacks that awaken Leptin & Peptide YY</br></br>
-
-                                And the ONLY way you can do this is by following the EXACT PROTOCOL that thousands of
-                                people are
-                                doing to see the best results of their life.</br></br>
-
-                                And this protocol can ONLY be found in the DB90 Program.
-                            </p>
-                        </div>
-
-                        </br>
-
-                        <div class="differently-img">
-                            <img src="DB90-Differently.png" style="margin-bottom: 10px;" alt="">
-                        </div>
-
-                        <div class="highlight-red">❌ Why do you spend money on Ozempic, Weight Loss Supplements and
-                            other weight loss gimmick products? These products do NOT address the ROOT CAUSE of weight
-                            gain</div>
-
-                        <div class="highlight-red">❌ Why are you cutting carbs? Your body needs them to fuel your brain
-                            and your hormones.</div>
-
-                        <div class="highlight-red">❌ Why do you drop calories drastically? If you are not feeding your
-                            body the fuel it needs- it will crash and hit a plateau</div>
-
-                        <div class="highlight-red">❌ Why do eat food you hate? Every meal that you hate STEALS your
-                            willpower and sets you up to fail</div>
-
-                        <div class="highlight-red">❌ Why do you do super intense or long exercise sessions? These put
-                            your body in energy saving mode and PREVENT fat loss </div>
-
-                        <div class="highlight-red">❌ Why do you lose weight and then your progress suddenly stops? THIS
-                            is your body fighting against you and this leads to weight gain shortly after and should be
-                            avoided at all costs</div>
-
-                        <div class="highlight-red">❌ Why do you sacrifice eating good food with your family during
-                            special occasions and good times? All this sacrifice is JUST not worth it</div>
-
-                        Here is what separates our clients from what you and most others do to lose weight:</br></br>
-
-                        <div class="highlight-green">✅ They fix the ROOT CAUSE of weight gain and lose fat effortlessly
-                            by activating their Fat Loss Sweet Spot </div>
-
-                        <div class="highlight-green">✅ They LOVE what they eat and build an eating plan around food they
-                            enjoy (while losing fat on autopilot) </div>
-
-                        <div class="highlight-green">✅ They eat more carbs and calories than they ever imagined possible
-                            WHILE losing fat, repairing their hormones and fixing their metabolism </div>
-
-                        <div class="highlight-green">✅ They do SUPER EASY & SUPER LOW IMPACT movements that torch fat
-                        </div>
-
-                        <div class="highlight-green">✅ They lose fat in a permanent manner by SPEEDING UP the metabolism
-                            while losing weight instead of slowing down the metabolism</div>
-
-                        <div class="highlight-green">✅ They enjoy special occasions and good food with their family and
-                            friends (While losing weight)</div>
-
-                        <span class="kind-words-3">
-                            <img src="DB90-KW4.png" alt="">
-                            <img src="DB90-KW5.png" alt="">
-                            <img src="DB90-KW6.png" alt="">
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Right Column -->
-                <div class="right-column">
-                    <div class="blue-box-extended">
-                        <h3>And once you follow them-</h3>
-                        <h3>the results are LIFE CHANGING:</h3>
-                    </div>
-                    <div class="before-and-after-images">
-                        <img src="DB90-B&A4.jpg" alt="Before and After 1">
-                        <img src="DB90-B&A7.jpg" alt="Before and After 2">
-                    </div>
-
-                    <div class="orange-border-3-extended">
-                        <h3>And the results speak for themselves:</h3>
-                        <div class="before-and-after-photos">
-                            <!-- Before and After -->
-                            <img src="DB90-B&A8.jpg" alt="placeholder">
-                            <img src="DB90-B&A9.jpg" alt="placeholder">
-                            <img src="DB90-B&A10.jpg" alt="placeholder">
-                        </div>
-                    </div>
-                </div>
+            <div class="flowchart">
+                <img src="DB90-flowchart.png" alt="placeholder"></br>
             </div>
 
-            <div class="two-column-layout">
-                <div class="left-column">
-                    <div class="div-white-bg-2 left-alligned">
-                        <div class="exactly-img">
-                            <img src="DB90-Exactly.png"
-                                style="height: auto; width: 680px; margin-bottom: 20px; margin-top: -50px;" alt="">
-                        </div>
+            <div class="description-limit">
 
-                        <div class="highlight-light-yellow">
-                            <span class="green-circle">1</span> PHASE 1- Testing Phase </br></br>
+                <h1>HERE IS <span class="color-yellow bold">WHAT THIS MEANS</span> FOR YOU</h1></br></br>
+                <p>
+                    Every "Diet" ever created has one thing in common. </br></br>
 
-                            This phase focuses on finding your bodies fat loss sweet spot while eating your favourite
-                            foods and introducing some initial fat loss hacks to rev up your metabolism and boost your
-                            fat loss hormones.
-                        </div>
+                    It RESTRICTS You. It takes away all the food you love and forces you to have food you despise for
+                    months
+                    on end to see meaningless results. </br></br>
 
-                        <div class="highlight-light-yellow">
-                            <span class="green-circle">2</span> PHASE 2- Metabolism Boost Phase</br></br>
+                    It takes away the joy of life. </br></br>
 
-                            This is where we start boosting the metabolism drastically while ramping up fat loss and
-                            training your body to be able to eat more food while losing weight
-                        </div>
+                    That's why the DB90 Program is NOT a diet. </br></br>
 
-                        <div class="highlight-light-yellow">
-                            <span class="green-circle">3</span> PHASE 3- Maximum Fat Loss Phase </br></br>
+                    It is a SYSTEM that actually shows you how to properly NOURISH your body and give it what it's
+                    asking
+                    for- INSTEAD of taking away its nutrients and causing it to work less effectively. </br></br>
 
-                            This is where magic truly happens! </br></br>
+                    The DB90 Program was created to show people the NEW way of making weight loss as close to effortless
+                    as
+                    humanly possible. </br></br>
 
-                            You will start to see the easiest fat loss of your life while enjoying every single bite of
-                            food
-                            and
-                            loving every step of the journey. </br></br>
+                    </br>
+                </p>
 
-                            During this phase- you will flood your body with GOOD fat loss hormones like Leptin and
-                            Peptide
-                            YY.
-                        </div>
+                <h1 class="description-limit-h1">Here are a few clients who have used the DB90 Program…</h1>
 
-                        Now your body is in an <span class="underlined-black">optimal fat burning phase
-                            24/7.</span></br></br>
-
-                        <span class="bold">You will see the best results of your life FASTER than ever
-                            before.</span></br></br>
-
-                        People will be shocked at how fast you are transforming. </br></br>
-
-                        <span class="kind-words-4">
-                            <img src="DB90-KW7.png" alt="">
-                            <img src="DB90-KW8.png" alt="">
-                            <img src="DB90-KW9.png" alt="">
-                        </span>
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <video style="margin-bottom: -50px;" class="pointer-cursor lazy-video" width="860" height="615"
+                            controls>
+                            <source src="1 JeAnna Bland.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <video style="margin-bottom: -50px;" class="pointer-cursor lazy-video" width="860" height="615"
+                            controls>
+                            <source src="2 Linda_testimonial.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <video class="pointer-cursor lazy-video" width="860" height="615" controls>
+                            <source src="3 Rebeca.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                 </div>
 
-                <div class="right-column">
-                    <div class="blue-box-extended-2">
-                        <h3>Now you can see…</h3>
-                    </div>
-                    <div class="before-and-after-images">
-                        <img src="DB90-B&A11.jpg" alt="Before and After 1">
-                        <img src="DB90-B&A12.jpg" alt="Before and After 2">
-                        <img src="DB90-B&A13.jpg" alt="Before and After 3">
-                    </div>
-                </div>
             </div>
+            <div class="centered-title">
+                <div class="centered-title-mobile">
+                    <h1>The Only System <span class="color-yellow underlined">You'll Ever Need</span> To
+                        Lose Weight, </br> Uncover Your <span class="underlined-white">DREAM BODY & Become Your TRUE
+                            SELF</span>
+                    </h1></br>
 
-            <div class="two-column-layout">
-                <div class="left-column">
-                    <div class="div-white-bg-3 left-alligned">
-
-                        <div class="begging-img">
-                            <img src="DB90-Begging.png" style="margin-top: -60px; transform: scale(1.15);" alt=""></br>
-                        </div>
-
-                        So if this is you, it's time to consider joining the DB90 Program: </br></br>
-
-                        Do you have more than 5 pounds of fat OR MORE to lose?</br>
-
-                        <span class="underlined-black">Well this is the easiest way to lose 5, 10, 20, 30, 50 or even
-                            100 pounds of fat OR MORE.</span></br></br>
-
-                        This can help you lose fat no matter how much weight you are looking to drop</br>
-
-                        Have you put your faith in Ozempic? Weight loss supplements or fad weight loss products that
-                        provided you ZERO results?</br></br>
-                        Me too. It's why I was stuck for 15 years looking for a weight loss solution.</br></br>
-
-                        <span class="underlined-black">What I can tell you with 100% confidence is that DB90 is the
-                            answer to your weight loss prayers</span> (just like it was mine and just like it has been
-                        for the THOUSANDS of men and women who used it) </br></br>
-
-                        Have you tried diets or programs that are too hard or too strict?</br>
-
-                        Well- this is the <span class="bold">EASIEST fat loss program ever invented.</span></br>
-
-                        Trust me- after 15 years of failure trying every single diet or program you can imagine- </br>
-
-                        this program is what changed my life and I know it can change yours. </br></br>
-
-                        Have you found yourself falling off exercise programs and workout routines because they are too
-                        hard or take too long?</br></br>
-
-                        <span class="highlight-yellow">None of that is needed with the DB90 program.</span></br></br>
-
-                        This program is built around your life and your circumstances. It is totally flexible. </br>
-                        The low impact movements we suggest only take a few minutes every day. </br></br>
-
-                        Do you see your metabolism slowing down as you age and think you are getting too old to turn
-                        your
-                        body around and unlock your dream body? </br></br>
-
-                        <div class="highlight-yellow">
-                            Men and women of ALL ages have lost weight and become their best self by unlocking their
-                            DREAM BODY in record time. </br>
-                            Age will NOT be a factor in you losing weight effortlessly.
-                        </div> </br>
-
-                        <span class="bold">Have you felt like your genetics or metabolism will prevent you from
-                            achieving your dream body?</span></br></br>
-
-                        Myself and literally <span class="bold">THOUSANDS of people</span> felt the same exact way.</br>
-
-                        But after just a few days on the DB90 program- we realised that you can <span
-                            class="underlined-black">achieve incredible fat loss REGARDLESS of your genetics, metabolism
-                            or starting point.</span></br></br>
-
-                        <span class="kind-words-5">
-                            <img src="DB90-KW10.png" alt="">
-                            <img src="DB90-KW11.png" alt="">
-                            <img src="DB90-KW12.png" alt="">
-                        </span>
-                    </div>
+                    <p class="bold" style="font-size: 18px;">
+                        We put everything we've learned after transforming THOUSANDS of men and women into their best
+                        self</br>
+                        and helped them take the ultimate SHORTCUT to their Dream Body</br></br>
+                    </p>
                 </div>
 
-                <div class="right-column">
-                    <div class="orange-border-4">
-                        <div class="before-and-after-photos">
-                            <img src="DB90-B&A14.jpg" alt="placeholder">
-                            <img src="DB90-B&A15.jpg" alt="placeholder">
-                            <img src="DB90-B&A16.jpg" alt="placeholder">
-                        </div>
-                    </div>
+                <div class="bookCover">
+                    <img src="DB90-BookCover.jpg" alt="placeholder"></br>
                 </div>
+
+                <button class="download-button" onclick="redirectToPage()">
+                    <div class="download-icon"></div>
+                    <div class="button-text">
+                        <span>DOWNLOAD NOW FOR ONLY $2.97</span>
+                        <span>Access Program Immediately</span>
+                    </div>
+                </button></br>
+
+                <div class="kind-words-2">
+                    <img src="DB90-KW2.png" alt="placeholder">
+                    <img src="DB90-KW3.png" alt="placeholder">
+                </div>
+
+                </br>
+
+                <h1>Here's <span class="color-yellow underlined">Everything Else You're Getting</span> With Your DB90
+                    </br>
+                    Program For Only $2.97 </h1></br>
+
+                <div class="bookCover">
+                    <img src="DB90-Collection.jpg" alt="placeholder"></br>
+                </div>
+
+                <button class="download-button" onclick="redirectToPage()">
+                    <div class="download-icon"></div>
+                    <div class="button-text">
+                        <span>DOWNLOAD NOW FOR ONLY $2.97</span>
+                        <span>Access Program Immediately</span>
+                    </div>
+                </button></br>
+                <a href="checkoutTest.html" style="font-size: 18px; text-decoration: underline; color: white;">CLICK
+                    HERE TO
+                    GET ACCESS TO YOUR DB90 Program NOW</a></br>
             </div>
+        </div>
 
-            <div class="two-column-layout">
-                <div class="left-column">
-                    <div class="div-white-bg-4 left-alligned">
+        <div class="testimonials-description">
+            <div class="centered-title">
+                </br>
+                <h2>Here's how i went from 12 years of failing to
+                    lose weight (and gaining a ton of
+                    weight in the process) TO completing an incredible transformation in 3 months By Doing The EXACT
+                    OPPOSITE of Common Wisdom </h2></br>
 
-                        <div class="fascinations-img">
-                            <img src="DB90-Fascinations.png" style="margin-top: -60px;" alt="">
-                        </div>
+                <p class="subheader bold">This is something completely NEW, Completely
+                    Different, Completely
+                    Unlike Anything You've Ever Heard </br>of Before- Read The Story Below To Discover Exactly How To
+                    Lose
+                    The
+                    EASIEST Fat Of Your Life </p></br>
 
-                        ✅ <span class="bold">How to activate your 'fat loss code'</span> deep inside your DNA and put
-                        your body in the <span class="highlight-light-yellow-nd">optimal fat loss state
-                            24/7</span></br></br>
+                <div class="two-column-layout">
+                    <!-- Left Column -->
+                    <div class="left-column">
+                        <p class="coach-letter left-alligned">
 
-                        ✅ <span class="bold">How 1 Simple Superfood</span> in most peoples kitchen can stimulate your
-                        thyroid for <span class="highlight-light-yellow-nd">maximum fat loss (in 7 seconds or
-                            less)</span></br></br>
+                            <span class="highlight-black">START READING HERE</span></br></br>
 
-                        ✅ The <span class="bold">liquid drink</span> designed to <span class="bold">optimise liver
-                            function and also improve the metabolism</span> (and how most people drink it the wrong way
-                        for weight loss)</br></br>
+                            <span class="shane-div">
+                                <img src="DB90-CoachShane.png" alt=""></br>
+                            </span>
 
-                        ✅ <span class="bold">Why your body ALWAYS hits fat loss plateaus</span>- and how to EASILY break
-                        through any plateau instantly by turning your body </br>into a <span
-                            class="highlight-light-yellow-nd">fat torching machine</span></br></br>
+                            From: The desk of Coach Shane Morris</br>
+                            Re: The easiest fat loss method ever</br></br>
 
-                        ✅ <span class="underlined-black">The single biggest fat loss mistake you are making</span> (and
-                        why its held you back for years without you even knowing it)- and why you need to do the
-                        COMPLETE OPPOSITE to <span class="bold">trigger your bodies Fat Loss Sweet Spot</span></br></br>
+                            <span class="bold">Dear Friend, </span></br></br>
 
-                        ✅ <span class="bold">The Secret to Effortless Weight Loss</span> by actually eating the food you
-                        love and enjoy- and how this actually <span class="underlined-black">activates your bodies fat
-                            burning hormones</span></br></br>
+                            <span class="bold">I have been where you are now…Believe Me. </span></br></br>
 
-                        ✅ <span class="bold">How to instantly trigger the fat burning hormone Peptide YY</span> by
-                        removing the blocker your brain currently has in one simple step</br></br>
+                            This was me not long ago. </br></br>
 
-                        ✅ <span class="bold">The Low Impact Movement that can burn more fat</span> than hours of on a
-                        treadmill (in a fraction of the time)- which our clients use to </br><span
-                            class="highlight-light-yellow-nd">burn fat on autopilot</span></br></br>
+                            An overweight Personal Trainer who had struggled with his weight for over 12 years.
+                            </br></br>
 
-                        ✅ <span class="bold">The step by step blueprint</span> for activating your bodies <span
-                            class="underlined-black italicized">'Leptin Switch'</span> which takes your metabolism to
-                        another level</br></br>
+                            As you can imagine- I also struggled getting clients. </br></br>
 
-                        ✅ <span class="underlined-black">Why our clients lose fat without trying</span> by listening to
-                        what the body is telling them- instead of cutting off its nutrients- and how you can replicate
-                        this process</br></br>
+                            Because they could see I couldn't help them because I could not even help myself. </br></br>
 
-                        ✅ How trying to do everything perfectly is STUNTING your results and blocking you from losing
-                        weight- and why one trick can ignite your bodies true fat burning potential with minimal
-                        effort</br></br>
 
-                        ✅ <span class="bold">How to use 'Eating Window Manipulation'</span> as a <span
-                            class="underlined-black">bonus fat burning technique</span> by tricking your body to always
-                        be in the <span class="bold">'Fat Burning Zone'</span></br></br>
+                            But after all those years struggling…I discovered something. </br></br>
 
-                        ✅ <span class="highlight-light-yellow-nd">The Fat Burning Superfruit</span> that is often
-                        overlooked but can make a HUGE impact on fat loss simply by adding it to your delicious eating
-                        plan</br></br>
+                            <span class="highlight-yellow">I call it the "Fat Loss Sweet Spot".</span></br></br>
 
-                        ✅ <span class="bold">How to use Macro-Fusion to get your metabolism to work</span> in SuperDrive
-                        (acting like a furnace) to keep <span class="underlined-black">fat burning ramped up through the
-                            day</span></br></br>
+                            And once you discover it…</br></br>
 
-                        ✅ <span class="highlight-light-yellow-nd">The 'Testing Phase' secret</span> to discover what
-                        your body is actually asking for (and then giving your body what it NEEDS) so your body can lose
-                        fat the RIGHT way instead of the yo-yo diet way</br></br>
+                            <!-- You will uncover the power of EFFORTLESS Fat Loss </br></br> -->
 
-                        ✅ <span class="highlight-light-yellow-nd">The 'Metabolism Boost Phase' secret</span> will unlock
-                        your <span class="bold">bodies TRUE metabolism</span>- allowing you to eat more food than ever
-                        before while <span class="underlined-black">losing fat on autopilot</span> (because this is how
-                        true fat loss works)</br></br>
+                            <img src="DB90-Effortless.png" class="effortless-img" alt=""></br>
 
-                        ✅ <span class="highlight-light-yellow-nd">The 'Maximum Fat Loss Phase' secret</span> will ensure
-                        your body is losing <span class="bold">Maximum Fat in Minimal Time by TRULY Unlocking Your
-                            Bodies Fat Loss Sweet Spot</span></br></br>
+                            The power to lose fat on autopilot WITHOUT even trying </br></br>
 
-                        <span class="kind-words-6">
-                            <img src="DB90-KW13.png" alt="">
-                            <img src="DB90-KW14.png" alt="">
-                            <img src="DB90-KW15.png" alt="">
-                        </span>
+                            Once I discovered this breakthrough…</br></br>
+
+                            <span class="highlight-yellow">I made more progress in under 3 months than I had in the last
+                                15
+                                years.</span></br></br>
+
+                            You are probably thinking…</br></br>
+
+                            HOW? </br></br>
+
+                            I was lost, stuck and confused. Then THIS man changed everything for me. </br></br>
+
+                            He saw me struggling for months and one day he just came up to me and asked me a simple
+                            question…</br></br>
+
+                            “Do you think what you are doing is working?”</br></br>
+
+                            He then explained to me what was TRULY going on with my body and why billions of people
+                            around
+                            the world
+                            are struggling with their weight.</br></br>
+
+                            <img src="DB90-Catabolic.png" class="effortless-img" alt=""></br>
+
+                            Most of us suffer from a condition<span class="highlight-yellow-smaller">known as Catabolic
+                                Imbalance</span></br></br>
+
+                            The worst part? </br></br>
+
+                            WE DON'T EVEN KNOW IT! </br>
+                            You see…</br></br>
+
+                            The world has changed DRASTICALLY over the last 100 years. </br></br>
+
+                            The human population has grown to almost <span class="bold">8 BILLION
+                                people.</span></br></br>
+
+                            And all of these people need to be fed</br></br>
+
+                            So what was the solution Governments and Corporations came up with in order to FEED these
+                            people?
+                            </br></br>
+
+                            <span class="underlined-black">Chemicals Infusion into our food supply.</span></br></br>
+
+                            They added chemicals to our entire food supply that made food grow faster, quicker and more
+                            resilient. </br></br>
+
+                            Chemicals were added to fruits and vegetables that made them grow in the harshest conditions
+                            like
+                            snow or extreme heat. </br></br>
+
+                            Even most organic foods contain chemicals (but in lower doses so they can fly under the
+                            radar).
+                            </br></br>
+
+                            The end result is we are able to have much cheaper food supplies…</br></br>
+
+                            However- this comes at a cost. </br></br>
+
+                            It seems all of these chemicals are impacting our fat loss hormones by blocking the signals
+                            our
+                            brain is able to send to our body. </br></br>
+
+                            <span class="bold">These signals are so our body can produce fat burning hormones like
+                                Leptin
+                                and Peptide YY.</span>
+                            </br></br>
+
+                            These hormones help flush out excess fat and supercharge your metabolism. </br></br>
+
+                            Without these hormones in your body…</br></br>
+
+                            You give this imposter power over you and become your FAKE SELF </br></br>
+                        </p>
                     </div>
-                </div>
-                <div class="right-column">
-                    <div class="blue-box-extended-3">
-                        <h3>Now you can see…</h3>
-                    </div>
-                    <div class="before-and-after-images">
-                        <img src="DB90-B&A17.jpeg" alt="Before and After 1">
-                        <img src="DB90-B&A18.jpeg" alt="Before and After 2">
-                        <img src="DB90-B&A19.jpeg" alt="Before and After 3">
-                    </div>
-                </div>
-            </div>
 
-            <div class="two-column-layout">
-                <div class="left-column">
-                    <div class="div-white-bg-5 left-alligned">
-                        <div class="result-img">
-                            <img src="DB90-Result.png" style="margin-top: -70px; height: auto; width: 500px;" alt="">
+                    <!-- Right Column -->
+                    <div class="right-column">
+                        <div class="blue-box">
+                            <h3>Don't just take it from me.</h3>
+                            <h3>Here is undeniable proof:</h3>
                         </div>
-
-                        ✅ <span class="bold">Drop clothing sizes rapidly</span> and fit into things you have never worn
-                        before (finally revealing a body you are proud of instead of always trying to hide it)
-                        </br></br>
-                        ✅ Actually LOOK FORWARD to going to the beach and showing off your <span
-                            class="highlight-light-yellow-nd">Dream Body instead of dreading it</span></br></br>
-                        ✅ <span class="bold">Wear clothes that actually show off your body</span> instead of hide it
-                        (because you EARNED this incredible new body)</br></br>
-                        ✅ <span class="bold">Eat all of your favourite foods</span> and build a fat loss plan AROUND
-                        your life and make it sustainable </br></br>
-                        ✅ <span class="underlined-black">Be proud of your body and have your family become proud of who
-                            you have become</span></br></br>
-                        ✅ <span class="highlight-light-yellow-nd">Look at your body with pride and confidence</span>
-                        every time you look in the mirror </br></br>
-                        ✅ Have limitless energy for your children, grandchildren, family and loved ones </br></br>
-                        ✅ <span class="underlined-black">Enjoy life while losing weight effortlessly</span></br></br>
-                        ✅ <span class="highlight-light-yellow-nd">FINALLY BECOME YOUR TRUE SELF</span></br></br>
-
-                        <span class="kind-words-7">
-                            <img src="DB90-KW16.png" alt="">
-                            <img src="DB90-KW17.png" alt="">
-                            <img src="DB90-KW18.png" alt="">
-                        </span>
-                    </div>
-                </div>
-                <div class="right-column">
-                    <div class="orange-border-5">
-                        <div class="before-and-after-photos">
-                            <img src="DB90-B&A20.jpg" alt="placeholder">
-                            <img src="DB90-B&A21.jpeg" alt="placeholder">
-                            <img src="DB90-B&A22.jpg" alt="placeholder">
+                        <div class="before-and-after-images">
+                            <img src="DB90-B&A4.jpg" alt="Before and After 1">
+                            <img src="DB90-B&A7.jpg" alt="Before and After 2">
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="two-column-layout">
-                <div class="left-column">
-                    <div class="div-white-bg-6">
-                        <div class="bonuses-img">
-                            <img src="DB90-Bonuses.png" style="margin-top:-50px; height: auto; width: 600px;" alt="">
-                        </div>
-                        <div class="bonusMain-img">
-                            <img src="DB90-BonusMain.png" style="margin-top:50px;" alt="">
-                        </div>
-                        <div class="bonus1-img">
-                            <img src="DB90-Bonus1.png" style="margin-top:50px;" alt="">
-                        </div>
-                        <div class="bonus2-img">
-                            <img src="DB90-Bonus2.png" style="margin-top:50px; margin-left: -10px; height: auto; width: 650px; transform: scale(.97);" alt="">
-                        </div>
-                        <div class="bonus3-img">
-                            <img src="DB90-Bonus3.png" style="margin-top:50px;" alt="">
-                        </div>
-                        <div class="bonus4-img">
-                            <img src="DB90-Bonus4.png" style="margin-top:50px;" alt="">
-                        </div>
-                        <div class="bonus5-img">
-                            <img src="DB90-Bonus5.png"
-                                style="margin-top:50px; margin-left: 4px; transform: scale(1.025);" alt="">
-                        </div>
-                        <div class="bonus6-img">
-                            <img src="DB90-Bonus6.png"
-                                style="margin-top:50px; margin-left: 6px; transform: scale(1.03);" alt="">
-                        </div>
-                        <div class="bonus7-img">
-                            <img src="DB90-Bonus7.png" style="margin-top:50px;" alt="">
-                        </div>
-
-                        <span class="kind-words-8">
-                            <img src="DB90-KW19.png" style="margin-top: 50px;" alt="">
-                            <img src="DB90-KW20.png" alt="">
-                            <img src="DB90-KW21.png" alt="">
-                        </span>
-
-                        <img src="DB90-MBG.png" style="margin-top:50px;" alt="">
                     </div>
                 </div>
 
-                <div class="right-column">
-                    <div class="blue-box-extended-4">
-                        <h3>Now you can see…</h3>
-                    </div>
-                    <div class="before-and-after-images">
-                        <img src="DB90-B&A23.jpeg" alt="Before and After 1">
-                        <img src="DB90-B&A24.jpg" alt="Before and After 2">
-                        <img src="DB90-B&A25.jpg" alt="Before and After 3">
+                <div class="two-column-layout">
+                    <!-- Left Column -->
+                    <div class="left-column">
+                        <div class="banner">
+                            <h3>There is only ONE Thing that can break you FREE from this imposter and unlock your DREAM
+                                BODY</h3>
+                        </div>
+                        <div class="div-white-bg left-alligned">
+
+                            And that is...</br></br>
+                            The Fat Loss Sweet Spot.</br></br>
+                            Your body has a fat loss sweet spot that can ONLY be activated by </br> giving your body
+                            EXACTLY
+                            what it is asking you for.</br></br>
+
+                            <div class="orange-container">
+                                <h4 style="text-align: center; color: white;">And that is:</h4>
+                                <p>
+                                    ✅ The EXACT amount of food it needs</br>
+                                    ✅ Eating delicious food that makes you happy (which impacts the brain's ability to
+                                    produce good
+                                    hormones)</br>
+                                    ✅ Food that FUEL the body properly</br>
+                                    ✅ Food that supports healthy hormones</br>
+                                    ✅ Movements that unlock SuperCharged Calorie Burning</br>
+                                    ✅ Fat Loss Hacks that awaken Leptin & Peptide YY</br></br>
+
+                                    And the ONLY way you can do this is by following the EXACT PROTOCOL that thousands
+                                    of
+                                    people are
+                                    doing to see the best results of their life.</br></br>
+
+                                    And this protocol can ONLY be found in the DB90 Program.
+                                </p>
+                            </div>
+
+                            </br>
+
+                            <div class="differently-img">
+                                <img src="DB90-Differently.png" style="margin-bottom: 10px;" alt="">
+                            </div>
+
+                            <div class="highlight-red">❌ Why do you spend money on Ozempic, Weight Loss Supplements and
+                                other weight loss gimmick products? These products do NOT address the ROOT CAUSE of
+                                weight
+                                gain</div>
+
+                            <div class="highlight-red">❌ Why are you cutting carbs? Your body needs them to fuel your
+                                brain
+                                and your hormones.</div>
+
+                            <div class="highlight-red">❌ Why do you drop calories drastically? If you are not feeding
+                                your
+                                body the fuel it needs- it will crash and hit a plateau</div>
+
+                            <div class="highlight-red">❌ Why do eat food you hate? Every meal that you hate STEALS your
+                                willpower and sets you up to fail</div>
+
+                            <div class="highlight-red">❌ Why do you do super intense or long exercise sessions? These
+                                put
+                                your body in energy saving mode and PREVENT fat loss </div>
+
+                            <div class="highlight-red">❌ Why do you lose weight and then your progress suddenly stops?
+                                THIS
+                                is your body fighting against you and this leads to weight gain shortly after and should
+                                be
+                                avoided at all costs</div>
+
+                            <div class="highlight-red">❌ Why do you sacrifice eating good food with your family during
+                                special occasions and good times? All this sacrifice is JUST not worth it</div>
+
+                            Here is what separates our clients from what you and most others do to lose
+                            weight:</br></br>
+
+                            <div class="highlight-green">✅ They fix the ROOT CAUSE of weight gain and lose fat
+                                effortlessly
+                                by activating their Fat Loss Sweet Spot </div>
+
+                            <div class="highlight-green">✅ They LOVE what they eat and build an eating plan around food
+                                they
+                                enjoy (while losing fat on autopilot) </div>
+
+                            <div class="highlight-green">✅ They eat more carbs and calories than they ever imagined
+                                possible
+                                WHILE losing fat, repairing their hormones and fixing their metabolism </div>
+
+                            <div class="highlight-green">✅ They do SUPER EASY & SUPER LOW IMPACT movements that torch
+                                fat
+                            </div>
+
+                            <div class="highlight-green">✅ They lose fat in a permanent manner by SPEEDING UP the
+                                metabolism
+                                while losing weight instead of slowing down the metabolism</div>
+
+                            <div class="highlight-green">✅ They enjoy special occasions and good food with their family
+                                and
+                                friends (While losing weight)</div>
+
+                            <span class="kind-words-3">
+                                <img src="DB90-KW4.png" alt="">
+                                <img src="DB90-KW5.png" alt="">
+                                <img src="DB90-KW6.png" alt="">
+                            </span>
+                        </div>
                     </div>
 
+                    <!-- Right Column -->
+                    <div class="right-column">
+                        <div class="blue-box-extended">
+                            <h3>And once you follow them-</h3>
+                            <h3>the results are LIFE CHANGING:</h3>
+                        </div>
+                        <div class="before-and-after-images">
+                            <img src="DB90-B&A4.jpg" alt="Before and After 1">
+                            <img src="DB90-B&A7.jpg" alt="Before and After 2">
+                        </div>
+
+                        <div class="orange-border-3-extended">
+                            <h3>And the results speak for themselves:</h3>
+                            <div class="before-and-after-photos">
+                                <!-- Before and After -->
+                                <img src="DB90-B&A8.jpg" alt="placeholder">
+                                <img src="DB90-B&A9.jpg" alt="placeholder">
+                                <img src="DB90-B&A10.jpg" alt="placeholder">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- </br></br>
+                <div class="two-column-layout">
+                    <div class="left-column">
+                        <div class="div-white-bg-2 left-alligned">
+                            <div class="exactly-img">
+                                <img src="DB90-Exactly.png"
+                                    style="height: auto; width: 680px; margin-bottom: 20px; margin-top: -50px;" alt="">
+                            </div>
+
+                            <div class="highlight-light-yellow">
+                                <span class="green-circle">1</span> PHASE 1- Testing Phase </br></br>
+
+                                This phase focuses on finding your bodies fat loss sweet spot while eating your
+                                favourite
+                                foods and introducing some initial fat loss hacks to rev up your metabolism and boost
+                                your
+                                fat loss hormones.
+                            </div>
+
+                            <div class="highlight-light-yellow">
+                                <span class="green-circle">2</span> PHASE 2- Metabolism Boost Phase</br></br>
+
+                                This is where we start boosting the metabolism drastically while ramping up fat loss and
+                                training your body to be able to eat more food while losing weight
+                            </div>
+
+                            <div class="highlight-light-yellow">
+                                <span class="green-circle">3</span> PHASE 3- Maximum Fat Loss Phase </br></br>
+
+                                This is where magic truly happens! </br></br>
+
+                                You will start to see the easiest fat loss of your life while enjoying every single bite
+                                of
+                                food
+                                and
+                                loving every step of the journey. </br></br>
+
+                                During this phase- you will flood your body with GOOD fat loss hormones like Leptin and
+                                Peptide
+                                YY.
+                            </div>
+
+                            Now your body is in an <span class="underlined-black">optimal fat burning phase
+                                24/7.</span></br></br>
+
+                            <span class="bold">You will see the best results of your life FASTER than ever
+                                before.</span></br></br>
+
+                            People will be shocked at how fast you are transforming. </br></br>
+
+                            <span class="kind-words-4">
+                                <img src="DB90-KW7.png" alt="">
+                                <img src="DB90-KW8.png" alt="">
+                                <img src="DB90-KW9.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="right-column">
+                        <div class="blue-box-extended-2">
+                            <h3>Now you can see…</h3>
+                        </div>
+                        <div class="before-and-after-images">
+                            <img src="DB90-B&A11.jpg" alt="Before and After 1">
+                            <img src="DB90-B&A12.jpg" alt="Before and After 2">
+                            <img src="DB90-B&A13.jpg" alt="Before and After 3">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="two-column-layout">
+                    <div class="left-column">
+                        <div class="div-white-bg-3 left-alligned">
+
+                            <div class="begging-img">
+                                <img src="DB90-Begging.png" style="margin-top: -60px; transform: scale(1.15);"
+                                    alt=""></br>
+                            </div>
+
+                            So if this is you, it's time to consider joining the DB90 Program: </br></br>
+
+                            Do you have more than 5 pounds of fat OR MORE to lose?</br>
+
+                            <span class="underlined-black">Well this is the easiest way to lose 5, 10, 20, 30, 50 or
+                                even
+                                100 pounds of fat OR MORE.</span></br></br>
+
+                            This can help you lose fat no matter how much weight you are looking to drop</br>
+
+                            Have you put your faith in Ozempic? Weight loss supplements or fad weight loss products that
+                            provided you ZERO results?</br></br>
+                            Me too. It's why I was stuck for 15 years looking for a weight loss solution.</br></br>
+
+                            <span class="underlined-black">What I can tell you with 100% confidence is that DB90 is the
+                                answer to your weight loss prayers</span> (just like it was mine and just like it has
+                            been
+                            for the THOUSANDS of men and women who used it) </br></br>
+
+                            Have you tried diets or programs that are too hard or too strict?</br>
+
+                            Well- this is the <span class="bold">EASIEST fat loss program ever invented.</span></br>
+
+                            Trust me- after 15 years of failure trying every single diet or program you can imagine-
+                            </br>
+
+                            this program is what changed my life and I know it can change yours. </br></br>
+
+                            Have you found yourself falling off exercise programs and workout routines because they are
+                            too
+                            hard or take too long?</br></br>
+
+                            <span class="highlight-yellow">None of that is needed with the DB90
+                                program.</span></br></br>
+
+                            This program is built around your life and your circumstances. It is totally flexible. </br>
+                            The low impact movements we suggest only take a few minutes every day. </br></br>
+
+                            Do you see your metabolism slowing down as you age and think you are getting too old to turn
+                            your
+                            body around and unlock your dream body? </br></br>
+
+                            <div class="highlight-yellow">
+                                Men and women of ALL ages have lost weight and become their best self by unlocking their
+                                DREAM BODY in record time. </br>
+                                Age will NOT be a factor in you losing weight effortlessly.
+                            </div> </br>
+
+                            <span class="bold">Have you felt like your genetics or metabolism will prevent you from
+                                achieving your dream body?</span></br></br>
+
+                            Myself and literally <span class="bold">THOUSANDS of people</span> felt the same exact
+                            way.</br>
+
+                            But after just a few days on the DB90 program- we realised that you can <span
+                                class="underlined-black">achieve incredible fat loss REGARDLESS of your genetics,
+                                metabolism
+                                or starting point.</span></br></br>
+
+                            <span class="kind-words-5">
+                                <img src="DB90-KW10.png" alt="">
+                                <img src="DB90-KW11.png" alt="">
+                                <img src="DB90-KW12.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="right-column">
+                        <div class="orange-border-4">
+                            <div class="before-and-after-photos">
+                                <img src="DB90-B&A14.jpg" alt="placeholder">
+                                <img src="DB90-B&A15.jpg" alt="placeholder">
+                                <img src="DB90-B&A16.jpg" alt="placeholder">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="two-column-layout">
+                    <div class="left-column">
+                        <div class="div-white-bg-4 left-alligned">
+
+                            <div class="fascinations-img">
+                                <img src="DB90-Fascinations.png" style="margin-top: -60px;" alt="">
+                            </div>
+
+                            ✅ <span class="bold">How to activate your 'fat loss code'</span> deep inside your DNA and
+                            put
+                            your body in the <span class="highlight-light-yellow-nd">optimal fat loss state
+                                24/7</span></br></br>
+
+                            ✅ <span class="bold">How 1 Simple Superfood</span> in most peoples kitchen can stimulate
+                            your
+                            thyroid for <span class="highlight-light-yellow-nd">maximum fat loss (in 7 seconds or
+                                less)</span></br></br>
+
+                            ✅ The <span class="bold">liquid drink</span> designed to <span class="bold">optimise liver
+                                function and also improve the metabolism</span> (and how most people drink it the wrong
+                            way
+                            for weight loss)</br></br>
+
+                            ✅ <span class="bold">Why your body ALWAYS hits fat loss plateaus</span>- and how to EASILY
+                            break
+                            through any plateau instantly by turning your body </br>into a <span
+                                class="highlight-light-yellow-nd">fat torching machine</span></br></br>
+
+                            ✅ <span class="underlined-black">The single biggest fat loss mistake you are making</span>
+                            (and
+                            why its held you back for years without you even knowing it)- and why you need to do the
+                            COMPLETE OPPOSITE to <span class="bold">trigger your bodies Fat Loss Sweet
+                                Spot</span></br></br>
+
+                            ✅ <span class="bold">The Secret to Effortless Weight Loss</span> by actually eating the food
+                            you
+                            love and enjoy- and how this actually <span class="underlined-black">activates your bodies
+                                fat
+                                burning hormones</span></br></br>
+
+                            ✅ <span class="bold">How to instantly trigger the fat burning hormone Peptide YY</span> by
+                            removing the blocker your brain currently has in one simple step</br></br>
+
+                            ✅ <span class="bold">The Low Impact Movement that can burn more fat</span> than hours of on
+                            a
+                            treadmill (in a fraction of the time)- which our clients use to </br><span
+                                class="highlight-light-yellow-nd">burn fat on autopilot</span></br></br>
+
+                            ✅ <span class="bold">The step by step blueprint</span> for activating your bodies <span
+                                class="underlined-black italicized">'Leptin Switch'</span> which takes your metabolism
+                            to
+                            another level</br></br>
+
+                            ✅ <span class="underlined-black">Why our clients lose fat without trying</span> by listening
+                            to
+                            what the body is telling them- instead of cutting off its nutrients- and how you can
+                            replicate
+                            this process</br></br>
+
+                            ✅ How trying to do everything perfectly is STUNTING your results and blocking you from
+                            losing
+                            weight- and why one trick can ignite your bodies true fat burning potential with minimal
+                            effort</br></br>
+
+                            ✅ <span class="bold">How to use 'Eating Window Manipulation'</span> as a <span
+                                class="underlined-black">bonus fat burning technique</span> by tricking your body to
+                            always
+                            be in the <span class="bold">'Fat Burning Zone'</span></br></br>
+
+                            ✅ <span class="highlight-light-yellow-nd">The Fat Burning Superfruit</span> that is often
+                            overlooked but can make a HUGE impact on fat loss simply by adding it to your delicious
+                            eating
+                            plan</br></br>
+
+                            ✅ <span class="bold">How to use Macro-Fusion to get your metabolism to work</span> in
+                            SuperDrive
+                            (acting like a furnace) to keep <span class="underlined-black">fat burning ramped up through
+                                the
+                                day</span></br></br>
+
+                            ✅ <span class="highlight-light-yellow-nd">The 'Testing Phase' secret</span> to discover what
+                            your body is actually asking for (and then giving your body what it NEEDS) so your body can
+                            lose
+                            fat the RIGHT way instead of the yo-yo diet way</br></br>
+
+                            ✅ <span class="highlight-light-yellow-nd">The 'Metabolism Boost Phase' secret</span> will
+                            unlock
+                            your <span class="bold">bodies TRUE metabolism</span>- allowing you to eat more food than
+                            ever
+                            before while <span class="underlined-black">losing fat on autopilot</span> (because this is
+                            how
+                            true fat loss works)</br></br>
+
+                            ✅ <span class="highlight-light-yellow-nd">The 'Maximum Fat Loss Phase' secret</span> will
+                            ensure
+                            your body is losing <span class="bold">Maximum Fat in Minimal Time by TRULY Unlocking Your
+                                Bodies Fat Loss Sweet Spot</span></br></br>
+
+                            <span class="kind-words-6">
+                                <img src="DB90-KW13.png" alt="">
+                                <img src="DB90-KW14.png" alt="">
+                                <img src="DB90-KW15.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="right-column">
+                        <div class="blue-box-extended-3">
+                            <h3>Now you can see…</h3>
+                        </div>
+                        <div class="before-and-after-images">
+                            <img src="DB90-B&A17.jpeg" alt="Before and After 1">
+                            <img src="DB90-B&A18.jpeg" alt="Before and After 2">
+                            <img src="DB90-B&A19.jpeg" alt="Before and After 3">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="two-column-layout">
+                    <div class="left-column">
+                        <div class="div-white-bg-5 left-alligned">
+                            <div class="result-img">
+                                <img src="DB90-Result.png" style="margin-top: -70px; height: auto; width: 500px;"
+                                    alt="">
+                            </div>
+
+                            ✅ <span class="bold">Drop clothing sizes rapidly</span> and fit into things you have never
+                            worn
+                            before (finally revealing a body you are proud of instead of always trying to hide it)
+                            </br></br>
+                            ✅ Actually LOOK FORWARD to going to the beach and showing off your <span
+                                class="highlight-light-yellow-nd">Dream Body instead of dreading it</span></br></br>
+                            ✅ <span class="bold">Wear clothes that actually show off your body</span> instead of hide it
+                            (because you EARNED this incredible new body)</br></br>
+                            ✅ <span class="bold">Eat all of your favourite foods</span> and build a fat loss plan AROUND
+                            your life and make it sustainable </br></br>
+                            ✅ <span class="underlined-black">Be proud of your body and have your family become proud of
+                                who
+                                you have become</span></br></br>
+                            ✅ <span class="highlight-light-yellow-nd">Look at your body with pride and confidence</span>
+                            every time you look in the mirror </br></br>
+                            ✅ Have limitless energy for your children, grandchildren, family and loved ones </br></br>
+                            ✅ <span class="underlined-black">Enjoy life while losing weight
+                                effortlessly</span></br></br>
+                            ✅ <span class="highlight-light-yellow-nd">FINALLY BECOME YOUR TRUE SELF</span></br></br>
+
+                            <span class="kind-words-7">
+                                <img src="DB90-KW16.png" alt="">
+                                <img src="DB90-KW17.png" alt="">
+                                <img src="DB90-KW18.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="right-column">
+                        <div class="orange-border-5">
+                            <div class="before-and-after-photos">
+                                <img src="DB90-B&A20.jpg" alt="placeholder">
+                                <img src="DB90-B&A21.jpeg" alt="placeholder">
+                                <img src="DB90-B&A22.jpg" alt="placeholder">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="two-column-layout">
+                    <div class="left-column">
+                        <div class="div-white-bg-6">
+                            <div class="bonuses-img">
+                                <img src="DB90-Bonuses.png" style="margin-top:-50px; height: auto; width: 600px;"
+                                    alt="">
+                            </div>
+                            <div class="bonusMain-img">
+                                <img src="DB90-BonusMain.png" style="margin-top:50px;" alt="">
+                            </div>
+                            <div class="bonus1-img">
+                                <img src="DB90-Bonus1.png" style="margin-top:50px;" alt="">
+                            </div>
+                            <div class="bonus2-img">
+                                <img src="DB90-Bonus2.png"
+                                    style="margin-top:50px; margin-left: -10px; height: auto; width: 650px; transform: scale(.97);"
+                                    alt="">
+                            </div>
+                            <div class="bonus3-img">
+                                <img src="DB90-Bonus3.png" style="margin-top:50px;" alt="">
+                            </div>
+                            <div class="bonus4-img">
+                                <img src="DB90-Bonus4.png" style="margin-top:50px;" alt="">
+                            </div>
+                            <div class="bonus5-img">
+                                <img src="DB90-Bonus5.png"
+                                    style="margin-top:50px; margin-left: 4px; transform: scale(1.025);" alt="">
+                            </div>
+                            <div class="bonus6-img">
+                                <img src="DB90-Bonus6.png"
+                                    style="margin-top:50px; margin-left: 6px; transform: scale(1.03);" alt="">
+                            </div>
+                            <div class="bonus7-img">
+                                <img src="DB90-Bonus7.png" style="margin-top:50px;" alt="">
+                            </div>
+
+                            <span class="kind-words-8">
+                                <img src="DB90-KW19.png" style="margin-top: 50px;" alt="">
+                                <img src="DB90-KW20.png" alt="">
+                                <img src="DB90-KW21.png" alt="">
+                            </span>
+
+                            <img src="DB90-MBG.png" style="margin-top:50px;" alt="">
+                        </div>
+                    </div>
+
+                    <div class="right-column">
+                        <div class="blue-box-extended-4">
+                            <h3>Now you can see…</h3>
+                        </div>
+                        <div class="before-and-after-images">
+                            <img src="DB90-B&A23.jpeg" alt="Before and After 1">
+                            <img src="DB90-B&A24.jpg" alt="Before and After 2">
+                            <img src="DB90-B&A25.jpg" alt="Before and After 3">
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- </br></br>
             <h1 style="color: red;">
                 You are getting 1600 worth of bonuses with the DB90 program and ALL of its bonuses:
             </h1>
@@ -2413,155 +2533,171 @@
                     <img src="DB90-KW21.png" alt="">
                 </span>
             </div> -->
-            <!-- 
+                <!-- 
             <div style="margin-top: 20px;" class="description-limit-testimonial">
                 <img src="DB90-MBG.png" alt="">
             </div> -->
 
-        </div>
-    </div>
-
-    <div class="shortcut-description">
-        <div class="centered-title">
-            <h1 style="margin-top: 50px;">Here's <span class="color-yellow underlined">Everything Else You're
-                    Getting</span> With Your DB90 </br> Program For Only $2.97 </h1></br>
-
-            <div class="bookCover">
-                <img src="DB90-Collection.jpg" alt="placeholder"></br>
             </div>
-
-            <button class="download-button" onclick="redirectToPage()">
-                <div class="download-icon"></div>
-                <div class="button-text">
-                    <span>DOWNLOAD NOW FOR ONLY $2.97</span>
-                    <span>Access Program Immediately</span>
-                </div>
-            </button></br>
-            <a href="checkoutTest.html" style="font-size: 18px; text-decoration: underline; color: white;">CLICK HERE TO
-                GET ACCESS TO YOUR DB90 Program NOW</a></br>
         </div>
-    </div>
 
-    <div class="shortcut-description">
-        <div class="centered-title">
-            <h1 style="font-size: 2em; margin-top: 50px;">The Only System <span class="color-yellow underlined">You'll
-                    Ever Need</span> To
-                Lose Weight, </br> Uncover Your <span class="underlined-white">DREAM BODY & Become Your TRUE SELF</span>
-            </h1></br>
+        <div class="shortcut-description">
+            <div class="centered-title">
+                <h1 style="margin-top: 50px;">Here's <span class="color-yellow underlined">Everything Else You're
+                        Getting</span> With Your DB90 </br> Program For Only $2.97 </h1></br>
 
-            <p class="bold" style="font-size: 18px;">
-                We put everything we've learned after transforming THOUSANDS of men and women into their best self</br>
-                and helped them take the ultimate SHORTCUT to their Dream Body</br></br>
-            </p>
+                <div class="bookCover">
+                    <img src="DB90-Collection.jpg" alt="placeholder"></br>
+                </div>
 
-            <div class="bookCover">
-                <img src="DB90-BookCover.jpg" alt="placeholder"></br>
+                <button class="download-button" onclick="redirectToPage()">
+                    <div class="download-icon"></div>
+                    <div class="button-text">
+                        <span>DOWNLOAD NOW FOR ONLY $2.97</span>
+                        <span>Access Program Immediately</span>
+                    </div>
+                </button></br>
+                <a href="checkoutTest.html" style="font-size: 18px; text-decoration: underline; color: white;">CLICK
+                    HERE TO
+                    GET ACCESS TO YOUR DB90 Program NOW</a></br>
             </div>
+        </div>
 
-            <button class="download-button" onclick="redirectToPage()">
-                <div class="download-icon"></div>
-                <div class="button-text">
-                    <span>DOWNLOAD NOW FOR ONLY $2.97</span>
-                    <span>Access Program Immediately</span>
+        <div class="shortcut-description">
+            <div class="centered-title">
+                <div class="centered-title-mobile">
+                    <h1>The Only System <span
+                        class="color-yellow underlined">You'll
+                        Ever Need</span> To
+                    Lose Weight, </br> Uncover Your <span class="underlined-white">DREAM BODY & Become Your TRUE
+                        SELF</span>
+                </h1></br>
+
+                <p class="bold" style="font-size: 18px;">
+                    We put everything we've learned after transforming THOUSANDS of men and women into their best
+                    self</br>
+                    and helped them take the ultimate SHORTCUT to their Dream Body</br></br>
+                </p>
                 </div>
-            </button></br>
 
-            </br>
+                <div class="bookCover">
+                    <img src="DB90-BookCover.jpg" alt="placeholder"></br>
+                </div>
 
+                <button class="download-button" onclick="redirectToPage()">
+                    <div class="download-icon"></div>
+                    <div class="button-text">
+                        <span>DOWNLOAD NOW FOR ONLY $2.97</span>
+                        <span>Access Program Immediately</span>
+                    </div>
+                </button></br>
+
+                </br>
+
+            </div>
         </div>
-    </div>
 
 
-    <div class="faq-section">
-        <h1 style="margin-bottom: 50px;">FREQUENTLY ASKED QUESTIONS</h1>
-        <div class="faq-item">
-            <span class="faq-question">What is the DB90 Program?</span>
-            <div class="faq-answer">The DB90 Program is a body transformation system designed to help you lose weight
-                and uncover your
-                dream body in just 90 days. </br></br>It works by activating your body's "fat loss sweet spot" through a
-                </br>3-phase approach focused on optimizing your metabolism without giving up your favorite foods or
-                needing a gym membership.</div>
-        </div>
-        <div class="faq-item">
-            <span class="faq-question">How does the DB90 Program work?</span>
-            <div class="faq-answer">The program has 3 phases: Testing Phase, Metabolism Boost Phase, and Maximum Fat
-                Loss Phase.</br></br>
+        <div class="faq-section">
+            <h1 style="margin-bottom: 50px;">FREQUENTLY ASKED QUESTIONS</h1>
+            <div class="faq-item">
+                <span class="faq-question">What is the DB90 Program?</span>
+                <div class="faq-answer">The DB90 Program is a body transformation system designed to help you lose
+                    weight
+                    and uncover your
+                    dream body in just 90 days. </br></br>It works by activating your body's "fat loss sweet spot"
+                    through a
+                    </br>3-phase approach focused on optimizing your metabolism without giving up your favorite foods or
+                    needing a gym membership.</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-question">How does the DB90 Program work?</span>
+                <div class="faq-answer">The program has 3 phases: Testing Phase, Metabolism Boost Phase, and Maximum Fat
+                    Loss Phase.</br></br>
 
-                The Testing Phase finds your fat loss sweet spot by having you eat your favorite foods.</br></br>
-                The Metabolism Boost Phase increases your metabolism so you can eat more while losing weight.</br></br>
-                The Maximum Fat Loss Phase activates peak fat burning so you lose weight rapidly while enjoying your
-                favorite meals.</div>
-        </div>
-        <div class="faq-item">
-            <span class="faq-question">What makes the DB90 Program different?</span>
-            <div class="faq-answer">DB90 is not a restrictive diet. It does not cut carbs or calories. There are no
-                long, intense
-                workouts. </br></br>Instead, the DB90 program works with your body by giving it the exact foods and
-                movements
-                it needs to switch into fat burning mode. </br></br>You get to eat foods you love in the right amounts
-                to
-                boost your metabolism.</div>
-        </div>
-        <div class="faq-item">
-            <span class="faq-question">Will I have to give up my favorite foods?</span>
-            <div class="faq-answer">No! The program encourages you to eat the foods you enjoy. </br></br>You can still
-                have pizza,
-                pasta, cookies,
-                ice cream and more while losing weight. No food is off limits with DB90.</div>
-        </div>
-        <div class="faq-item">
-            <span class="faq-question">Do I need to exercise a lot with this program?</span>
-            <div class="faq-answer">There is no need for excessive exercise. The program includes short, low impact
-                movements that
-                provide metabolic benefits without requiring long workouts. </br></br>The unique movements take just
-                minutes a
-                day and can be done at home.</div>
-        </div>
-        <div class="faq-item">
-            <span class="faq-question">How fast will I lose weight on the DB90 Program?</span>
-            <div class="faq-answer">Results vary, but many have reported seeing dramatic differences in just weeks or
-                months. The longer
-                you follow the phased approach, the more fat you can lose by optimizing your metabolism. In 90 days,
-                many achieve their dream bodies.</div>
-        </div>
-        <div class="faq-item">
-            <span class="faq-question">Will this program work for me?</span>
-            <div class="faq-answer">DB90 has helped people lose 5, 10, 20, 30, 50, and even 100 pounds and more by
-                activating their fat
-                loss sweet spot. Age and gender are not barriers to success with DB90 as this approach is customized
-                to work for your body's needs.</div>
-        </div>
-        <div class="faq-item">
-            <span class="faq-question">What bonuses are included?</span>
-            <div class="faq-answer">When you purchase the DB90 Program for $2.97, you get several free bonus guides,
-                including:</br></br>
+                    The Testing Phase finds your fat loss sweet spot by having you eat your favorite foods.</br></br>
+                    The Metabolism Boost Phase increases your metabolism so you can eat more while losing
+                    weight.</br></br>
+                    The Maximum Fat Loss Phase activates peak fat burning so you lose weight rapidly while enjoying your
+                    favorite meals.</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-question">What makes the DB90 Program different?</span>
+                <div class="faq-answer">DB90 is not a restrictive diet. It does not cut carbs or calories. There are no
+                    long, intense
+                    workouts. </br></br>Instead, the DB90 program works with your body by giving it the exact foods and
+                    movements
+                    it needs to switch into fat burning mode. </br></br>You get to eat foods you love in the right
+                    amounts
+                    to
+                    boost your metabolism.</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-question">Will I have to give up my favorite foods?</span>
+                <div class="faq-answer">No! The program encourages you to eat the foods you enjoy. </br></br>You can
+                    still
+                    have pizza,
+                    pasta, cookies,
+                    ice cream and more while losing weight. No food is off limits with DB90.</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-question">Do I need to exercise a lot with this program?</span>
+                <div class="faq-answer">There is no need for excessive exercise. The program includes short, low impact
+                    movements that
+                    provide metabolic benefits without requiring long workouts. </br></br>The unique movements take just
+                    minutes a
+                    day and can be done at home.</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-question">How fast will I lose weight on the DB90 Program?</span>
+                <div class="faq-answer">Results vary, but many have reported seeing dramatic differences in just weeks
+                    or
+                    months. The longer
+                    you follow the phased approach, the more fat you can lose by optimizing your metabolism. In 90 days,
+                    many achieve their dream bodies.</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-question">Will this program work for me?</span>
+                <div class="faq-answer">DB90 has helped people lose 5, 10, 20, 30, 50, and even 100 pounds and more by
+                    activating their fat
+                    loss sweet spot. Age and gender are not barriers to success with DB90 as this approach is customized
+                    to work for your body's needs.</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-question">What bonuses are included?</span>
+                <div class="faq-answer">When you purchase the DB90 Program for $2.97, you get several free bonus guides,
+                    including:</br></br>
 
-                VIP Fat Loss Community access for support, guidance and accountability,</br></br>
-                Fat Loss Super System eBook packed with fat loss secrets,
-                Etc.</br></br>
+                    VIP Fat Loss Community access for support, guidance and accountability,</br></br>
+                    Fat Loss Super System eBook packed with fat loss secrets,
+                    Etc.</br></br>
 
-                Dream Body Planner to optimize your customized fat loss plan.</br></br>
-                Rapid Fat Loss Recipes eBook with metabolism-boosting recipes.</br></br>
-                Epic Transformation Meal Plans for when you want to change things up.</br></br>
-                Weight Loss Shopping List so you know exactly what to buy.</br></br>
-                Breakthrough Body Case Studies to learn the secrets of our most successful clients.</br></br>
+                    Dream Body Planner to optimize your customized fat loss plan.</br></br>
+                    Rapid Fat Loss Recipes eBook with metabolism-boosting recipes.</br></br>
+                    Epic Transformation Meal Plans for when you want to change things up.</br></br>
+                    Weight Loss Shopping List so you know exactly what to buy.</br></br>
+                    Breakthrough Body Case Studies to learn the secrets of our most successful clients.</br></br>
 
-                Together, these bonuses (worth over $1600) give you additional tools, recipes, and help you'll need
-                to maximize your transformation.</div>
+                    Together, these bonuses (worth over $1600) give you additional tools, recipes, and help you'll need
+                    to maximize your transformation.</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-question">What if it doesn't work for me?</span>
+                <div class="faq-answer">DB90 comes with a 365 day money back guarantee. If you are unsatisfied for any
+                    reason, simply
+                    contact us for a full refund, no questions asked.</div>
+            </div>
+            <div class="faq-footer"></div>
         </div>
-        <div class="faq-item">
-            <span class="faq-question">What if it doesn't work for me?</span>
-            <div class="faq-answer">DB90 comes with a 365 day money back guarantee. If you are unsatisfied for any
-                reason, simply
-                contact us for a full refund, no questions asked.</div>
-        </div>
-        <div class="faq-footer"></div>
-    </div>
 
-    <div class="navbar">
-        <a href="privacyPolicyTest.html">Privacy Policy</a>
-        <img src="DB90-Navbar.png" alt="placeholder">
-        <a href="termsAndConditionsTest.html">Terms and Conditions</a>
+        <div class="navbar">
+            <a href="privacyPolicyTest.html">Privacy Policy</a>
+            <img src="DB90-Navbar.png" alt="placeholder">
+            <a href="termsAndConditionsTest.html">Terms and Conditions</a>
+        </div>
+
+        <div class="invi"></div>
+
     </div>
 
     <script>
