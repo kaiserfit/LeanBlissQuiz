@@ -2905,7 +2905,7 @@
         // }
 
         function redirectToPage() {
-            console.log('Button clicked! "QuizComplete"');
+            console.log('Button clicked!');
             const parsedUserLocation = JSON.parse(
                 localStorage.getItem("user_location")
             );
@@ -2926,15 +2926,15 @@
 
             if (isiOS()) {
                 //fbq.disablePushState = true;
-                console.log("fbq - QuizComplete - Pixel not sent (Apple Device)");
+                console.log("fbq - addToWishlistData - Pixel not sent (Apple Device)");
             } else if (isMac()) {
                 //fbq.disablePushState = true;
-                console.log("fbq - QuizComplete - Pixel not sent (Apple Device)");
+                console.log("fbq - addToWishlistData - Pixel not sent (Apple Device)");
             } else {
                 //fbq.disablePushState = false;
                 fbq(
                     "track",
-                    "QuizComplete",
+                    "AddToWishlist",
                     {
                         external_id: userID,
                         client_user_agent: addToWishlistData.client_user_agent,
@@ -2948,7 +2948,7 @@
 
             fetch("https://hook.us1.make.com/zjnmzrx8perei7gb931vracddxx4hfuu", {
             method: "POST",
-            body: JSON.stringify(viewContentData),
+            body: JSON.stringify(addToWishlistData),
             headers: {
                 "Content-Type": "application/json",
             },
