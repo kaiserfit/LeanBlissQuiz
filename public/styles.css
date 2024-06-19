@@ -407,7 +407,7 @@ body {
 
 /* New CSS rules for main content images */
 .main-content img {
-  width: 100%;
+  width: 80%;
   height: auto;
   max-width: auto;
   margin: 0;
@@ -432,7 +432,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 700px;
+  width: 600px;
   height: 70px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin: 0 auto;
