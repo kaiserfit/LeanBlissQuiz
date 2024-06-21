@@ -3,23 +3,26 @@
 
 <head>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-W8VMJ4PS');</script>
-        <!-- End Google Tag Manager -->
-        
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TXQZ6KXPF"></script>
-        <script>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-W8VMJ4PS');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TXQZ6KXPF"></script>
+    <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-    
+
         gtag('config', 'G-5TXQZ6KXPF');
-        </script>
-    
+    </script>
+
     <title>Video Gallery</title>
     <style>
         body {
@@ -90,6 +93,36 @@
             border: none;
         }
 
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            width: 300px;
+            /* Fixed width for all buttons */
+            height: 50px;
+            /* Fixed height for all buttons */
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+
         /* Responsive Design: Adjust sidebar and main content for smaller screens */
         @media (max-width: 768px) {
             .sidebar {
@@ -106,9 +139,9 @@
 
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8VMJ4PS"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8VMJ4PS" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="sidebar">
         <!-- List of video links -->
         <a href="#" onclick="showVideo('video1')">Lesson 1: Introduction</a>
@@ -123,6 +156,8 @@
         <a href="#" onclick="showVideo('video10')">Lesson 10: Fat Loss Plateaus</a>
         <a href="#" onclick="showVideo('video11')">Lesson 11: Refeed Days</a>
         <a href="#" onclick="showVideo('video12')">Lesson 12: Why You Will Fail</a>
+        <a href="#" onclick="showVideo('video13')">Bonuses</a>
+        <a href="#" onclick="window.location.href='forever-fat-loss.html'">Forever Fat Loss System</a>
     </div>
     <div class="main-content">
         <!-- Video 1 -->
@@ -207,6 +242,30 @@
             <h1>Lesson 12: Why You Will Fail</h1>
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/8SDAphl-akg" allowfullscreen></iframe>
+            </div>
+        </div>
+        <!-- Video 13 -->
+        <div id="video13" class="video-item">
+            <h1>Bonuses</h1>
+            <div class="button-container">
+                <button
+                    onclick="window.location.href='https://drive.google.com/file/d/1UwxwZZOKnC-gtIlwkHx9VNnmsSUKt3jo/view'">Breakthrough
+                    Body Case Study</button>
+                <button
+                    onclick="window.location.href='https://docs.google.com/spreadsheets/d/1fcPzJBN-f2RffIvW-Bciw_XcQK_qDeoI/edit?gid=501747686#gid=501747686'">Dream
+                    Body Planner</button>
+                <button
+                    onclick="window.location.href='https://drive.google.com/file/d/1sBOfHcd0S_ttL5nKbkaY7o5Fhcar7xQM/view'">Fat
+                    Loss Super System</button>
+                <button
+                    onclick="window.location.href='https://drive.google.com/file/d/11pbqL3xlHCcqhEgWbwDQO4rCw8ksQSJv/view'">Meal
+                    Plan</button>
+                <button
+                    onclick="window.location.href='https://drive.google.com/file/d/1rwqmL1bRFsX4FLo-P153GQZyYIF0sAwl/view'">Recipe
+                    Book</button>
+                <button
+                    onclick="window.location.href='https://drive.google.com/file/d/1wtVR4U02LeVBNdkftlKsHPDWDmfmQAVO/view'">Weekly
+                    Shopping List</button>
             </div>
         </div>
     </div>
