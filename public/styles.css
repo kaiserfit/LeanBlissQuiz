@@ -217,6 +217,7 @@ button {
   transition: background-color 0.3s ease;
   /* Smooth transition */
   margin-left: 10px;
+  visibility: hidden;
 }
 
 .close:hover,
