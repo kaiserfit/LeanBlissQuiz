@@ -1257,6 +1257,23 @@
             margin-left: 160px;
         }
 
+        .iframe-container {
+            width: 550px;
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
+            height: 200px;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: -115px;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
         /* Target devices specifically with a max-width of 768px (iPhones and tablets) */
         @media only screen and (max-width: 768px) {
             .navbar {
@@ -1869,6 +1886,23 @@
                 margin-top: 10px;
                 margin-left: 25px;
             }
+
+            .iframe-container {
+                width: 350px;
+                position: relative;
+                /* padding-bottom: 56.25%; */
+                /* 16:9 aspect ratio */
+                height: 130px;
+            }
+
+            .iframe-container iframe {
+                position: absolute;
+                top: 0;
+                left: -35px;
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
         }
     </style>
 </head>
@@ -1907,11 +1941,16 @@
 
                 <div class="video-and-photos-container">
                     <div class="video-container">
-                        <div class="video-placeholder">
+                        <!-- <div class="video-placeholder">
                             <video id="introVideo" style="margin-bottom: 0px;"
                                 class="pointer-cursor video-adjustment lazy-video" width="550" height="auto" controls>
                                 <source src="VSL FULL.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
+                        </div> -->
+                        <div class="iframe-container">
+                            <iframe id="introVideo" src="https://www.youtube.com/embed/0Zz-PxbbVDA?autoplay=1&mute=1"
+                                class="pointer-cursor video-adjustment lazy-video responsive-iframe"
+                                allowfullscreen></iframe>
                         </div>
 
                         <div class="video-description">
@@ -3089,14 +3128,32 @@
 
     </div>
 
-    <script>
+    <!-- <script>
         window.addEventListener('load', function () {
             var video = document.getElementById('introVideo');
             video.play().catch(function (error) {
                 console.log('Video playback failed: ', error);
             });
         });
-    </script>
+    </script> -->
+
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var iframe = document.getElementById('introVideo');
+          var src = iframe.src;
+          iframe.src = src + "?autoplay=1&mute=1";
+        });
+      </script> -->
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var iframe = document.getElementById('introVideo');
+          var src = iframe.src;
+          if (!src.includes('autoplay=1')) {
+            iframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1&mute=1';
+          }
+        });
+      </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
